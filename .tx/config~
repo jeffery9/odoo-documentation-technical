@@ -1,0 +1,40 @@
+[main]
+host = https://www.transifex.com
+type = PO
+
+[odoo-documentation-technical._extensions]
+source_file = _build/locale/_extensions.pot
+source_lang = en
+
+[odoo-documentation-technical._glossary]
+source_file = _build/locale/glossary.pot
+source_lang = en
+
+[odoo-documentation-technical.howtos]
+source_file = _build/locale/howtos.pot
+source_lang = en
+
+[odoo-documentation-technical.index]
+source_file = _build/locale/index.pot
+source_lang = en
+
+[odoo-documentation-technical.python3]
+source_file = _build/locale/python3.pot
+source_lang = en
+
+[odoo-documentation-technical.reference]
+source_file = _build/locale/reference.pot
+source_lang = en
+
+[odoo-documentation-technical.setup]
+source_file = _build/locale/setup.pot
+source_lang = en
+
+[odoo-documentation-technical.tutorials]
+source_file = _build/locale/tutorials.pot
+source_lang = en
+
+[odoo-documentation-technical.webservices]
+source_file = _build/locale/webservices.pot
+source_lang = en
+

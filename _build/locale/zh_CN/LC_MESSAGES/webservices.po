@@ -1,0 +1,2337 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-06 10:19+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Jeffery CHEN Fan <jeffery9@gmail.com>, 2018\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/odoo-cn/teams/49626/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../../webservices.rst:6
+msgid "Web Services"
+msgstr ""
+
+#: ../../webservices/iap.rst:42
+msgid "In-App Purchases"
+msgstr ""
+
+#: ../../webservices/iap.rst:44
+msgid ""
+"In-App Purchase (IAP) allow providers of ongoing services through Odoo apps "
+"to be compensated for ongoing service use rather than — and possibly instead"
+" of — a sole initial purchase."
+msgstr ""
+
+#: ../../webservices/iap.rst:48
+msgid ""
+"In that context, Odoo acts mostly as a *broker* between a client and an Odoo"
+" App Developer:"
+msgstr ""
+
+#: ../../webservices/iap.rst:51
+msgid "users purchase service tokens from Odoo"
+msgstr ""
+
+#: ../../webservices/iap.rst:52
+msgid ""
+"service providers draw tokens from the user's Odoo account when service is "
+"requested"
+msgstr ""
+
+#: ../../webservices/iap.rst:57
+msgid ""
+"This document is intended for *service providers* and presents the latter, "
+"which can be done either via direct JSON-RPC2_ or if you are using Odoo "
+"using the convenience helpers it provides."
+msgstr ""
+
+#: ../../webservices/iap.rst:62
+msgid "Overview"
+msgstr ""
+
+#: ../../webservices/iap.rst:67
+msgid "The Players"
+msgstr ""
+
+#: ../../webservices/iap.rst:69
+msgid ""
+"The Service Provider is (probably) you the reader, you will be providing "
+"value to the client in the form of a service paid per-use"
+msgstr ""
+
+#: ../../webservices/iap.rst:71
+msgid ""
+"The Client installed your Odoo App, and from there will request services"
+msgstr ""
+
+#: ../../webservices/iap.rst:72
+msgid ""
+"Odoo brokers crediting, the Client adds credit to their account, and you can"
+" draw credits from there to provide services"
+msgstr ""
+
+#: ../../webservices/iap.rst:74
+msgid ""
+"The External Service is an optional player: *you* can either provide a "
+"service directly, or you can delegate the actual service acting as a "
+"bridge/translator between an Odoo system and the actual service"
+msgstr ""
+
+#: ../../webservices/iap.rst:82
+msgid "The Credits"
+msgstr ""
+
+#: ../../webservices/iap.rst:84
+msgid ""
+"Every service provided through the In-App platform can be used by the "
+"clients with tokens or *credits*. The credits are an integer unit and their "
+"monetary value depends on the service and is decided by the provider. This "
+"could be:"
+msgstr ""
+
+#: ../../webservices/iap.rst:89
+msgid "for an sms service: 1 credit = 1 sms,"
+msgstr ""
+
+#: ../../webservices/iap.rst:90
+msgid "for an add service: 1 credit = 1 add,"
+msgstr ""
+
+#: ../../webservices/iap.rst:91
+msgid "for a postage service: 1 credit = 1 post stamp."
+msgstr ""
+
+#: ../../webservices/iap.rst:93
+msgid ""
+"A credit can also simply be associated with a fixed amount of money to "
+"palliate the variations of price (e.g. the prices of sms and stamps may vary"
+" following the countries)."
+msgstr ""
+
+#: ../../webservices/iap.rst:97
+msgid ""
+"The value of the credits is fixed with the help of prepaid credit packs that"
+" the clients can buy on https://iap.odoo.com (see :ref:`Packages <iap-"
+"packages>`)."
+msgstr ""
+
+#: ../../webservices/iap.rst:100
+msgid ""
+"in the following explanations we will ignore the External Service, they're "
+"just a detail of the service you provide"
+msgstr ""
+
+#: ../../webservices/iap.rst:106
+msgid "A \"normal\" service flow"
+msgstr ""
+
+#: ../../webservices/iap.rst:108
+msgid "If everything goes well, the normal flow is:"
+msgstr ""
+
+#: ../../webservices/iap.rst:110
+msgid "the Client requests a service of some sort"
+msgstr ""
+
+#: ../../webservices/iap.rst:111
+msgid ""
+"the Service Provider asks Odoo if there are enough credits for the service "
+"in the Client's account, and creates a transaction over that amount"
+msgstr ""
+
+#: ../../webservices/iap.rst:114
+msgid ""
+"the Service Provider provides the service (either on their own or calling to"
+" External Services)"
+msgstr ""
+
+#: ../../webservices/iap.rst:116
+msgid ""
+"the Service Provider goes back to Odoo to capture (if the service could be "
+"provided) or cancel (if the service could not be provided) the transaction "
+"created at step 2"
+msgstr ""
+
+#: ../../webservices/iap.rst:119
+msgid ""
+"finally the Service Provider notifies the Client that the service has been "
+"rendered, possibly (depending on the service) displaying or storing its "
+"results in the client's system"
+msgstr ""
+
+#: ../../webservices/iap.rst:126
+msgid "Insufficient Credits"
+msgstr ""
+
+#: ../../webservices/iap.rst:128
+msgid "If the Client's account lacks credits for the service, however"
+msgstr ""
+
+#: ../../webservices/iap.rst:130
+msgid "the Client requests a service as previously"
+msgstr ""
+
+#: ../../webservices/iap.rst:131
+msgid ""
+"the Service Provider asks Odoo if there are enough credits on the Client's "
+"account and gets a negative reply"
+msgstr ""
+
+#: ../../webservices/iap.rst:133
+msgid "this is signaled back to the Client"
+msgstr ""
+
+#: ../../webservices/iap.rst:134
+msgid "who is redirected to their Odoo account to credit it and re-try"
+msgstr ""
+
+#: ../../webservices/iap.rst:138
+msgid "Building your service"
+msgstr ""
+
+#: ../../webservices/iap.rst:140
+msgid ""
+"For this example, the service we will provide is ~~mining dogecoins~~ "
+"burning 10 seconds of CPU for a credit. For your own services, you could for"
+" example:"
+msgstr ""
+
+#: ../../webservices/iap.rst:143
+msgid ""
+"provide an online service yourself (e.g. convert quotations to faxes for "
+"business in Japan)"
+msgstr ""
+
+#: ../../webservices/iap.rst:145
+msgid ""
+"provide an *offline* service yourself (e.g. provide accountancy service)"
+msgstr ""
+
+#: ../../webservices/iap.rst:146
+msgid ""
+"act as intermediary to an other service provider (e.g. bridge to an MMS "
+"gateway)"
+msgstr ""
+
+#: ../../webservices/iap.rst:150
+msgid "Register the service on Odoo"
+msgstr ""
+
+#: ../../webservices/iap.rst:156
+msgid ""
+"The first step is to register your service on the IAP endpoint (production "
+"and/or test) before you can actually query user accounts. To create a "
+"service, go to your *Portal Account* on the IAP endpoint "
+"(https://iap.odoo.com for production, https://iap-sandbox.odoo.com for "
+"testing, the endpoints are *independent* and *not synchronized*)."
+msgstr ""
+
+#: ../../webservices/iap.rst:164
+msgid ""
+"On production, there is a manual validation step before the service can be "
+"used to manage real transactions. This step is automatically passed when on "
+"sandbox to ease the tests."
+msgstr ""
+
+#: ../../webservices/iap.rst:168
+msgid ""
+"Log in then go to :menuselection:`My Account --> Your In-App Services`, "
+"click Create and provide the name of your service."
+msgstr ""
+
+#: ../../webservices/iap.rst:172
+msgid "The now created service has *two* important fields:"
+msgstr ""
+
+#: ../../webservices/iap.rst:174
+msgid ""
+":samp:`name` - :class:`ServiceName`: this will identify your service in the "
+"client's :ref:`app <iap-odoo-app>` communicates directly with IAP."
+msgstr ""
+
+#: ../../webservices/iap.rst:176
+msgid ""
+":samp:`key` - :class:`ServiceKey`: the developer key that identifies you in "
+"IAP (see :ref:`your service <iap-service>`) and allows to draw credits from "
+"the client's account."
+msgstr ""
+
+#: ../../webservices/iap.rst:181
+msgid ""
+"The :class:`ServiceName` is unique and should usually match the name of your"
+" Odoo App."
+msgstr ""
+
+#: ../../webservices/iap.rst:185
+msgid ""
+"Your :class:`ServiceKey` *is a secret*, leaking your service key allows "
+"other application developers to draw credits bought for your service(s)."
+msgstr ""
+
+#: ../../webservices/iap.rst:198
+msgid ""
+"You can then create *credit packs* which clients can purchase in order to "
+"use your service."
+msgstr ""
+
+#: ../../webservices/iap.rst:204
+msgid "Packages"
+msgstr ""
+
+#: ../../webservices/iap.rst:206
+msgid "The credit packages are essentially a product with 4 characteristics."
+msgstr ""
+
+#: ../../webservices/iap.rst:208
+msgid "Name: the name of the package,"
+msgstr ""
+
+#: ../../webservices/iap.rst:209
+msgid ""
+"Description: details on the package that will appear on the shop page as "
+"well as the invoice,"
+msgstr ""
+
+#: ../../webservices/iap.rst:211
+msgid ""
+"Credits: the amount of credits the client is entitled to when buying the "
+"package,"
+msgstr ""
+
+#: ../../webservices/iap.rst:212
+msgid ""
+"Price: the price in *EUROS* for the time being (USD support is planned)."
+msgstr ""
+
+#: ../../webservices/iap.rst:216
+msgid ""
+"Odoo takes a 25% commission on all package sales. Adjust your selling price "
+"accordingly."
+msgstr ""
+
+#: ../../webservices/iap.rst:221
+msgid ""
+"Depending on the strategy, the price per credit can vary from one package to"
+" another."
+msgstr ""
+
+#: ../../webservices/iap.rst:231
+msgid "Odoo App"
+msgstr ""
+
+#: ../../webservices/iap.rst:237
+msgid ""
+"The second step is to develop an `Odoo App`_ which clients can install in "
+"their Odoo instance and through which they can *request* services you will "
+"provide. Our app will just add a button to the Partners form which lets a "
+"user request burning some CPU time on the server."
+msgstr ""
+
+#: ../../webservices/iap.rst:242
+msgid ""
+"First, we'll create an *odoo module* depending on ``iap``. IAP is a standard"
+" V11 module and the dependency ensures a local account is properly set up "
+"and we will have access to some necessary views and useful helpers"
+msgstr ""
+
+#: ../../webservices/iap.rst:248
+msgid ""
+"Second, the \"local\" side of the integration, here we will only be adding "
+"an action button to the partners view, but you can of course provide "
+"significant local value via your application and additional parts via a "
+"remote service."
+msgstr ""
+
+#: ../../webservices/iap.rst:257
+msgid ""
+"We can now implement the action method/callback. This will *call our own "
+"server*."
+msgstr ""
+
+#: ../../webservices/iap.rst:260
+msgid ""
+"There are no requirements when it comes to the server or the communication "
+"protocol between the app and our server, but ``iap`` provides a "
+":func:`~odoo.addons.iap.jsonrpc` helper to call a JSON-RPC2_ endpoint on an "
+"other Odoo instance and transparently re-raise relevant Odoo exceptions "
+"(:class:`~odoo.addons.iap.models.iap.InsufficientCreditError`, "
+":class:`odoo.exceptions.AccessError` and "
+":class:`odoo.exceptions.UserError`)."
+msgstr ""
+
+#: ../../webservices/iap.rst:267
+msgid "In that call, we will need to provide:"
+msgstr ""
+
+#: ../../webservices/iap.rst:269
+msgid "any relevant client parameter (none here)"
+msgstr ""
+
+#: ../../webservices/iap.rst:270
+msgid ""
+"the :class:`token <UserToken>` of the current client, this is provided by "
+"the ``iap.account`` model's ``account_token`` field. You can retrieve the "
+"account for your service by calling "
+":samp:`env['iap.account'].get({service_name})` where :class:`service_name "
+"<ServiceName>` is the name of the service registered on IAP endpoint."
+msgstr ""
+
+#: ../../webservices/iap.rst:280
+msgid ""
+"``iap`` automatically handles "
+":class:`~odoo.addons.iap.models.iap.InsufficientCreditError` coming from the"
+" action and prompts the user to add credits to their account."
+msgstr ""
+
+#: ../../webservices/iap.rst:284
+msgid ""
+":func:`~odoo.addons.iap.jsonrpc` takes care of re-raising "
+":class:`~odoo.addons.iap.models.iap.InsufficientCreditError` for you."
+msgstr ""
+
+#: ../../webservices/iap.rst:289
+msgid ""
+"If you are not using :func:`~odoo.addons.iap.jsonrpc` you *must* be careful "
+"to re-raise :class:`~odoo.addons.iap.models.iap.InsufficientCreditError` in "
+"your handler otherwise the user will not be prompted to credit their "
+"account, and the next call will fail the same way."
+msgstr ""
+
+#: ../../webservices/iap.rst:298
+msgid "Service"
+msgstr ""
+
+#: ../../webservices/iap.rst:302
+msgid ""
+"Though that is not *required*, since ``iap`` provides both a client helper "
+"for JSON-RPC2_ calls (:func:`~odoo.addons.iap.jsonrpc`) and a service helper"
+" for transactions (:class:`~odoo.addons.iap.models.iap.charge`) we will also"
+" be implementing the service side as an Odoo module:"
+msgstr ""
+
+#: ../../webservices/iap.rst:309
+msgid ""
+"Since the query from the client comes as JSON-RPC2_ we will need the "
+"corresponding controller which can call "
+":class:`~odoo.addons.iap.models.iap.charge` and perform the service within:"
+msgstr ""
+
+#: ../../webservices/iap.rst:320
+msgid "The :class:`~odoo.addons.iap.models.iap.charge` helper will:"
+msgstr ""
+
+#: ../../webservices/iap.rst:324
+msgid ""
+"Since the 15th of January 2018, a new functionality that allows one to "
+"capture a different amount than autorized has been added. See :ref:`Charging"
+" <iap-charging>`"
+msgstr ""
+
+#: ../../webservices/iap.rst:327
+msgid ""
+"authorize (create) a transaction with the specified number of credits, if "
+"the account does not have enough credits it will raise the relevant error"
+msgstr ""
+
+#: ../../webservices/iap.rst:330
+msgid "execute the body of the ``with`` statement"
+msgstr ""
+
+#: ../../webservices/iap.rst:331
+msgid ""
+"(NEW) if the body of the ``with`` executes succesfully, update the price of "
+"the transaction if needed"
+msgstr ""
+
+#: ../../webservices/iap.rst:333
+msgid "capture (confirm) the transaction"
+msgstr ""
+
+#: ../../webservices/iap.rst:334
+msgid ""
+"otherwise if an error is raised from the body of the ``with`` cancel the "
+"transaction (and release the hold on the credits)"
+msgstr ""
+
+#: ../../webservices/iap.rst:339
+msgid ""
+"By default, :class:`~odoo.addons.iap.models.iap.charge` contacts the "
+"*production* IAP endpoint, https://iap.odoo.com. While developing and "
+"testing your service you may want to point it towards the *development* IAP "
+"endpoint https://iap-sandbox.odoo.com."
+msgstr ""
+
+#: ../../webservices/iap.rst:344
+msgid ""
+"To do so, set the ``iap.endpoint`` config parameter in your service Odoo: in"
+" debug/developer mode, :menuselection:`Setting --> Technical --> Parameters "
+"--> System Parameters`, just define an entry for the key ``iap.endpoint`` if"
+" none already exists)."
+msgstr ""
+
+#: ../../webservices/iap.rst:349
+msgid ""
+"The :class:`~odoo.addons.iap.models.iap.charge` helper has two additional "
+"optional parameters we can use to make things clearer to the end-user:"
+msgstr ""
+
+#: ../../webservices/iap.rst:354
+msgid "``description``"
+msgstr "``description``"
+
+#: ../../webservices/iap.rst:353
+msgid ""
+"is a message which will be associated with the transaction and will be "
+"displayed in the user's dashboard, it is useful to remind the user why the "
+"charge exists"
+msgstr ""
+
+#: ../../webservices/iap.rst:360
+msgid "``credit_template``"
+msgstr ""
+
+#: ../../webservices/iap.rst:357
+msgid ""
+"is the name of a :ref:`reference/qweb` template which will be rendered and "
+"shown to the user if their account has less credit available than the "
+"service provider is requesting, its purpose is to tell your users why they "
+"should be interested in your IAP offers"
+msgstr ""
+
+#: ../../webservices/iap.rst:369
+msgid "JSON-RPC2_ Transaction API"
+msgstr ""
+
+#: ../../webservices/iap.rst:374
+msgid ""
+"The IAP transaction API does not require using Odoo when implementing your "
+"server gateway, calls are standard JSON-RPC2_."
+msgstr ""
+
+#: ../../webservices/iap.rst:376
+msgid ""
+"Calls use different *endpoints* but the same *method* on all endpoints "
+"(``call``)."
+msgstr ""
+
+#: ../../webservices/iap.rst:378
+msgid ""
+"Exceptions are returned as JSON-RPC2_ errors, the formal exception name is "
+"available on ``data.name`` for programmatic manipulation."
+msgstr ""
+
+#: ../../webservices/iap.rst:382
+msgid "Authorize"
+msgstr ""
+
+#: ../../webservices/iap.rst:386
+msgid ""
+"Verifies that the user's account has at least as ``credit`` available *and "
+"creates a hold (pending transaction) on that amount*."
+msgstr ""
+
+#: ../../webservices/iap.rst:389
+msgid ""
+"Any amount currently on hold by a pending transaction is considered "
+"unavailable to further authorize calls."
+msgstr ""
+
+#: ../../webservices/iap.rst:392
+msgid ""
+"Returns a :class:`TransactionToken` identifying the pending transaction "
+"which can be used to capture (confirm) or cancel said transaction."
+msgstr ""
+
+#: ../../webservices/iap.rst:0 ../../webservices/iap.rst:0
+#: ../../webservices/iap.rst:0 ../../webservices/iap.rst:0
+#: ../../webservices/upgrade.rst:0 ../../webservices/upgrade.rst:0
+#: ../../webservices/upgrade.rst:0 ../../webservices/upgrade.rst:0
+#: ../../webservices/upgrade.rst:0
+msgid "Parameters"
+msgstr ""
+
+#: ../../webservices/iap.rst:398
+msgid ""
+"optional, helps users identify the reason for charges on their accounts."
+msgstr ""
+
+#: ../../webservices/iap.rst:0 ../../webservices/upgrade.rst:0
+#: ../../webservices/upgrade.rst:0 ../../webservices/upgrade.rst:0
+#: ../../webservices/upgrade.rst:0 ../../webservices/upgrade.rst:0
+msgid "Returns"
+msgstr ""
+
+#: ../../webservices/iap.rst:400
+msgid ":class:`TransactionToken` if the authorization succeeded."
+msgstr ""
+
+#: ../../webservices/iap.rst:0 ../../webservices/iap.rst:0
+#: ../../webservices/iap.rst:0 ../../webservices/iap.rst:0
+#: ../../webservices/iap.rst:0
+msgid "raises"
+msgstr ""
+
+#: ../../webservices/iap.rst:401
+msgid ":class:`~odoo.exceptions.AccessError` if the service token is invalid"
+msgstr ""
+
+#: ../../webservices/iap.rst:402
+msgid ""
+":class:`~odoo.addons.iap.models.iap.InsufficientCreditError` if the account "
+"does"
+msgstr ""
+
+#: ../../webservices/iap.rst:403
+msgid "``TypeError`` if the ``credit`` value is not an integer"
+msgstr ""
+
+#: ../../webservices/iap.rst:425
+msgid "Capture"
+msgstr ""
+
+#: ../../webservices/iap.rst:429
+msgid ""
+"Confirms the specified transaction, transferring the reserved credits from "
+"the user's account to the service provider's."
+msgstr ""
+
+#: ../../webservices/iap.rst:432
+msgid ""
+"Capture calls are idempotent: performing capture calls on an already "
+"captured transaction has no further effect."
+msgstr ""
+
+#: ../../webservices/iap.rst:437
+msgid ""
+"(new - 15 Jan 2018) optional parameter to capture a smaller amount of "
+"credits than authorized"
+msgstr ""
+
+#: ../../webservices/iap.rst:438 ../../webservices/iap.rst:470
+msgid ":class:`~odoo.exceptions.AccessError`"
+msgstr ""
+
+#: ../../webservices/iap.rst:458
+msgid "Cancel"
+msgstr ""
+
+#: ../../webservices/iap.rst:462
+msgid ""
+"Cancels the specified transaction, releasing the hold on the user's credits."
+msgstr ""
+
+#: ../../webservices/iap.rst:465
+msgid ""
+"Cancel calls are idempotent: performing capture calls on an already "
+"cancelled transaction has no further effect."
+msgstr ""
+
+#: ../../webservices/iap.rst:488
+msgid "Types"
+msgstr ""
+
+#: ../../webservices/iap.rst:490
+msgid ""
+"Exceptions aside, these are *abstract types* used for clarity, you should "
+"not care how they are implemented"
+msgstr ""
+
+#: ../../webservices/iap.rst:495
+msgid ""
+"String identifying your service on https://iap.odoo.com (production) as well"
+" as the account related to your service in the client's database."
+msgstr ""
+
+#: ../../webservices/iap.rst:500
+msgid ""
+"Identifier generated for the provider's service. Each key (and service) "
+"matches a token of a fixed value, as generated by the service provide."
+msgstr ""
+
+#: ../../webservices/iap.rst:503
+msgid ""
+"Multiple types of tokens correspond to multiple services e.g. SMS and MMS "
+"could either be the same service (with an MMS being \"worth\" multiple SMS) "
+"or could be separate services at separate price points."
+msgstr ""
+
+#: ../../webservices/iap.rst:507
+msgid ""
+"your service key *is a secret*, leaking your service key allows other "
+"application developers to draw credits bought for your service(s)."
+msgstr ""
+
+#: ../../webservices/iap.rst:513
+msgid "Identifier for a user account."
+msgstr ""
+
+#: ../../webservices/iap.rst:517
+msgid ""
+"Transaction identifier, returned by the authorization process and consumed "
+"by either capturing or cancelling the transaction"
+msgstr ""
+
+#: ../../webservices/iap.rst:522
+msgid ""
+"Raised during transaction authorization if the credits requested are not "
+"currently available on the account (either not enough credits or too many "
+"pending transactions/existing holds)."
+msgstr ""
+
+#: ../../webservices/iap.rst:528
+msgid "Raised by:"
+msgstr ""
+
+#: ../../webservices/iap.rst:530
+msgid ""
+"any operation to which a service token is required, if the service token is "
+"invalid."
+msgstr ""
+
+#: ../../webservices/iap.rst:531
+msgid ""
+"any failure in an inter-server call. (typically, in "
+":func:`~odoo.addons.iap.jsonrpc`)"
+msgstr ""
+
+#: ../../webservices/iap.rst:535
+msgid ""
+"Raised by any unexpeted behaviour at the discretion of the App developer "
+"(*you*)."
+msgstr ""
+
+#: ../../webservices/iap.rst:538
+msgid "Odoo Helpers"
+msgstr ""
+
+#: ../../webservices/iap.rst:540
+msgid ""
+"For convenience, if you are implementing your service using Odoo the ``iap``"
+" module provides a few helpers to make IAP flow even simpler:"
+msgstr ""
+
+#: ../../webservices/iap.rst:546
+msgid "Charging"
+msgstr ""
+
+#: ../../webservices/iap.rst:550
+msgid ""
+"A new functionality was introduced to capture a different amount of credits "
+"than reserved. As this patch was added on the 15th of January 2018, you will"
+" need to upgrade your ``iap`` module in order to use it. The specifics of "
+"the new functionality are highlighted in the code."
+msgstr ""
+
+#: ../../webservices/iap.rst:556
+msgid ""
+"A *context manager* for authorizing and automatically capturing or "
+"cancelling transactions for use in the backend/proxy."
+msgstr ""
+
+#: ../../webservices/iap.rst:559
+msgid "Works much like e.g. a cursor context manager:"
+msgstr ""
+
+#: ../../webservices/iap.rst:561
+msgid "immediately authorizes a transaction with the specified parameters"
+msgstr ""
+
+#: ../../webservices/iap.rst:562
+msgid "executes the ``with`` body"
+msgstr ""
+
+#: ../../webservices/iap.rst:563
+msgid "if the body executes in full without error, captures the transaction"
+msgstr ""
+
+#: ../../webservices/iap.rst:564
+msgid "otherwise cancels it"
+msgstr ""
+
+#: ../../webservices/iap.rst:566
+msgid "used to retrieve the ``iap.endpoint`` configuration key"
+msgstr ""
+
+#: ../../webservices/localization.rst:5
+msgid "Creating a Localization"
+msgstr ""
+
+#: ../../webservices/localization.rst:9
+msgid ""
+"This tutorial requires knowledges about how to build a module in Odoo (see "
+":doc:`../../howtos/backend`)."
+msgstr ""
+
+#: ../../webservices/localization.rst:13
+msgid "Building a localization module"
+msgstr ""
+
+#: ../../webservices/localization.rst:15
+msgid ""
+"When installing the ``accounting`` module, the localization module "
+"corresponding to the country code of the company is installed automatically."
+" In case of no country code set or no localization module found, the "
+"``l10n_generic_coa`` (US) localization module is installed by default."
+msgstr ""
+
+#: ../../webservices/localization.rst:18
+msgid ""
+"For example, ``l10n_be`` will be installed if the company has ``Belgium`` as"
+" country."
+msgstr ""
+
+#: ../../webservices/localization.rst:20
+msgid ""
+"This behavior is allowed by the presence of a *.yml* file containing the "
+"following code:"
+msgstr ""
+
+#: ../../webservices/localization.rst:28
+msgid ""
+"Usually located in the ``data`` folder, it must be loaded at the very last "
+"in the ``__manifest__.py`` file."
+msgstr ""
+
+#: ../../webservices/localization.rst:32
+msgid ""
+"If the *.yml* file is missing, the right chart of accounts won't be loaded "
+"on time!"
+msgstr ""
+
+#: ../../webservices/localization.rst:36
+msgid "Configuring my own Chart of Accounts?"
+msgstr ""
+
+#: ../../webservices/localization.rst:38
+msgid ""
+"First of all, before I proceed, we need to talk about the templates. A "
+"template is a record that allows replica of itself. This mechanism is needed"
+" when working in multi-companies. For example, the creation of a new account"
+" is done using the ``account.account.template`` model. However, each company"
+" using this chart of accounts will be linked to a replica having "
+"``account.account`` as model. So, the templates are never used directly by "
+"the company."
+msgstr ""
+
+#: ../../webservices/localization.rst:43
+msgid ""
+"Then, when a chart of accounts needs to be installed, all templates "
+"dependent of this one will create a replica and link this newly generated "
+"record to the company's user. It means all such templates must be linked to "
+"the chart of accounts in some way. To do so, each one must reference the "
+"desired chart of accounts using the ``chart_template_id`` field. For this "
+"reason, we need to define an instance of the ``account.chart.template`` "
+"model before creating its templates."
+msgstr ""
+
+#: ../../webservices/localization.rst:86
+msgid "For example, let's take a look to the Belgium chart of accounts."
+msgstr ""
+
+#: ../../webservices/localization.rst:98
+msgid ""
+"Now that the chart of accounts is created, we can focus on the creation of "
+"the templates. As said previously, each record must reference this record "
+"through the ``chart_template_id`` field. If not, the template will be "
+"ignored. The following sections show in details how to create these "
+"templates."
+msgstr ""
+
+#: ../../webservices/localization.rst:103
+msgid "Adding a new account to my Chart of Accounts"
+msgstr ""
+
+#: ../../webservices/localization.rst:105
+msgid ""
+"It's time to create our accounts. It consists to creating records of "
+"``account.account.template`` type. Each ``account.account.template`` is able"
+" to create an ``account.account`` for each company."
+msgstr ""
+
+#: ../../webservices/localization.rst:136
+msgid "Some of the described fields above deserve a bit more explanation."
+msgstr ""
+
+#: ../../webservices/localization.rst:138
+msgid ""
+"The ``user_type_id`` field requires a value of type "
+"``account.account.type``. Although some additional types could be created in"
+" a localization module, we encourage the usage of the existing types in the "
+"`account/data/data_account_type.xml "
+"<https://github.com/odoo/odoo/blob/11.0/addons/account/data/data_account_type.xml>`_"
+" file. The usage of these generic types ensures the generic reports working "
+"correctly in addition to those that you could create in your localization "
+"module."
+msgstr ""
+
+#: ../../webservices/localization.rst:144
+msgid ""
+"Avoid the usage of liquidity ``account.account.type``! Indeed, the bank & "
+"cash accounts are created directly at the installation of the localization "
+"module and then, are linked to an ``account.journal``."
+msgstr ""
+
+#: ../../webservices/localization.rst:149
+msgid "Only one account of type payable/receivable is enough."
+msgstr ""
+
+#: ../../webservices/localization.rst:151
+msgid ""
+"Although the ``tag_ids`` field is optional, this one remains a very powerful"
+" feature. Indeed, this one allows you to define some tags for your accounts "
+"to spread them correctly on your reports. For example, suppose you want to "
+"create a financial report having multiple lines but you have no way to find "
+"a rule to dispatch the accounts according their ``code`` or ``name``. The "
+"solution is the usage of tags, one for each report line, to spread and "
+"aggregate your accounts like you want."
+msgstr ""
+
+#: ../../webservices/localization.rst:156
+msgid ""
+"Like any other record, a tag can be created with the following xml "
+"structure:"
+msgstr ""
+
+#: ../../webservices/localization.rst:169
+msgid ""
+"As you can well imagine with the usage of tags, this feature can also be "
+"used with taxes."
+msgstr ""
+
+#: ../../webservices/localization.rst:171
+msgid "An examples coming from the ``l10n_be`` module:"
+msgstr ""
+
+#: ../../webservices/localization.rst:184
+msgid "Don't create too much accounts: 200-300 is enough."
+msgstr ""
+
+#: ../../webservices/localization.rst:187
+msgid "Adding a new tax to my Chart of Accounts"
+msgstr ""
+
+#: ../../webservices/localization.rst:189
+msgid ""
+"To create a new tax record, you just need to follow the same process as the "
+"creation of accounts. The only difference being that you must use the "
+"``account.tax.template`` model."
+msgstr ""
+
+#: ../../webservices/localization.rst:271
+msgid "An example found in the ``l10n_pl`` module:"
+msgstr ""
+
+#: ../../webservices/localization.rst:290
+msgid "Adding a new fiscal position to my Chart of Accounts"
+msgstr ""
+
+#: ../../webservices/localization.rst:293
+msgid ""
+"If you need more information about what is a fiscal position and how it "
+"works in Odoo, please refer to `How to adapt taxes to my customer status or "
+"localization "
+"<https://www.odoo.com/documentation/user/online/accounting/others/taxes/application.html>`_."
+msgstr ""
+
+#: ../../webservices/localization.rst:295
+msgid ""
+"To create a new fiscal position, simply use the "
+"``account.fiscal.position.template`` model:"
+msgstr ""
+
+#: ../../webservices/localization.rst:311
+msgid "Adding the properties to my Chart of Accounts"
+msgstr ""
+
+#: ../../webservices/localization.rst:313
+msgid ""
+"When the whole accounts are generated, you have the possibility to override "
+"the newly generated chart of accounts by adding some properties that "
+"correspond to default accounts used in certain situations. This must be done"
+" after the creation of accounts before each one must be linked to the chart "
+"of accounts."
+msgstr ""
+
+#: ../../webservices/localization.rst:346
+msgid ""
+"For example, let's come back to the Belgium PCMN. This chart of accounts is "
+"override in this way to add some properties."
+msgstr ""
+
+#: ../../webservices/localization.rst:361
+msgid "How to create a new bank operation model?"
+msgstr ""
+
+#: ../../webservices/localization.rst:364
+msgid ""
+"How a bank operation model works exactly in Odoo? See `Configure model of "
+"entries "
+"<https://www.odoo.com/documentation/user/online/accounting/bank/reconciliation/configure.html>`_."
+msgstr ""
+
+#: ../../webservices/localization.rst:366
+msgid ""
+"Since ``V10``, a new feature is available in the bank statement "
+"reconciliation widget: the bank operation model. This allows the user to "
+"pre-fill some accounting entries with a single click. The creation of an "
+"``account.reconcile.model.template`` record is quite easy:"
+msgstr ""
+
+#: ../../webservices/localization.rst:412
+msgid "How to create a new dynamic report?"
+msgstr ""
+
+#: ../../webservices/localization.rst:414
+msgid ""
+"If you need to add some reports on your localization, you need to create a "
+"new module named **l10n_xx_reports**. Furthermore, this additional module "
+"must be present in the ``enterprise`` repository and must have at least two "
+"dependencies, one to bring all the stuff for your localization module and "
+"one more, ``account_reports``, to design dynamic reports."
+msgstr ""
+
+#: ../../webservices/localization.rst:422
+msgid ""
+"Once it's done, you can start the creation of your report statements. The "
+"documentation is available in the following `slides "
+"<https://www.odoo.com/slides/slide/how-to-create-custom-accounting-"
+"report-415>`_."
+msgstr ""
+
+#: ../../webservices/odoo.rst:9
+msgid "External API"
+msgstr ""
+
+#: ../../webservices/odoo.rst:11
+msgid ""
+"Odoo is usually extended internally via modules, but many of its features "
+"and all of its data are also available from the outside for external "
+"analysis or integration with various tools. Part of the "
+":ref:`reference/orm/model` API is easily available over XML-RPC_ and "
+"accessible from a variety of languages."
+msgstr ""
+"Odoo通常通过模块扩展内部, 但它的许多功能以及它所有的数据也在外面可用，用于外部分析以及与各种工具集成。 "
+":ref:`reference/orm/model` 的部分API通过XML-RPC_容易可用，以及用各种语言访问。"
+
+#: ../../webservices/odoo.rst:27
+msgid "Connection"
+msgstr "连接"
+
+#: ../../webservices/odoo.rst:92
+msgid "Configuration"
+msgstr "配置"
+
+#: ../../webservices/odoo.rst:94
+msgid ""
+"If you already have an Odoo server installed, you can just use its "
+"parameters"
+msgstr "如果您已经安装了Odoo服务器, 你可以使用它的参数"
+
+#: ../../webservices/odoo.rst:99
+msgid ""
+"For Odoo Online instances (<domain>.odoo.com), users are created without a "
+"*local* password (as a person you are logged in via the Odoo Online "
+"authentication system, not by the instance itself). To use XML-RPC on Odoo "
+"Online instances, you will need to set a password on the user account you "
+"want to use:"
+msgstr ""
+"For Odoo Online instances (<domain>.odoo.com), users are created without a "
+"*local* password (as a person you are logged in via the Odoo Online "
+"authentication system, not by the instance itself). To use XML-RPC on Odoo "
+"Online instances, you will need to set a password on the user account you "
+"want to use:"
+
+#: ../../webservices/odoo.rst:105
+msgid "Log in your instance with an administrator account"
+msgstr "使用系统管理员账号登陆你的实例"
+
+#: ../../webservices/odoo.rst:106
+msgid "Go to :menuselection:`Settings --> Users --> Users`"
+msgstr "进入 :menuselection:`设置 --> 用户 --> 用户` "
+
+#: ../../webservices/odoo.rst:107
+msgid "Click on the user you want to use for XML-RPC access"
+msgstr "点击你想要用于XML-RPC访问的用户"
+
+#: ../../webservices/odoo.rst:108
+msgid "Click the :guilabel:`Change Password` button"
+msgstr "点击 :guilabel:`更换密码` 按钮"
+
+#: ../../webservices/odoo.rst:109
+msgid ""
+"Set a :guilabel:`New Password` value then click :guilabel:`Change Password`."
+msgstr "设置 :guilabel:`New Password` 值，然后点击 :guilabel:`Change Password`."
+
+#: ../../webservices/odoo.rst:112
+msgid ""
+"The *server url* is the instance's domain (e.g. "
+"*https://mycompany.odoo.com*), the *database name* is the name of the "
+"instance (e.g. *mycompany*). The *username* is the configured user's login "
+"as shown by the *Change Password* screen."
+msgstr ""
+"The *server url* is the instance's domain (e.g. "
+"*https://mycompany.odoo.com*), the *database name* is the name of the "
+"instance (e.g. *mycompany*). The *username* is the configured user's login "
+"as shown by the *Change Password* screen."
+
+#: ../../webservices/odoo.rst:150
+msgid "demo"
+msgstr "演示"
+
+#: ../../webservices/odoo.rst:152
+msgid ""
+"To make exploration simpler, you can also ask https://demo.odoo.com for a "
+"test database:"
+msgstr "为了探索更简单, 您也可以要求https ://demo.odoo.com的测试数据库:"
+
+#: ../../webservices/odoo.rst:184
+msgid ""
+"These examples use the `Ripcord <https://code.google.com/p/ripcord/>`_ "
+"library, which provides a simple XML-RPC API. Ripcord requires that `XML-RPC"
+" support be enabled <http://php.net/manual/en/xmlrpc.installation.php>`_ in "
+"your PHP installation."
+msgstr ""
+"这些示例使用 `撕裂绳<https ://code.google.com/p/ripcord/>` _库，它提供了一个简单的XML-RPC "
+"API。开伞需要 `XML-RPC支持启用<http: //php.net/manual/en/xmlrpc.installation.php>` "
+"_你的PHP安装。"
+
+#: ../../webservices/odoo.rst:190
+msgid ""
+"Since calls are performed over `HTTPS "
+"<http://en.wikipedia.org/wiki/HTTP_Secure>`_, it also requires that the "
+"`OpenSSL extension <http://php.net/manual/en/openssl.installation.php>`_ be "
+"enabled."
+msgstr ""
+"由于调用了 `HTTPS <http ://en.wikipedia.org/wiki/HTTP_Secure>执行` _, 这也要求 "
+"`OpenSSL的扩展<http: //php.net/manual/en/openssl.installation。 PHP>` _启用。"
+
+#: ../../webservices/odoo.rst:213
+msgid ""
+"These examples use the `Apache XML-RPC library "
+"<https://ws.apache.org/xmlrpc/>`_"
+msgstr "这些例子使用'Apache的XML-RPC库<https ://ws.apache.org/xmlrpc/> `_"
+
+#: ../../webservices/odoo.rst:216
+msgid ""
+"The examples do not include imports as these imports couldn't be pasted in "
+"the code."
+msgstr "该示例不包括进口, 因为这些进口不能在代码中粘贴。"
+
+#: ../../webservices/odoo.rst:220
+msgid "Logging in"
+msgstr "登录"
+
+#: ../../webservices/odoo.rst:222
+msgid ""
+"Odoo requires users of the API to be authenticated before they can query "
+"most data."
+msgstr "Odoo需要API的用户进行身份验证后, 才能查询大多数数据。"
+
+#: ../../webservices/odoo.rst:225
+msgid ""
+"The ``xmlrpc/2/common`` endpoint provides meta-calls which don't require "
+"authentication, such as the authentication itself or fetching version "
+"information. To verify if the connection information is correct before "
+"trying to authenticate, the simplest call is to ask for the server's "
+"version. The authentication itself is done through the ``authenticate`` "
+"function and returns a user identifier (``uid``) used in authenticated calls"
+" instead of the login."
+msgstr ""
+"该 `` XMLRPC / 2 / common `` "
+"端点提供元电话不要求身份验证，如验证自身或获取版本信息。要验证连接信息，试图验证之前正确的，最简单的调用是要求服务器的版本。认证本身是通过 `` "
+"authenticate `` 函数来完成，并返回验证的调用，而不是登录使用的用户识别符（ `` uid `` ）。"
+
+#: ../../webservices/odoo.rst:293
+msgid "Calling methods"
+msgstr "调用方法"
+
+#: ../../webservices/odoo.rst:295
+msgid ""
+"The second endpoint is ``xmlrpc/2/object``, is used to call methods of odoo "
+"models via the ``execute_kw`` RPC function."
+msgstr "第二端点是 ``xmlrpc/2/object``, 用于通过 ``execute_kw`` RPC功能调用odoo模型的方法。"
+
+#: ../../webservices/odoo.rst:298
+msgid "Each call to ``execute_kw`` takes the following parameters:"
+msgstr "每次调用 ``execute_kw`` 采用下列参数:"
+
+#: ../../webservices/odoo.rst:300
+msgid "the database to use, a string"
+msgstr "数据库, 字符串"
+
+#: ../../webservices/odoo.rst:301
+msgid "the user id (retrieved through ``authenticate``), an integer"
+msgstr "用户ID（通过 ``authenticate`` 检索）, 一个整数"
+
+#: ../../webservices/odoo.rst:302
+msgid "the user's password, a string"
+msgstr "用户的密码, 字符串"
+
+#: ../../webservices/odoo.rst:303
+msgid "the model name, a string"
+msgstr "模型名称, 字符串"
+
+#: ../../webservices/odoo.rst:304
+msgid "the method name, a string"
+msgstr "方法名, 字符串"
+
+#: ../../webservices/odoo.rst:305
+msgid "an array/list of parameters passed by position"
+msgstr "参数按位置传递一个数组/列表"
+
+#: ../../webservices/odoo.rst:306
+msgid "a mapping/dict of parameters to pass by keyword (optional)"
+msgstr "参数映射/字典路过关键字（可选）"
+
+#: ../../webservices/odoo.rst:310
+msgid ""
+"For instance to see if we can read the ``res.partner`` model we can call "
+"``check_access_rights`` with ``operation`` passed by position and "
+"``raise_exception`` passed by keyword (in order to get a true/false result "
+"rather than true/error):"
+msgstr ""
+"比如查看我们是否可以读取 `` res.partner `` 模型，我们可以调用 ``check_access_rights`` 按位置带入 "
+"``operation``， 并 `` raise_exception `` 通过关键字传递的（用于得到 true/false "
+"结果，而不是true/error）:"
+
+#: ../../webservices/odoo.rst:361
+msgid "List records"
+msgstr "列出记录"
+
+#: ../../webservices/odoo.rst:363
+msgid ""
+"Records can be listed and filtered via :meth:`~odoo.models.Model.search`."
+msgstr ""
+
+#: ../../webservices/odoo.rst:365
+msgid ""
+":meth:`~odoo.models.Model.search` takes a mandatory :ref:`domain "
+"<reference/orm/domains>` filter (possibly empty), and returns the database "
+"identifiers of all records matching the filter. To list customer companies "
+"for instance:"
+msgstr ""
+
+#: ../../webservices/odoo.rst:408
+msgid "Pagination"
+msgstr "分页"
+
+#: ../../webservices/odoo.rst:410
+msgid ""
+"By default a search will return the ids of all records matching the "
+"condition, which may be a huge number. ``offset`` and ``limit`` parameters "
+"are available to only retrieve a subset of all matched records."
+msgstr ""
+"在默认情况下搜索将返回所有匹配的情况下, 这可能是一个庞大的数字记录的ID。 ``offset`` 和 ``limit`` "
+"参数可用于仅检索所有匹配的记录的一个子集。"
+
+#: ../../webservices/odoo.rst:456
+msgid "Count records"
+msgstr "记录计数"
+
+#: ../../webservices/odoo.rst:458
+msgid ""
+"Rather than retrieve a possibly gigantic list of records and count them, "
+":meth:`~odoo.models.Model.search_count` can be used to retrieve only the "
+"number of records matching the query. It takes the same :ref:`domain "
+"<reference/orm/domains>` filter as :meth:`~odoo.models.Model.search` and no "
+"other parameter."
+msgstr ""
+
+#: ../../webservices/odoo.rst:503
+msgid ""
+"calling ``search`` then ``search_count`` (or the other way around) may not "
+"yield coherent results if other users are using the server: stored data "
+"could have changed between the calls"
+msgstr ""
+"调用 ``search`` 然后 ``search_count`` （或其他方式）, "
+"如果其他用户正在使用的服务器可能不会产生一致的结果:存储的数据可能在调用之间改变"
+
+#: ../../webservices/odoo.rst:508
+msgid "Read records"
+msgstr "读取记录"
+
+#: ../../webservices/odoo.rst:510
+msgid ""
+"Record data is accessible via the :meth:`~odoo.models.Model.read` method, "
+"which takes a list of ids (as returned by :meth:`~odoo.models.Model.search`)"
+" and optionally a list of fields to fetch. By default, it will fetch all the"
+" fields the current user can read, which tends to be a huge amount."
+msgstr ""
+
+#: ../../webservices/odoo.rst:578
+msgid "Conversedly, picking only three fields deemed interesting."
+msgstr "Conversedly, 采摘只有三个字段视为有趣。"
+
+#: ../../webservices/odoo.rst:618
+msgid "even if the ``id`` field is not requested, it is always returned"
+msgstr "即使 ``id`` 字段没有请求, 它总是返回"
+
+#: ../../webservices/odoo.rst:621
+msgid "Listing record fields"
+msgstr "列出记录字段"
+
+#: ../../webservices/odoo.rst:623
+msgid ""
+":meth:`~odoo.models.Model.fields_get` can be used to inspect a model's "
+"fields and check which ones seem to be of interest."
+msgstr ""
+
+#: ../../webservices/odoo.rst:626
+msgid ""
+"Because it returns a large amount of meta-information (it is also used by "
+"client programs) it should be filtered before printing, the most interesting"
+" items for a human user are ``string`` (the field's label), ``help`` (a help"
+" text if available) and ``type`` (to know which values to expect, or to send"
+" when updating a record):"
+msgstr ""
+"因为它返回大量的元信息（它也用于由客户端程序）它应该打印前被过滤，对一个人的用户的最有趣的项目是 `` string `` （字段的标签）， `` "
+"help `` （帮助文本如有）和 `` type `` （要知道哪些值预期，或更新记录时发送）:"
+
+#: ../../webservices/odoo.rst:705
+msgid "Search and read"
+msgstr "搜索和读取"
+
+#: ../../webservices/odoo.rst:707
+msgid ""
+"Because it is a very common task, Odoo provides a "
+":meth:`~odoo.models.Model.search_read` shortcut which as its name suggests "
+"is equivalent to a :meth:`~odoo.models.Model.search` followed by a "
+":meth:`~odoo.models.Model.read`, but avoids having to perform two requests "
+"and keep ids around."
+msgstr ""
+
+#: ../../webservices/odoo.rst:713
+msgid ""
+"Its arguments are similar to :meth:`~odoo.models.Model.search`'s, but it can"
+" also take a list of ``fields`` (like :meth:`~odoo.models.Model.read`, if "
+"that list is not provided it will fetch all fields of matched records):"
+msgstr ""
+
+#: ../../webservices/odoo.rst:794
+msgid "Create records"
+msgstr "创建记录"
+
+#: ../../webservices/odoo.rst:796
+msgid ""
+"Records of a model are created using :meth:`~odoo.models.Model.create`. The "
+"method will create a single record and return its database identifier."
+msgstr ""
+
+#: ../../webservices/odoo.rst:799
+msgid ""
+":meth:`~odoo.models.Model.create` takes a mapping of fields to values, used "
+"to initialize the record. For any field which has a default value and is not"
+" set through the mapping argument, the default value will be used."
+msgstr ""
+
+#: ../../webservices/odoo.rst:839
+msgid ""
+"while most value types are what would be expected (integer for "
+":class:`~odoo.fields.Integer`, string for :class:`~odoo.fields.Char` or "
+":class:`~odoo.fields.Text`),"
+msgstr ""
+
+#: ../../webservices/odoo.rst:843
+msgid ""
+":class:`~odoo.fields.Date`, :class:`~odoo.fields.Datetime` and "
+":class:`~odoo.fields.Binary` fields use string values"
+msgstr ""
+
+#: ../../webservices/odoo.rst:845
+msgid ""
+":class:`~odoo.fields.One2many` and :class:`~odoo.fields.Many2many` use a "
+"special command protocol detailed in :meth:`the documentation to the write "
+"method <odoo.models.Model.write>`."
+msgstr ""
+
+#: ../../webservices/odoo.rst:850
+msgid "Update records"
+msgstr "更新记录"
+
+#: ../../webservices/odoo.rst:852
+msgid ""
+"Records can be updated using :meth:`~odoo.models.Model.write`, it takes a "
+"list of records to update and a mapping of updated fields to values similar "
+"to :meth:`~odoo.models.Model.create`."
+msgstr ""
+
+#: ../../webservices/odoo.rst:856
+msgid ""
+"Multiple records can be updated simultanously, but they will all get the "
+"same values for the fields being set. It is not currently possible to "
+"perform \"computed\" updates (where the value being set depends on an "
+"existing value of a record)."
+msgstr ""
+"多个记录可以simultanously更新, 但是他们都将获得被设置为字段相同的值。这是目前无法执行（这里的值被设置取决于记录的现有值）'计算'的更新。"
+
+#: ../../webservices/odoo.rst:911
+msgid "Delete records"
+msgstr "删除记录"
+
+#: ../../webservices/odoo.rst:913
+msgid ""
+"Records can be deleted in bulk by providing their ids to "
+":meth:`~odoo.models.Model.unlink`."
+msgstr ""
+
+#: ../../webservices/odoo.rst:962
+msgid "Inspection and introspection"
+msgstr "检查和反射"
+
+#: ../../webservices/odoo.rst:969
+msgid ""
+"While we previously used :meth:`~odoo.models.Model.fields_get` to query a "
+"model and have been using an arbitrary model from the start, Odoo stores "
+"most model metadata inside a few meta-models which allow both querying the "
+"system and altering models and fields (with some limitations) on the fly "
+"over XML-RPC."
+msgstr ""
+
+#: ../../webservices/odoo.rst:978
+msgid "``ir.model``"
+msgstr "``ir.model``"
+
+#: ../../webservices/odoo.rst:980
+msgid "Provides information about Odoo models via its various fields"
+msgstr "通过它的各个字段提供有关Odoo模型的信息"
+
+#: ../../webservices/odoo.rst:982 ../../webservices/odoo.rst:1131
+msgid "``name``"
+msgstr "``name``"
+
+#: ../../webservices/odoo.rst:983
+msgid "a human-readable description of the model"
+msgstr "模型的人类可读描述"
+
+#: ../../webservices/odoo.rst:984
+msgid "``model``"
+msgstr "``model``"
+
+#: ../../webservices/odoo.rst:985
+msgid "the name of each model in the system"
+msgstr "系统中的每个模型的名称"
+
+#: ../../webservices/odoo.rst:987 ../../webservices/odoo.rst:1138
+#: ../../webservices/upgrade.rst:563
+msgid "``state``"
+msgstr "``state``"
+
+#: ../../webservices/odoo.rst:987
+msgid ""
+"whether the model was generated in Python code (``base``) or by creating an "
+"``ir.model`` record (``manual``)"
+msgstr "无论模型是在Python代码 (``base``)生成的，还是通过创建一个 ``ir.model`` 记录 (``人工``)"
+
+#: ../../webservices/odoo.rst:990
+msgid "``field_id``"
+msgstr "``field_id``"
+
+#: ../../webservices/odoo.rst:990
+msgid ""
+"list of the model's fields through a :class:`~odoo.fields.One2many` to "
+":ref:`reference/webservice/inspection/fields`"
+msgstr ""
+
+#: ../../webservices/odoo.rst:993
+msgid "``view_ids``"
+msgstr "``view_ids``"
+
+#: ../../webservices/odoo.rst:993
+msgid ""
+":class:`~odoo.fields.One2many` to the :ref:`reference/views` defined for the"
+" model"
+msgstr ""
+
+#: ../../webservices/odoo.rst:997
+msgid "``access_ids``"
+msgstr "``access_ids``"
+
+#: ../../webservices/odoo.rst:996
+msgid ""
+":class:`~odoo.fields.One2many` relation to the :ref:`reference/security/acl`"
+" set on the model"
+msgstr ""
+
+#: ../../webservices/odoo.rst:999
+msgid "``ir.model`` can be used to"
+msgstr " ``ir.model`` 可用于"
+
+#: ../../webservices/odoo.rst:1001
+msgid ""
+"query the system for installed models (as a precondition to operations on "
+"the model or to explore the system's content)"
+msgstr "查询（型号为前提, 以操作或探索系统的内容）, 该系统安装模式"
+
+#: ../../webservices/odoo.rst:1003
+msgid ""
+"get information about a specific model (generally by listing the fields "
+"associated with it)"
+msgstr "获得关于特定模型信息（通常通过列出与它相关联的字段）"
+
+#: ../../webservices/odoo.rst:1005
+msgid "create new models dynamically over RPC"
+msgstr "通过RPC动态的创建新模型"
+
+#: ../../webservices/odoo.rst:1009
+msgid "\"custom\" model names must start with ``x_``"
+msgstr "\"自定义\" 模型名称必须以 ``x_`` 开头"
+
+#: ../../webservices/odoo.rst:1010
+msgid ""
+"the ``state`` must be provided and ``manual``, otherwise the model will not "
+"be loaded"
+msgstr "在 ``state`` 必须提供和 ``manual`` , 否则模型将不会被加载"
+
+#: ../../webservices/odoo.rst:1012
+msgid "it is not possible to add new *methods* to a custom model, only fields"
+msgstr "它不可能增加新 *方法* 到自定义模型, 只有字段"
+
+#: ../../webservices/odoo.rst:1016
+msgid ""
+"a custom model will initially contain only the \"built-in\" fields available"
+" on all models:"
+msgstr "自定义模型最初将只包含'内置'适用于所有型号的字段:"
+
+#: ../../webservices/odoo.rst:1123
+msgid "``ir.model.fields``"
+msgstr "``ir.model.fields``"
+
+#: ../../webservices/odoo.rst:1125
+msgid ""
+"Provides information about the fields of Odoo models and allows adding "
+"custom fields without using Python code"
+msgstr "提供有关Odoo车型字段的信息, 并允许在不使用Python代码添加自定义字段"
+
+#: ../../webservices/odoo.rst:1129
+msgid "``model_id``"
+msgstr "``model_id``"
+
+#: ../../webservices/odoo.rst:1129
+msgid ""
+":class:`~odoo.fields.Many2one` to "
+":ref:`reference/webservice/inspection/models` to which the field belongs"
+msgstr ""
+
+#: ../../webservices/odoo.rst:1132
+msgid "the field's technical name (used in ``read`` or ``write``)"
+msgstr "该字段的技术名称（用于 ``read`` 及 ``write`` ）"
+
+#: ../../webservices/odoo.rst:1133
+msgid "``field_description``"
+msgstr " ``field_description`` "
+
+#: ../../webservices/odoo.rst:1134
+msgid "the field's user-readable label (e.g. ``string`` in ``fields_get``)"
+msgstr "该字段的用户可读的标签（例如  ``fields_get`` 的 ``string``  ）"
+
+#: ../../webservices/odoo.rst:1135
+msgid "``ttype``"
+msgstr "``ttype``"
+
+#: ../../webservices/odoo.rst:1136
+msgid "the :ref:`type <reference/orm/fields>` of field to create"
+msgstr "要 创建的字段的 :ref:`类型 <reference/orm/fields>` "
+
+#: ../../webservices/odoo.rst:1138
+msgid ""
+"whether the field was created via Python code (``base``) or via "
+"``ir.model.fields`` (``manual``)"
+msgstr "通过Python代码字段是否创建（ ``base`` ）, 或通过 ``ir.model.fields`` （ ``manual`` ）"
+
+#: ../../webservices/odoo.rst:1140
+msgid "``required``, ``readonly``, ``translate``"
+msgstr "``required``, ``readonly``, ``translate``"
+
+#: ../../webservices/odoo.rst:1141
+msgid "enables the corresponding flag on the field"
+msgstr "在字段启用相应的标志"
+
+#: ../../webservices/odoo.rst:1143
+msgid "``groups``"
+msgstr "``groups``"
+
+#: ../../webservices/odoo.rst:1143
+msgid ""
+":ref:`field-level access control <reference/security/fields>`, a "
+":class:`~odoo.fields.Many2many` to ``res.groups``"
+msgstr ""
+
+#: ../../webservices/odoo.rst:1147
+msgid ""
+"``selection``, ``size``, ``on_delete``, ``relation``, ``relation_field``, "
+"``domain``"
+msgstr ""
+"``selection``, ``size``, ``on_delete``, ``relation``, ``relation_field``, "
+"``domain``"
+
+#: ../../webservices/odoo.rst:1146
+msgid ""
+"type-specific properties and customizations, see :ref:`the fields "
+"documentation <reference/orm/fields>` for details"
+msgstr "键入特定的属性和自定义设置, 请参阅 :ref:`字段的文档<reference/orm/fields>` 的详细信息"
+
+#: ../../webservices/odoo.rst:1149
+msgid ""
+"Like custom models, only new fields created with ``state=\"manual\"`` are "
+"activated as actual fields on the model."
+msgstr "像定制机型, 只与 ``状态='手动' `创造了新的字段'被激活作为模型的实际字段。"
+
+#: ../../webservices/odoo.rst:1152
+msgid ""
+"computed fields can not be added via ``ir.model.fields``, some field meta-"
+"information (defaults, onchange) can not be set either"
+msgstr "计算字段无法通过 ``ir.model.fields`` 增加, 一些外地元信息（默认值, 的onchange）不能设置任何"
+
+#: ../../webservices/upgrade.rst:11
+msgid "Database Upgrade"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:14
+msgid "Introduction"
+msgstr "介绍"
+
+#: ../../webservices/upgrade.rst:16
+msgid ""
+"This document describes the API used to upgrade an Odoo database to a higher"
+" version."
+msgstr ""
+"This document describes the API used to upgrade an Odoo database to a higher"
+" version."
+
+#: ../../webservices/upgrade.rst:19
+msgid ""
+"It allows a database to be upgraded without ressorting to the html form at "
+"https://upgrade.odoo.com Although the database will follow the same process "
+"described on that form."
+msgstr ""
+"It allows a database to be upgraded without ressorting to the html form at "
+"https://upgrade.odoo.com Although the database will follow the same process "
+"described on that form."
+
+#: ../../webservices/upgrade.rst:24
+msgid "The required steps are:"
+msgstr "必须的步骤 :"
+
+#: ../../webservices/upgrade.rst:26
+msgid ":ref:`creating a request <upgrade-api-create-method>`"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:27
+msgid ":ref:`uploading a database dump <upgrade-api-upload-method>`"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:28
+msgid ":ref:`running the upgrade process <upgrade-api-process-method>`"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:29
+msgid ""
+":ref:`obtaining the status of the database request <upgrade-api-status-"
+"method>`"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:30
+msgid ""
+":ref:`downloading the upgraded database dump <upgrade-api-download-method>`"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:33
+msgid "The methods"
+msgstr "方法"
+
+#: ../../webservices/upgrade.rst:38
+msgid "Creating a database upgrade request"
+msgstr "创建数据库升级请求"
+
+#: ../../webservices/upgrade.rst:40
+msgid "This action creates a database request with the following information:"
+msgstr "该动作使用下列信息创建数据库请求 :"
+
+#: ../../webservices/upgrade.rst:42
+msgid "your contract reference"
+msgstr "联系人参考"
+
+#: ../../webservices/upgrade.rst:43
+msgid "your email address"
+msgstr "电子邮件地址"
+
+#: ../../webservices/upgrade.rst:44
+msgid "the target version (the Odoo version you want to upgrade to)"
+msgstr "the target version (the Odoo version you want to upgrade to)"
+
+#: ../../webservices/upgrade.rst:45
+msgid "the purpose of your request (test or production)"
+msgstr "the purpose of your request (test or production)"
+
+#: ../../webservices/upgrade.rst:46
+msgid "the database dump name (required but purely informative)"
+msgstr "the database dump name (required but purely informative)"
+
+#: ../../webservices/upgrade.rst:47
+msgid "optionally the server timezone (for Odoo source version < 6.1)"
+msgstr "optionally the server timezone (for Odoo source version < 6.1)"
+
+#: ../../webservices/upgrade.rst:50
+msgid "The ``create`` method"
+msgstr " ``create`` 方法"
+
+#: ../../webservices/upgrade.rst:54
+msgid "Creates a database upgrade request"
+msgstr "创建数据库升级请求"
+
+#: ../../webservices/upgrade.rst:56
+msgid "(required) your enterprise contract reference"
+msgstr "(必须) 你的企业版合约参考"
+
+#: ../../webservices/upgrade.rst:57
+msgid "(required) your email address"
+msgstr "(required) your email address"
+
+#: ../../webservices/upgrade.rst:58
+msgid ""
+"(required) the Odoo version you want to upgrade to. Valid choices: 6.0, 6.1,"
+" 7.0, 8.0"
+msgstr ""
+"(required) the Odoo version you want to upgrade to. Valid choices: 6.0, 6.1,"
+" 7.0, 8.0"
+
+#: ../../webservices/upgrade.rst:59
+msgid ""
+"(required) the purpose of your upgrade database request. Valid choices: "
+"test, production."
+msgstr ""
+"(required) the purpose of your upgrade database request. Valid choices: "
+"test, production."
+
+#: ../../webservices/upgrade.rst:60
+msgid "(required) a purely informative name for you database dump file"
+msgstr "(required) a purely informative name for you database dump file"
+
+#: ../../webservices/upgrade.rst:61
+msgid ""
+"(optional) the timezone used by your server. Only for Odoo source version < "
+"6.1"
+msgstr ""
+"(optional) the timezone used by your server. Only for Odoo source version < "
+"6.1"
+
+#: ../../webservices/upgrade.rst:62 ../../webservices/upgrade.rst:223
+#: ../../webservices/upgrade.rst:294 ../../webservices/upgrade.rst:430
+#: ../../webservices/upgrade.rst:496
+msgid "request result"
+msgstr "请求结果"
+
+#: ../../webservices/upgrade.rst:0 ../../webservices/upgrade.rst:0
+#: ../../webservices/upgrade.rst:0 ../../webservices/upgrade.rst:0
+#: ../../webservices/upgrade.rst:0
+msgid "Return type"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:65
+msgid ""
+"The *create* method returns a JSON dictionary containing the following keys:"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:70 ../../webservices/upgrade.rst:357
+msgid "``failures``"
+msgstr "``failures``"
+
+#: ../../webservices/upgrade.rst:72
+msgid "The list of errors."
+msgstr "错误列表。"
+
+#: ../../webservices/upgrade.rst:74
+msgid ""
+"A list of dictionaries, each dictionary giving information about one "
+"particular error. Each dictionary can contain various keys depending of the "
+"type of error but you will always get the ``reason`` and the ``message`` "
+"keys:"
+msgstr ""
+"A list of dictionaries, each dictionary giving information about one "
+"particular error. Each dictionary can contain various keys depending of the "
+"type of error but you will always get the ``reason`` and the ``message`` "
+"keys:"
+
+#: ../../webservices/upgrade.rst:78
+msgid "``reason``: the error type"
+msgstr "``reason``: 错误类型"
+
+#: ../../webservices/upgrade.rst:79
+msgid "``message``: a human friendly message"
+msgstr "``message``: 人类可读的消息"
+
+#: ../../webservices/upgrade.rst:81
+msgid "Some possible keys:"
+msgstr "一些可能的关键字:"
+
+#: ../../webservices/upgrade.rst:83
+msgid "``code``: a faulty value"
+msgstr "``code``: a faulty value"
+
+#: ../../webservices/upgrade.rst:84
+msgid "``value``: a faulty value"
+msgstr "``value``: a faulty value"
+
+#: ../../webservices/upgrade.rst:85
+msgid "``expected``: a list of valid values"
+msgstr "``expected``: a list of valid values"
+
+#: ../../webservices/upgrade.rst:87
+msgid "See a sample output aside."
+msgstr "See a sample output aside."
+
+#: ../../webservices/upgrade.rst:118 ../../webservices/upgrade.rst:363
+msgid "``request``"
+msgstr "``request``"
+
+#: ../../webservices/upgrade.rst:120
+msgid ""
+"If the *create* method is successful, the value associated to the *request* "
+"key will be a dictionary containing various information about the created "
+"request:"
+msgstr ""
+"If the *create* method is successful, the value associated to the *request* "
+"key will be a dictionary containing various information about the created "
+"request:"
+
+#: ../../webservices/upgrade.rst:123
+msgid "The most important keys are:"
+msgstr "The most important keys are:"
+
+#: ../../webservices/upgrade.rst:125
+msgid "``id``: the request id"
+msgstr "``id``: the request id"
+
+#: ../../webservices/upgrade.rst:126
+msgid "``key``: your private key for this request"
+msgstr "``key``: your private key for this request"
+
+#: ../../webservices/upgrade.rst:128
+msgid ""
+"These 2 values will be requested by the other methods (upload, process and "
+"status)"
+msgstr ""
+"These 2 values will be requested by the other methods (upload, process and "
+"status)"
+
+#: ../../webservices/upgrade.rst:130
+msgid ""
+"The other keys will be explained in the section describing the :ref:`status "
+"method <upgrade-api-status-method>`."
+msgstr "其他关键点将在本节解释，说明 :ref:`状态方法 <upgrade-api-status-method>`."
+
+#: ../../webservices/upgrade.rst:134
+msgid "Sample script"
+msgstr "示例脚本"
+
+#: ../../webservices/upgrade.rst:136
+msgid "Here are 2 examples of database upgrade request creation using:"
+msgstr "Here are 2 examples of database upgrade request creation using:"
+
+#: ../../webservices/upgrade.rst:138
+msgid "one in the python programming language using the pycurl library"
+msgstr "one in the python programming language using the pycurl library"
+
+#: ../../webservices/upgrade.rst:139
+msgid ""
+"one in the bash programming language using `curl <http://curl.haxx.se>`_ "
+"(tool for transfering data using http) and `jq "
+"<https://stedolan.github.io/jq>`_ (JSON processor):"
+msgstr ""
+"one in the bash programming language using `curl <http://curl.haxx.se>`_ "
+"(tool for transfering data using http) and `jq "
+"<https://stedolan.github.io/jq>`_ (JSON processor):"
+
+#: ../../webservices/upgrade.rst:204
+msgid "Uploading your database dump"
+msgstr "上传数据库转储"
+
+#: ../../webservices/upgrade.rst:206
+msgid "There are 2 methods to upload your database dump:"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:208
+msgid "the ``upload`` method using the HTTPS protocol"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:209
+msgid "the ``request_sftp_access`` method using the SFTP protocol"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:212
+msgid "The ``upload`` method"
+msgstr "``upload`` 方法"
+
+#: ../../webservices/upgrade.rst:214
+msgid ""
+"It's the most simple and most straightforward way of uploading your database"
+" dump. It uses the HTTPS protocol."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:219
+msgid "Uploads a database dump"
+msgstr "上传数据库转储"
+
+#: ../../webservices/upgrade.rst:221 ../../webservices/upgrade.rst:291
+#: ../../webservices/upgrade.rst:428 ../../webservices/upgrade.rst:494
+msgid "(required) your private key"
+msgstr "(required) your private key"
+
+#: ../../webservices/upgrade.rst:222 ../../webservices/upgrade.rst:292
+#: ../../webservices/upgrade.rst:429 ../../webservices/upgrade.rst:495
+msgid "(required) your request id"
+msgstr "(required) your request id"
+
+#: ../../webservices/upgrade.rst:226 ../../webservices/upgrade.rst:297
+#: ../../webservices/upgrade.rst:433 ../../webservices/upgrade.rst:499
+msgid ""
+"The request id and the private key are obtained using the :ref:`create "
+"method <upgrade-api-create-method>`"
+msgstr "请求ID以及私钥通过 :ref:`创建方法 <upgrade-api-create-method>` 获得。"
+
+#: ../../webservices/upgrade.rst:229 ../../webservices/upgrade.rst:436
+msgid ""
+"The result is a JSON dictionary containing the list of ``failures``, which "
+"should be empty if everything went fine."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:279
+msgid "The ``request_sftp_access`` method"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:281
+msgid ""
+"This method is recommanded for big database dumps. It uses the SFTP protocol"
+" and supports resuming."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:284
+msgid ""
+"It will create a temporary SFTP server where you can connect to and allow "
+"you to upload your database dump using an SFTP client."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:289
+msgid "Creates an SFTP server"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:293
+msgid ""
+"(required) the path to a file listing the ssh public keys you'd like to use"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:300
+msgid ""
+"The file listing your ssh public keys should be roughly similar to a "
+"standard ``authorized_keys`` file. This file should only contains public "
+"keys, blank lines or comments (lines starting with the ``#`` character)"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:303
+msgid "Your database upgrade request should be in the ``draft`` state."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:305
+msgid ""
+"The ``request_sftp_access`` method returns a JSON dictionary containing the "
+"following keys:"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:359
+msgid ""
+"The list of errors. See :ref:`failures <upgrade-api-json-failure>` for an "
+"explanation about the JSON dictionary returned in case of failure."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:365
+msgid ""
+"If the call is successful, the value associated to the *request* key will be"
+" a dictionary containing your SFTP connexion parameters:"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:368
+msgid "``hostname``: the host address to connect to"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:369
+msgid "``sftp_port``: the port to connect to"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:370
+msgid "``sftp_user``: the SFTP user to use for connecting"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:371
+msgid ""
+"``shared_file``: the filename you need to use (identical to the ``filename``"
+" value you have used when creating the request in the :ref:`create method "
+"<upgrade-api-create-method>`.)"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:372
+msgid ""
+"``request_id``: the related upgrade request id (only informative, ,not "
+"required for the connection)"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:373
+msgid "``sample_command``: a sample command using the 'sftp' client"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:375
+msgid "You should normally be able to connect using the sample command as is."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:377
+msgid ""
+"You will only have access to the ``shared_file``. No other files will be "
+"accessible and you will not be able to create new files in your shared "
+"environment on the SFTP server."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:382
+msgid "Using the 'sftp' client"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:384
+msgid ""
+"Once you have successfully connected using your SFTP client, you can upload "
+"your database dump. Here is a sample session using the 'sftp' client:"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:396
+msgid ""
+"If your connection is interrupted, you can continue your file transfer using"
+" the ``-a`` command line switch:"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:404
+msgid ""
+"If you don't want to manually type the command and need to automate your "
+"database upgrade using a script, you can use a batch file or pipe your "
+"commands to 'sftp':"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:411
+msgid ""
+"The ``-b`` parameter takes a filename. If the filename is ``-``, it reads "
+"the commands from standard input."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:417
+msgid "Asking to process your request"
+msgstr "要求处理你的请求"
+
+#: ../../webservices/upgrade.rst:419
+msgid "This action ask the Upgrade Platform to process your database dump."
+msgstr "This action ask the Upgrade Platform to process your database dump."
+
+#: ../../webservices/upgrade.rst:422
+msgid "The ``process`` method"
+msgstr "``process`` 方法"
+
+#: ../../webservices/upgrade.rst:426
+msgid "Process a database dump"
+msgstr "处理数据库转储"
+
+#: ../../webservices/upgrade.rst:483
+msgid "Obtaining your request status"
+msgstr "获取你的请求状态"
+
+#: ../../webservices/upgrade.rst:485
+msgid "This action ask the status of your database upgrade request."
+msgstr "This action ask the status of your database upgrade request."
+
+#: ../../webservices/upgrade.rst:488
+msgid "The ``status`` method"
+msgstr "``status`` 方法"
+
+#: ../../webservices/upgrade.rst:492
+msgid "Ask the status of a database upgrade request"
+msgstr "Ask the status of a database upgrade request"
+
+#: ../../webservices/upgrade.rst:502
+msgid ""
+"The result is a JSON dictionary containing various information about your "
+"database upgrade request."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:545
+msgid "Sample output"
+msgstr "示例输出"
+
+#: ../../webservices/upgrade.rst:547
+msgid ""
+"The ``request`` key contains various useful information about your request:"
+msgstr ""
+"The ``request`` key contains various useful information about your request:"
+
+#: ../../webservices/upgrade.rst:549
+msgid "``id``"
+msgstr " ``id`` "
+
+#: ../../webservices/upgrade.rst:550
+msgid "the request id"
+msgstr "请求id"
+
+#: ../../webservices/upgrade.rst:551
+msgid "``key``"
+msgstr "``key``"
+
+#: ../../webservices/upgrade.rst:552
+msgid "your private key"
+msgstr "你的私钥"
+
+#: ../../webservices/upgrade.rst:553
+msgid "``email``"
+msgstr "``email``"
+
+#: ../../webservices/upgrade.rst:554
+msgid "the email address you supplied when creating the request"
+msgstr "the email address you supplied when creating the request"
+
+#: ../../webservices/upgrade.rst:555
+msgid "``target``"
+msgstr "``target``"
+
+#: ../../webservices/upgrade.rst:556
+msgid "the target Odoo version you supplied when creating the request"
+msgstr "the target Odoo version you supplied when creating the request"
+
+#: ../../webservices/upgrade.rst:557
+msgid "``aim``"
+msgstr "``aim``"
+
+#: ../../webservices/upgrade.rst:558
+msgid ""
+"the purpose (test, production) of your database upgrade request you supplied"
+" when creating the request"
+msgstr ""
+"the purpose (test, production) of your database upgrade request you supplied"
+" when creating the request"
+
+#: ../../webservices/upgrade.rst:559
+msgid "``filename``"
+msgstr "``filename``"
+
+#: ../../webservices/upgrade.rst:560
+msgid "the filename you supplied when creating the request"
+msgstr "the filename you supplied when creating the request"
+
+#: ../../webservices/upgrade.rst:561
+msgid "``timezone``"
+msgstr "``timezone``"
+
+#: ../../webservices/upgrade.rst:562
+msgid "the timezone you supplied when creating the request"
+msgstr "the timezone you supplied when creating the request"
+
+#: ../../webservices/upgrade.rst:564
+msgid "the state of your request"
+msgstr "the state of your request"
+
+#: ../../webservices/upgrade.rst:565
+msgid "``issue_stage``"
+msgstr "``issue_stage``"
+
+#: ../../webservices/upgrade.rst:566
+msgid "the stage of the issue we have create on Odoo main server"
+msgstr "the stage of the issue we have create on Odoo main server"
+
+#: ../../webservices/upgrade.rst:567
+msgid "``issue``"
+msgstr "``issue``"
+
+#: ../../webservices/upgrade.rst:568
+msgid "the id of the issue we have create on Odoo main server"
+msgstr "the id of the issue we have create on Odoo main server"
+
+#: ../../webservices/upgrade.rst:569
+msgid "``status_url``"
+msgstr "``status_url``"
+
+#: ../../webservices/upgrade.rst:570
+msgid "the URL to access your database upgrade request html page"
+msgstr "the URL to access your database upgrade request html page"
+
+#: ../../webservices/upgrade.rst:571
+msgid "``notes_url``"
+msgstr "``notes_url``"
+
+#: ../../webservices/upgrade.rst:572
+msgid "the URL to get the notes about your database upgrade"
+msgstr "the URL to get the notes about your database upgrade"
+
+#: ../../webservices/upgrade.rst:573
+msgid "``original_sql_url``"
+msgstr "``original_sql_url``"
+
+#: ../../webservices/upgrade.rst:574
+msgid ""
+"the URL used to get your uploaded (not upgraded) database as an SQL stream"
+msgstr ""
+"the URL used to get your uploaded (not upgraded) database as an SQL stream"
+
+#: ../../webservices/upgrade.rst:575
+msgid "``original_dump_url``"
+msgstr "``original_dump_url``"
+
+#: ../../webservices/upgrade.rst:576
+msgid ""
+"the URL used to get your uploaded (not upgraded) database as an archive file"
+msgstr ""
+"the URL used to get your uploaded (not upgraded) database as an archive file"
+
+#: ../../webservices/upgrade.rst:577
+msgid "``upgraded_sql_url``"
+msgstr "``upgraded_sql_url``"
+
+#: ../../webservices/upgrade.rst:578
+msgid "the URL used to get your upgraded database as an SQL stream"
+msgstr "the URL used to get your upgraded database as an SQL stream"
+
+#: ../../webservices/upgrade.rst:579
+msgid "``upgraded_dump_url``"
+msgstr "``upgraded_dump_url``"
+
+#: ../../webservices/upgrade.rst:580
+msgid "the URL used to get your upgraded database as an archive file"
+msgstr "the URL used to get your upgraded database as an archive file"
+
+#: ../../webservices/upgrade.rst:581
+msgid "``modules_url``"
+msgstr "``modules_url``"
+
+#: ../../webservices/upgrade.rst:582
+msgid "the URL used to get your custom modules"
+msgstr "用来取得你的定制模块的URL"
+
+#: ../../webservices/upgrade.rst:583
+msgid "``filesize``"
+msgstr "``filesize``"
+
+#: ../../webservices/upgrade.rst:584
+msgid "the size of your uploaded database file"
+msgstr "上传的数据库文件的大小"
+
+#: ../../webservices/upgrade.rst:585
+msgid "``database_uuid``"
+msgstr "``database_uuid``"
+
+#: ../../webservices/upgrade.rst:586
+msgid "the Unique ID of your database"
+msgstr "数据库的唯一ID"
+
+#: ../../webservices/upgrade.rst:587
+msgid "``created_at``"
+msgstr "``created_at``"
+
+#: ../../webservices/upgrade.rst:588
+msgid "the date when you created the request"
+msgstr "the date when you created the request"
+
+#: ../../webservices/upgrade.rst:589
+msgid "``estimated_time``"
+msgstr "``estimated_time``"
+
+#: ../../webservices/upgrade.rst:590
+msgid "an estimation of the time it takes to upgrade your database"
+msgstr "an estimation of the time it takes to upgrade your database"
+
+#: ../../webservices/upgrade.rst:591
+msgid "``processed_at``"
+msgstr "``processed_at``"
+
+#: ../../webservices/upgrade.rst:592
+msgid "time when your database upgrade was started"
+msgstr "time when your database upgrade was started"
+
+#: ../../webservices/upgrade.rst:593
+msgid "``elapsed``"
+msgstr "``elapsed``"
+
+#: ../../webservices/upgrade.rst:594
+msgid "the time it takes to upgrade your database"
+msgstr "the time it takes to upgrade your database"
+
+#: ../../webservices/upgrade.rst:595
+msgid "``filestore``"
+msgstr "``filestore``"
+
+#: ../../webservices/upgrade.rst:596
+msgid "your attachments were converted to the filestore"
+msgstr "your attachments were converted to the filestore"
+
+#: ../../webservices/upgrade.rst:597
+msgid "``customer_message``"
+msgstr "``customer_message``"
+
+#: ../../webservices/upgrade.rst:598
+msgid "an important message related to your request"
+msgstr "an important message related to your request"
+
+#: ../../webservices/upgrade.rst:599
+msgid "``database_version``"
+msgstr "``database_version``"
+
+#: ../../webservices/upgrade.rst:600
+msgid "the guessed Odoo version of your uploaded (not upgraded) database"
+msgstr "the guessed Odoo version of your uploaded (not upgraded) database"
+
+#: ../../webservices/upgrade.rst:601
+msgid "``postgresql``"
+msgstr "``postgresql``"
+
+#: ../../webservices/upgrade.rst:602
+msgid ""
+"the guessed Postgresql version of your uploaded (not upgraded) database"
+msgstr ""
+"the guessed Postgresql version of your uploaded (not upgraded) database"
+
+#: ../../webservices/upgrade.rst:604
+msgid "``compressions``"
+msgstr "``compressions``"
+
+#: ../../webservices/upgrade.rst:604
+msgid "the compression methods used by your uploaded database"
+msgstr "the compression methods used by your uploaded database"
+
+#: ../../webservices/upgrade.rst:652
+msgid "Downloading your database dump"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:654
+msgid ""
+"Beside downloading your migrated database using the URL provided by the "
+":ref:`status method <upgrade-api-status-method>`, you can also use the SFTP "
+"protocol as described in the :ref:`request_sftp_access method <upgrade-api-"
+"request-sftp-access-method>`"
+msgstr ""
+
+#: ../../webservices/upgrade.rst:659
+msgid ""
+"The diffence is that you'll only be able to download the migrated database. "
+"No uploading will be possible."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:662
+msgid "Your database upgrade request should be in the ``done`` state."
+msgstr ""
+
+#: ../../webservices/upgrade.rst:664
+msgid ""
+"Once you have successfully connected using your SFTP client, you can "
+"download your database dump. Here is a sample session using the 'sftp' "
+"client:"
+msgstr ""

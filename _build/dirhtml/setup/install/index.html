@@ -1,0 +1,567 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Installing Odoo &mdash; odoo 10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/doc.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 10.0 documentation" href="../../" />
+    <link rel="up" title="Setting Up" href="../" />
+    <link rel="next" title="Deploying Odoo" href="../deploy/" />
+    <link rel="prev" title="Setting Up" href="../" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../../">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Installing Odoo</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../../_static/banners/installing_odoo.jpg');"></span>
+      <div class="container text-center">
+        <h1> Installing Odoo </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#editions" class="ripple internal reference">Editions</a></li><li class="list-group-item"><a href="#demo" class="ripple internal reference">Demo</a></li><li class="list-group-item"><a href="#saas" class="ripple internal reference">SaaS</a></li><li class="list-group-item"><a href="#packaged-installers" class="ripple internal reference">Packaged installers</a><ul ><li class="list-group-item"><a href="#windows" class="ripple internal reference">Windows</a><ul ><li class="list-group-item"><a href="#configuration" class="ripple internal reference">Configuration</a></li></ul></li><li class="list-group-item"><a href="#deb" class="ripple internal reference">Deb</a><ul ><li class="list-group-item"><a href="#community" class="ripple internal reference">Community</a></li><li class="list-group-item"><a href="#enterprise" class="ripple internal reference">Enterprise</a></li><li class="list-group-item"><a href="#id1" class="ripple internal reference">Configuration</a></li></ul></li><li class="list-group-item"><a href="#rpm" class="ripple internal reference">RPM</a><ul ><li class="list-group-item"><a href="#id2" class="ripple internal reference">Community</a></li><li class="list-group-item"><a href="#id3" class="ripple internal reference">Enterprise</a></li><li class="list-group-item"><a href="#id4" class="ripple internal reference">Configuration</a></li></ul></li></ul></li><li class="list-group-item"><a href="#source-install" class="ripple internal reference">Source Install</a><ul ><li class="list-group-item"><a href="#id5" class="ripple internal reference">Community</a></li><li class="list-group-item"><a href="#id6" class="ripple internal reference">Enterprise</a></li><li class="list-group-item"><a href="#installing-dependencies" class="ripple internal reference">Installing dependencies</a></li><li class="list-group-item"><a href="#running-odoo" class="ripple internal reference">Running Odoo</a></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/setup/install.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="installing-odoo"><i id="setup-install"></i><p >There are mutliple ways to install Odoo, or not install it at all, depending
+on the intended use case.</p><p >This documents attempts to describe most of the installation options.</p><dl ><dt ><a href="#setup-install-demo" class="internal reference"><span >Demo</span></a></dt><dd >The simplest &quot;installation&quot;, only suitable for getting a quick feel for
+Odoo or trying something out</dd><dt ><a href="#setup-install-saas" class="internal reference"><span >SaaS</span></a></dt><dd ><p >Trivial to start with and fully managed and migrated by Odoo S.A., can be
+used to both test Odoo and use it for your business, prevents complex
+customization (i.e. incompatible with custom modules or the Odoo Apps Store).</p><p >Can be used for both testing Odoo and long-term production use.</p></dd><dt ><a href="#setup-install-packaged" class="internal reference"><span >Packaged installers</span></a></dt><dd ><p >Simple to get started, allows more flexibility in hosting and deploying
+the system and greater control over where data is stored. The maintenance
+burden is shifted to the user.</p><p >Suitable for testing Odoo, developing modules and can be used for
+long-term production use with additional deployment and maintenance work.</p></dd><dt ><a href="#setup-install-source" class="internal reference"><span >Source Install</span></a></dt><dd ><p >Harder to get started than <a href="#setup-install-packaged" class="internal reference"><span >Packaged installers</span></a>, provides
+even greater flexibility: packaged installers don't generally allow
+multiple running Odoo versions on the same system, and don't provide easy
+source access to Odoo itself.</p><p >Good for developing modules, can be used as base for production
+deployment.</p><p >The source code can be obtained by downloading a tarball or using git.
+Using git is strongly advised, as it makes it easier to update, switch
+between multiple versions (including the current development version)
+or contribute.</p></dd><dt ><a href="https://registry.hub.docker.com/_/odoo/" class="external reference">docker image</a></dt><dd >If you usually use <a href="https://www.docker.com" class="external reference">docker</a> for development or deployment, an official
+<a href="https://www.docker.com" class="external reference">docker</a> base image is available, see the image's help document for more
+information.</dd></dl></section><section id="editions"><i id="setup-install-editions"></i><h2 >Editions</h2><p >There are two different <a href="https://www.odoo.com/pricing#pricing_table_features" class="external reference">Editions</a> of Odoo: the Community and Enterprise versions.
+Using the Enterprise version is possible on our <a href="https://www.odoo.com/page/start" class="external reference">SaaS</a> and accessing the code is
+restricted to Enterprise customers and partners. The Community version is freely
+available to anyone.</p><p >If you already use the Community version and wish to upgrade to Enterprise, please
+refer to <a href="../enterprise/#setup-enterprise" class="internal reference"><span >From Community to Enterprise</span></a> (except for <a href="#setup-install-source" class="internal reference"><span >Source Install</span></a>).</p><p >If you wish to access the Enterprise installers/source code, you can:</p><ul ><li >Go to the <a href="https://www.odoo.com/page/download" class="external reference">Download</a> page and log in with your customer credentials</li><li >Download the source on GitHub using git_(available to partners only)</li></ul><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >If you do not have access to our Enterprise repository, you can request
+it be e-mailing your sales representative or our online support with
+your subscription number and GitHub username. (available to partners only)</p></div><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >Enterprise deb and rpm packages do not have repositories, so automatic
+update will not work. Reinstalling the latest package version will be needed
+to update manually an installation.</p></div></section><section id="demo"><i id="setup-install-demo"></i><h2 >Demo</h2><p >To simply get a quick idea of Odoo, <a href="https://demo.odoo.com" class="external reference">demo</a> instances are available. They are
+shared instances which only live for a few hours, and can be used to browse
+around and try things out with no commitment.</p><p ><a href="https://demo.odoo.com" class="external reference">Demo</a> instances require no local installation, just a web browser.</p></section><section id="saas"><i id="setup-install-saas"></i><h2 >SaaS</h2><p >Odoo's <a href="https://www.odoo.com/page/start" class="external reference">SaaS</a> provides private instances and starts out free. It can be used to
+discover and test Odoo and do non-code customizations without having to
+install it locally.</p><p >Like <a href="https://demo.odoo.com" class="external reference">demo</a> instances, <a href="https://www.odoo.com/page/start" class="external reference">SaaS</a> instances require no local installation, a web
+browser is sufficient.</p></section><section id="packaged-installers"><i id="setup-install-packaged"></i><h2 >Packaged installers</h2><p >Odoo provides packaged installers for Windows, deb-based distributions
+(Debian, Ubuntu, …) and RPM-based distributions (Fedora, CentOS, RHEL, …) for
+both the Community and Enterprise versions.</p><p >These packages automatically set up all dependencies (for the Community version),
+but may be difficult to keep up-to-date.</p><p >Official Community packages with all relevant dependency requirements are
+available on our <a href="https://nightly.odoo.com/10.0/nightly/" class="external reference">nightly</a> server. Both Communtiy and Enterprise packages can
+be downloaded from our <a href="https://www.odoo.com/page/download" class="external reference">Download</a> page (you must to be logged in as a paying
+customer or partner to download the Enterprise packages).</p></section><section id="windows"><h3 >Windows</h3><ul ><li >Download the installer from our <a href="https://nightly.odoo.com/10.0/nightly/" class="external reference">nightly</a> server (Community only)
+or the Windows installer from the <a href="https://www.odoo.com/page/download" class="external reference">Download</a> page (any edition)</li><li ><p >Run the downloaded file</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >on Windows 8, you may see a warning titled &quot;Windows protected
+your PC&quot;. Click <span class="guilabel">More Info</span> then
+<span class="guilabel">Run anyway</span></p></div></li><li >Accept the <a href="http://en.wikipedia.org/wiki/User_Account_Control" class="external reference">UAC</a> prompt</li><li >Go through the various installation steps</li></ul><p >Odoo will automatically be started at the end of the installation.</p></section><section id="configuration"><h4 >Configuration</h4><p >The <a href="../../reference/cmdline/#reference-cmdline-config" class="internal reference"><span >configuration file</span></a> can be found at
+<code class="file"><em >%PROGRAMFILES%</em>\Odoo 10.0-<em >id</em>\server\odoo.conf</code>.</p><p >The configuration file can be edited to connect to a remote Postgresql, edit
+file locations or set a dbfilter.</p><p >To reload the configuration file, restart the Odoo service via
+<span class="menuselection">Services ‣ odoo server</span>.</p></section><section id="deb"><h3 >Deb</h3></section><section id="community"><h4 >Community</h4><p >To install Odoo 10.0 Community on Debian-based distribution, execute the following
+commands as root:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> wget -O - https://nightly.odoo.com/odoo.key <span class="p">|</span> apt-key add -
+<span class="gp">#</span> <span class="nb">echo</span> <span class="s2">&quot;deb http://nightly.odoo.com/10.0/nightly/deb/ ./&quot;</span> &gt;&gt; /etc/apt/sources.list.d/odoo.list
+<span class="gp">#</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install odoo
+</pre></div>
+</div>
+<p >You can then use the usual <code >apt-get upgrade</code> command to keep your installation up-to-date.</p></section><section id="enterprise"><h4 >Enterprise</h4><p >For Odoo 10.0 Enterprise, get the package from the <a href="https://www.odoo.com/page/download" class="external reference">Download</a> page. You can then
+use <code >gdebi</code>:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> apt-get install postgresql -y
+<span class="gp">#</span> gdebi &lt;path_to_installation_package&gt;
+</pre></div>
+</div>
+<p >Or <code >dpkg</code> (handles less dependencies automatically):</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> apt-get install postgresql -y
+<span class="gp">#</span> dpkg -i &lt;path_to_installation_package&gt; <span class="c1"># this probably fails with missing dependencies</span>
+<span class="gp">#</span> apt-get install -f <span class="c1"># should install the missing dependencies</span>
+<span class="gp">#</span> dpkg -i &lt;path_to_installation_package&gt;
+</pre></div>
+</div>
+<p >This will install Odoo as a service, create the necessary <a href="http://www.postgresql.org" class="external reference">PostgreSQL</a> user
+and automatically start the server.</p><div role="alert" class="alert-danger alert"><p class="alert-title">Danger</p><p >to print PDF reports, you must install <a href="http://wkhtmltopdf.org" class="external reference alert-link">wkhtmltopdf</a> yourself:
+the version of <a href="http://wkhtmltopdf.org" class="external reference alert-link">wkhtmltopdf</a> available in debian repositories does
+not support headers and footers so it can not be installed
+automatically. The recommended version is 0.12.1 and is available on
+<a href="http://wkhtmltopdf.org/downloads.html" class="external reference alert-link">the wkhtmltopdf download page</a>, in the archive section. As there
+is no official release for Debian Jessie, you can find ours on the
+<a href="https://nightly.odoo.com/extra/" class="external reference alert-link">extra</a> section of our nightly server.</p></div></section><section id="id1"><h4 >Configuration</h4><p >The <a href="../../reference/cmdline/#reference-cmdline-config" class="internal reference"><span >configuration file</span></a> can be found at
+<code class="file">/etc/odoo/odoo.conf</code></p><p >When the configuration file is edited, Odoo must be restarted using
+<code >service</code>:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo service odoo restart
+<span class="go">Restarting odoo: ok</span>
+</pre></div>
+</div>
+</section><section id="rpm"><h3 >RPM</h3><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >with RHEL-based distributions (RHEL, CentOS, Scientific Linux), <a href="https://fedoraproject.org/wiki/EPEL" class="external reference alert-link">EPEL</a> must
+be added to the distribution's repositories for all of Odoo's
+dependencies to be available. For CentOS:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo yum install -y epel-release
+</pre></div>
+</div>
+<p >For other RHEL-based distribution, see the <a href="https://fedoraproject.org/wiki/EPEL" class="external reference alert-link">EPEL</a> documentation.</p></div></section><section id="id2"><h4 >Community</h4><p >Execute the following commands to install Odoo 10.0 Community on your server:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo yum install -y postgresql-server
+<span class="gp">$</span> sudo postgresql-setup initdb
+<span class="gp">$</span> sudo systemctl <span class="nb">enable</span> postgresql
+<span class="gp">$</span> sudo systemctl start postgresql
+<span class="gp">$</span> sudo yum install yum-utils
+<span class="gp">$</span> sudo yum-config-manager --add-repo<span class="o">=</span>https://nightly.odoo.com/10.0/nightly/rpm/odoo.repo
+<span class="gp">$</span> sudo yum install -y odoo
+<span class="gp">$</span> sudo systemctl <span class="nb">enable</span> odoo
+<span class="gp">$</span> sudo systemctl start odoo
+</pre></div>
+</div>
+</section><section id="id3"><h4 >Enterprise</h4><p >For Odoo 10.0 Enterprise, get the package from the <a href="https://www.odoo.com/page/download" class="external reference">Download</a> page. Then run:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo yum install -y postgresql-server
+<span class="gp">$</span> sudo postgresql-setup initdb
+<span class="gp">$</span> sudo systemctl <span class="nb">enable</span> postgresql
+<span class="gp">$</span> sudo systemctl start postgresql
+<span class="gp">$</span> sudo yum localinstall odoo_10.0.latest.noarch.rpm
+<span class="gp">$</span> sudo systemctl <span class="nb">enable</span> odoo
+<span class="gp">$</span> sudo systemctl start odoo
+</pre></div>
+</div>
+<div role="alert" class="alert-danger alert"><p class="alert-title">Danger</p><p >to print PDF reports, you must install <a href="http://wkhtmltopdf.org" class="external reference alert-link">wkhtmltopdf</a> yourself:
+the version of <a href="http://wkhtmltopdf.org" class="external reference alert-link">wkhtmltopdf</a> available in Fedora/CentOS
+repositories does not support headers and footers so it can not
+be installed automatically. Use the version available on
+<a href="http://wkhtmltopdf.org/downloads.html" class="external reference alert-link">the wkhtmltopdf download page</a>.</p></div></section><section id="id4"><h4 >Configuration</h4><p >The <a href="../../reference/cmdline/#reference-cmdline-config" class="internal reference"><span >configuration file</span></a> can be found at
+<code class="file">/etc/odoo/odoo.conf</code></p><p >When the configuration file is edited, Odoo must be restarted via SystemD:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo systemctl restart odoo
+</pre></div>
+</div>
+</section><section id="source-install"><i id="setup-install-source"></i><h2 >Source Install</h2><p >The source &quot;installation&quot; really is about not installing Odoo, and running
+it directly from source instead.</p><p >This can be more convenient for module developers as the Odoo source is
+more easily accessible than using packaged installation (for information or
+to build this documentation and have it available offline).</p><p >It also makes starting and stopping Odoo more flexible and explicit than the
+services set up by the packaged installations, and allows overriding settings
+using <a href="../../reference/cmdline/#reference-cmdline" class="internal reference"><span >command-line parameters</span></a> without needing to
+edit a configuration file.</p><p >Finally it provides greater control over the system's set up, and allows more
+easily keeping (and running) multiple versions of Odoo side-by-side.</p></section><section id="id5"><h3 >Community</h3><p >There are two way to get the odoo source source zip or git.</p><ul ><li >Odoo zip can be downloaded from  our <a href="https://nightly.odoo.com/10.0/nightly/" class="external reference">nightly</a> server or our <a href="https://www.odoo.com/page/download" class="external reference">Download</a>  page,
+the zip file then needs to be uncompressed to use its content</li><li ><p >git allows simpler update and easier switching between different versions
+of Odoo. It also simplifies maintaining non-module patches and
+contributions.  The primary drawback of git is that it is significantly
+larger than a tarball as it contains the entire history of the Odoo project.</p><p >The git repository is <a href="https://github.com/odoo/odoo.git" class="external reference">https://github.com/odoo/odoo.git</a> for the Community
+version.</p><p >Downloading it requires a <a href="http://git-scm.com/download/" class="external reference">git client</a>
+(which may be available via your distribution on linux) and can be performed
+using the following command:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone https://github.com/odoo/odoo.git
+</pre></div>
+</div>
+</li></ul></section><section id="id6"><h3 >Enterprise</h3><p >If you have access to the Enterprise repository (see <a href="#setup-install-editions" class="internal reference"><span >Editions</span></a>
+if you wish to get access), you can use this command to fetch the addons:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone https://github.com/odoo/enterprise.git
+</pre></div>
+</div>
+<p >If you use <a href="http://git-scm.com" class="external reference">git</a>, you must modify the <a href="../../reference/cmdline/#cmdoption-odoo-bin--addons-path" class="internal reference"><code class="std xref std-option">--addons-path</code></a>
+parameter of your launch command (<code >init.d</code>, custom script, configuration file,
+etc.). The Enterprise addons folder should be included <strong >before</strong> the default
+addons folder.</p><p >For example:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> odoo-bin --addons-path<span class="o">=</span>~/src/custom_modules,~/src/enterprise,~/src/odoo/addons
+</pre></div>
+</div>
+<div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >The Enterprise git repository <strong >does not contain the full Odoo
+source code</strong>. It is only a collection of extra add-ons. The main server
+code is in the Community version.  Running the Enterprise version actually
+means running the server from the Community version with the addons-path option
+set to the folder with the Enterprise version.</p><p >You need to clone both the Community and Enterprise repository to have a working
+Odoo installation. The <a href="https://www.odoo.com/page/download" class="external reference alert-link">Download</a> page contains the entire source code but is not
+updateable as easily.</p></div></section><section id="installing-dependencies"><h3 >Installing dependencies</h3><p >Source installation requires manually installing dependencies:</p><ul ><li ><p >Python 2.7.</p><ul ><li >on Linux and OS X, included by default</li><li ><p >on Windows, use <a href="https://www.python.org/downloads/windows/" class="external reference">the official Python 2.7.9 installer</a>.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >select &quot;add python.exe to Path&quot; during installation, and
+reboot afterwards to ensure the <code class="std std-envvar xref">PATH</code> is updated</p></div><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >if Python is already installed, make sure it is 2.7.9, previous
+versions are less convenient and 3.x versions are not compatible
+with Odoo</p></div></li></ul></li><li ><p >PostgreSQL, to use a local database</p><p >After installation you will need to create a postgres user: by default the
+only user is <code >postgres</code>, and Odoo forbids connecting as <code >postgres</code>.</p><ul ><li ><p >on Linux, use your distribution's package, then create a postgres user
+named like your login:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo su - postgres -c <span class="s2">&quot;createuser -s </span>$<span class="s2">USER&quot;</span>
+</pre></div>
+</div>
+<p >Because the role login is the same as your unix login unix sockets can be
+use without a password.</p></li><li >on OS X, <a href="http://postgresapp.com" class="external reference">postgres.app</a> is the simplest way to
+get started, then create a postgres user as on Linux</li><li ><p >on Windows, use <a href="http://www.enterprisedb.com/products-services-training/pgdownload" class="external reference">PostgreSQL for windows</a> then</p><ul ><li >add PostgreSQL's <code >bin</code> directory (default:
+<code >C:\Program Files\PostgreSQL\9.4\bin</code>) to your <code class="std std-envvar xref">PATH</code></li><li ><p >create a postgres user with a password using the pg admin gui: open
+pgAdminIII, double-click the server to create a connection, select
+<span class="menuselection">Edit ‣ New Object ‣ New Login Role</span>, enter the
+usename in the <span class="guilabel">Role Name</span> field (e.g. <code >odoo</code>), then open
+the <span class="guilabel">Definition</span> tab and enter the password (e.g. <code >odoo</code>),
+then click <span class="guilabel">OK</span>.</p><p >The user and password must be passed to Odoo using either the
+<a href="../../reference/cmdline/#cmdoption-odoo-bin-w" class="internal reference"><code class="std xref std-option">-w</code></a> and <a href="../../reference/cmdline/#cmdoption-odoo-bin-r" class="internal reference"><code class="std xref std-option">-r</code></a> options or
+<a href="../../reference/cmdline/#reference-cmdline-config" class="internal reference"><span >the configuration file</span></a></p></li></ul></li></ul></li><li ><p >Python dependencies listed in the <code class="file">requirements.txt</code> file.</p><ul ><li ><p >on Linux, python dependencies may be installable with the system's package
+manager or using pip.</p><p >For libraries using native code (Pillow, lxml, greenlet, gevent, psycopg2,
+ldap) it may be necessary to install development tools and native
+dependencies before pip is able to install the dependencies themselves.
+These are available in <code >-dev</code> or <code >-devel</code> packages for Python,
+Postgres, libxml2, libxslt, libevent, libsasl2 and libldap2. Then the Python
+dependecies can themselves be installed:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> pip install -r requirements.txt
+</pre></div>
+</div>
+</li><li ><p >on OS X, you will need to install the Command Line Tools
+(<code >xcode-select --install</code>) then download and install a package manager
+of your choice (<a href="http://brew.sh" class="external reference">homebrew</a>, <a href="https://www.macports.org" class="external reference">macports</a>) to install non-Python dependencies.
+pip can then be used to install the Python dependencies as on Linux:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> pip install -r requirements.txt
+</pre></div>
+</div>
+</li><li ><p >on Windows you need to install some of the dependencies manually, tweak the
+requirements.txt file, then run pip to install the remaning ones.</p><p >Install <code >psycopg</code> using the installer here
+<a href="http://www.stickpeople.com/projects/python/win-psycopg/" class="external reference">http://www.stickpeople.com/projects/python/win-psycopg/</a></p><p >Then edit the requirements.txt file:</p><ul ><li >remove <code >psycopg2</code> as you already have it.</li><li >remove the optional <code >python-ldap</code>, <code >gevent</code> and <code >psutil</code> because
+they require compilation.</li><li >add <code >pypiwin32</code> because it's needed under windows.</li></ul><p >Then use pip to install the dependencies using the following
+command from a cmd.exe prompt (replace <code >\YourOdooPath</code> by the actual
+path where you downloaded Odoo):</p><div class="highlight-ps1"><div class="highlight"><pre>C:\&gt; cd \YourOdooPath
+C:\YourOdooPath&gt; C:\Python27\Scripts\pip.exe install -r requirements.txt
+</pre></div>
+</div>
+</li></ul></li><li ><p ><em >Less CSS</em> via nodejs</p><ul ><li ><p >on Linux, use your distribution's package manager to install nodejs and
+npm.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >In debian wheezy and Ubuntu 13.10 and before you need to install
+nodejs manually:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> wget -qO- https://deb.nodesource.com/setup <span class="p">|</span> bash -
+<span class="gp">$</span> apt-get install -y nodejs
+</pre></div>
+</div>
+<p >In later debian (&gt;jessie) and ubuntu (&gt;14.04) you may need to add a
+symlink as npm packages call <code >node</code> but debian calls the binary
+<code >nodejs</code></p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> apt-get install -y npm
+<span class="gp">$</span> sudo ln -s /usr/bin/nodejs /usr/bin/node
+</pre></div>
+</div>
+</div><p >Once npm is installed, use it to install less:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo npm install -g less
+</pre></div>
+</div>
+</li><li ><p >on OS X, install nodejs via your preferred package manager (<a href="http://brew.sh" class="external reference">homebrew</a>,
+<a href="https://www.macports.org" class="external reference">macports</a>) then install less:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo npm install -g less
+</pre></div>
+</div>
+</li><li ><p >on Windows, <a href="http://nodejs.org/download/" class="external reference">install nodejs</a>, reboot (to
+update the <code class="std std-envvar xref">PATH</code>) and install less:</p><div class="highlight-ps1"><div class="highlight"><pre>C:\&gt; npm install -g less
+</pre></div>
+</div>
+</li></ul></li></ul></section><section id="running-odoo"><h3 >Running Odoo</h3><p >Once all dependencies are set up, Odoo can be launched by running <code >odoo-bin</code>.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >For the Enterprise edition, you must specify the <code class="file">enterprise</code>
+addons folder when starting your server. You can do so by providing the path
+to your <code class="file">enterprise</code> folder in the <code >addons-path</code> parameter. Please
+note that the <code class="file">enterprise</code> folder must come before the default
+<code class="file">addons</code> folder in the  list for the addons to be loaded correctly.</p></div><p ><a href="../../reference/cmdline/#reference-cmdline" class="internal reference"><span >Configuration</span></a> can be provided either through
+<a href="../../reference/cmdline/#reference-cmdline" class="internal reference"><span >command-line arguments</span></a> or through a
+<a href="../../reference/cmdline/#reference-cmdline-config" class="internal reference"><span >configuration file</span></a>.</p><p >Common necessary configurations are:</p><ul ><li ><p >PostgreSQL host, port, user and password.</p><p >Odoo has no defaults beyond
+<a href="http://initd.org/psycopg/docs/module.html" class="external reference">psycopg2's defaults</a>: connects
+over a UNIX socket on port 5432 with the current user and no password. By
+default this should work on Linux and OS X, but it <em >will not work</em> on
+windows as it does not support UNIX sockets.</p></li><li >Custom addons path beyond the defaults, to load your own modules</li></ul><p >Under Windows a typical way to execute odoo would be:</p><div class="highlight-ps1"><div class="highlight"><pre>C:\YourOdooPath&gt; python odoo-bin -w odoo -r odoo --addons-path=addons,../mymodules --db-filter=mydb$
+</pre></div>
+</div>
+<p >Where <code >odoo</code>, <code >odoo</code> are the postgresql login and password,
+<code >../mymodules</code> a directory with additional addons and <code >mydb</code> the default
+db to serve on localhost:8069</p><p >Under Unix a typical way to execute odoo would be:</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> ./odoo-bin --addons-path<span class="o">=</span>addons,../mymodules --db-filter<span class="o">=</span>mydb$
+</pre></div>
+</div>
+<p >Where <code >../mymodules</code> is a directory with additional addons and <code >mydb</code> the
+default db to serve on localhost:8069</p></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

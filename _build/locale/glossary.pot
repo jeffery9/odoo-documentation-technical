@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-06 10:19+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../glossary.rst:5
+msgid "Glossary"
+msgstr ""
+
+#: ../../glossary.rst:8
+msgid "external id"
+msgstr ""
+
+#: ../../glossary.rst:9
+msgid "external identifier"
+msgstr ""
+
+#: ../../glossary.rst:10
+msgid "external identifiers"
+msgstr ""
+
+#: ../../glossary.rst:12
+msgid "string identifier stored in ``ir.model.data``, can be used to refer to a record regardless of its database identifier during data imports or export/import roundtrips."
+msgstr ""
+
+#: ../../glossary.rst:16
+msgid "External identifiers are in the form :samp:`{module}.{id}` (e.g. ``account.invoice_graph``). From within a module, the :samp:`{module}.` prefix can be left out."
+msgstr ""
+
+#: ../../glossary.rst:20
+msgid "Sometimes referred to as \"xml id\" or ``xml_id`` as XML-based :ref:`reference/data` make extensive use of them."
+msgstr ""
+
+#: ../../glossary.rst:22
+msgid "format string"
+msgstr ""
+
+#: ../../glossary.rst:24
+msgid "inspired by `jinja variables`_, format strings allow more easily mixing literal content and computed content (expressions): content between ``{{`` and ``}}`` is interpreted as an expression and evaluated, other content is interpreted as literal strings and displayed as-is"
+msgstr ""
+
+#: ../../glossary.rst:29
+msgid "GIS"
+msgstr ""
+
+#: ../../glossary.rst:30
+msgid "Geographic Information System"
+msgstr ""
+
+#: ../../glossary.rst:32
+msgid "any computer system or subsystem to capture, store, manipulate, analyze, manage or present spatial and geographical data."
+msgstr ""
+
+#: ../../glossary.rst:34
+msgid "minified"
+msgstr ""
+
+#: ../../glossary.rst:35
+msgid "minification"
+msgstr ""
+
+#: ../../glossary.rst:37
+msgid "process of removing extraneous/non-necessary sections of files (comments, whitespace) and possibly recompiling them using equivalent but shorter structures (`ternary operator`_ instead of ``if/else``) in order to reduce network traffic"
+msgstr ""
+

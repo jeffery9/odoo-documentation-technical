@@ -1,0 +1,712 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Theme Tutorial &mdash; odoo 10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/doc.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 10.0 documentation" href="../../" />
+    <link rel="up" title="Tutorials" href="../../tutorials/" />
+    <link rel="next" title="Building a Website" href="../website/" />
+    <link rel="prev" title="Tutorials" href="../../tutorials/" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../../">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Theme Tutorial</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../../_static/banners/build_a_theme.jpg');"></span>
+      <div class="container text-center">
+        <h1> Theme Tutorial </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#an-introduction-for-web-designers" class="ripple internal reference">An introduction for web designers</a><ul ><li class="list-group-item"><a href="#from-common-cms-to-odoo" class="ripple internal reference">From common CMS to Odoo</a></li><li class="list-group-item"><a href="#odoo-default-theme-structure" class="ripple internal reference">Odoo default theme structure</a></li></ul></li><li class="list-group-item"><a href="#thinking-modular" class="ripple internal reference">Thinking &quot;modular&quot;</a><ul ><li class="list-group-item"><a href="#odoo-s-xml-files-an-overview" class="ripple internal reference">Odoo's XML files, an overview</a></li><li class="list-group-item"><a href="#update-your-theme" class="ripple internal reference">Update your theme</a></li></ul></li><li class="list-group-item"><a href="#create-a-theme-module" class="ripple internal reference">Create a theme module</a><ul ><li class="list-group-item"><a href="#edit-manifest-py" class="ripple internal reference">Edit <code >__manifest__.py</code></a></li><li class="list-group-item"><a href="#installing-your-theme" class="ripple internal reference">Installing your theme</a></li></ul></li><li class="list-group-item"><a href="#structure-of-an-odoo-page" class="ripple internal reference">Structure of an Odoo page</a><ul ><li class="list-group-item"><a href="#extend-the-default-header" class="ripple internal reference">Extend the default Header</a></li></ul></li><li class="list-group-item"><a href="#create-a-specific-page-layout" class="ripple internal reference">Create a specific page layout</a></li><li class="list-group-item"><a href="#add-styles" class="ripple internal reference">Add Styles</a></li><li class="list-group-item"><a href="#create-snippets" class="ripple internal reference">Create Snippets</a></li><li class="list-group-item"><a href="#snippet-options" class="ripple internal reference">Snippet options</a><ul ><li class="list-group-item"><a href="#options-group-properties" class="ripple internal reference">Options group properties</a></li><li class="list-group-item"><a href="#default-option-methods" class="ripple internal reference">Default option methods</a></li><li class="list-group-item"><a href="#javascript-options" class="ripple internal reference">Javascript Options</a></li></ul></li><li class="list-group-item"><a href="#editing-reference-guide" class="ripple internal reference">Editing Reference Guide</a><ul ><li class="list-group-item"><a href="#layout" class="ripple internal reference">Layout</a></li><li class="list-group-item"><a href="#media" class="ripple internal reference">Media</a></li></ul></li><li class="list-group-item"><a href="#seo-best-practice" class="ripple internal reference">SEO best practice</a><ul ><li class="list-group-item"><a href="#facilitate-content-insertion" class="ripple internal reference">Facilitate content insertion</a></li><li class="list-group-item"><a href="#page-segmentation" class="ripple internal reference">Page segmentation</a></li><li class="list-group-item"><a href="#describe-your-page" class="ripple internal reference">Describe your page</a><ul ><li class="list-group-item"><a href="#define-keywords" class="ripple internal reference">Define keywords</a></li><li class="list-group-item"><a href="#define-a-title-and-a-description" class="ripple internal reference">Define a title and a description</a></li></ul></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/howtos/themes.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="theme-tutorial"><p class="lead">Odoo celebrates freedom. Freedom for the designer to go further and
+freedom for the user to customize everything according to their needs.</p><p >Ready to create your own theme? Great. Here are some things you should know before you begin. This tutorial is a guide to creating an Odoo theme.</p><img src="../../_images/Intro.jpg" class="img-responsive"></section><section id="an-introduction-for-web-designers"><h2 >An introduction for web designers</h2><p >If you are a web designer using Odoo for the first time, you are in the right place.
+This introduction will outline the basics of Odoo theme creation.</p><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >Odoo’s team has created a framework that’s powerful and easy to use. There’s no need to know special syntaxes to use this set of tools.</p></div></section><section id="from-common-cms-to-odoo"><h3 >From common CMS to Odoo</h3><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >If you always think and work in the same way, you’ll probably get the same results. If you want something completely new,  then try something different.</p></div><blockquote >Where is my header.php file?</blockquote><p >This is usually the first question from a web designer used to working with Wordpress or Joomla and coming to Odoo for the first time.</p><div class="col-sm-4"><img src="../../_images/cms.jpg" class="img-responsive"></div><div class="col-sm-7"><p >Indeed, when using common CMSs, you have to code several files (like header.php, page.php, post.php, etc.) in order to create a basic structure for your website. With those systems, this base structure acts as a design foundation that you have to update over time to ensure compatibility within your CMS. So, even after you have spent hours coding the files, you have not even started on the design yet.</p><p >This <strong >does not</strong> apply to creating Odoo themes.</p></div><div role="alert" class="col-sm-12 alert-info alert"><p class="alert-title">Note</p><p >We think that theme design should be simple (and powerful). When we created our Website Builder, we decided to start from scratch instead of relying on what already existed. This approach gave us the freedom to focus on the things that are really important for designers: styles, content and the logic behind them. No more struggling with technical stuff.</p></div></section><section id="odoo-default-theme-structure"><h3 >Odoo default theme structure</h3><div class="col-sm-8"><p >Odoo comes with a default theme structure.
+It is a very basic “theme” that provides minimal structure and layout. When you create a new theme, you are actually extending this.
+Indeed it’s always enabled in your setup and it acts exactly like the CMS’s base structure we mentioned above, except that you don’t have to create or maintain it.
+It will upgrade automatically within your Odoo installation and, since it is included in the Website Builder module, everything is smoothly integrated by default.</p><p >As a result, you are totally free to focus on design while this structure does the job of providing integrations and functionality.</p></div><div class="col-sm-4"><img src="../../_images/def_structure.jpg" class="img-responsive"></div><div class="col-md-6"><p ><strong >Main features:</strong></p><ul ><li >Basic layouts for pages, blog and eCommerce</li><li >Website Builder integration</li><li >Basic Snippets</li><li >Automatic Less/Sass compiling</li><li >Automatic Js and CSS minification and combination</li></ul></div><div class="col-md-6"><p ><strong >Main technologies:</strong></p><ul ><li >Twitter Bootstrap</li><li >jQuery</li><li >jQuery UI</li><li >underscore.js</li></ul></div></section><section id="thinking-modular"><h2 >Thinking &quot;modular&quot;</h2><p >An Odoo theme is not a folder containing HTML or PHP files, it’s a modular framework written in XML. Never worked with XML files before? Don’t worry, after following the tutorial, you’ll be able to create your first theme with only basic knowledge of HTML.</p><p >Using classical web design workflows, you usually code the layout of the entire page. The result of this is a “static” web page. You can update the content, of course, but your client will need you to work on making even basic changes.</p><p >Creating themes for Odoo is a total change of perspective. Instead of defining the complete layout for a page, you can create blocks (snippets) at let the user choose where to “drag&amp;drop” them, creating the page layout on their own.
+We call this modular design.</p><p >Imagine an Odoo theme as a “list” of elements and options that you have to create and style.
+As a designer, your goal is to style these elements in order to achieve a wonderful result, regardless of where the end user chooses to place them.</p><p >Let’s take a tour of our “list” elements:</p><div id="id1" class="col-sm-6"><img src="../../_images/snippet.jpg" class="img-responsive"><h4 >Snippets (or building-blocks)</h4>A piece of HTML code.  The user  will  drag&amp;drop, modify and combine them using our built-in Website Builder interface. You can define sets of options and styles for each snippet. The user will choose from them according to their needs.</div><div id="id2" class="col-sm-6"><img src="../../_images/page.jpg" class="img-responsive"><h4 >Pages</h4>These are normal web pages, except that they will be editable by the final user and that you can define an empty area that the user can “fill” by dragging snippets into it.</div><div class="clearfix themes"></div><div id="id3" class="col-sm-6"><img src="../../_images/styles.jpg" class="img-responsive"><h4 >Styles</h4>Styles are defined using standard CSS files (or Less/Sass). You can define a style as <strong >default</strong> or <strong >optional</strong>. The default styles are always active in your theme, the optional styles can be enabled or disabled by the user.</div><div id="id4" class="col-sm-6"><img src="../../_images/functionalities.jpg" class="img-responsive"><h4 >Functionalities</h4>Thanks to Odoo’s modularity, everything can be personalized even more. This means there are endless possibilities for your creativity. Adding functionalities is easy and it’s simple to provide the end user with customizable options.</div></section><section id="odoo-s-xml-files-an-overview"><h3 >Odoo's XML files, an overview</h3><p >Any Odoo XML file starts with encoding specifications.
+After that, you have to write your code inside a <code >&lt;data&gt;</code> tag, placed into an <code >&lt;/odoo&gt;</code> tag.</p><div class="highlight-xml"><div class="highlight"><pre>[XML]
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;odoo&gt;</span>
+  <span class="nt">&lt;data&gt;</span>
+    ## YOUR CODE HERE
+  <span class="nt">&lt;/data&gt;</span>
+<span class="nt">&lt;/odoo&gt;</span>
+</pre></div>
+</div>
+<p >Almost every element and option that you create has to be placed inside a <code >&lt;template&gt;</code> tag, like in this example.</p><div class="highlight-xml"><div class="highlight"><pre>[XML]
+<span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;my_title&quot;</span> <span class="na">name=</span><span class="s">&quot;My title&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>This is an HTML block<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;lead&quot;</span><span class="nt">&gt;</span>And this is a subtitle<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-warning alert"><p class="alert-title">Important</p><p >don't misunderstand what <code >template</code> means. A template tag only
+defines a piece of html code or options - but it does not
+necessarily coincide with a visual arrangement of elements.</p></div><p >The previous code defines a title, but it will not be displayed
+anywhere because that <em >template</em> is not associated with any part of
+the <strong >Odoo default structure</strong>.  In order to do that you can use
+<strong >xpath</strong>, <strong >qWeb</strong> or a combination of both.</p><p >Keep reading the tutorial to learn to how properly extend it with your own code.</p></section><section id="update-your-theme"><h3 >Update your theme</h3><div class="col-sm-6"><p >Since XML files are only loaded when you install the theme, you will have to force reloading every time you make changes on an xml file.</p><p >To do that, click on the Upgrade button in the module’s page.</p><img src="../../_images/restart.png" class="img-responsive"></div><div class="col-sm-5"><img src="../../_images/upgrade_module.png" class="img-responsive"></div></section><section id="create-a-theme-module"><h2 >Create a theme module</h2><p >Odoo’s themes are packaged like modules. Even if you are designing a very simple website for your company or client, you need to package the theme like an Odoo module.</p><dl ><dt ><code >main folder</code></dt><dd >Create a folder and name it like this: <code >theme_</code> followed by your
+theme's name.</dd><dt ><code >__manifest__.py</code></dt><dd >Create an empty document and save it to your folder as
+<code >__manifest__.py</code>. This will contain the configuration info for
+your theme.</dd><dt ><code >__init__.py</code></dt><dd >Create another empty file and name it <code >__init__.py</code>. It's a
+mandatory system file. Create and leave it blank.</dd><dt ><code >views</code> and <code >static</code> folders</dt><dd >Create them in the main folder. In <code >views</code> you'll place your xml
+files that define your snippets, your pages and your
+options. <code >static</code> folder is the right place for your style ,
+images and custom js code.</dd></dl><div role="alert" class="alert-warning alert"><p class="alert-title">Important</p><p >Use two underscore characters at the beginning
+and two at the end of odoo and init file names.</p></div><p >The final result should be something like this:</p><img src="../../_images/folder.jpg" class="img-responsive"></section><section id="edit-manifest-py"><h3 >Edit <code >__manifest__.py</code></h3><p >Open the <code >__manifest__.py</code> you created and copy/paste the following:</p><div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Tutorial theme&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A description for your theme.&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;version&#39;</span><span class="p">:</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;author&#39;</span><span class="p">:</span><span class="s1">&#39;Your name&#39;</span><span class="p">,</span>
+
+  <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">],</span>
+  <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;Theme/Creative&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;website&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >Replace the first four property’s values with anything you like.
+These values will be used to identify your new theme in Odoo’s backend.</p><p >The <code >data</code> property will contain the xml files list. Right now it’s empty, but we will add any new files created.</p><p ><code >application: True</code> is mandatory.</p><p ><code >category</code> defines your module category (always “Theme”) and, after a slash, the subcategory. You can use one subcategory from the Odoo Apps categories list. (<a href="https://www.odoo.com/apps/themes" class="external reference">https://www.odoo.com/apps/themes</a>)</p><p ><code >depends</code> specifies the modules needed by our theme to work properly. For our tutorial theme, we only need website. If you need blogging or eCommerce features as well, you have to add those modules too.</p><div class="highlight-python"><div class="highlight"><pre><span class="o">...</span>
+<span class="s1">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;website&#39;</span><span class="p">,</span> <span class="s1">&#39;website_blog&#39;</span><span class="p">,</span> <span class="s1">&#39;sale&#39;</span><span class="p">],</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</section><section id="installing-your-theme"><h3 >Installing your theme</h3><p >To install your theme, you just place your theme folder inside addons in your Odoo installation.</p><p >After that, navigate to the Settings page, look for your theme and click on the install button.</p></section><section id="structure-of-an-odoo-page"><h2 >Structure of an Odoo page</h2><p >An Odoo page is the visual result of a combination of 2 kind of elements, <strong >cross-pages</strong> and <strong >unique</strong>.
+By default, Odoo provides you with a <strong >Header</strong> and a <strong >Footer</strong> (cross-pages) and a unique main element that contains the content that makes your page unique.</p><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >Cross-pages elements will be the same on every page. Unique elements are related to a specific page only.</p></div><img src="../../_images/page_structure.jpg" class="img-responsive"><p >To inspect the default layout, simply create a new page using the
+Website Builder.  Click on <span class="menuselection">Content ‣ New Page</span> and
+add a page name.  Inspect the page using your browser.</p><div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">“wrapwrap”</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">header</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">main</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">footer</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section><section id="extend-the-default-header"><h3 >Extend the default Header</h3><p >By default, Odoo header contains a responsive navigation menu and the company’s logo. You can easily add new elements or style the existing one.</p><p >To do so, create a <strong >layout.xml</strong> file in your <strong >views</strong> folder and add the default Odoo xml markup.</p><div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;odoo&gt;</span>
+  <span class="nt">&lt;data&gt;</span>
+
+  <span class="nt">&lt;/data&gt;</span>
+<span class="nt">&lt;/odoo&gt;</span>
+</pre></div>
+</div>
+<p >Create a new template into the <code >&lt;data&gt;</code> tag, copy-pasting the following
+code.</p><div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- Customize header  --&gt;</span>
+<span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;custom_header&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.layout&quot;</span> <span class="na">name=</span><span class="s">&quot;Custom Header&quot;</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- Assign an id  --&gt;</span>
+  <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@id=&#39;wrapwrap&#39;]/header&quot;</span> <span class="na">position=</span><span class="s">&quot;attributes&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="nt">&gt;</span>my_header<span class="nt">&lt;/attribute&gt;</span>
+  <span class="nt">&lt;/xpath&gt;</span>
+
+  <span class="c">&lt;!-- Add an element after the top menu  --&gt;</span>
+  <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@id=&#39;wrapwrap&#39;]/header/div&quot;</span> <span class="na">position=</span><span class="s">&quot;after&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-info mt16&quot;</span> <span class="na">role=</span><span class="s">&quot;alert&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;strong&gt;</span>Welcome<span class="nt">&lt;/strong&gt;</span> in our website!
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/xpath&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p >The first xpath will add the id <code >my_header</code> to the header. It’s the best option if you want to
+target css rules to that element and avoid these affecting other content on the page.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >Be careful replacing default elements attributes. As your theme will extend the default one,
+your changes will take priority in any future Odoo’s update.</p></div><p >The second xpath will add a welcome message just after the navigation menu.</p><p >The last step is to add layout.xml to the list of xml files used by
+the theme. To do that, edit your <code >__manifest__.py</code> file like this</p><div class="highlight-python"><div class="highlight"><pre><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;views/layout.xml&#39;</span> <span class="p">],</span>
+</pre></div>
+</div>
+<p >Update your theme</p><img src="../../_images/restart.png" class="img-responsive"><p >Great! We successfully added an id to the
+header and an element after the navigation menu. These changes will be
+applied to each page of the website.</p><img src="../../_images/after-menu.png" class="img-responsive shadow-0"></section><section id="create-a-specific-page-layout"><h2 >Create a specific page layout</h2><p >Imagine that we want to create a specific layout for a Services page.
+For this page, we need to add a list of services to the top and give the client the possibility of setting the rest of the page’s layout using snippets.</p><p >Inside your <em >views</em> folder, create a <strong >pages.xml</strong> file and add the
+default Odoo markup.  Inside <code >&lt;data&gt;</code> create a <code >&lt;template&gt;</code> tag, set the
+<code >page</code> attribute to <code >True</code> and add your code into it.</p><div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;odoo&gt;</span>
+  <span class="nt">&lt;data&gt;</span>
+    <span class="c">&lt;!-- === Services Page === --&gt;</span>
+    <span class="nt">&lt;template</span> <span class="na">name=</span><span class="s">&quot;Services page&quot;</span> <span class="na">id=</span><span class="s">&quot;website.services&quot;</span> <span class="na">page=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Our Services<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;services&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>Cloud Hosting<span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;</span>Support<span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;</span>Unlimited space<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+      <span class="nt">&lt;/template&gt;</span>
+    <span class="nt">&lt;/data&gt;</span>
+  <span class="nt">&lt;/odoo&gt;</span>
+</pre></div>
+</div>
+<p >The page title will be the template ID. In our case <em >Services</em> (from <code >website.services</code>)</p><p >We successfully created a new page layout, but we haven't told the
+system <strong >how to use it</strong>. To do that, we can use <strong >QWeb</strong>. Wrap the
+html code into a <code >&lt;t&gt;</code> tag, like in this example.</p><div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- === Services Page === --&gt;</span>
+<span class="nt">&lt;template</span> <span class="na">name=</span><span class="s">&quot;Services page&quot;</span> <span class="na">id=</span><span class="s">&quot;website.services&quot;</span> <span class="na">page=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;website.layout&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;wrap&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Our Services<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;services&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>Cloud Hosting<span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;</span>Support<span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;</span>Unlimited space<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p >Using <code >&lt;t t-call=&quot;website.layout&quot;&gt;</code> we will extend the Odoo
+default page layout with our code.</p><p >As you can see, we wrapped our code into two <code >&lt;div&gt;</code>,  one with ID <code >wrap</code> and the other one with class <code >container</code>. This is to provide a minimal layout.</p><p >The next step is to add an empty area that the user
+can fill with snippets. To achieve this, just create a <code >div</code> with
+<code >oe_structure</code> class just before closing the <code >div#wrap</code> element.</p><div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;odoo&gt;</span>
+<span class="nt">&lt;data&gt;</span>
+
+<span class="c">&lt;!-- === Services Page === --&gt;</span>
+<span class="nt">&lt;template</span> <span class="na">name=</span><span class="s">&quot;Services page&quot;</span> <span class="na">id=</span><span class="s">&quot;website.services&quot;</span> <span class="na">page=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;website.layout&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;wrap&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;h1&gt;</span>Our Services<span class="nt">&lt;/h1&gt;</span>
+       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;services&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;li&gt;</span>Cloud Hosting<span class="nt">&lt;/li&gt;</span>
+         <span class="nt">&lt;li&gt;</span>Support<span class="nt">&lt;/li&gt;</span>
+         <span class="nt">&lt;li&gt;</span>Unlimited space<span class="nt">&lt;/li&gt;</span>
+       <span class="nt">&lt;/ul&gt;</span>
+       <span class="c">&lt;!-- === Snippets&#39; area === --&gt;</span>
+       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span> <span class="nt">/&gt;</span>
+     <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+
+<span class="nt">&lt;/data&gt;</span>
+<span class="nt">&lt;/odoo&gt;</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-info alert"><p class="alert-title">Tip</p><p >You can create as many snippet areas as you like and place them anywhere in your pages.</p></div><p >Our page is almost ready. Now all we have to do is add <strong >pages.xml</strong> in our <strong >__manifest__.py</strong> file</p><div class="highlight-python"><div class="highlight"><pre><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s1">&#39;views/layout.xml&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;views/pages.xml&#39;</span>
+<span class="p">],</span>
+</pre></div>
+</div>
+<p >Update your theme</p><img src="../../_images/restart.png" class="img-responsive"><p >Great, our Services page is ready and you’ll be able to access it by navigating to <code >/yourwebsite/page/services</code>.</p><p >You will notice that it's possible to drag/drop snippets underneath the
+<em >Our Services</em> list.</p><img src="../../_images/services_page_nostyle.png" class="img-responsive shadow-0"><p >Now let's go back to our <em >pages.xml</em> and, after our page template,
+copy/paste the following code.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;services_page_link&quot;</span> <span class="na">model=</span><span class="s">&quot;website.menu&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Services<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span><span class="nt">&gt;</span>/page/services<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;parent_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;website.main_menu&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;sequence&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span><span class="nt">&gt;</span>99<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<p >This code will add a link to the main menu.</p><img src="../../_images/services_page_menu.png" class="img-responsive shadow-0"><p >The <strong >sequence</strong> attribute defines the link’s position in the top menu.
+In our example, we set the value to <code >99</code> in order to place it last. I you want to place it in a particular position, you have to replace the value according to your needs.</p><p >As you can see inspecting the <em >data.xml</em> file in the <code >website</code> module, the <strong >Home</strong> link is set to <code >10</code> and the <strong >Contact</strong> us one is set to <code >60</code> by default.
+If, for example, you want to place your link in the <strong >middle</strong>, you can set your link’s sequence value to <code >40</code>.</p></section><section id="add-styles"><h2 >Add Styles</h2><p >Odoo includes Bootstrap by default. This means that you can take advantage of all Bootstrap styles and layout functionalities out of the box.</p><p >Of course Bootstrap is not enough if you want to provide a unique design. The following steps will guide you through how to add custom styles to your theme.
+The final result won't be pretty, but will provide you with enough information to build upon on your own.</p><p >Let’s start by creating an empty file called <strong >style.less</strong> and place it in a folder called <strong >less</strong> in your static folder.
+The following rules will style our <em >Services</em> page. Copy and paste it, then save the file.</p><div class="highlight-css"><div class="highlight"><pre>.services {
+    background: #EAEAEA;
+    padding: 1em;
+    margin: 2em 0 3em;
+    li {
+        display: block;
+        position: relative;
+        background-color: #16a085;
+        color: #FFF;
+        padding: 2em;
+        text-align: center;
+        margin-bottom: 1em;
+        font-size: 1.5em;
+    }
+}
+</pre></div>
+</div>
+<p >Our file is ready but it is not included in our theme yet.</p><p >Let’s navigate to the view folder and create an XML file called <em >assets.xml</em>. Add the default Odoo xml markup and copy/paste the following code. Remember to replace <code >theme folder</code> with your theme’s main folder name.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;mystyle&quot;</span> <span class="na">name=</span><span class="s">&quot;My style&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.assets_frontend&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;link[last()]&quot;</span> <span class="na">position=</span><span class="s">&quot;after&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;/theme folder/static/less/style.less&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/less&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xpath&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p >We just created a template specifying our less file. As you can see,
+our template has a special attribute called <code >inherit_id</code>.  This
+attribute tells Odoo that our template is referring to another one in
+order to operate.</p><p >In this case, we are referring to <code >assets_frontend</code> template,
+located in the <code >website</code> module. <code >assets_frontend</code> specifies the
+list of assets loaded by the website builder and our goal is to add
+our less file to this list.</p><p >This can be achieved using xpath with the attributes
+<code >expr=&quot;link[last()]&quot;</code> and <code >position=&quot;after&quot;</code>, which means &quot;<em >take my
+style file and place it after the last link in the list of the
+assets</em>&quot;.</p><p >Placing it after the last one, we ensure that our file will
+be loaded at the end and take priority.</p><p >Finally add <strong >assets.xml</strong> in your <strong >__manifest__.py</strong> file.</p><p >Update your theme</p><img src="../../_images/restart.png" class="img-responsive"><p >Our less file is now included in our theme, it will be automatically compiled, minified and combined with all Odoo’s assets.</p><img src="../../_images/services_page_styled.png" class="img-responsive shadow-0"></section><section id="create-snippets"><h2 >Create Snippets</h2><p >Since snippets are how users design and layout pages, they are the most important element of your design.
+Let’s create a snippet for our Service page. The snippet will display three testimonials and it will be editable by the end user using the Website Builder UI.
+Navigate to the view folder and create an XML file called <strong >snippets.xml</strong>.
+Add the default Odoo xml markup and copy/paste the following code.
+The template contains the HTML markup that will be displayed by the snippet.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;snippet_testimonial&quot;</span> <span class="na">name=</span><span class="s">&quot;Testimonial snippet&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;snippet_testimonial&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container text-center&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-4&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">&quot;client&quot;</span> <span class="na">class=</span><span class="s">&quot;img-circle&quot;</span> <span class="na">src=</span><span class="s">&quot;/theme_tutorial/static/src/img/client_1.jpg&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;h3&gt;</span>Client Name<span class="nt">&lt;/h3&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-4&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">&quot;client&quot;</span> <span class="na">class=</span><span class="s">&quot;img-circle&quot;</span> <span class="na">src=</span><span class="s">&quot;/theme_tutorial/static/src/img/client_2.jpg&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;h3&gt;</span>Client Name<span class="nt">&lt;/h3&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-4&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">&quot;client&quot;</span> <span class="na">class=</span><span class="s">&quot;img-circle&quot;</span> <span class="na">src=</span><span class="s">&quot;/theme_tutorial/static/src/img/client_3.jpg&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;h3&gt;</span>Client Name<span class="nt">&lt;/h3&gt;</span>
+          <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p >As you can see, we used Bootstrap default classes for our three columns. It’s not just about layout, these classes <strong >will be triggered by the Website Builder to make them resizable by the user</strong>.</p><p >The previous code will create the snippet’s content, but we still need to place it into the editor bar, so the user will be able to drag&amp;drop it into the page. Copy/paste this template in your <strong >snippets.xml</strong> file.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;place_into_bar&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.snippets&quot;</span> <span class="na">name=</span><span class="s">&quot;Place into bar&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@id=&#39;snippet_content&#39;]/div[@class=&#39;o_panel_body&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-snippet=</span><span class="s">&quot;theme_tutorial.snippet_testimonial&quot;</span>
+       <span class="na">t-thumbnail=</span><span class="s">&quot;/theme_tutorial/static/src/img/ui/snippet_thumb.jpg&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/xpath&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p class="col-sm-6">Using xpath, we are targeting a particular element with id
+<code >snippet_structure</code>. This means that the snippet will appear in the
+Structure tab. If you want to change the destination tab, you have just to replace the <code >id</code> value in the xpath expression.</p><img src="../../_images/snippet_bar.png" class="img-responsive shadow-0 col-sm-6"><table class="table"><thead ><tr ><th >Tab Name</th><th >Xpath expression</th></tr></thead><tbody ><tr ><td >Structure</td><td ><code >//div[@id='snippet_structure']</code></td></tr><tr ><td >Content</td><td ><code >//div[@id='snippet_content']</code></td></tr><tr ><td >Feature</td><td ><code >//div[@id='snippet_feature']</code></td></tr><tr ><td >Effect</td><td ><code >//div[@id='snippet_effect']</code></td></tr></tbody></table><p >The <code >&lt;t&gt;</code> tag will call our snippet's template and will assign a thumbnail placed in the img folder.
+You can now drag your snippet from the snippet bar, drop it in your page and see the result.</p><img src="../../_images/snippet_default.png" class="img-responsive"></section><section id="snippet-options"><h2 >Snippet options</h2><p >Options allow publishers to edit a snippet’s appearance using the Website Builder’s UI.
+Using Website Builder functionalities, you can create snippet options easily and automatically add them to the UI.</p></section><section id="options-group-properties"><h3 >Options group properties</h3><p >Options are wrapped in groups. Groups can have properties that define how the included options will interact with the user interface.</p><dl ><dt ><code >data-selector=&quot; css selector(s) &quot;</code></dt><dd >Bind all the options included into the group to a particular element.</dd><dt ><code >data-js=&quot; custom method name &quot;</code></dt><dd >Is used to bind custom Javascript methods.</dd><dt ><code >data-drop-in=&quot; css selector(s) &quot;</code></dt><dd >Defines the list of elements where the snippet can be dropped into.</dd><dt ><code >data-drop-near=&quot; css selector(s) &quot;</code></dt><dd >Defines the list of elements that the snippet can be dropped beside.</dd></dl></section><section id="default-option-methods"><h3 >Default option methods</h3><p >Options apply standard CSS classes to the snippet. Depending on the method that you choose, the UI will behave differently.</p><dl ><dt ><code >data-select_class=&quot; class name &quot;</code></dt><dd >More data-select_class in the same group defines a list of classes that the user can choose to apply. Only one option can be enabled at a time.</dd><dt ><code >data-toggle_class=&quot; class name &quot;</code></dt><dd >The data-toggle_class is used to apply one or more CSS classes from the list to a snippet. Multiple selections can be applied at once.</dd></dl><p >Let's demonstrate how default options work with a basic example.</p><p >We start by adding a new file in our views folder - name it <strong >options.xml</strong> and add the default Odoo XML markup. Create a new template copy/pasting the following</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;snippet_testimonial_opt&quot;</span> <span class="na">name=</span><span class="s">&quot;Snippet Testimonial Options&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.snippet_options&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@data-js=&#39;background&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;after&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-selector=</span><span class="s">&quot;.snippet_testimonial&quot;</span><span class="nt">&gt;</span> <span class="c">&lt;!-- Options group --&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;dropdown-submenu&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Your Option<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;dropdown-menu&quot;</span><span class="nt">&gt;</span> <span class="c">&lt;!-- Options list --&gt;</span>
+          <span class="nt">&lt;li</span> <span class="na">data-select_class=</span><span class="s">&quot;opt_shadow&quot;</span><span class="nt">&gt;&lt;a&gt;</span>Shadow Images<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li</span> <span class="na">data-select_class=</span><span class="s">&quot;opt_grey_bg&quot;</span><span class="nt">&gt;&lt;a&gt;</span>Grey Bg<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li</span> <span class="na">data-select_class=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;a&gt;</span>None<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/xpath&gt;</span>
+ <span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >The previous template will inherit the default <strong >snippet_options template</strong> adding our options after the <strong >background</strong> options (xpath expr attribute).
+To place your options in a particular order, inspect the <strong >snippet_options template</strong> from the <strong >website module</strong> and add your options before/after the desired position.</p></div><p >As you can see, we wrapped all our options inside a DIV tag that will
+group our options and that will target them to the right selector
+(<code >data-selector=&quot;.snippet_testimonial&quot;</code>).</p><p >To define our options we applied <code >data-select_class</code> attributes to the
+<code >li</code> elements. When the user selects an option, the class contained in
+the attribute will automatically be applied to the element.</p><p >Since <code >select_class</code> method avoids multiple selections, the last &quot;empty&quot;
+option will reset the snippet to default.</p><p >Add <strong >options.xml</strong> to <code >__manifest__.py</code> and update your theme.</p><img src="../../_images/restart.png" class="img-responsive"><p >Dropping our snippet onto the page, you will notice that our new options are automatically added to the customize menu. Inspecting the page, you will also notice that the class will be applied to the element when selecting an option.</p><img src="../../_images/snippet_options.png" class="img-responsive"><p >Let’s create some css rules in order to provide a visual feedback for our options. Open our <strong >style.less</strong> file and add the following</p><div class="highlight-css"><div class="highlight"><pre>.snippet_testimonial {
+  border: 1px solid #EAEAEA;
+  padding: 20px;
+}
+
+// These lines will add a default style for our snippet. Now let&#39;s create our custom rules for the options.
+
+.snippet_testimonial {
+  border: 1px solid #EAEAEA;
+  padding: 20px;
+
+  &amp;.opt_shadow img {
+    box-shadow: 0 2px 5px rgba(51, 51, 51, 0.4);
+  }
+
+  &amp;.opt_grey_bg {
+    border: none;
+    background-color: #EAEAEA;
+  }
+}
+</pre></div>
+</div>
+<img src="../../_images/snippet_options2.png" class="img-responsive shadow-0"><p >Great! We successfully created options for our snippet.</p><p >Any time the publisher clicks on an option, the system will add the class specified in the data-select_class attribute.</p><p >By replacing <code >data-select_class</code> with <code >data-toggle_class</code> you will be able to select
+more classes at the same time.</p></section><section id="javascript-options"><h3 >Javascript Options</h3><p ><code >data-select_class</code> and <code >data-toggle_class</code> are great if you need to perform
+simple class change operations. But what if your snippet’s customization needs something more?</p><p >As we said before, <code >data-js</code> propriety can be assigned to an options group in order to define a custom method. Let’s create one for our <em >testimonials snippet</em> by adding a <code >data-js</code> attribute to the option’s group div that we created earlier.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">data-js=</span><span class="s">&quot;snippet_testimonial_options&quot;</span> <span class="na">data-selector=</span><span class="s">&quot;.snippet_testimonial&quot;</span><span class="nt">&gt;</span>
+  [...]
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >Done. From now on, the Website Builder will look for a
+<code >snippet_testimonial_options</code> method each time the publisher enters in edit
+mode.</p><p >Let's go one step further by creating a javascript file, name
+it <strong >tutorial_editor.js</strong> and place it into the <strong >static</strong> folder.  Copy/paste
+the following code</p><div class="highlight-javascript"><div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">website</span> <span class="o">=</span> <span class="nx">odoo</span><span class="p">.</span><span class="nx">website</span><span class="p">;</span>
+    <span class="nx">website</span><span class="p">.</span><span class="nx">odoo_website</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="p">})();</span>
+</pre></div>
+</div>
+<p >Great, we successfully created our javascript editor file. This file will contain all the javascript functions used by our snippets in edit mode. Let’s create a new function for our testimonial snippet using the <code >snippet_testimonial_options</code> method that we created before.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">website</span> <span class="o">=</span> <span class="nx">odoo</span><span class="p">.</span><span class="nx">website</span><span class="p">;</span>
+    <span class="nx">website</span><span class="p">.</span><span class="nx">odoo_website</span> <span class="o">=</span> <span class="p">{};</span>
+
+    <span class="nx">website</span><span class="p">.</span><span class="nx">snippet</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">snippet_testimonial_options</span> <span class="o">=</span> <span class="nx">website</span><span class="p">.</span><span class="nx">snippet</span><span class="p">.</span><span class="nx">Option</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">on_focus</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;On focus!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">})();</span>
+</pre></div>
+</div>
+<p >As you will notice, we used a method called <code >on_focus</code> to trigger our function. The Website Builder provides several events you can use to trigger your custom functions.</p><table class="table"><thead ><tr ><th >Event</th><th >Description</th></tr></thead><tbody ><tr ><td ><code >start</code></td><td >Fires when the publisher selects the snippet for the first time in an editing session or when the snippet is drag-dropped into the page</td></tr><tr ><td ><code >on_focus</code></td><td >Fires each time the snippet is selected by the user or when the snippet is drag-dropped into the page.</td></tr><tr ><td ><code >on_blur</code></td><td >This event occurs when a snippet loses focus.</td></tr><tr ><td ><code >on_clone</code></td><td >Fires just after a snippet is duplicated. A new js variable is created ($clone) containing the cloned element.</td></tr><tr ><td ><code >on_remove</code></td><td >It occurs just before that the snippet is removed.</td></tr><tr ><td ><code >drop_and_build_snippet</code></td><td >Fires just after that the snippet is drag and dropped into a drop zone. When this event is triggered, the content is already inserted in the page.</td></tr><tr ><td ><code >clean_for_save</code></td><td >It trigger before the publisher save the page.</td></tr></tbody></table><p >Let’s add our new javascript files to the editor assets list.
+Go back to <strong >assets.xml</strong> and create a new template like the previous one.
+This time we have to inherit <code >assets_editor</code> instead of <code >assets_frontend</code>.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;my_js&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.assets_editor&quot;</span> <span class="na">name=</span><span class="s">&quot;My Js&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;script[last()]&quot;</span> <span class="na">position=</span><span class="s">&quot;after&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/theme_tutorial/static/src/js/tutorial_editor.js&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/xpath&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p >Update your theme</p><img src="../../_images/restart.png" class="img-responsive"><p >Let’s test our new javascript function. Enter in Edit mode and drop into the page.
+You should now see the javascript alert that we bound on the <code >on_focus</code> event.
+If you close it, then click outside of your snippet and then click in it again, the event will trigger again.</p><img src="../../_images/snippet_custom_method.png" class="img-responsive shadow-0"></section><section id="editing-reference-guide"><h2 >Editing Reference Guide</h2><p >Basically all the elements in a page can be edited by the publisher.
+Besides that, some element types and css classes will trigger special Website Builder functionalities when edited.</p></section><section id="layout"><h3 >Layout</h3><dl ><dt ><code >&lt;section /&gt;</code></dt><dd >Any section element can be edited like a block of content. The publisher can move or duplicate it. It’s also possible to set a background image or color. Section is the standard main container of any snippet.</dd><dt ><code >.row &gt; .col-md-*</code></dt><dd >Any medium  bootstrap columns  directly descending from a .row element, will be resizable by the publisher.</dd><dt ><code >contenteditable=&quot;False&quot;</code></dt><dd >This attribute will prevent editing to the element and all its children.</dd><dt ><code >contenteditable=&quot;True&quot;</code></dt><dd >Apply it to an element inside a contenteditable=&quot;False&quot; element in order to create an exception and make the element and its children editable.</dd><dt ><code >&lt;a href=”#” /&gt;</code></dt><dd >In Edit Mode, any link can be edited and styled. Using the “Link Modal” it’s also possible to replace it with a button.</dd></dl></section><section id="media"><h3 >Media</h3><dl ><dt ><code >&lt;span class=”fa” /&gt;</code></dt><dd >Pictogram elements. Editing this element will open the Pictogram library to replace the icon. It’s also possible to transform the elements using CSS.</dd><dt ><code >&lt;img /&gt;</code></dt><dd >Once clicked, the Image Library will open and you can replace images. Transformation is also possible for this kind of element.</dd></dl><div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;media_iframe_video&quot;</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;[your url]&quot;</span> <span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;css_editable_mode_display&quot;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;media_iframe_video_size&quot;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;[your url]&quot;</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p >This html structure will create an <code >&lt;iframe&gt;</code> element editable by the publisher.</p></section><section id="seo-best-practice"><h2 >SEO best practice</h2></section><section id="facilitate-content-insertion"><h3 >Facilitate content insertion</h3><p >Modern search engine algorithms increasingly focus on content, which means there is less focus on <strong >keyword saturation</strong> and more focus on whether or not the content is <strong >actually relevant to the keywords</strong>.</p><p >As content is so important for SEO, you should concentrate on giving publishers the tools to easily insert it. It is important that your snippets are “content-responsive”, meaning that they should fit the publisher’s content regardless of size.</p><p >Let’s have a look to this example of a classic two column snippet, implemented in two different ways.</p><div class="col-sm-7"><img src="../../_images/seo_snippet_wrong.png" class="img-responsive"></div><div class="col-sm-5"><p >Bad</p><p >Using fixed image, the publisher will be forced to limit the text in order to follow the layout.</p></div><div class="col-sm-7"><img src="../../_images/seo_snippet_good.png" class="img-responsive"></div><div class="col-sm-5"><p >Good</p><p >Using background images that fit the column height, the publisher will be free to add the content regardless of the image’s height.</p></div></section><section id="page-segmentation"><h3 >Page segmentation</h3><p >Basically, page segmentation means that a page is divided into several separate parts and these parts are treated as separate entries by search engines.
+When you design pages or snippets, you should be sure to use the right tags in order to facilitate search engine indexing.</p><dl ><dt ><code >&lt;article&gt;</code></dt><dd >Specifies an independent block of content. Within it should be a piece of self-contained content that should make sense on its own. You can nest <code >&lt;article&gt;</code> elements within one another. In this case, it’s implied that the nested elements are related to the outer <code >&lt;article&gt;</code> element.</dd><dt ><code >&lt;header&gt;</code></dt><dd >Indicates the header section of a self-contained block of content (an <code >&lt;article&gt;</code>).</dd><dt ><code >&lt;section&gt;</code></dt><dd >Is the snippet default tag and it specifies a subsection of a block of content. It can be used to split <code >&lt;article&gt;</code> content into several parts. It’s advisable to use a heading element (<code >&lt;h1&gt;</code> – <code >&lt;h6&gt;</code>) to define the section’s topic.</dd><dt ><code >&lt;hgroup&gt;</code></dt><dd ><p >Is used to wrap a section of headings (<code >&lt;h1&gt;</code> - <code >&lt;h6&gt;</code>). A great example would be an article with both a headline and sub-headline at the top:</p><div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">hgroup</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Main Title<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Subheading<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">hgroup</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</dd></dl></section><section id="describe-your-page"><h3 >Describe your page</h3></section><section id="define-keywords"><h4 >Define keywords</h4><p >You should use appropriate, relevant keywords and synonyms for those keywords. You can define them for each page using the built-in “Promote” function found in the bar at the top.</p></section><section id="define-a-title-and-a-description"><h4 >Define a title and a description</h4><p >Define them using the “Promote” function. Keep your page titles short and include the main keyword phrase for the page.
+Good titles evoke an emotional response, ask a question or promise something.</p><p >Descriptions, while not important to search engine rankings, are extremely important in gaining user click-through. These are an opportunity to advertise content and to let people searching know exactly whether the given page contains the information they're looking for. It is important that titles and descriptions on each page are unique.</p></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,423 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Mobile JavaScript &mdash; odoo 11.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 11.0 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="../reference.html" />
+    <link rel="prev" title="Odoo Guidelines" href="guidelines.html" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Mobile JavaScript</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/11.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/index.html">Developer</a></li>
+<li><a href="https://training.odoo.com/">Training center</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/webservices/odoo.html">API</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/setup/install.html">Installation</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/mobile.jpg');"></span>
+      <div class="container text-center">
+        <h1> Mobile JavaScript </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#introduction" class="ripple internal reference">Introduction</a></li><li class="list-group-item"><a href="#how-does-it-work" class="ripple internal reference">How does it work?</a></li><li class="list-group-item"><a href="#how-to-use-it" class="ripple internal reference">How to use it?</a><ul ><li class="list-group-item"><a href="#methods" class="ripple internal reference">Methods</a><ul ><li class="list-group-item"><a href="#show-toast-in-device" class="ripple internal reference">Show Toast in device</a></li><li class="list-group-item"><a href="#vibrating-device" class="ripple internal reference">Vibrating device</a></li><li class="list-group-item"><a href="#show-snackbar-with-action" class="ripple internal reference">Show snackbar with action</a></li><li class="list-group-item"><a href="#showing-notification" class="ripple internal reference">Showing notification</a></li><li class="list-group-item"><a href="#create-contact-in-device" class="ripple internal reference">Create contact in device</a></li><li class="list-group-item"><a href="#scanning-barcodes" class="ripple internal reference">Scanning barcodes</a></li><li class="list-group-item"><a href="#switching-account-in-device" class="ripple internal reference">Switching account in device</a></li></ul></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/11.0/doc/reference/mobile.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="mobile-javascript"><i id="reference-mobile"></i></section><section id="introduction"><h2 >Introduction</h2><p >In Odoo 10.0 we released a mobile app which allows you to access all <strong >Odoo apps</strong>
+(even your customized modules).</p><p >The application is a combination of <strong >Odoo Web</strong> and <strong >Native Mobile
+components</strong>. In other words it is a Odoo Web instance loaded inside a native, mobile, WebView container.</p><p >This page documents how you can access mobile native components like Camera,
+Vibration, Notification and Toast through Odoo Web (via JavaScript). For this, you
+do not need to be a mobile developer, if you know Odoo JavaScript API you can
+access all available mobile features.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >These features work with <strong >Odoo Enterprise 10.0+</strong> only</p></div></section><section id="how-does-it-work"><h2 >How does it work?</h2><p >Internal workings of the mobile application:</p><img src="../_images/mobile_working.jpg" class="img-responsive"><p >Of course, it is a web page that loads on a Mobile Native Web container. But it
+is integrated in such a way that you can access native resources from your web
+JavaScript.</p><p >WebPages (Odoo Web) is on the top of each layer, where the second layer is a Bridge
+between Odoo Web (JS) and the native mobile components.</p><p >When any call from JavaScript is triggered it passes through Bridge and Bridge
+passes it to the native invoker to perform that action.</p><p >When the native component has done its work, it is passed to the Bridge again and
+you get the output in JavaScript.</p><p >Process time taken by the Native component depends on what you are requesting
+from the Native resources. For example the Camera or GPS Location.</p></section><section id="how-to-use-it"><h2 >How to use it?</h2><p >Just like the Odoo Web Framework, the Mobile API can be used anywhere by getting the object from
+<strong >web_mobile.rpc</strong></p><img src="../_images/odoo_mobile_api.png" class="img-responsive"><p >The mobile RPC object provides a list of methods that are available (this only works with the mobile
+app).</p><p >Check if the method is available and then execute it.</p></section><section id="methods"><h3 >Methods</h3><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >Each of the methods returns a JQuery Deffered object which returns
+a data JSON dictionary</p></div></section><section id="show-toast-in-device"><h4 >Show Toast in device</h4><section class="code-function"><h6 id="showToast"><code>showToast()</code></h6><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >args</strong> (<code >object</code>) -- <strong >message</strong> text to display</li></ul></div></div></div></section><p >A toast provides simple feedback about an operation in a small popup. It only
+fills the amount of space required for the message and the current activity
+remains visible and interactive.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">mobile</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">showToast</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="o">:</span> <span class="s1">&#39;Message sent&#39;</span><span class="p">});</span>
+</pre></div>
+</div>
+<img src="../_images/toast.png" class="img-responsive"></section><section id="vibrating-device"><h4 >Vibrating device</h4><section class="code-function"><h6 id="vibrate"><code>vibrate()</code></h6><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >args</strong> (<code >object</code>) -- Vibrates constantly for the specified period of time
+(in milliseconds).</li></ul></div></div></div></section><p >Vibrate mobile device with given duration.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">mobile</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">vibrate</span><span class="p">({</span><span class="s1">&#39;duration&#39;</span><span class="o">:</span> <span class="mi">100</span><span class="p">});</span>
+</pre></div>
+</div>
+</section><section id="show-snackbar-with-action"><h4 >Show snackbar with action</h4><section class="code-function"><h6 id="showSnackBar"><code>showSnackBar()</code></h6><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >args</strong> (<code >object</code>) -- (<em >required</em>) <strong >Message</strong> to show in snackbar and action <strong >button label</strong> in Snackbar (optional)</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body"><code >True</code> if the user clicks on the Action button, <code >False</code> if SnackBar auto dismissed after some time.</div></div></div></section><p >Snackbars provide lightweight feedback about an operation. They show a brief
+message at the bottom of the screen on mobile or in the lower left corner on larger devices.
+Snackbars appear above all the other elements on the screen and only one can be
+displayed at a time.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">mobile</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">showSnackBar</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="o">:</span> <span class="s1">&#39;Message is deleted&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_text&#39;</span><span class="o">:</span> <span class="s1">&#39;Undo&#39;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+                <span class="c1">// Do undo operation</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="c1">// Snack Bar dismissed</span>
+        <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<img src="../_images/snackbar.png" class="img-responsive"></section><section id="showing-notification"><h4 >Showing notification</h4><section class="code-function"><h6 id="showNotification"><code>showNotification()</code></h6><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >args</strong> (<code >object</code>) -- <strong >title</strong> (first row) of the notification, <strong >message</strong> (second row) of the notification, in a standard notification.</li></ul></div></div></div></section><p >A notification is a message you can display to the user outside of your
+application's normal UI. When you tell the system to issue a notification, it
+first appears as an icon in the notification area. To see the details of the
+notification, the user opens the notification drawer. Both the notification
+area and the notification drawer are system-controlled areas that the user can
+view at any time.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">mobile</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">({</span><span class="s1">&#39;title&#39;</span><span class="o">:</span> <span class="s1">&#39;Simple Notification&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="o">:</span> <span class="s1">&#39;This is a test for a simple notification&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<img src="../_images/mobile_notification.png" class="img-responsive"></section><section id="create-contact-in-device"><h4 >Create contact in device</h4><section class="code-function"><h6 id="addContact"><code>addContact()</code></h6><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >args</strong> (<code >object</code>) -- Dictionary with contact details. Possible keys (name, mobile, phone, fax, email, website, street, street2, country_id, state_id, city, zip, parent_id, function and image)</li></ul></div></div></div></section><p >Create a new device contact with the given contact details.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">contact</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Michel Fletcher&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;mobile&#39;</span><span class="o">:</span> <span class="s1">&#39;9999999999&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;phone&#39;</span><span class="o">:</span> <span class="s1">&#39;7954856587&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;fax&#39;</span><span class="o">:</span> <span class="s1">&#39;765898745&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span><span class="o">:</span> <span class="s1">&#39;michel.fletcher@agrolait.example.com&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;website&#39;</span><span class="o">:</span> <span class="s1">&#39;http://www.agrolait.com&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;street&#39;</span><span class="o">:</span> <span class="s1">&#39;69 rue de Namur&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;street2&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s1">&#39;country_id&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;Belgium&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;state_id&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s1">&#39;city&#39;</span><span class="o">:</span> <span class="s1">&#39;Wavre&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;zip&#39;</span><span class="o">:</span> <span class="s1">&#39;1300&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;parent_id&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;Agrolait&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;function&#39;</span><span class="o">:</span> <span class="s1">&#39;Analyst&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;image&#39;</span><span class="o">:</span> <span class="s1">&#39;&lt;&lt;BASE 64 Image Data&gt;&gt;&#39;</span>
+<span class="p">}</span>
+
+<span class="nx">mobile</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">addContact</span><span class="p">(</span><span class="nx">contact</span><span class="p">);</span>
+</pre></div>
+</div>
+<img src="../_images/mobile_contact_create.png" class="img-responsive"></section><section id="scanning-barcodes"><h4 >Scanning barcodes</h4><section class="code-function"><h6 id="scanBarcode"><code>scanBarcode()</code></h6><div class="code-fields"><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">Scanned <code >code</code> from any barcode</div></div></div></section><p >The barcode API detects barcodes in real-time, on the device, in any orientation.</p><p >The barcode API can read the following barcode formats:</p><ul ><li >1D barcodes: EAN-13, EAN-8, UPC-A, UPC-E, Code-39, Code-93, Code-128, ITF, Codabar</li><li >2D barcodes: QR Code, Data Matrix, PDF-417, AZTEC</li></ul><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">mobile</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">scanBarcode</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">code</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">code</span><span class="p">){</span>
+                <span class="c1">// Perform operation with the scanned code</span>
+        <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section><section id="switching-account-in-device"><h4 >Switching account in device</h4><section class="code-function"><h6 id="switchAccount"><code>switchAccount()</code></h6></section><p >Use switchAccount to switch from one account to another on the device.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">mobile</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">switchAccount</span><span class="p">();</span>
+</pre></div>
+</div>
+<img src="../_images/mobile_switch_account.png" class="img-responsive"></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

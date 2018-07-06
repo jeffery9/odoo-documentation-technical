@@ -1,0 +1,882 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Mixins and Useful Classes &mdash; odoo 10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/doc.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 10.0 documentation" href="../../" />
+    <link rel="up" title="Reference" href="../" />
+    <link rel="next" title="Odoo Guidelines" href="../guidelines/" />
+    <link rel="prev" title="Workflows" href="../workflows/" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../../">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Mixins and Useful Classes</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../../_static/banners/mixins.jpg');"></span>
+      <div class="container text-center">
+        <h1> Mixins and Useful Classes </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#messaging-features" class="ripple internal reference">Messaging features</a><ul ><li class="list-group-item"><a href="#messaging-integration" class="ripple internal reference">Messaging integration</a><ul ><li class="list-group-item"><a href="#basic-messaging-system" class="ripple internal reference">Basic messaging system</a></li><li class="list-group-item"><a href="#logging-changes" class="ripple internal reference">Logging changes</a></li><li class="list-group-item"><a href="#subtypes" class="ripple internal reference">Subtypes</a></li><li class="list-group-item"><a href="#customizing-notifications" class="ripple internal reference">Customizing notifications</a></li><li class="list-group-item"><a href="#overriding-defaults" class="ripple internal reference">Overriding defaults</a></li></ul></li><li class="list-group-item"><a href="#mail-alias" class="ripple internal reference">Mail alias</a><ul ><li class="list-group-item"><a href="#aliases-vs-incoming-mail-gateway" class="ripple internal reference">Aliases vs. Incoming Mail Gateway</a></li><li class="list-group-item"><a href="#alias-support-integration" class="ripple internal reference">Alias support integration</a></li></ul></li></ul></li><li class="list-group-item"><a href="#website-features" class="ripple internal reference">Website features</a><ul ><li class="list-group-item"><a href="#visitor-tracking" class="ripple internal reference">Visitor tracking</a></li><li class="list-group-item"><a href="#website-visibility" class="ripple internal reference">Website visibility</a></li><li class="list-group-item"><a href="#website-metadata" class="ripple internal reference">Website metadata</a></li></ul></li><li class="list-group-item"><a href="#others" class="ripple internal reference">Others</a><ul ><li class="list-group-item"><a href="#customer-rating" class="ripple internal reference">Customer Rating</a><ul ><li class="list-group-item"><a href="#adding-rating-on-your-model" class="ripple internal reference">Adding rating on your model</a></li><li class="list-group-item"><a href="#send-rating-requests-by-e-mail" class="ripple internal reference">Send rating requests by e-mail</a></li></ul></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/reference/mixins.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="mixins-and-useful-classes"><i id="reference-mixins"></i><p >Odoo implements some useful classes and mixins that make it easy for you to add
+often-used behaviours on your objects. This guide will details most of them, with
+examples and use cases.</p></section><section id="messaging-features"><i id="reference-mixins-mail"></i><h2 >Messaging features</h2></section><section id="messaging-integration"><i id="reference-mixins-mail-chatter"></i><h3 >Messaging integration</h3></section><section id="basic-messaging-system"><h4 >Basic messaging system</h4><p >Integrating messaging features to your model is extremely easy. Simply inheriting
+the <code >mail.thread</code> model and adding the messaging fields (and their appropriate
+widgets) to your form view will get you up and running in no time.</p><div role="alert" class="admonition-example alert"><p class="alert-title">Example</p><p >Let's create a simplistic model representing a business trip. Since organizing
+this kind of trip usually involves a lot of people and a lot of discussion, let's
+add support for message exchange on the model.</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BusinessTrip</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;business.trip&#39;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mail.thread&#39;</span><span class="p">]</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s1">&#39;Business Trip&#39;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+    <span class="n">partner_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Responsible&#39;</span><span class="p">)</span>
+    <span class="n">guest_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2many</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Participants&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p >In the form view:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;businness_trip_form&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>business.trip.form<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>business.trip<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">string=</span><span class="s">&quot;Business Trip&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- Your usual form view goes here</span>
+<span class="c">            ...</span>
+<span class="c">            Then comes chatter integration --&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_chatter&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;message_follower_ids&quot;</span> <span class="na">widget=</span><span class="s">&quot;mail_followers&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;message_ids&quot;</span> <span class="na">widget=</span><span class="s">&quot;mail_thread&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</div><p >Once you've added chatter support on your model, users can easily add messages
+or internal notes on any record of your model; every one of those will send a
+notification (to all followers for messages, to employee (<em >base.group_user</em>)
+users for internal notes). If your mail gateway and catchall address are correctly
+configured, these notifications will be sent by e-mail and can be replied-to directly
+from your mail client; the automatic routing system will route the answer to the
+correct thread.</p><p >Server-side, some helper functions are there to help you easily send messages and
+to manage followers on your record:</p><h5 >Posting messages</h5><section class="code-method"><h6 id="message_post"><code>message_post(<em>self</em>, <em>body=''</em>, <em>subject=None</em>, <em>message_type='notification'</em>, <em>subtype=None</em>, <em>parent_id=False</em>, <em>attachments=None</em>, <em>content_subtype='html'</em>, <em>**kwargs</em>)</code></h6><p >Post a new message in an existing thread, returning the new
+mail.message ID.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >body</strong> (<a href="https://docs.python.org/2/library/functions.html#str" class="external reference alert-link" title="(in Python v2.7)"><code >str</code></a>) -- body of the message, usually raw HTML that will
+be sanitized</li><li ><strong >message_type</strong> (<a href="https://docs.python.org/2/library/functions.html#str" class="external reference alert-link" title="(in Python v2.7)"><code >str</code></a>) -- see mail_message.type field</li><li ><strong >content_subtype</strong> (<a href="https://docs.python.org/2/library/functions.html#str" class="external reference alert-link" title="(in Python v2.7)"><code >str</code></a>) -- if plaintext: convert body into html</li><li ><strong >parent_id</strong> (<a href="https://docs.python.org/2/library/functions.html#int" class="external reference alert-link" title="(in Python v2.7)"><code >int</code></a>) -- handle reply to a previous message by adding the
+parent partners to the message in case of private discussion</li><li ><strong >attachments</strong> (<code >list(tuple(str,str))</code>) -- list of attachment tuples in the form
+<code >(name,content)</code>, where content is NOT base64 encoded</li><li ><strong >**kwargs</strong> -- extra keyword arguments will be used as default column values for the
+new mail.message record</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">ID of newly created mail.message</div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/functions.html#int" class="external reference alert-link" title="(in Python v2.7)">int</a></div></div></div></section><section class="code-method"><h6 ><code>message_post_with_view(views_or_xmlid, **kwargs):</code></h6><p >Helper method to send a mail / post a message using a view_id to
+render using the ir.qweb engine. This method is stand alone, because
+there is nothing in template and composer that allows to handle
+views in batch. This method will probably disappear when templates
+handle ir ui views.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><strong >or ir.ui.view record</strong> (<a href="https://docs.python.org/2/library/functions.html#str" class="external reference alert-link" title="(in Python v2.7)"><code >str</code></a>) -- external id or record of the view that
+should be sent</div></div></div></section><section class="code-method"><h6 id="message_post_with_template"><code>message_post_with_template(<em>template_id</em>, <em>**kwargs</em>)</code></h6><p >Helper method to send a mail with a template</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >template_id</strong> -- the id of the template to render to create the body of the message</li><li ><strong >**kwargs</strong> -- parameter to create a mail.compose.message wizzard (which inherit from mail.message)</li></ul></div></div></div></section><h5 >Receiving messages</h5><p >These methods are called when a new e-mail is processed by the mail gateway. These
+e-mails can either be new thread (if they arrive via an <a href="#reference-mixins-mail-alias" class="internal reference"><span >alias</span></a>)
+or simply replies from an existing thread. Overriding them allows you to set values
+on the thread's record depending on some values from the email itself (i.e. update
+a date or an e-mail address, add CC's addresses as followers, etc.).</p><section class="code-method"><h6 id="message_new"><code>message_new(<em>msg_dict</em>, <em>custom_values=None</em>)</code></h6><p >Called by <code >message_process</code> when a new message is received
+for a given thread model, if the message did not belong to
+an existing thread.</p><p >The default behavior is to create a new record of the corresponding
+model (based on some very basic info extracted from the message).
+Additional behavior may be implemented by overriding this method.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >msg_dict</strong> (<a href="https://docs.python.org/2/library/stdtypes.html#dict" class="external reference alert-link" title="(in Python v2.7)"><code >dict</code></a>) -- a map containing the email details and
+attachments. See <code >message_process</code> and <code >mail.message.parse</code> for details</li><li ><strong >custom_values</strong> (<a href="https://docs.python.org/2/library/stdtypes.html#dict" class="external reference alert-link" title="(in Python v2.7)"><code >dict</code></a>) -- optional dictionary of additional
+field values to pass to create() when creating the new thread record;
+be careful, these values may override any other values coming from
+the message</li></ul></div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/functions.html#int" class="external reference alert-link" title="(in Python v2.7)">int</a></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">the id of the newly created thread object</div></div></div></section><section class="code-method"><h6 id="message_update"><code>message_update(<em>msg_dict</em>, <em>update_vals=None</em>)</code></h6><p >Called by <code >message_process</code> when a new message is received
+for an existing thread. The default behavior is to update the record
+with <code >update_vals</code> taken from the incoming email.</p><p >Additional behavior may be implemented by overriding this
+method.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >msg_dict</strong> (<a href="https://docs.python.org/2/library/stdtypes.html#dict" class="external reference alert-link" title="(in Python v2.7)"><code >dict</code></a>) -- a map containing the email details and attachments;
+see <code >message_process</code> and <code >mail.message.parse()</code> for details.</li><li ><strong >update_vals</strong> (<a href="https://docs.python.org/2/library/stdtypes.html#dict" class="external reference alert-link" title="(in Python v2.7)"><code >dict</code></a>) -- a dict containing values to update records given
+their ids; if the dict is None or is void, no write operation is performed.</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">True</div></div></div></section><h5 >Followers management</h5><section class="code-method"><h6 id="message_subscribe"><code>message_subscribe(<em>partner_ids=None</em>, <em>channel_ids=None</em>, <em>subtype_ids=None</em>, <em>force=True</em>)</code></h6><p >Add partners to the records followers.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >partner_ids</strong> (<code >list(int)</code>) -- IDs of the partners that will be subscribed
+to the record</li><li ><strong >channel_ids</strong> (<code >list(int)</code>) -- IDs of the channels that will be subscribed
+to the record</li><li ><strong >subtype_ids</strong> (<code >list(int)</code>) -- IDs of the subtypes that the channels/partners
+will be subscribed to (defaults to the default subtypes if <code >None</code>)</li><li ><strong >force</strong> -- if True, delete existing followers before creating new one
+using the subtypes given in the parameters</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">Success/Failure</div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/functions.html#bool" class="external reference alert-link" title="(in Python v2.7)">bool</a></div></div></div></section><section class="code-method"><h6 id="message_subscribe_users"><code>message_subscribe_users(<em>user_ids=None</em>, <em>subtype_ids=None</em>)</code></h6><p >Wrapper on message_subscribe, using users instead of partners.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >user_ids</strong> (<code >list(int)</code>) -- IDs of the users that will be subscribed
+to the record; if <code >None</code>, subscribe the current user instead.</li><li ><strong >subtype_ids</strong> (<code >list(int)</code>) -- IDs of the subtypes that the channels/partners
+will be subscribed to</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">Success</div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/functions.html#bool" class="external reference alert-link" title="(in Python v2.7)">bool</a></div></div></div></section><section class="code-method"><h6 id="message_unsubscribe"><code>message_unsubscribe(<em>partner_ids=None</em>, <em>channel_ids=None</em>)</code></h6><p >Remove partners from the record's followers.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >partner_ids</strong> (<code >list(int)</code>) -- IDs of the partners that will be subscribed
+to the record</li><li ><strong >channel_ids</strong> (<code >list(int)</code>) -- IDs of the channels that will be subscribed
+to the record</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">True</div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/functions.html#bool" class="external reference alert-link" title="(in Python v2.7)">bool</a></div></div></div></section><section class="code-method"><h6 id="message_unsubscribe_users"><code>message_unsubscribe_users(<em>user_ids=None</em>)</code></h6><p >Wrapper on message_subscribe, using users.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><strong >user_ids</strong> (<code >list(int)</code>) -- IDs of the users that will be unsubscribed
+to the record; if None, unsubscribe the current user instead.</div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">True</div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/functions.html#bool" class="external reference alert-link" title="(in Python v2.7)">bool</a></div></div></div></section></section><section id="logging-changes"><h4 >Logging changes</h4><p >The <code >mail</code> module adds a powerful tracking system on fields, allowing you
+to log changes to specific fields in the record's chatter.</p><p >To add tracking to a field, simple add the track_visibility attribute with the
+value <code >onchange</code> (if it should be displayed in the notification only if the
+field changed) or <code >always</code> (if the value should always be displayed in change
+notifications even if this particular field did not change - useful to make
+notification more explanatory by always adding the name field, for example).</p><div role="alert" class="admonition-example alert"><p class="alert-title">Example</p><p >Let's track changes on the name and responsible of our business trips:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BusinessTrip</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;business.trip&#39;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mail.thread&#39;</span><span class="p">]</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s1">&#39;Business Trip&#39;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">track_visibility</span><span class="o">=</span><span class="s1">&#39;always&#39;</span><span class="p">)</span>
+    <span class="n">partner_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Responsible&#39;</span><span class="p">,</span>
+                                 <span class="n">track_visibility</span><span class="o">=</span><span class="s1">&#39;onchange&#39;</span><span class="p">)</span>
+    <span class="n">guest_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2many</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Participants&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p >From now on, every change to a trip's name or responsible will log a note
+on the record. The <code >name</code> field will be displayed in the notification as
+well to give more context about the notification (even if the name did not
+change).</p></div></section><section id="subtypes"><h4 >Subtypes</h4><p >Subtypes give you more granular control over messages. Subtypes act as a classification
+system for notifications, allowing subscribers to a document to customize the
+subtype of notifications they wish to receive.</p><p >Subtypes are created as data in your module; the model has the following fields:</p><dl ><dt ><code >name</code> (mandatory) - <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a></dt><dd >name of the subtype, will be displayed in the notification customization
+popup</dd><dt ><code >description</code> - <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a></dt><dd >description that will be added in the message posted for this
+subtype. If void, the name will be added instead</dd><dt ><code >internal</code> - <a href="../orm/#odoo.fields.Boolean" class="internal reference" title="odoo.fields.Boolean"><code class="py xref py-class">Boolean</code></a></dt><dd >messages with internal subtypes will be visible only by employees,
+aka members of the <code >base.group_user</code> group</dd><dt ><code >parent_id</code> - <a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a></dt><dd >link subtypes for automatic subscription; for example project subtypes are
+linked to task subtypes through this link. When someone is subscribed to
+a project, he will be subscribed to all tasks of this project with
+subtypes found using the parent subtype</dd><dt ><code >relation_field</code> - <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a></dt><dd >as an example, when linking project and tasks subtypes, the relation
+field is the project_id field of tasks</dd><dt ><code >res_model</code> - <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a></dt><dd >model the subtype applies to; if False, this subtype applies to all models</dd><dt ><code >default</code> - <a href="../orm/#odoo.fields.Boolean" class="internal reference" title="odoo.fields.Boolean"><code class="py xref py-class">Boolean</code></a></dt><dd >wether the subtype is activated by default when subscribing</dd><dt ><code >sequence</code> - <a href="../orm/#odoo.fields.Integer" class="internal reference" title="odoo.fields.Integer"><code class="py xref py-class">Integer</code></a></dt><dd >used to order subtypes in the notification customization popup</dd><dt ><code >hidden</code> - <a href="../orm/#odoo.fields.Boolean" class="internal reference" title="odoo.fields.Boolean"><code class="py xref py-class">Boolean</code></a></dt><dd >wether the subtype is hidden in the notification customization popup</dd></dl><p >Interfacing subtypes with field tracking allows to subscribe to different kind
+of notifications depending on what might interest users. To do this, you
+can override the <code >_track_subtype()</code> function:</p><section class="code-method"><h6 id="_track_subtype"><code>_track_subtype(<em>init_values</em>)</code></h6><p >Give the subtype triggered by the changes on the record according
+to values that have been updated.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><strong >init_values</strong> (<a href="https://docs.python.org/2/library/stdtypes.html#dict" class="external reference alert-link" title="(in Python v2.7)"><code >dict</code></a>) -- the original values of the record; only modified fields
+are present in the dict</div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">a subtype's full external id or False if no subtype is triggered</div></div></div></section><div role="alert" class="admonition-example alert"><p class="alert-title">Example</p><p >Let's add a <code >state</code> field on our example class and trigger a notification
+with a specific subtype when this field change values.</p><p >First, let's define our subtype:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;mt_state_change&quot;</span> <span class="na">model=</span><span class="s">&quot;mail.message.subtype&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Trip confirmed<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>business.trip<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;default&quot;</span> <span class="na">eval=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="nt">&gt;</span>Business Trip confirmed!<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<p >Then, we need to override the <code >track_subtype()</code> function. This function
+is called by the tracking system to know which subtype should be used depending
+on the change currently being applied. In our case, we want to use our shiny new
+subtype when the <code >state</code> field changes from <em >draft</em> to <em >confirmed</em>:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BusinessTrip</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;business.trip&#39;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mail.thread&#39;</span><span class="p">]</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s1">&#39;Business Trip&#39;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">track_visibility</span><span class="o">=</span><span class="s1">&#39;onchange&#39;</span><span class="p">)</span>
+    <span class="n">partner_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Responsible&#39;</span><span class="p">,</span>
+                                 <span class="n">track_visibility</span><span class="o">=</span><span class="s1">&#39;onchange&#39;</span><span class="p">)</span>
+    <span class="n">guest_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2many</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Participants&#39;</span><span class="p">)</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Selection</span><span class="p">([(</span><span class="s1">&#39;draft&#39;</span><span class="p">,</span> <span class="s1">&#39;New&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;confirmed&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed&#39;</span><span class="p">)],</span>
+                             <span class="n">track_visibility</span><span class="o">=</span><span class="s1">&#39;onchange&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_track_subtype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init_values</span><span class="p">):</span>
+        <span class="c1"># init_values contains the modified fields&#39; values before the changes</span>
+        <span class="c1">#</span>
+        <span class="c1"># the applied values can be accessed on the record as they are already</span>
+        <span class="c1"># in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ensure_one</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s1">&#39;state&#39;</span> <span class="ow">in</span> <span class="n">init_values</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;confirmed&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;my_module.mt_state_change&#39;</span>  <span class="c1"># Full external id</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">BusinessTrip</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_track_subtype</span><span class="p">(</span><span class="n">init_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></section><section id="customizing-notifications"><h4 >Customizing notifications</h4><p >When sending notifications to followers, it can be quite useful to add buttons in
+the template to allow quick actions directly from the e-mail. Even a simple button
+to link directly to the record's form view can be useful; however in most cases
+you don't want to display these buttons to portal users.</p><p >The notification system allows customizing notification templates in the following
+ways:</p><ul ><li >Display <em >Access Buttons</em>: these buttons are visible at the top of the notification
+e-mail and allow the recipient to directly access the form view of the record</li><li >Display <em >Follow Buttons</em>: these buttons allow the recipient to
+directly quickly subscribe from the record</li><li >Display <em >Unfollow Buttons</em>: these buttons allow the recipient to
+directly quickly unsubscribe from the record</li><li >Display <em >Custom Action Buttons</em>: these buttons are calls to specific routes
+and allow you to make some useful actions directly available from the e-mail (i.e.
+converting a lead to an opportunity, validating an expense sheet for an
+Expense Manager, etc.)</li></ul><p >These buttons settings can be applied to different groups that you can define
+yourself by overriding the function <code >_notification_recipients</code>.</p><section class="code-method"><h6 id="_notification_recipients"><code>_notification_recipients(<em>message</em>, <em>groups</em>)</code></h6><p >Give the subtype triggered by the changes on the record according
+to values that have been updated.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >message</strong> (<code >record</code>) -- <code >mail.message</code> record currently being sent</li><li ><strong >groups</strong> (<code >list(tuple)</code>) -- <p >list of tuple of the form (group_name, group_func,group_data) where:</p><dl ><dt >group_name</dt><dd >is an identifier used only to be able to override and manipulate
+groups. Default groups are <code >user</code> (recipients linked to an employee user),
+<code >portal</code> (recipients linked to a portal user) and <code >customer</code> (recipients not
+linked to any user). An example of override use would be to add a group
+linked to a res.groups like Hr Officers to set specific action buttons to
+them.</dd><dt >group_func</dt><dd >is a function pointer taking a partner record as parameter. This
+method will be applied on recipients to know whether they belong to a given
+group or not. Only first matching group is kept. Evaluation order is the
+list order.</dd><dt >group_data</dt><dd ><p >is a dict containing parameters for the notification email with the following
+possible keys - values:</p><ul ><li ><dl ><dt >has_button_access</dt><dd >whether to display Access &lt;Document&gt; in email. True by default for
+new groups, False for portal / customer.</dd></dl></li><li ><dl ><dt >button_access</dt><dd >dict with url and title of the button</dd></dl></li><li ><dl ><dt >has_button_follow</dt><dd >whether to display Follow in email (if recipient is not currently
+following the thread). True by default for new groups, False for
+portal / customer.</dd></dl></li><li ><dl ><dt >button_follow</dt><dd >dict with url adn title of the button</dd></dl></li><li ><dl ><dt >has_button_unfollow</dt><dd >whether to display Unfollow in email (if recipient is currently following the thread).
+True by default for new groups, False for portal / customer.</dd></dl></li><li ><dl ><dt >button_unfollow</dt><dd >dict with url and title of the button</dd></dl></li><li ><dl ><dt >actions</dt><dd >list of action buttons to display in the notification email.
+Each action is a dict containing url and title of the button.</dd></dl></li></ul></dd></dl></li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">a subtype's full external id or False if no subtype is triggered</div></div></div></section><p >The urls in the actions list can be generated automatically by calling the
+<code >_notification_link_helper()</code> function:</p><section class="code-method"><h6 id="_notification_link_helper"><code>_notification_link_helper(<em>self</em>, <em>link_type</em>, <em>**kwargs</em>)</code></h6><p >Generate a link for the given type on the current record (or on a specific
+record if the kwargs <code >model</code> and <code >res_id</code> are set).</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><strong >link_type</strong> (<a href="https://docs.python.org/2/library/functions.html#str" class="external reference alert-link" title="(in Python v2.7)"><code >str</code></a>) -- <p >link type to be generated; can be any of these values:</p><dl ><dt ><code >view</code></dt><dd >link to form view of the record</dd><dt ><code >assign</code></dt><dd >assign the logged user to the <code >user_id</code> field of
+the record (if it exists)</dd><dt ><code >follow</code></dt><dd >self-explanatory</dd><dt ><code >unfollow</code></dt><dd >self-explanatory</dd><dt ><code >workflow</code></dt><dd >trigger a workflow signal; the signal's name should be
+provided as the kwarg <code >signal</code></dd><dt ><code >method</code></dt><dd >call a method on the record; the method's name should be
+provided as the kwarg <code >method</code></dd><dt ><code >new</code></dt><dd >open an empty form view for a new record; you can specify
+a specific action by providing its id (database id or fully resolved
+external id) in the kwarg <code >action_id</code></dd></dl></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">link of the type selected for the record</div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/functions.html#str" class="external reference alert-link" title="(in Python v2.7)">str</a></div></div></div></section><div role="alert" class="admonition-example alert"><p class="alert-title">Example</p><p >Let's add a custom button to the Business Trip state change notification;
+this button will reset the state to Draft and will be only visible to a member
+of the (imaginary) group Travel Manager (<code >business.group_trip_manager</code>)</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BusinessTrip</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;business.trip&#39;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mail.thread&#39;</span><span class="p">,</span> <span class="s1">&#39;mail.alias.mixin&#39;</span><span class="p">]</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s1">&#39;Business Trip&#39;</span>
+
+    <span class="c1"># Pevious code goes here</span>
+
+    <span class="k">def</span> <span class="nf">action_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;draft&#39;</span><span class="p">})</span>
+
+    <span class="k">def</span> <span class="nf">_notification_recipients</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">groups</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Handle Trip Manager recipients that can cancel the trip at the last</span>
+<span class="sd">        minute and kill all the fun. &quot;&quot;&quot;</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">BusinessTrip</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_notification_recipients</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">groups</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ensure_one</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;confirmed&#39;</span><span class="p">:</span>
+            <span class="n">app_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_notification_link_helper</span><span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">,</span>
+                                <span class="n">method</span><span class="o">=</span><span class="s1">&#39;action_cancel&#39;</span><span class="p">)</span>
+            <span class="n">trip_actions</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">app_action</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;Cancel&#39;</span><span class="p">)}]</span>
+
+        <span class="n">new_group</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;group_trip_manager&#39;</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">partner</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">partner</span><span class="o">.</span><span class="n">user_ids</span><span class="p">)</span> <span class="ow">and</span>
+            <span class="nb">any</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">has_group</span><span class="p">(</span><span class="s1">&#39;business.group_trip_manager&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">partner</span><span class="o">.</span><span class="n">user_ids</span><span class="p">),</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="n">trip_actions</span><span class="p">,</span>
+            <span class="p">})</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">new_group</span><span class="p">]</span> <span class="o">+</span> <span class="n">groups</span>
+</pre></div>
+</div>
+<p >Note that that I could have defined my evaluation function outside of this
+method and define a global function to do it instead of a lambda, but for
+the sake of being more brief and less verbose in these documentation files
+that can sometimes be boring, I choose the former instead of the latter.</p></div></section><section id="overriding-defaults"><h4 >Overriding defaults</h4><p >There are several ways you can customize the behaviour of <code >mail.thread</code> models,
+including (but not limited to):</p><dl ><dt ><code >_mail_post_access</code> - <a href="../orm/#odoo.models.Model" class="internal reference" title="odoo.models.Model"><code class="py xref py-class">Model</code></a>  attribute</dt><dd >the required access rights to be able to post a message on the model; by
+default a <code >write</code> access is needed, can be set to <code >read</code> as well</dd><dt >Context keys:</dt><dd ><p >These context keys can be used to somewhat control <code >mail.thread</code> features
+like auto-subscription or field tracking during calls to <code >create()</code> or
+<code >write()</code> (or any other method where it may be useful).</p><ul ><li ><code >mail_create_nosubscribe</code>: at create or message_post, do not subscribe
+the current user to the record thread</li><li ><code >mail_create_nolog</code>: at create, do not log the automatic '&lt;Document&gt;
+created' message</li><li ><code >mail_notrack</code>: at create and write, do not perform the value tracking
+creating messages</li><li ><code >tracking_disable</code>: at create and write, perform no MailThread features
+(auto subscription, tracking, post, ...)</li><li ><code >mail_auto_delete</code>: auto delete mail notifications; True by default</li><li ><code >mail_notify_force_send</code>: if less than 50 email notifications to send,
+send them directly instead of using the queue; True by default</li><li ><code >mail_notify_user_signature</code>: add the current user signature in
+email notifications; True by default</li></ul></dd></dl></section><section id="mail-alias"><i id="reference-mixins-mail-alias"></i><h3 >Mail alias</h3><p >Aliases are configurable email addresses that are linked to a specific record
+(which usually inherits the <code >mail.alias.mixin</code> model) that will create new records when
+contacted via e-mail. They are an easy way to make your system accessible from
+the outside, allowing users or customers to quickly create records in your
+database without needing to connect to Odoo directly.</p></section><section id="aliases-vs-incoming-mail-gateway"><h4 >Aliases vs. Incoming Mail Gateway</h4><p >Some people use the Incoming Mail Gateway for this same purpose. You still need
+a correctly configured mail gateway to use aliases, however a single
+catchall domain will be sufficient since all routing will be done inside Odoo.
+Aliases have several advantages over Mail Gateways:</p><ul ><li ><dl ><dt >Easier to configure</dt><dd ><ul ><li >A single incoming gateway can be used by many aliases; this avoids having
+to configure multiple emails on your domain name (all configuration is done
+inside Odoo)</li><li >No need for System access rights to configure aliases</li></ul></dd></dl></li><li ><dl ><dt >More coherent</dt><dd ><ul ><li >Configurable on the related record, not in a Settings submenu</li></ul></dd></dl></li><li ><dl ><dt >Easier to override server-side</dt><dd ><ul ><li >Mixin model is built to be extended from the start, allowing you to
+extract useful data from incoming e-mails more easily than with a mail
+gateway.</li></ul></dd></dl></li></ul></section><section id="alias-support-integration"><h4 >Alias support integration</h4><p >Aliases are usually configured on a parent model which will then create specific
+record when contacted by e-mail. For example, Project have aliases to create tasks
+or issues, Sales Team have aliases to generate Leads.</p><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >The model that will be created by the alias <strong >must</strong> inherit the
+<code >mail_thread</code> model.</p></div><p >Alias support is added by inheriting <code >mail.alias.mixin</code>; this mixin will
+generate a new <code >mail.alias</code> record for each record of the parent class that
+gets created (for example, every <code >project.project</code> record having its <code >mail.alias</code>
+record initialized on creation).</p><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >Aliases can also be created manually and supported by a simple
+<a href="../orm/#odoo.fields.Many2one" class="internal alert-link reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> field. This guide assumes you wish a
+more complete integration with automatic creation of the alias, record-specific
+default values, etc.</p></div><p >Unlike <code >mail.thread</code> inheritance, the <code >mail.alias.mixin</code> <strong >requires</strong> some
+specific overrides to work correctly. These overrides will specify the values
+of the created alias, like the kind of record it must create and possibly
+some default values these records may have depending on the parent object:</p><section class="code-method"><h6 id="get_alias_model_name"><code>get_alias_model_name(<em>vals</em>)</code></h6><p >Return the model name for the alias. Incoming emails that are not
+replies to existing records will cause the creation of a new record
+of this alias model. The value may depend on <code >vals</code>, the dict of
+values passed to <code >create</code> when a record of this model is created.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><strong >dict</strong> (<code >vals</code>) -- values of the newly created record that will holding
+the alias</div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">model name</div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/functions.html#str" class="external reference alert-link" title="(in Python v2.7)">str</a></div></div></div></section><section class="code-method"><h6 id="get_alias_values"><code>get_alias_values()</code></h6><p >Return values to create an alias, or to write on the alias after its
+creation. While not completely mandatory, it is usually required to make
+sure that newly created records will be linked to the alias' parent (i.e.
+tasks getting created in the right project) by setting a dictionary of
+default values in the alias' <code >alias_defaults</code> field.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">dictionnary of values that will be written to the new alias</div></div><div class="code-field"><div class="code-field-name">Return type</div><div class="code-field-body"><a href="https://docs.python.org/2/library/stdtypes.html#dict" class="external reference alert-link" title="(in Python v2.7)">dict</a></div></div></div></section><p >The <code >get_alias_values()</code> override is particularly interesting as it allows you
+to modify the behaviour of your aliases easily. Among the fields that can be set
+on the alias, the following are of particular interest:</p><dl ><dt ><code >alias_name</code> - <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a></dt><dd >name of the email alias, e.g. 'jobs' if you want to catch emails for
+&lt;<a href="mailto:jobs@example.odoo.com" class="external reference">jobs@example.odoo.com</a>&gt;</dd><dt ><code >alias_user_id</code> - <a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> (<code >res.users</code>)</dt><dd >owner of records created upon receiving emails on this alias;
+if this field is not set the system will attempt to find the right owner
+based on the sender (From) address, or will use the Administrator account
+if no system user is found for that address</dd><dt ><code >alias_defaults</code> - <a href="../orm/#odoo.fields.Text" class="internal reference" title="odoo.fields.Text"><code class="py xref py-class">Text</code></a></dt><dd >Python dictionary that will be evaluated to provide
+default values when creating new records for this alias</dd><dt ><code >alias_force_thread_id</code> - <a href="../orm/#odoo.fields.Integer" class="internal reference" title="odoo.fields.Integer"><code class="py xref py-class">Integer</code></a></dt><dd >optional ID of a thread (record) to which all incoming messages will be
+attached, even if they did not reply to it; if set, this will disable the
+creation of new records completely</dd><dt ><code >alias_contact</code> - <a href="../orm/#odoo.fields.Selection" class="internal reference" title="odoo.fields.Selection"><code class="py xref py-class">Selection</code></a></dt><dd ><p >Policy to post a message on the document using the mailgateway</p><ul ><li ><em >everyone</em>: everyone can post</li><li ><em >partners</em>: only authenticated partners</li><li ><em >followers</em>: only followers of the related document or members of following channels</li></ul></dd></dl><p >Note that aliases make use of <a href="../orm/#reference-orm-inheritance" class="internal reference"><span >delegation inheritance</span></a>,
+which means that while the alias is stored in another table, you have
+access to all these fields directly from your parent object. This allows
+you to make your alias easily configurable from the record's form view.</p><div role="alert" class="admonition-example alert"><p class="alert-title">Example</p><p >Let's add aliases on our business trip class to create expenses on the fly via
+e-mail.</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BusinessTrip</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;business.trip&#39;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mail.thread&#39;</span><span class="p">,</span> <span class="s1">&#39;mail.alias.mixin&#39;</span><span class="p">]</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s1">&#39;Business Trip&#39;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">track_visibility</span><span class="o">=</span><span class="s1">&#39;onchange&#39;</span><span class="p">)</span>
+    <span class="n">partner_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Responsible&#39;</span><span class="p">,</span>
+                                 <span class="n">track_visibility</span><span class="o">=</span><span class="s1">&#39;onchange&#39;</span><span class="p">)</span>
+    <span class="n">guest_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2many</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Participants&#39;</span><span class="p">)</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Selection</span><span class="p">([(</span><span class="s1">&#39;draft&#39;</span><span class="p">,</span> <span class="s1">&#39;New&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;confirmed&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed&#39;</span><span class="p">)],</span>
+                             <span class="n">track_visibility</span><span class="o">=</span><span class="s1">&#39;onchange&#39;</span><span class="p">)</span>
+    <span class="n">expense_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">One2many</span><span class="p">(</span><span class="s1">&#39;business.expense&#39;</span><span class="p">,</span> <span class="s1">&#39;trip_id&#39;</span><span class="p">,</span> <span class="s1">&#39;Expenses&#39;</span><span class="p">)</span>
+    <span class="n">alias_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;mail.alias&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s1">&#39;Alias&#39;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s2">&quot;restrict&quot;</span><span class="p">,</span>
+                               <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_alias_model_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Specify the model that will get created when the alias receives a message &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;business.expense&#39;</span>
+
+    <span class="k">def</span> <span class="nf">get_alias_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Specify some default values that will be set in the alias at its creation &quot;&quot;&quot;</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">BusinessTrip</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_alias_values</span><span class="p">()</span>
+        <span class="c1"># alias_defaults holds a dictionnary that will be written</span>
+        <span class="c1"># to all records created by this alias</span>
+        <span class="c1">#</span>
+        <span class="c1"># in this case, we want all expense records sent to a trip alias</span>
+        <span class="c1"># to be linked to the corresponding business trip</span>
+        <span class="n">values</span><span class="p">[</span><span class="s1">&#39;alias_defaults&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;trip_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">}</span>
+        <span class="c1"># we only want followers of the trip to be able to post expenses</span>
+        <span class="c1"># by default</span>
+        <span class="n">values</span><span class="p">[</span><span class="s1">&#39;alias_contact&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;followers&#39;</span>
+        <span class="k">return</span> <span class="n">values</span>
+
+<span class="k">class</span> <span class="nc">BusinessExpense</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;business.expense&#39;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mail.thread&#39;</span><span class="p">]</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s1">&#39;Business Expense&#39;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+    <span class="n">amount</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;Amount&#39;</span><span class="p">)</span>
+    <span class="n">trip_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;business.trip&#39;</span><span class="p">,</span> <span class="s1">&#39;Business Trip&#39;</span><span class="p">)</span>
+    <span class="n">partner_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Created by&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p >We would like our alias to be easily configurable from the form view of our
+business trips, so let's add the following to our form view:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;page</span> <span class="na">string=</span><span class="s">&quot;Emails&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;group</span> <span class="na">name=</span><span class="s">&quot;group_alias&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;alias_name&quot;</span> <span class="na">string=</span><span class="s">&quot;Email Alias&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">name=</span><span class="s">&quot;alias_def&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- display a link while in view mode and a configurable field</span>
+<span class="c">            while in edit mode --&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;alias_id&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_read_only oe_inline&quot;</span>
+                    <span class="na">string=</span><span class="s">&quot;Email Alias&quot;</span> <span class="na">required=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_edit_only oe_inline&quot;</span> <span class="na">name=</span><span class="s">&quot;edit_alias&quot;</span>
+                 <span class="na">style=</span><span class="s">&quot;display: inline;&quot;</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;alias_name&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_inline&quot;</span><span class="nt">/&gt;</span>
+                @
+                <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;alias_domain&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_inline&quot;</span> <span class="na">readonly=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;alias_contact&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_inline&quot;</span>
+                <span class="na">string=</span><span class="s">&quot;Accept Emails From&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/group&gt;</span>
+<span class="nt">&lt;/page&gt;</span>
+</pre></div>
+</div>
+<p >Now we can change the alias address directly from the form view and change
+who can send e-mails to the alias.</p><p >We can then override <code >message_new()</code> on our expense model to fetch the values
+from our email when the expense will be created:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BusinessExpense</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># Previous code goes here</span>
+    <span class="c1"># ...</span>
+
+    <span class="k">def</span> <span class="nf">message_new</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">custom_values</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Override to set values according to the email.</span>
+
+<span class="sd">        In this simple example, we simply use the email title as the name</span>
+<span class="sd">        of the expense, try to find a partner with this email address and</span>
+<span class="sd">        do a regex match to find the amount of the expense.&quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">msg_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;New Expense&#39;</span><span class="p">)</span>
+        <span class="c1"># Match the last occurence of a float in the string</span>
+        <span class="c1"># Example: &#39;50.3 bar 34.5&#39; becomes &#39;34.5&#39;. This is potentially the price</span>
+        <span class="c1"># to encode on the expense. If not, take 1.0 instead</span>
+        <span class="n">amount_pattern</span> <span class="o">=</span> <span class="s1">&#39;(\d+(\.\d*)?|\.\d+)&#39;</span>
+        <span class="n">expense_price</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">amount_pattern</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">price</span> <span class="o">=</span> <span class="n">expense_price</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">expense_price</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="ow">or</span> <span class="mf">1.0</span>
+        <span class="c1"># find the partner by looking for it&#39;s email</span>
+        <span class="n">partner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.partner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">([(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;ilike&#39;</span><span class="p">,</span> <span class="n">email_address</span><span class="p">)],</span>
+                                                 <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+            <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="n">price</span><span class="p">,</span>
+            <span class="s1">&#39;partner_id&#39;</span><span class="p">:</span> <span class="n">partner</span><span class="o">.</span><span class="n">id</span>
+        <span class="p">}</span>
+        <span class="n">defaults</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">custom_values</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">BusinessExpense</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">message_new</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">custom_values</span><span class="o">=</span><span class="n">defaults</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+</div></section><section id="website-features"><i id="reference-mixins-website"></i><h2 >Website features</h2></section><section id="visitor-tracking"><i id="reference-mixins-website-utm"></i><h3 >Visitor tracking</h3><p >The <code >utm.mixin</code> class can be used to track online marketing/communication
+campaigns through arguments in links to specified resources. The mixin adds
+3 fields to your model:</p><ul ><li ><code >campaign_id</code>: <a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> field to a <code >utm.campaign</code>
+object (i.e. Christmas_Special, Fall_Collection, etc.)</li><li ><code >source_id</code>: <a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> field to a <code >utm.source</code>
+object (i.e. Search Engine, mailing list, etc.)</li><li ><code >medium_id</code>: <a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> field to a <code >utm.medium</code>
+object (i.e. Snail Mail, e-Mail, social network update, etc.)</li></ul><p >These models have a single field <code >name</code> (i.e. they are simply there to
+distinguish campaigns but don't have any specific behaviour).</p><p >Once a customer visits your website with these parameters set in the url
+(i.e. <a href="http://www.odoo.com/?campaign_id=mixin_talk&amp;source_id=www.odoo.com&amp;medium_id=website" class="external reference">http://www.odoo.com/?campaign_id=mixin_talk&amp;source_id=www.odoo.com&amp;medium_id=website</a>),
+three cookies are set in the visitor's website for these parameters.
+Once a object that inherits the utm.mixin is created from the website (i.e. lead
+form, job application, etc.), the utm.mixin code kicks in and fetches the values
+from the cookies to set them in the new record. Once this is done, you can then
+use the campaign/source/medium fields as any other field when defining reports
+and views (group by, etc.).</p><p >To extend this behaviour, simply add a relational field to a simple model (the
+model should support the <em >quick create</em> (i.e. call to <code >create()</code> with a single
+<code >name</code> value) and extend the function <code >tracking_fields()</code>:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">UtmMyTrack</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;my_module.my_track&#39;</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s1">&#39;My Tracking Object&#39;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Models</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;my_module.my_model&#39;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;utm.mixin&#39;</span><span class="p">]</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s1">&#39;My Tracked Object&#39;</span>
+
+    <span class="n">my_field</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;my_module.my_track&#39;</span><span class="p">,</span> <span class="s1">&#39;My Field&#39;</span><span class="p">)</span>
+
+    <span class="nd">@api.model</span>
+    <span class="k">def</span> <span class="nf">tracking_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">tracking_fields</span><span class="p">()</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+        <span class="c1"># (&quot;URL_PARAMETER&quot;, &quot;FIELD_NAME_MIXIN&quot;, &quot;NAME_IN_COOKIES&quot;)</span>
+            <span class="p">(</span><span class="s1">&#39;my_field&#39;</span><span class="p">,</span> <span class="s1">&#39;my_field&#39;</span><span class="p">,</span> <span class="s1">&#39;odoo_utm_my_field&#39;</span><span class="p">)</span>
+        <span class="p">])</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p >This will tell the system to create a cookie named <em >odoo_utm_my_field</em> with the
+value found in the url parameter <code >my_field</code>; once a new record of this model is
+created by a call from a website form, the generic override of the <code >create()</code>
+method of <code >utm.mixin</code> will fetch the default values for this field from the
+cookie (and the <code >my_module.my_track</code> record will be creatwed on the fly if it
+does not exist yet).</p><p >You can find concrete examples of integration in the following models:</p><ul ><li ><code >crm.lead</code> in the CRM (<em >crm</em>) Application</li><li ><code >hr.applicant</code> in the Recruitment Process (<em >hr_recruitment</em>) Application</li><li ><code >helpdesk.ticket</code> in the Helpdesk (<em >helpdesk</em> - Odoo Enterprise only) Application</li></ul></section><section id="website-visibility"><i id="reference-mixins-website-published"></i><h3 >Website visibility</h3><p >You can quite easily add a website visibility toggle on any of your record. While
+this mixin is quite easy to implement manually, it is the most often-used after
+the <code >mail.thread</code> inheritance; a testament to its usefulness. The typical use
+case for this mixin is any object that has a frontend-page; being able to control
+the visibility of the page allows you to take your time while editing the page
+and only publish it when you're satisfied.</p><p >To include the functionnality, you only need to inherit <code >website.published.mixin</code>:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BlogPost</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;blog.post&quot;</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s2">&quot;Blog Post&quot;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;website.published.mixin&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p >This mixin adds 2 fields on your model:</p><ul ><li ><code >website_published</code>: <a href="../orm/#odoo.fields.Boolean" class="internal reference" title="odoo.fields.Boolean"><code class="py xref py-class">Boolean</code></a> field which represents
+the status of the publication</li><li ><code >website_url</code>: <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a> field which represents
+the URL through which the object is accessed</li></ul><p >Note that this last field is a computed field and must be implemented for your class:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">_compute_website_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">blog_post</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="n">blog_post</span><span class="o">.</span><span class="n">website_url</span> <span class="o">=</span> <span class="s2">&quot;/blog/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">log_post</span><span class="o">.</span><span class="n">blog_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p >Once the mechanism is in place, you just have to adapt your frontend and backend
+views to make it accessible. In the backend, adding a button in the button box is
+usually the way to go:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;oe_stat_button&quot;</span> <span class="na">name=</span><span class="s">&quot;website_publish_button&quot;</span>
+    <span class="na">type=</span><span class="s">&quot;object&quot;</span> <span class="na">icon=</span><span class="s">&quot;fa-globe&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;website_published&quot;</span> <span class="na">widget=</span><span class="s">&quot;website_button&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</pre></div>
+</div>
+<p >In the frontend, some security checks are needed to avoid showing 'Edition'
+buttons to website visitors:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;website_published_button&quot;</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span>
+     <span class="na">groups=</span><span class="s">&quot;base.group_website_publisher&quot;</span><span class="nt">&gt;</span> <span class="c">&lt;!-- or any other meaningful group --&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;website.publish_management&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;object&quot;</span> <span class="na">t-value=</span><span class="s">&quot;blog_post&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;publish_edit&quot;</span> <span class="na">t-value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;action&quot;</span> <span class="na">t-value=</span><span class="s">&quot;&#39;blog.blog_post_action&#39;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >Note that you must pass your object as the variable <code >object</code> to the template;
+in this example, the <code >blog.post</code> record was passed as the <code >blog_post</code> variable
+to the <code >qweb</code> rendering engine, it is necessary to specify this to the publish
+management template. The <code >publish_edit</code> variable allow the frontend
+button to link to the backend (allowing you to switch from frontend to backend
+and vice-versa easily); if set, you must specify the full external id of the action
+you want to call in the backend in the <code >action</code> variable (note that a Form View
+must exist for the model).</p><p >The action <code >website_publish_button</code> is defined in the mixin and adapts its
+behaviour to your object: if the class has a valid <code >website_url</code> compute function,
+the user is redirected to the frontend when he clicks on the button; the user
+can then publish the page directly from the frontend. This ensures
+that no online publication can happen by accident. If there is not compute function,
+the boolean <code >website_published</code> is simply triggered.</p></section><section id="website-metadata"><i id="reference-mixins-website-seo"></i><h3 >Website metadata</h3><p >This simple mixin simply allows you to easily inject metadata in your frontend
+pages.</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BlogPost</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;blog.post&quot;</span>
+    <span class="n">_description</span> <span class="o">=</span> <span class="s2">&quot;Blog Post&quot;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;website.seo.metadata&#39;</span><span class="p">,</span> <span class="s1">&#39;website.published.mixin&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p >This mixin adds 3 fields on your model:</p><ul ><li ><code >website_meta_title</code>: <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a> field that allow you to set
+an additional title to your page</li><li ><code >website_meta_description</code>: <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a> field that contains a
+short description of the page (sometimes used in search engines results)</li><li ><code >website_meta_keywords</code>: <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a> field that contains some
+keywords to help your page to be classified more precisely by search engines; the
+&quot;Promote&quot; tool will help you select lexically-related keywords easily</li></ul><p >These fields are editable in the frontend using the &quot;Promote&quot; tool from the Editor
+toolbar. Setting these fields can help search engines to better index your pages.
+Note that search engines do not base their results only on these metadata; the
+best SEO practice should still be to get referenced by reliable sources.</p></section><section id="others"><i id="reference-mixins-misc"></i><h2 >Others</h2></section><section id="customer-rating"><i id="reference-mixins-misc-rating"></i><h3 >Customer Rating</h3><p >The rating mixin allows sending email to ask for customer rating, automatic
+transitioning in a kanban processes and aggregating statistics on your ratings.</p></section><section id="adding-rating-on-your-model"><h4 >Adding rating on your model</h4><p >To add rating support, simply inherit the <code >rating.mixin</code> model:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Models</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;my_module.my_model&#39;</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rating.mixin&#39;</span><span class="p">,</span> <span class="s1">&#39;mail.thread&#39;</span><span class="p">]</span>
+
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.users&#39;</span><span class="p">,</span> <span class="s1">&#39;Responsible&#39;</span><span class="p">)</span>
+    <span class="n">partner_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p >The behaviour of the mixin adapts to your model:</p><ul ><li ><p >The <code >rating.rating</code> record will be linked to the <code >partner_id</code> field of your
+model (if the field is present).</p><ul ><li >this behaviour can be overriden with the function <code >rating_get_partner_id()</code>
+if you use another field than <code >partner_id</code></li></ul></li><li ><p >The <code >rating.rating</code> record will be linked to the partner of the <code >user_id</code>
+field of your model (if the field is present) (i.e. the partner who is rated)</p><ul ><li >this behaviour can be overriden with the function <code >rating_get_rated_partner_id()</code>
+if you use another field than <code >user_id</code> (note that the function must return a
+<code >res.partner</code>, for <code >user_id</code> the system automatically fetches the partner
+of the user)</li></ul></li><li >The chatter history will display the rating event (if your model inherits from
+<code >mail.thread</code>)</li></ul></section><section id="send-rating-requests-by-e-mail"><h4 >Send rating requests by e-mail</h4><p >If you wish to send emails to request a rating, simply generate an e-mail with
+links to the rating object. A very basic email template could look like this:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;rating_my_model_email_template&quot;</span> <span class="na">model=</span><span class="s">&quot;mail.template&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>My Model: Rating Request<span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;email_from&quot;</span><span class="nt">&gt;</span>${object.rating_get_rated_partner_id().email or &#39;&#39; | safe}<span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;subject&quot;</span><span class="nt">&gt;</span>Service Rating Request<span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;my_module.model_my_model&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;partner_to&quot;</span> <span class="nt">&gt;</span>${object.rating_get_partner_id().id}<span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;auto_delete&quot;</span> <span class="na">eval=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;body_html&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">% set access_token = object.rating_get_access_token()</span>
+<span class="cp">&lt;p&gt;Hi,&lt;/p&gt;</span>
+<span class="cp">&lt;p&gt;How satsified are you?&lt;/p&gt;</span>
+<span class="cp">&lt;ul&gt;</span>
+<span class="cp">    &lt;li&gt;&lt;a href=&quot;/rating/${access_token}/10&quot;&gt;Satisfied&lt;/a&gt;&lt;/li&gt;</span>
+<span class="cp">    &lt;li&gt;&lt;a href=&quot;/rating/${access_token}/5&quot;&gt;Not satisfied&lt;/a&gt;&lt;/li&gt;</span>
+<span class="cp">    &lt;li&gt;&lt;a href=&quot;/rating/${access_token}/1&quot;&gt;Very unsatisfied&lt;/a&gt;&lt;/li&gt;</span>
+<span class="cp">&lt;/ul&gt;</span>
+<span class="cp">]]&gt;</span><span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<p >Your customer will then receive an e-mail with links to a simple webpage allowing
+them to provide a feedback on their interaction with your users (including a free-text
+feedback message).</p><p >You can then quite easily integrate your ratings with your form view by defining
+an action for the ratings:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;rating_rating_action_my_model&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.actions.act_window&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Customer Ratings<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>rating.rating<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;view_mode&quot;</span><span class="nt">&gt;</span>kanban,pivot,graph<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;domain&quot;</span><span class="nt">&gt;</span>[(&#39;res_model&#39;, &#39;=&#39;, &#39;my_module.my_model&#39;), (&#39;res_id&#39;, &#39;=&#39;, active_id), (&#39;consumed&#39;, &#39;=&#39;, True)]<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+
+<span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;my_module_my_model_view_form_inherit_rating&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>my_module.my_model.view.form.inherit.rating<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>my_module.my_model<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;inherit_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;my_module.my_model_view_form&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@name=&#39;button_box&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">name=</span><span class="s">&quot;%(rating_rating_action_my_model)d&quot;</span> <span class="na">type=</span><span class="s">&quot;action&quot;</span>
+                    <span class="na">class=</span><span class="s">&quot;oe_stat_button&quot;</span> <span class="na">icon=</span><span class="s">&quot;fa-smile-o&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;rating_count&quot;</span> <span class="na">string=</span><span class="s">&quot;Rating&quot;</span> <span class="na">widget=</span><span class="s">&quot;statinfo&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;/xpath&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<p >Note that there are default views (kanban,pivot,graph) for ratings which allow
+you a quick bird's eye view of your customer ratings.</p><p >You can find concrete examples of integration in the following models:</p><ul ><li ><code >project.task</code> in the Project (<em >rating_project</em>) Application</li><li ><code >helpdesk.ticket</code> in the Helpdesk (<em >helpdesk</em> - Odoo Enterprise only) Application</li></ul></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

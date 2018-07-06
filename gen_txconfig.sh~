@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for f in $(ls _build/locale/*.pot)
+do
+
+  tx config -r  odoo-documentation-technical.$f  --soure -l en $f
+
+done

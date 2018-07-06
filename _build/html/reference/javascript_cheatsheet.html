@@ -1,0 +1,556 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Javascript Cheatsheet &mdash; odoo 11.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 11.0 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="../reference.html" />
+    <link rel="next" title="Javascript Reference" href="javascript_reference.html" />
+    <link rel="prev" title="QWeb" href="qweb.html" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Javascript Cheatsheet</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/11.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/index.html">Developer</a></li>
+<li><a href="https://training.odoo.com/">Training center</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/webservices/odoo.html">API</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/setup/install.html">Installation</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/javascript.jpg');"></span>
+      <div class="container text-center">
+        <h1> Javascript Cheatsheet </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#creating-a-new-field-widget" class="ripple internal reference">Creating a new field widget</a></li><li class="list-group-item"><a href="#modifying-an-existing-field-widget" class="ripple internal reference">Modifying an existing field widget</a></li><li class="list-group-item"><a href="#modifying-a-main-widget-from-the-interface" class="ripple internal reference">Modifying a main widget from the interface</a></li><li class="list-group-item"><a href="#adding-a-client-action" class="ripple internal reference">Adding a client action</a></li><li class="list-group-item"><a href="#creating-a-new-view-from-scratch" class="ripple internal reference">Creating a new view (from scratch)</a></li><li class="list-group-item"><a href="#customizing-an-existing-view" class="ripple internal reference">Customizing an existing view</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/11.0/doc/reference/javascript_cheatsheet.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="javascript-cheatsheet"><p >There are many ways to solve a problem in JavaScript, and in Odoo.  However, the
+Odoo framework was designed to be extensible (this is a pretty big constraint),
+and some common problems have a nice standard solution.  The standard solution
+has probably the advantage of being easy to understand for an odoo developers,
+and will probably keep working when Odoo is modified.</p><p >This document tries to explain the way one could solve some of these issues.
+Note that this is not a reference.  This is just a random collection of recipes,
+or explanations on how to proceed in some cases.</p><p >First of all, remember that the first rule of customizing odoo with JS is:
+<em >try to do it in python</em>.  This may seem strange, but the python framework is
+quite extensible, and many behaviours can be done simply with a touch of xml or
+python.  This has usually a lower cost of maintenance than working with JS:</p><ul ><li >the JS framework tends to change more, so JS code needs to be more frequently
+updated</li><li >it is often more difficult to implement a customized behaviour if it needs to
+communicate with the server and properly integrate with the javascript framework.
+There are many small details taken care by the framework that customized code
+needs to replicate.  For example, responsiveness, or updating the url, or
+displaying data without flickering.</li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >This document does not really explain any concepts. This is more a
+cookbook.  For more details, please consult the javascript reference
+page (see <a href="javascript_reference.html" class="internal alert-link reference"><em >Javascript Reference</em></a>)</p></div></section><section id="creating-a-new-field-widget"><h2 >Creating a new field widget</h2><p >This is probably a really common usecase: we want to display some information in
+a form view in a really specific (maybe business dependent) way.  For example,
+assume that we want to change the text color depending on some business condition.</p><p >This can be done in three steps: creating a new widget, registering it in the
+field registry, then adding the widget to the field in the form view</p><ul ><li ><dl ><dt >creating a new widget:</dt><dd ><p >This can be done by extending a widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">FieldChar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.basic_fields&#39;</span><span class="p">).</span><span class="nx">FieldChar</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">CustomFieldChar</span> <span class="o">=</span> <span class="nx">Fieldchar</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">renderReadonly</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// implement some custom logic here</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >registering it in the field registry:</dt><dd ><p >The web client needs to know the mapping between a widget name and its
+actual class.  This is done by a registry:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">fieldRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.field_registry&#39;</span><span class="p">);</span>
+
+<span class="nx">fieldRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;my-custom-field&#39;</span><span class="p">,</span> <span class="nx">CustomFieldChar</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >adding the widget in the form view</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;somefield&quot;</span> <span class="na">widget=</span><span class="s">&quot;my-custom-field&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >Note that only the form, list and kanban views use this field widgets registry.
+These views are tightly integrated, because the list and kanban views can
+appear inside a form view).</p></dd></dl></li></ul></section><section id="modifying-an-existing-field-widget"><h2 >Modifying an existing field widget</h2><p >Another use case is that we want to modify an existing field widget.  For
+example, the voip addon in odoo need to modify the FieldPhone widget to add the
+possibility to easily call the given number on voip. This is done by <em >including</em>
+the FieldPhone widget, so there is no need to change any existing form view.</p><p >Field Widgets (instances of (subclass of) AbstractField) are like every other
+widgets, so they can be monkey patched. This looks like this:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">basic_fields</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.basic_fields&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">Phone</span> <span class="o">=</span> <span class="nx">basic_fields</span><span class="p">.</span><span class="nx">FieldPhone</span><span class="p">;</span>
+
+<span class="nx">Phone</span><span class="p">.</span><span class="nx">include</span><span class="p">({</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">Phone</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">events</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s1">&#39;click&#39;</span><span class="o">:</span> <span class="s1">&#39;_onClick&#39;</span><span class="p">,</span>
+    <span class="p">}),</span>
+
+    <span class="nx">_onClick</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">mode</span> <span class="o">===</span> <span class="s1">&#39;readonly&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+            <span class="kd">var</span> <span class="nx">phoneNumber</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+            <span class="c1">// call the number on voip...</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >Note that there is no need to add the widget to the registry, since it is already
+registered.</p></section><section id="modifying-a-main-widget-from-the-interface"><h2 >Modifying a main widget from the interface</h2><p >Another common usecase is the need to customize some elements from the user
+interface.  For example, adding a message in the home menu.  The usual process
+in this case is again to <em >include</em> the widget.  This is the only way to do it,
+since there are no registries for those widgets.</p><p >This is usually done with code looking like this:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">AppSwitcher</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web_enterprise.AppSwitcher&#39;</span><span class="p">);</span>
+
+<span class="nx">AppSwitcher</span><span class="p">.</span><span class="nx">include</span><span class="p">({</span>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
+        <span class="c1">// do something else here...</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section><section id="adding-a-client-action"><h2 >Adding a client action</h2><p >A client action is a widget which will control the part of the screen below the
+menu bar.  It can have a control panel, if necessary.  Defining a client action
+can be done in two steps: implementing a new widget, and registering the widget
+in the action registry.</p><ul ><li ><dl ><dt >Implementing a new client action:</dt><dd ><p >This is done by creating a widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">ControlPanelMixin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.ControlPanelMixin&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">Widget</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Widget&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">ClientAction</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">ControlPanelMixin</span><span class="p">,</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >Do not add the controlpanel mixin if you do not need it.  Note that some
+code is needed to interact with the control panel (via the
+<code >update_control_panel</code> method given by the mixin).</p></dd></dl></li><li ><dl ><dt >Registering the client action:</dt><dd ><p >As usual, we need to make the web client aware of the mapping between
+client actions and the actual class:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">core</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.core&#39;</span><span class="p">);</span>
+
+<span class="nx">core</span><span class="p">.</span><span class="nx">action_registry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;my-custom-action&#39;</span><span class="p">,</span> <span class="nx">ClientAction</span><span class="p">);</span>
+</pre></div>
+</div>
+<p >Then, to use the client action in the web client, we need to create a client
+action record (a record of the model <code >ir.actions.client</code>) with the proper
+<code >tag</code> attribute:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;my_client_action&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.actions.client&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Some Name<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;tag&quot;</span><span class="nt">&gt;</span>my-custom-action<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li></ul></section><section id="creating-a-new-view-from-scratch"><h2 >Creating a new view (from scratch)</h2><p >Creating a new view is a more advanced topic.  This cheatsheet will only
+highlight the steps that will probably need to be done (in no particular order):</p><ul ><li ><p >adding a new view type to the field <code >type</code> of <code >ir.ui.view</code>:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">View</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;ir.ui.view&#39;</span>
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Selection</span><span class="p">(</span><span class="n">selection_add</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="s2">&quot;Map&quot;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li><li ><p >adding the new view type to the field <code >view_mode</code> of <code >ir.actions.act_window.view</code>:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">ActWindowView</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;ir.actions.act_window.view&#39;</span>
+
+    <span class="n">view_mode</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Selection</span><span class="p">(</span><span class="n">selection_add</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="s2">&quot;Map&quot;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li><li ><dl ><dt >creating the four main pieces which makes a view (in JavaScript):</dt><dd ><p >we need a view (a subclass of <code >AbstractView</code>, this is the factory), a
+renderer (from <code >AbstractRenderer</code>), a controller (from <code >AbstractController</code>)
+and a model (from <code >AbstractModel</code>).  I suggest starting by simply
+extending the superclasses:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">AbstractController</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractController&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">AbstractModel</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractModel&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">AbstractRenderer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractRenderer&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">AbstractView</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractView&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">MapController</span> <span class="o">=</span> <span class="nx">AbstractController</span><span class="p">.</span><span class="nx">extend</span><span class="p">({});</span>
+<span class="kd">var</span> <span class="nx">MapRenderer</span> <span class="o">=</span> <span class="nx">AbstractRenderer</span><span class="p">.</span><span class="nx">extend</span><span class="p">({});</span>
+<span class="kd">var</span> <span class="nx">MapModel</span> <span class="o">=</span> <span class="nx">AbstractModel</span><span class="p">.</span><span class="nx">extend</span><span class="p">({});</span>
+
+<span class="kd">var</span> <span class="nx">MapView</span> <span class="o">=</span> <span class="nx">AbstractView</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">Model</span><span class="o">:</span> <span class="nx">MapModel</span><span class="p">,</span>
+        <span class="nx">Controller</span><span class="o">:</span> <span class="nx">MapController</span><span class="p">,</span>
+        <span class="nx">Renderer</span><span class="o">:</span> <span class="nx">MapRenderer</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >adding the view to the registry:</dt><dd ><p >As usual, the mapping between a view type and the actual class needs to be
+updated:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">viewRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.view_registry&#39;</span><span class="p">);</span>
+
+<span class="nx">viewRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="nx">MapView</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >implementing the four main classes:</dt><dd >The <code >View</code> class needs to parse the <code >arch</code> field and setup the other
+three classes.  The <code >Renderer</code> is in charge of representing the data in
+the user interface, the <code >Model</code> is supposed to talk to the server, to
+load data and process it.  And the <code >Controller</code> is there to coordinate,
+to talk to the web client, ...</dd></dl></li><li ><dl ><dt >creating some views in the database:</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;customer_map_view&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>customer.map.view<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>res.partner<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;map</span> <span class="na">latitude=</span><span class="s">&quot;partner_latitude&quot;</span> <span class="na">longitude=</span><span class="s">&quot;partner_longitude&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/map&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li></ul></section><section id="customizing-an-existing-view"><h2 >Customizing an existing view</h2><p >Assume we need to create a custom version of a generic view.  For example, a
+kanban view with some extra <em >ribbon-like</em> widget on top (to display some
+specific custom information). In that case, this can be done with 3 steps:
+extend the kanban view (which also probably mean extending controllers/renderers
+and/or models), then registering the view in the view registry, and finally,
+using the view in the kanban arch (a specific example is the helpdesk dashboard).</p><ul ><li ><dl ><dt >extending a view:</dt><dd ><p >Here is what it could look like:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">HelpdeskDashboardRenderer</span> <span class="o">=</span> <span class="nx">KanbanRenderer</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">HelpdeskDashboardModel</span> <span class="o">=</span> <span class="nx">KanbanModel</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">HelpdeskDashboardController</span> <span class="o">=</span> <span class="nx">KanbanController</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">HelpdeskDashboardView</span> <span class="o">=</span> <span class="nx">KanbanView</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">config</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">KanbanView</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">config</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">Model</span><span class="o">:</span> <span class="nx">HelpdeskDashboardModel</span><span class="p">,</span>
+        <span class="nx">Renderer</span><span class="o">:</span> <span class="nx">HelpdeskDashboardRenderer</span><span class="p">,</span>
+        <span class="nx">Controller</span><span class="o">:</span> <span class="nx">HelpdeskDashboardController</span><span class="p">,</span>
+    <span class="p">}),</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >adding it to the view registry:</dt><dd ><p >as usual, we need to inform the web client of the mapping between the name
+of the views and the actual class.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">viewRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.view_registry&#39;</span><span class="p">);</span>
+<span class="nx">viewRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;helpdesk_dashboard&#39;</span><span class="p">,</span> <span class="nx">HelpdeskDashboardView</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >using it in an actual view:</dt><dd ><p >we now need to inform the web client that a specific <code >ir.ui.view</code> needs to
+use our new class.  Note that this is a web client specific concern.  From
+the point of view of the server, we still have a kanban view.  The proper
+way to do this is by using a special attribute <code >js_class</code> (which will be
+renamed someday into <code >widget</code>, because this is really not a good name) on
+the root node of the arch:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;helpdesk_team_view_kanban&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span> <span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;kanban</span> <span class="na">js_class=</span><span class="s">&quot;helpdesk_dashboard&quot;</span><span class="nt">&gt;</span>
+            ...
+        <span class="nt">&lt;/kanban&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >Note: you can change the way the view interprets the arch structure.  However,
+from the server point of view, this is still a view of the same base type,
+subjected to the same rules (rng validation, for example).  So, your views still
+need to have a valid arch field.</p></div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

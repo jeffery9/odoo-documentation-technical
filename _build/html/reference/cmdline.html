@@ -1,0 +1,456 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Command-line interface: odoo-bin &mdash; odoo 11.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 11.0 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="../reference.html" />
+    <link rel="next" title="Security in Odoo" href="security.html" />
+    <link rel="prev" title="Module Manifests" href="module.html" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Command-line interface: odoo-bin</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/11.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/index.html">Developer</a></li>
+<li><a href="https://training.odoo.com/">Training center</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/webservices/odoo.html">API</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/setup/install.html">Installation</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/cmdline.jpg');"></span>
+      <div class="container text-center">
+        <h1> Command-line interface: odoo-bin </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#running-the-server" class="ripple internal reference">Running the server</a><ul ><li class="list-group-item"><a href="#database" class="ripple internal reference">database</a></li><li class="list-group-item"><a href="#internationalisation" class="ripple internal reference">Internationalisation</a></li><li class="list-group-item"><a href="#built-in-http" class="ripple internal reference">built-in HTTP</a></li><li class="list-group-item"><a href="#logging" class="ripple internal reference">logging</a></li><li class="list-group-item"><a href="#translations" class="ripple internal reference">translations</a></li><li class="list-group-item"><a href="#emails" class="ripple internal reference">emails</a></li></ul></li><li class="list-group-item"><a href="#scaffolding" class="ripple internal reference">Scaffolding</a></li><li class="list-group-item"><a href="#configuration-file" class="ripple internal reference">Configuration file</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/11.0/doc/reference/cmdline.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="command-line-interface-odoo-bin"><i id="reference-cmdline"></i></section><section id="running-the-server"><i id="reference-cmdline-server"></i><h2 >Running the server</h2><section class="code-option"><h6 id="cmdoption-odoo-bin-d"><i id="cmdoption-odoo-bin--database"></i><code>-d &lt;database&gt;, --database &lt;database&gt;</code></h6><p >database(s) used when installing or updating modules.
+Providing a comma-separated list restrict access to databases provided in
+list.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin-i"><i id="cmdoption-odoo-bin--init"></i><code>-i &lt;modules&gt;, --init &lt;modules&gt;</code></h6><p >comma-separated list of modules to install before running the server
+(requires <a href="#cmdoption-odoo-bin-d" class="internal alert-link reference"><code class="std xref std-option">-d</code></a>).</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin-u"><i id="cmdoption-odoo-bin--update"></i><code>-u &lt;modules&gt;, --update &lt;modules&gt;</code></h6><p >comma-separated list of modules to update before running the server
+(requires <a href="#cmdoption-odoo-bin-d" class="internal alert-link reference"><code class="std xref std-option">-d</code></a>).</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--addons-path"><code>--addons-path &lt;directories&gt;</code></h6><p >comma-separated list of directories in which modules are stored. These
+directories are scanned for modules (nb: when and why?)</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--workers"><code>--workers &lt;count&gt;</code></h6><p >if <code >count</code> is not 0 (the default), enables multiprocessing and sets up
+the specified number of HTTP workers (sub-processes processing HTTP
+and RPC requests).</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >multiprocessing mode is only available on Unix-based systems</p></div><p >A number of options allow limiting and recycling workers:</p><section class="code-option"><h6 id="cmdoption-odoo-bin--limit-request"><code>--limit-request &lt;limit&gt;</code></h6><p >Number of requests a worker will process before being recycled and
+restarted.</p><p >Defaults to 8196.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--limit-memory-soft"><code>--limit-memory-soft &lt;limit&gt;</code></h6><p >Maximum allowed virtual memory per worker. If the limit is exceeded,
+the worker is killed and recycled at the end of the current request.</p><p >Defaults to 2048MB.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--limit-memory-hard"><code>--limit-memory-hard &lt;limit&gt;</code></h6><p >Hard limit on virtual memory, any worker exceeding the limit will be
+immediately killed without waiting for the end of the current request
+processing.</p><p >Defaults to 2560MB.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--limit-time-cpu"><code>--limit-time-cpu &lt;limit&gt;</code></h6><p >Prevents the worker from using more than &lt;limit&gt; CPU seconds for each
+request. If the limit is exceeded, the worker is killed.</p><p >Defaults to 60.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--limit-time-real"><code>--limit-time-real &lt;limit&gt;</code></h6><p >Prevents the worker from taking longer than &lt;limit&gt; seconds to process
+a request. If the limit is exceeded, the worker is killed.</p><p >Differs from <a href="#cmdoption-odoo-bin--limit-time-cpu" class="internal alert-link reference"><code class="std xref std-option">--limit-time-cpu</code></a> in that this is a &quot;wall time&quot;
+limit including e.g. SQL queries.</p><p >Defaults to 120.</p></section></section><section class="code-option"><h6 id="cmdoption-odoo-bin--max-cron-threads"><code>--max-cron-threads &lt;count&gt;</code></h6><p >number of workers dedicated to cron jobs. Defaults to 2. The workers are
+threads in multi-threading mode and processes in multi-processing mode.</p><p >For multi-processing mode, this is in addition to the HTTP worker
+processes.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin-c"><i id="cmdoption-odoo-bin--config"></i><code>-c &lt;config&gt;, --config &lt;config&gt;</code></h6><p >provide an alternate configuration file</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin-s"><i id="cmdoption-odoo-bin--save"></i><code>-s, --save</code></h6><p >saves the server configuration to the current configuration file
+(<code class="file"><em >$HOME</em>/.odoorc</code> by default, and can be overridden using
+<a href="#cmdoption-odoo-bin-c" class="internal alert-link reference"><code class="std xref std-option">-c</code></a>)</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--proxy-mode"><code>--proxy-mode</code></h6><p >enables the use of <code >X-Forwarded-*</code> headers through <a href="http://werkzeug.pocoo.org/docs/contrib/fixers/#werkzeug.contrib.fixers.ProxyFix" class="external reference alert-link">Werkzeug's proxy
+support</a>.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >proxy mode <em >must not</em> be enabled outside of a reverse proxy
+scenario</p></div></section><section class="code-option"><h6 id="cmdoption-odoo-bin--test-enable"><code>--test-enable</code></h6><p >runs tests after installing modules</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--dev"><code>--dev &lt;feature,feature,...,feature&gt;</code></h6><ul ><li ><code >all</code>: all the features below are activated</li><li ><code >xml</code>: read template qweb from xml file directly instead of database.
+Once a template has been modified in database, it will be not be read from
+the xml file until the next update/init.</li><li ><code >reload</code>: restart server when python file are updated (may not be detected
+depending on the text editor used)</li><li ><code >qweb</code>: break in the evaluation of qweb template when a node contains <code >t-debug='debugger'</code></li><li ><code >(i)p(u)db</code>: start the chosen python debugger in the code when an
+unexpected error is raised before logging and returning the error.</li></ul></section></section><section id="database"><i id="reference-cmdline-server-database"></i><h3 >database</h3><section class="code-option"><h6 id="cmdoption-odoo-bin-r"><i id="cmdoption-odoo-bin--db_user"></i><code>-r &lt;user&gt;, --db_user &lt;user&gt;</code></h6><p >database username, used to connect to PostgreSQL.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin-w"><i id="cmdoption-odoo-bin--db_password"></i><code>-w &lt;password&gt;, --db_password &lt;password&gt;</code></h6><p >database password, if using <a href="http://www.postgresql.org/docs/9.3/static/auth-methods.html#AUTH-PASSWORD" class="external reference alert-link">password authentication</a>.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--db_host"><code>--db_host &lt;hostname&gt;</code></h6><p >host for the database server</p><ul ><li ><code >localhost</code> on Windows</li><li >UNIX socket otherwise</li></ul></section><section class="code-option"><h6 id="cmdoption-odoo-bin--db_port"><code>--db_port &lt;port&gt;</code></h6><p >port the database listens on, defaults to 5432</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--db-filter"><code>--db-filter &lt;filter&gt;</code></h6><p >hides databases that do not match <code >&lt;filter&gt;</code>. The filter is a
+<a href="https://docs.python.org/2/library/re.html" class="external reference alert-link">regular expression</a>, with the additions that:</p><ul ><li ><code >%h</code> is replaced by the whole hostname the request is made on.</li><li ><p ><code >%d</code> is replaced by the subdomain the request is made on, with the
+exception of <code >www</code> (so domain <code >odoo.com</code> and <code >www.odoo.com</code> both
+match the database <code >odoo</code>).</p><p >These operations are case sensitive. Add option <code >(?i)</code> to match all
+databases (so domain <code >odoo.com</code> using <code >(?i)%d</code> matches the database
+<code >Odoo</code>).</p></li></ul><p >Since version 11, it's also possible to restrict access to a given database
+listen by using the --database parameter and specifying a comma-separated
+list of databases</p><p >When combining the two parameters, db-filter superseed the comma-separated
+database list for restricting database list, while the comma-separated list
+is used for performing requested operations like upgrade of modules.</p><div class="highlight-bash"><div class="highlight"><pre>odoo-bin --db-filter ^11.*$
+</pre></div>
+</div>
+<p >Restrict access to databases whose name starts with 11</p><div class="highlight-bash"><div class="highlight"><pre>odoo-bin --database 11firstdatabase,11seconddatabase
+</pre></div>
+</div>
+<p >Restrict access to only two databases, 11firstdatabase and 11seconddatabase</p><div class="highlight-bash"><div class="highlight"><pre>odoo-bin --database 11firstdatabase,11seconddatabase -u base
+</pre></div>
+</div>
+<p >Restrict access to only two databases, 11firstdatabase and 11seconddatabase,
+and update base module on one database: 11firstdatabase
+If database 11seconddatabase doesn't exist, the database is created and base modules
+is installed</p><div class="highlight-bash"><div class="highlight"><pre>odoo-bin --db-filter ^11.*$ --database 11firstdatabase,11seconddatabase -u base
+</pre></div>
+</div>
+<p >Restrict access to databases whose name starts with 11,
+and update base module on one database: 11firstdatabase
+If database 11seconddatabase doesn't exist, the database is created and base modules
+is installed</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--db-template"><code>--db-template &lt;template&gt;</code></h6><p >when creating new databases from the database-management screens, use the
+specified <a href="http://www.postgresql.org/docs/9.3/static/manage-ag-templatedbs.html" class="external reference alert-link">template database</a>. Defaults to <code >template1</code>.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--no-database-list"><code>--no-database-list</code></h6><p >Suppresses the ability to list databases available on the system</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--db_sslmode"><code>--db_sslmode</code></h6><p >Control the SSL security of the connection between Odoo and PostgreSQL.
+Value should bve one of 'disable', 'allow', 'prefer', 'require',
+'verify-ca' or 'verify-full'
+Default value is 'prefer'</p></section></section><section id="internationalisation"><i id="reference-cmdline-server-internationalisation"></i><h3 >Internationalisation</h3><p >Use these options to translate Odoo to another language. See i18n section of
+the user manual. Option '-d' is mandatory. Option '-l' is mandatory in case
+of importation</p><section class="code-option"><h6 id="cmdoption-odoo-bin--load-language"><code>--load-language &lt;languages&gt;</code></h6><p >specifies the languages (separated by commas) for the translations you
+want to be loaded</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin-l"><i id="cmdoption-odoo-bin--language"></i><code>-l, --language &lt;language&gt;</code></h6><p >specify the language of the translation file. Use it with --i18n-export
+or --i18n-import</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--i18n-export"><code>--i18n-export &lt;filename&gt;</code></h6><p >export all sentences to be translated to a CSV file, a PO file or a TGZ
+archive and exit.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--i18n-import"><code>--i18n-import &lt;filename&gt;</code></h6><p >import a CSV or a PO file with translations and exit. The '-l' option is
+required.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--i18n-overwrite"><code>--i18n-overwrite</code></h6><p >overwrites existing translation terms on updating a module or importing
+a CSV or a PO file.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--modules"><code>--modules</code></h6><p >specify modules to export. Use in combination with --i18n-export</p></section></section><section id="built-in-http"><h3 >built-in HTTP</h3><section class="code-option"><h6 id="cmdoption-odoo-bin--no-http"><code>--no-http</code></h6><p >do not start the HTTP or long-polling workers (may still start cron
+workers)</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >has no effect if <a href="#cmdoption-odoo-bin--test-enable" class="internal alert-link reference"><code class="std xref std-option">--test-enable</code></a> is set, as tests
+require an accessible HTTP server</p></div></section><section class="code-option"><h6 id="cmdoption-odoo-bin--http-interface"><code>--http-interface &lt;interface&gt;</code></h6><p >TCP/IP address on which the HTTP server listens, defaults to <code >0.0.0.0</code>
+(all addresses)</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--http-port"><code>--http-port &lt;port&gt;</code></h6><p >Port on which the HTTP server listens, defaults to 8069.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--longpolling-port"><code>--longpolling-port &lt;port&gt;</code></h6><p >TCP port for long-polling connections in multiprocessing or gevent mode,
+defaults to 8072. Not used in default (threaded) mode.</p></section></section><section id="logging"><h3 >logging</h3><p >By default, Odoo displays all logging of <a href="https://docs.python.org/2/library/logging.html#logging.Logger.setLevel" class="external reference">level</a> <code >info</code> except for workflow
+logging (<code >warning</code> only), and log output is sent to <code >stdout</code>. Various
+options are available to redirect logging to other destinations and to
+customize the amount of logging output</p><section class="code-option"><h6 id="cmdoption-odoo-bin--logfile"><code>--logfile &lt;file&gt;</code></h6><p >sends logging output to the specified file instead of stdout. On Unix, the
+file <a href="https://docs.python.org/2/library/logging.handlers.html#watchedfilehandler" class="external reference alert-link">can be managed by external log rotation programs</a>
+and will automatically be reopened when replaced</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--logrotate"><code>--logrotate</code></h6><p >enables <a href="https://docs.python.org/2/library/logging.handlers.html#timedrotatingfilehandler" class="external reference alert-link">log rotation</a>
+daily, keeping 30 backups. Log rotation frequency and number of backups is
+not configurable.</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--syslog"><code>--syslog</code></h6><p >logs to the system's event logger: <a href="https://docs.python.org/2/library/logging.handlers.html#sysloghandler" class="external reference alert-link">syslog on unices</a>
+and <a href="https://docs.python.org/2/library/logging.handlers.html#nteventloghandler" class="external reference alert-link">the Event Log on Windows</a>.</p><p >Neither is configurable</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--log-db"><code>--log-db &lt;dbname&gt;</code></h6><p >logs to the <code >ir.logging</code> model (<code >ir_logging</code> table) of the specified
+database. The database can be the name of a database in the &quot;current&quot;
+PostgreSQL, or <a href="http://www.postgresql.org/docs/9.2/static/libpq-connect.html#AEN38208" class="external reference alert-link">a PostgreSQL URI</a> for e.g. log aggregation</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--log-handler"><code>--log-handler &lt;handler-spec&gt;</code></h6><p ><code class="samp"><em >LOGGER</em>:<em >LEVEL</em></code>, enables <code >LOGGER</code> at the provided <code >LEVEL</code>
+e.g. <code >odoo.models:DEBUG</code> will enable all logging messages at or above
+<code >DEBUG</code> level in the models.</p><ul ><li >The colon <code >:</code> is mandatory</li><li >The logger can be omitted to configure the root (default) handler</li><li >If the level is omitted, the logger is set to <code >INFO</code></li></ul><p >The option can be repeated to configure multiple loggers e.g.</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> odoo-bin --log-handler :DEBUG --log-handler werkzeug:CRITICAL --log-handler odoo.fields:WARNING
+</pre></div>
+</div>
+</section><section class="code-option"><h6 id="cmdoption-odoo-bin--log-request"><code>--log-request</code></h6><p >enable DEBUG logging for RPC requests, equivalent to
+<code >--log-handler=odoo.http.rpc.request:DEBUG</code></p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--log-response"><code>--log-response</code></h6><p >enable DEBUG logging for RPC responses, equivalent to
+<code >--log-handler=odoo.http.rpc.response:DEBUG</code></p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--log-web"><code>--log-web</code></h6><p >enables DEBUG logging of HTTP requests and responses, equivalent to
+<code >--log-handler=odoo.http:DEBUG</code></p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--log-sql"><code>--log-sql</code></h6><p >enables DEBUG logging of SQL querying, equivalent to
+<code >--log-handler=odoo.sql_db:DEBUG</code></p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--log-level"><code>--log-level &lt;level&gt;</code></h6><p >Shortcut to more easily set predefined levels on specific loggers. &quot;real&quot;
+levels (<code >critical</code>, <code >error</code>, <code >warn</code>, <code >debug</code>) are set on the
+<code >odoo</code> and <code >werkzeug</code> loggers (except for <code >debug</code> which is only
+set on <code >odoo</code>).</p><p >Odoo also provides debugging pseudo-levels which apply to different sets
+of loggers:</p><dl ><dt ><code >debug_sql</code></dt><dd ><p >sets the SQL logger to <code >debug</code></p><p >equivalent to <code >--log-sql</code></p></dd><dt ><code >debug_rpc</code></dt><dd ><p >sets the <code >odoo</code> and HTTP request loggers to <code >debug</code></p><p >equivalent to <code >--log-level debug --log-request</code></p></dd><dt ><code >debug_rpc_answer</code></dt><dd ><p >sets the <code >odoo</code> and HTTP request and response loggers to
+<code >debug</code></p><p >equivalent to <code >--log-level debug --log-request --log-response</code></p></dd></dl><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >In case of conflict between <a href="#cmdoption-odoo-bin--log-level" class="internal alert-link reference"><code class="std xref std-option">--log-level</code></a> and
+<a href="#cmdoption-odoo-bin--log-handler" class="internal alert-link reference"><code class="std xref std-option">--log-handler</code></a>, the latter is used</p></div></section></section><section id="translations"><h3 >translations</h3><section class="code-option"><h6 id="cmdoption-odoo-bin--i18n-import"><code>--i18n-import</code></h6></section><section class="code-option"><h6 id="cmdoption-odoo-bin--i18n-export"><code>--i18n-export</code></h6></section></section><section id="emails"><h3 >emails</h3><section class="code-option"><h6 id="cmdoption-odoo-bin--email-from"><code>--email-from &lt;address&gt;</code></h6><p >Email address used as &lt;FROM&gt; when Odoo needs to send mails</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--smtp"><code>--smtp &lt;server&gt;</code></h6><p >Address of the SMTP server to connect to in order to send mails</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--smtp-port"><code>--smtp-port &lt;port&gt;</code></h6></section><section class="code-option"><h6 id="cmdoption-odoo-bin--smtp-ssl"><code>--smtp-ssl</code></h6><p >If set, odoo should use SSL/STARTSSL SMTP connections</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--smtp-user"><code>--smtp-user &lt;name&gt;</code></h6><p >Username to connect to the SMTP server</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin--smtp-password"><code>--smtp-password &lt;password&gt;</code></h6><p >Password to connect to the SMTP server</p></section></section><section id="scaffolding"><i id="reference-cmdline-scaffold"></i><h2 >Scaffolding</h2><p >Scaffolding is the automated creation of a skeleton structure to simplify
+bootstrapping (of new modules, in the case of Odoo). While not necessary it
+avoids the tedium of setting up basic structures and looking up what all
+starting requirements are.</p><p >Scaffolding is available via the <strong class="command">odoo-bin scaffold</strong> subcommand.</p><section class="code-option"><h6 id="cmdoption-odoo-bin-scaffold-t"><code>-t &lt;template&gt;</code></h6><p >a template directory, files are passed through <a href="http://jinja.pocoo.org" class="external reference alert-link">jinja2</a> then copied to
+the <code >destination</code> directory</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin-scaffold-arg-name"><code>name</code></h6><p >the name of the module to create, may munged in various manners to
+generate programmatic names (e.g. module directory name, model names, …)</p></section><section class="code-option"><h6 id="cmdoption-odoo-bin-scaffold-arg-destination"><code>destination</code></h6><p >directory in which to create the new module, defaults to the current
+directory</p></section></section><section id="configuration-file"><i id="reference-cmdline-config"></i><h2 >Configuration file</h2><p >Most of the command-line options can also be specified via a configuration
+file. Most of the time, they use similar names with the prefix <code >-</code> removed
+and other <code >-</code> are replaced by <code >_</code> e.g. <a href="#cmdoption-odoo-bin--db-template" class="internal reference"><code class="std xref std-option">--db-template</code></a> becomes
+<code >db_template</code>.</p><p >Some conversions don't match the pattern:</p><ul ><li ><a href="#cmdoption-odoo-bin--db-filter" class="internal reference"><code class="std xref std-option">--db-filter</code></a> becomes <code >dbfilter</code></li><li ><a href="#cmdoption-odoo-bin--no-http" class="internal reference"><code class="std xref std-option">--no-http</code></a> corresponds to the <code >http_enable</code> boolean</li><li >logging presets (all options starting with <code >--log-</code> except for
+<a href="#cmdoption-odoo-bin--log-handler" class="internal reference"><code class="std xref std-option">--log-handler</code></a> and <a href="#cmdoption-odoo-bin--log-db" class="internal reference"><code class="std xref std-option">--log-db</code></a>) just add content to
+<code >log_handler</code>, use that directly in the configuration file</li><li ><a href="#cmdoption-odoo-bin--smtp" class="internal reference"><code class="std xref std-option">--smtp</code></a> is stored as <code >smtp_server</code></li><li ><a href="#cmdoption-odoo-bin--database" class="internal reference"><code class="std xref std-option">--database</code></a> is stored as <code >db_name</code></li><li ><a href="#cmdoption-odoo-bin--i18n-import" class="internal reference"><code class="std xref std-option">--i18n-import</code></a> and <a href="#cmdoption-odoo-bin--i18n-export" class="internal reference"><code class="std xref std-option">--i18n-export</code></a> aren't available at all
+from configuration files</li></ul><p >The default configuration file is <code class="file"><em >$HOME</em>/.odoorc</code> which
+can be overridden using <a href="#cmdoption-odoo-bin-c" class="internal reference"><code class="std xref std-option">--config</code></a>. Specifying
+<a href="#cmdoption-odoo-bin-s" class="internal reference"><code class="std xref std-option">--save</code></a> will save the current configuration state back
+to that file.</p></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

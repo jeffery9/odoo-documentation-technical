@@ -1,0 +1,650 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>QWeb &mdash; odoo 11.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 11.0 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="../reference.html" />
+    <link rel="next" title="Javascript Cheatsheet" href="javascript_cheatsheet.html" />
+    <link rel="prev" title="Web Controllers" href="http.html" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">QWeb</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/11.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/index.html">Developer</a></li>
+<li><a href="https://training.odoo.com/">Training center</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/webservices/odoo.html">API</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/setup/install.html">Installation</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/qweb.jpg');"></span>
+      <div class="container text-center">
+        <h1> QWeb </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#data-output" class="ripple internal reference">data output</a></li><li class="list-group-item"><a href="#conditionals" class="ripple internal reference">conditionals</a></li><li class="list-group-item"><a href="#loops" class="ripple internal reference">loops</a></li><li class="list-group-item"><a href="#attributes" class="ripple internal reference">attributes</a></li><li class="list-group-item"><a href="#setting-variables" class="ripple internal reference">setting variables</a></li><li class="list-group-item"><a href="#calling-sub-templates" class="ripple internal reference">calling sub-templates</a></li><li class="list-group-item"><a href="#python" class="ripple internal reference">Python</a><ul ><li class="list-group-item"><a href="#exclusive-directives" class="ripple internal reference">Exclusive directives</a><ul ><li class="list-group-item"><a href="#asset-bundles" class="ripple internal reference">asset bundles</a></li><li class="list-group-item"><a href="#smart-records-fields-formatting" class="ripple internal reference">&quot;smart records&quot; fields formatting</a></li></ul></li><li class="list-group-item"><a href="#debugging" class="ripple internal reference">debugging</a></li><li class="list-group-item"><a href="#helpers" class="ripple internal reference">Helpers</a><ul ><li class="list-group-item"><a href="#request-based" class="ripple internal reference">Request-based</a></li><li class="list-group-item"><a href="#view-based" class="ripple internal reference">View-based</a></li></ul></li></ul></li><li class="list-group-item"><a href="#javascript" class="ripple internal reference">Javascript</a><ul ><li class="list-group-item"><a href="#id3" class="ripple internal reference">Exclusive directives</a><ul ><li class="list-group-item"><a href="#defining-templates" class="ripple internal reference">defining templates</a></li><li class="list-group-item"><a href="#template-inheritance" class="ripple internal reference">template inheritance</a></li></ul></li><li class="list-group-item"><a href="#id4" class="ripple internal reference">debugging</a></li><li class="list-group-item"><a href="#id5" class="ripple internal reference">Helpers</a></li><li class="list-group-item"><a href="#api" class="ripple internal reference">API</a></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/11.0/doc/reference/qweb.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="qweb"><i id="reference-qweb"></i><p >QWeb is the primary <a href="http://en.wikipedia.org/wiki/Template_processor" class="external reference">templating</a> engine used by Odoo<a href="#othertemplates" class="footnote-ref" id="id1">2</a>. It
+is an XML templating engine<a href="#genshif" class="footnote-ref" id="id2">1</a> and used mostly to generate <a href="http://en.wikipedia.org/wiki/HTML" class="external reference">HTML</a>
+fragments and pages.</p><p >Template directives are specified as XML attributes prefixed with <code >t-</code>,
+for instance <code >t-if</code> for <a href="#reference-qweb-conditionals" class="internal reference"><span >conditionals</span></a>, with elements
+and other attributes being rendered directly.</p><p >To avoid element rendering, a placeholder element <code >&lt;t&gt;</code> is also available,
+which executes its directive but doesn't generate any output in and of
+itself:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-if=</span><span class="s">&quot;condition&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p >will result in:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p >if <code >condition</code> is true, but:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">t-if=</span><span class="s">&quot;condition&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >will result in:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</section><section id="data-output"><i id="reference-qweb-output"></i><h2 >data output</h2><p >QWeb has a primary output directive which automatically HTML-escape its
+content limiting <a href="http://en.wikipedia.org/wiki/Cross-site_scripting" class="external reference">XSS</a> risks when displaying user-provided content: <code >esc</code>.</p><p ><code >esc</code> takes an expression, evaluates it and prints the content:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;value&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p >rendered with the value <code >value</code> set to <code >42</code> yields:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>42<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p >There is one other output directive <code >raw</code> which behaves the same as
+respectively <code >esc</code> but <em >does not HTML-escape its output</em>. It can be useful
+to display separately constructed markup (e.g. from functions) or already
+sanitized user-provided markup.</p></section><section id="conditionals"><i id="reference-qweb-conditionals"></i><h2 >conditionals</h2><p >QWeb has a conditional directive <code >if</code>, which evaluates an expression given
+as attribute value:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-if=</span><span class="s">&quot;condition&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>ok<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >The element is rendered if the condition is true:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p&gt;</span>ok<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >but if the condition is false it is removed from the result:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >The conditional rendering applies to the bearer of the directive, which does
+not have to be <code >&lt;t&gt;</code>:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">t-if=</span><span class="s">&quot;condition&quot;</span><span class="nt">&gt;</span>ok<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >will give the same results as the previous example.</p><p >Extra conditional branching directives <code >t-elif</code> and <code >t-else</code> are also
+available:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">t-if=</span><span class="s">&quot;user.birthday == today()&quot;</span><span class="nt">&gt;</span>Happy bithday!<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">t-elif=</span><span class="s">&quot;user.login == &#39;root&#39;&quot;</span><span class="nt">&gt;</span>Welcome master!<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">t-else=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>Welcome!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</section><section id="loops"><i id="reference-qweb-loops"></i><h2 >loops</h2><p >QWeb has an iteration directive <code >foreach</code> which take an expression returning
+the collection to iterate on, and a second parameter <code >t-as</code> providing the
+name to use for the &quot;current item&quot; of the iteration:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;[1, 2, 3]&quot;</span> <span class="na">t-as=</span><span class="s">&quot;i&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;i&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p >will be rendered as:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>3<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p >Like conditions, <code >foreach</code> applies to the element bearing the directive's
+attribute, and</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;p</span> <span class="na">t-foreach=</span><span class="s">&quot;[1, 2, 3]&quot;</span> <span class="na">t-as=</span><span class="s">&quot;i&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;i&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p >is equivalent to the previous example.</p><p ><code >foreach</code> can iterate on an array (the current item will be the current
+value), a mapping (the current item will be the current key) or an integer
+(equivalent to iterating on an array between 0 inclusive and the provided
+integer exclusive).</p><p >In addition to the name passed via <code >t-as</code>, <code >foreach</code> provides a few other
+variables for various data points:</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p ><code >$as</code> will be replaced by the name passed to <code >t-as</code></p></div><dl ><dt ><code class="samp"><em >$as</em>_all</code></dt><dd >the object being iterated over</dd><dt ><code class="samp"><em >$as</em>_value</code></dt><dd >the current iteration value, identical to <code >$as</code> for lists and integers,
+but for mappings it provides the value (where <code >$as</code> provides the key)</dd><dt ><code class="samp"><em >$as</em>_index</code></dt><dd >the current iteration index (the first item of the iteration has index 0)</dd><dt ><code class="samp"><em >$as</em>_size</code></dt><dd >the size of the collection if it is available</dd><dt ><code class="samp"><em >$as</em>_first</code></dt><dd >whether the current item is the first of the iteration (equivalent to
+<code class="samp"><em >$as</em>_index == 0</code>)</dd><dt ><code class="samp"><em >$as</em>_last</code></dt><dd >whether the current item is the last of the iteration (equivalent to
+<code class="samp"><em >$as</em>_index + 1 == <em >$as</em>_size</code>), requires the iteratee's size be
+available</dd><dt ><code class="samp"><em >$as</em>_parity</code></dt><dd >either <code >&quot;even&quot;</code> or <code >&quot;odd&quot;</code>, the parity of the current iteration round</dd><dt ><code class="samp"><em >$as</em>_even</code></dt><dd >a boolean flag indicating that the current iteration round is on an even
+index</dd><dt ><code class="samp"><em >$as</em>_odd</code></dt><dd >a boolean flag indicating that the current iteration round is on an odd
+index</dd></dl><p >These extra variables provided and all new variables created into the
+<code >foreach</code> are only available in the scope of the``foreach``. If the
+variable exists outside the context of the <code >foreach</code>, the value is copied
+at the end of the foreach into the global context.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;existing_variable&quot;</span> <span class="na">t-value=</span><span class="s">&quot;False&quot;</span><span class="nt">/&gt;</span>
+<span class="c">&lt;!-- existing_variable now False --&gt;</span>
+
+<span class="nt">&lt;p</span> <span class="na">t-foreach=</span><span class="s">&quot;[1, 2, 3]&quot;</span> <span class="na">t-as=</span><span class="s">&quot;i&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;existing_variable&quot;</span> <span class="na">t-value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;new_variable&quot;</span> <span class="na">t-value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- existing_variable and new_variable now True --&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="c">&lt;!-- existing_variable always True --&gt;</span>
+<span class="c">&lt;!-- new_variable undefined --&gt;</span>
+</pre></div>
+</div>
+</section><section id="attributes"><i id="reference-qweb-attributes"></i><h2 >attributes</h2><p >QWeb can compute attributes on-the-fly and set the result of the computation
+on the output node. This is done via the <code >t-att</code> (attribute) directive which
+exists in 3 different forms:</p><dl ><dt ><code class="samp">t-att-<em >$name</em></code></dt><dd ><p >an attribute called <code >$name</code> is created, the attribute value is evaluated
+and the result is set as the attribute's value:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">t-att-a=</span><span class="s">&quot;42&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >will be rendered as:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">a=</span><span class="s">&quot;42&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+</div>
+</dd><dt ><code class="samp">t-attf-<em >$name</em></code></dt><dd ><p >same as previous, but the parameter is a <a href="../glossary.html#term-format-string" class="internal reference"><span class="std std-term xref">format string</span></a>
+instead of just an expression, often useful to mix literal and non-literal
+string (e.g. classes):</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;[1, 2, 3]&quot;</span> <span class="na">t-as=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">t-attf-class=</span><span class="s">&quot;row {{ item_parity }}&quot;</span><span class="nt">&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;item&quot;</span><span class="nt">/&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p >will be rendered as:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;row even&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;row odd&quot;</span><span class="nt">&gt;</span>2<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;row even&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/li&gt;</span>
+</pre></div>
+</div>
+</dd><dt ><code class="samp">t-att=mapping</code></dt><dd ><p >if the parameter is a mapping, each (key, value) pair generates a new
+attribute and its value:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">t-att=</span><span class="s">&quot;{&#39;a&#39;: 1, &#39;b&#39;: 2}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >will be rendered as:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">a=</span><span class="s">&quot;1&quot;</span> <span class="na">b=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+</div>
+</dd><dt ><code class="samp">t-att=pair</code></dt><dd ><p >if the parameter is a pair (tuple or array of 2 element), the first
+item of the pair is the name of the attribute and the second item is the
+value:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">t-att=</span><span class="s">&quot;[&#39;a&#39;, &#39;b&#39;]&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >will be rendered as:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">a=</span><span class="s">&quot;b&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+</div>
+</dd></dl></section><section id="setting-variables"><h2 >setting variables</h2><p >QWeb allows creating variables from within the template, to memoize a
+computation (to use it multiple times), give a piece of data a clearer name,
+...</p><p >This is done via the <code >set</code> directive, which takes the name of the variable
+to create. The value to set can be provided in two ways:</p><ul ><li ><p >a <code >t-value</code> attribute containing an expression, and the result of its
+evaluation will be set:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;foo&quot;</span> <span class="na">t-value=</span><span class="s">&quot;2 + 1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;foo&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >will print <code >3</code></p></li><li ><p >if there is no <code >t-value</code> attribute, the node's body is rendered and set
+as the variable's value:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;foo&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>ok<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;foo&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >will generate <code >&amp;lt;li&amp;gt;ok&amp;lt;/li&amp;gt;</code> (the content is escaped as we
+used the <code >esc</code> directive)</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >using the result of this operation is a significant use-case for
+the <code >raw</code> directive.</p></div></li></ul></section><section id="calling-sub-templates"><h2 >calling sub-templates</h2><p >QWeb templates can be used for top-level rendering, but they can also be used
+from within another template (to avoid duplication or give names to parts of
+templates) using the <code >t-call</code> directive:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;other-template&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >This calls the named template with the execution context of the parent, if
+<code >other_template</code> is defined as:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-value=</span><span class="s">&quot;var&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p >the call above will be rendered as <code >&lt;p/&gt;</code> (no content), but:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;var&quot;</span> <span class="na">t-value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;other-template&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >will be rendered as <code >&lt;p&gt;1&lt;/p&gt;</code>.</p><p >However this has the problem of being visible from outside the <code >t-call</code>.
+Alternatively, content set in the body of the <code >call</code> directive will be
+evaluated <em >before</em> calling the sub-template, and can alter a local context:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;other-template&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;var&quot;</span> <span class="na">t-value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+<span class="c">&lt;!-- &quot;var&quot; does not exist here --&gt;</span>
+</pre></div>
+</div>
+<p >The body of the <code >call</code> directive can be arbitrarily complex (not just
+<code >set</code> directives), and its rendered form will be available within the called
+template as a magical <code >0</code> variable:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+    This template was called with content:
+    <span class="nt">&lt;t</span> <span class="na">t-raw=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >being called thus:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;other-template&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;em&gt;</span>content<span class="nt">&lt;/em&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p >will result in:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+    This template was called with content:
+    <span class="nt">&lt;em&gt;</span>content<span class="nt">&lt;/em&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</section><section id="python"><h2 >Python</h2></section><section id="exclusive-directives"><h3 >Exclusive directives</h3></section><section id="asset-bundles"><h4 >asset bundles</h4></section><section id="smart-records-fields-formatting"><h4 >&quot;smart records&quot; fields formatting</h4><p >The <code >t-field</code> directive can only be used when performing field access
+(<code >a.b</code>) on a &quot;smart&quot; record (result of the <code >browse</code> method). It is able
+to automatically format based on field type, and is integrated in the
+website's rich text edition.</p><p ><code >t-options</code> can be used to customize fields, the most common option
+is <code >widget</code>, other options are field- or widget-dependent.</p></section><section id="debugging"><h3 >debugging</h3><dl ><dt ><code >t-debug</code></dt><dd ><p >invokes a debugger using PDB's <code >set_trace</code> API. The parameter should
+be the name of a module, on which a <code >set_trace</code> method is called:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-debug=</span><span class="s">&quot;pdb&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >is equivalent to <code >importlib.import_module(&quot;pdb&quot;).set_trace()</code></p></dd></dl></section><section id="helpers"><h3 >Helpers</h3></section><section id="request-based"><h4 >Request-based</h4><p >Most Python-side uses of QWeb are in controllers (and during HTTP requests),
+in which case templates stored in the database (as
+<a href="views.html#reference-views-qweb" class="internal reference"><span >views</span></a>) can be trivially rendered by calling
+<a href="http.html#odoo.http.HttpRequest.render" class="internal reference" title="odoo.http.HttpRequest.render"><code class="py py-meth xref">odoo.http.HttpRequest.render()</code></a>:</p><div class="highlight-python"><div class="highlight"><pre><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;my-template&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;context_value&#39;</span><span class="p">:</span> <span class="mi">42</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p >This automatically creates a <a href="http.html#odoo.http.Response" class="internal reference" title="odoo.http.Response"><code class="py xref py-class">Response</code></a> object which can
+be returned from the controller (or further customized to suit).</p></section><section id="view-based"><h4 >View-based</h4><p >At a deeper level than the previous helper is the <code >render</code> method on
+<code >ir.ui.view</code>:</p><section class="code-method"><h6 id="render"><code>render(<em>cr, uid, id[, values][, engine='ir.qweb][, context]</em>)</code></h6><p >Renders a QWeb view/template by database id or <a href="../glossary.html#term-external-id" class="internal alert-link reference"><span class="std std-term xref">external id</span></a>.
+Templates are automatically loaded from <code >ir.ui.view</code> records.</p><p >Sets up a number of default values in the rendering context:</p><dl ><dt ><code >request</code></dt><dd >the current <a href="http.html#odoo.http.WebRequest" class="internal alert-link reference" title="odoo.http.WebRequest"><code class="py xref py-class">WebRequest</code></a> object, if any</dd><dt ><code >debug</code></dt><dd >whether the current request (if any) is in <code >debug</code> mode</dd><dt ><a href="http://werkzeug.pocoo.org/docs/urls/#werkzeug.urls.url_quote_plus" class="external reference alert-link" title="(in Werkzeug v0.14-dev)"><code class="py xref py-func">quote_plus</code></a></dt><dd >url-encoding utility function</dd><dt ><a href="https://docs.python.org/3/library/json.html#module-json" class="external reference alert-link" title="(in Python v3.7)"><code class="py xref py-mod">json</code></a></dt><dd >the corresponding standard library module</dd><dt ><a href="https://docs.python.org/3/library/time.html#module-time" class="external reference alert-link" title="(in Python v3.7)"><code class="py xref py-mod">time</code></a></dt><dd >the corresponding standard library module</dd><dt ><a href="https://docs.python.org/3/library/datetime.html#module-datetime" class="external reference alert-link" title="(in Python v3.7)"><code class="py xref py-mod">datetime</code></a></dt><dd >the corresponding standard library module</dd><dt ><a href="https://labix.org/python-dateutil#head-ba5ffd4df8111d1b83fc194b97ebecf837add454" class="external reference alert-link">relativedelta</a></dt><dd >see module</dd><dt ><code >keep_query</code></dt><dd >the <code >keep_query</code> helper function</dd></dl><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >values</strong> -- context values to pass to QWeb for rendering</li><li ><strong >engine</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#str" class="external reference alert-link" title="(in Python v3.7)"><code >str</code></a>) -- name of the Odoo model to use for rendering, can be
+used to expand or customize QWeb locally (by creating
+a &quot;new&quot; qweb based on <code >ir.qweb</code> with alterations)</li></ul></div></div></div></section></section><section id="javascript"><h2 >Javascript</h2></section><section id="id3"><h3 >Exclusive directives</h3></section><section id="defining-templates"><h4 >defining templates</h4><p >The <code >t-name</code> directive can only be placed at the top-level of a template
+file (direct children to the document root):</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;templates&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;template-name&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- template code --&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/templates&gt;</span>
+</pre></div>
+</div>
+<p >It takes no other parameter, but can be used with a <code >&lt;t&gt;</code> element or any
+other. With a <code >&lt;t&gt;</code> element, the <code >&lt;t&gt;</code> should have a single child.</p><p >The template name is an arbitrary string, although when multiple templates
+are related (e.g. called sub-templates) it is customary to use dot-separated
+names to indicate hierarchical relationships.</p></section><section id="template-inheritance"><h4 >template inheritance</h4><p >Template inheritance is used to alter existing templates in-place, e.g. to
+add information to templates created by an other modules.</p><p >Template inheritance is performed via the <code >t-extend</code> directive which takes
+the name of the template to alter as parameter.</p><p >The alteration is then performed with any number of <code >t-jquery</code>
+sub-directives:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-extend=</span><span class="s">&quot;base.template&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-jquery=</span><span class="s">&quot;ul&quot;</span> <span class="na">t-operation=</span><span class="s">&quot;append&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;</span>new element<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p >The <code >t-jquery</code> directives takes a <a href="http://api.jquery.com/category/selectors/" class="external reference">CSS selector</a>. This selector is used
+on the extended template to select <em >context nodes</em> to which the specified
+<code >t-operation</code> is applied:</p><dl ><dt ><code >append</code></dt><dd >the node's body is appended at the end of the context node (after the
+context node's last child)</dd><dt ><code >prepend</code></dt><dd >the node's body is prepended to the context node (inserted before the
+context node's first child)</dd><dt ><code >before</code></dt><dd >the node's body is inserted right before the context node</dd><dt ><code >after</code></dt><dd >the node's body is inserted right after the context node</dd><dt ><code >inner</code></dt><dd >the node's body replaces the context node's children</dd><dt ><code >replace</code></dt><dd >the node's body is used to replace the context node itself</dd><dt >No operation</dt><dd ><p >if no <code >t-operation</code> is specified, the template body is interpreted as
+javascript code and executed with the context node as <code >this</code></p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >while much more powerful than other operations, this mode is
+also much harder to debug and maintain, it is recommended to
+avoid it</p></div></dd></dl></section><section id="id4"><h3 >debugging</h3><p >The javascript QWeb implementation provides a few debugging hooks:</p><dl ><dt ><code >t-log</code></dt><dd ><p >takes an expression parameter, evaluates the expression during rendering
+and logs its result with <code >console.log</code>:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;foo&quot;</span> <span class="na">t-value=</span><span class="s">&quot;42&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-log=</span><span class="s">&quot;foo&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >will print <code >42</code> to the console</p></dd><dt ><code >t-debug</code></dt><dd ><p >triggers a debugger breakpoint during template rendering:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-if=</span><span class="s">&quot;a_test&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-debug=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p >will stop execution if debugging is active (exact condition depend on the
+browser and its development tools)</p></dd><dt ><code >t-js</code></dt><dd ><p >the node's body is javascript code executed during template rendering.
+Takes a <code >context</code> parameter, which is the name under which the rendering
+context will be available in the <code >t-js</code>'s body:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;foo&quot;</span> <span class="na">t-value=</span><span class="s">&quot;42&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-js=</span><span class="s">&quot;ctx&quot;</span><span class="nt">&gt;</span>
+    console.log(&quot;Foo is&quot;, ctx.foo);
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+</dd></dl></section><section id="id5"><h3 >Helpers</h3><section class="code-attribute"><h6 id="core.qweb"><code>core.qweb</code></h6><p >(core is the <code >web.core</code> module) An instance of <a href="#QWeb2.Engine" class="internal alert-link reference" title="QWeb2.Engine"><code class="js-class xref js">QWeb2.Engine()</code></a> with all module-defined template
+files loaded, and references to standard helper objects <code >_</code>
+(underscore), <code >_t</code> (translation function) and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON" class="external reference alert-link">JSON</a>.</p><p ><a href="#QWeb2.Engine.render" class="internal alert-link reference" title="QWeb2.Engine.render"><code class="js-func xref js">core.qweb.render</code></a> can be used to
+easily render basic module templates</p></section></section><section id="api"><h3 >API</h3><section class="code-class"><h6 id="QWeb2.Engine"><code><em >class </em>QWeb2.Engine()</code></h6><p >The QWeb &quot;renderer&quot;, handles most of QWeb's logic (loading,
+parsing, compiling and rendering templates).</p><p >OpenERP Web instantiates one for the user in the core module, and
+exports it to <code >core.qweb</code>. It also loads all the template files
+of the various modules into that QWeb instance.</p><p >A <a href="#QWeb2.Engine" class="internal alert-link reference" title="QWeb2.Engine"><code class="js-class xref js">QWeb2.Engine()</code></a> also serves as a &quot;template namespace&quot;.</p><section class="code-function"><h6 id="QWeb2.Engine.render"><code>QWeb2.Engine.render(<em>template</em>[, <em>context</em>])</code></h6><p >Renders a previously loaded template to a String, using
+<code >context</code> (if provided) to find the variables accessed
+during template rendering (e.g. strings to display).</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >template</strong> (<code >String</code>) -- the name of the template to render</li><li ><strong >context</strong> (<code >Object</code>) -- the basic namespace to use for template
+rendering</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">String</div></div></div></section><p >The engine exposes an other method which may be useful in some
+cases (e.g. if you need a separate template namespace with, in
+OpenERP Web, Kanban views get their own <a href="#QWeb2.Engine" class="internal alert-link reference" title="QWeb2.Engine"><code class="js-class xref js">QWeb2.Engine()</code></a>
+instance so their templates don't collide with more general
+&quot;module&quot; templates):</p><section class="code-function"><h6 id="QWeb2.Engine.add_template"><code>QWeb2.Engine.add_template(<em>templates</em>)</code></h6><p >Loads a template file (a collection of templates) in the QWeb
+instance. The templates can be specified as:</p><dl ><dt >An XML string</dt><dd >QWeb will attempt to parse it to an XML document then load
+it.</dd><dt >A URL</dt><dd >QWeb will attempt to download the URL content, then load
+the resulting XML string.</dd><dt >A <code >Document</code> or <code >Node</code></dt><dd >QWeb will traverse the first level of the document (the
+child nodes of the provided root) and load any named
+template or template override.</dd></dl><div class="code-fields"></div></section><p >A <a href="#QWeb2.Engine" class="internal alert-link reference" title="QWeb2.Engine"><code class="js-class xref js">QWeb2.Engine()</code></a> also exposes various attributes for
+behavior customization:</p><section class="code-attribute"><h6 id="QWeb2.Engine.prefix"><code>QWeb2.Engine.prefix</code></h6><p >Prefix used to recognize directives during parsing. A string. By
+default, <code >t</code>.</p></section><section class="code-attribute"><h6 id="QWeb2.Engine.debug"><code>QWeb2.Engine.debug</code></h6><p >Boolean flag putting the engine in &quot;debug mode&quot;. Normally,
+QWeb intercepts any error raised during template execution. In
+debug mode, it leaves all exceptions go through without
+intercepting them.</p></section><section class="code-attribute"><h6 id="QWeb2.Engine.jQuery"><code>QWeb2.Engine.jQuery</code></h6><p >The jQuery instance used during template inheritance processing.
+Defaults to <code >window.jQuery</code>.</p></section><section class="code-attribute"><h6 id="QWeb2.Engine.preprocess_node"><code>QWeb2.Engine.preprocess_node</code></h6><p >A <code >Function</code>. If present, called before compiling each DOM
+node to template code. In OpenERP Web, this is used to
+automatically translate text content and some attributes in
+templates. Defaults to <code >null</code>.</p></section></section><div class="footnote" id="genshif"><span class="footnote-label"><a class="footnote-backref" href="#id2">[1]</a></span> it is similar in that to <a href="http://genshi.edgewall.org" class="external reference">Genshi</a>, although it does not use (and
+has no support for) <a href="http://en.wikipedia.org/wiki/XML_namespace" class="external reference">XML namespaces</a></div><div class="footnote" id="othertemplates"><span class="footnote-label"><a class="footnote-backref" href="#id1">[2]</a></span> although it uses a few others, either for historical
+reasons or because they remain better fits for the
+use case. Odoo 9.0 still depends on <a href="http://jinja.pocoo.org" class="external reference">Jinja</a> and <a href="http://www.makotemplates.org" class="external reference">Mako</a>.</div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

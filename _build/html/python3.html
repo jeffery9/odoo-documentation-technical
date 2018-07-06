@@ -1,0 +1,531 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Python 3 compatibility/conversions &mdash; odoo 11.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/patchqueue.js"></script>
+    <script type="text/javascript" src="_static/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap.js"></script>
+    <script type="text/javascript" src="_static/doc.js"></script>
+    <script type="text/javascript" src="_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 11.0 documentation" href="index.html" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+    <li class="active"><a href="#">Python 3 compatibility/conversions</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/11.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/index.html">Developer</a></li>
+<li><a href="https://training.odoo.com/">Training center</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/webservices/odoo.html">API</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/setup/install.html">Installation</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('_static/banners/installing_odoo.jpg');"></span>
+      <div class="container text-center">
+        <h1> Python 3 compatibility/conversions </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#versions-support" class="ripple internal reference">Versions Support</a></li><li class="list-group-item"><a href="#semantics-changes" class="ripple internal reference">Semantics changes</a><ul ><li class="list-group-item"><a href="#dict-set-iteration-order-hash-randomisation" class="ripple internal reference">Dict &amp; set iteration order (&quot;Hash Randomisation&quot;)</a></li></ul></li><li class="list-group-item"><a href="#moved-and-removed" class="ripple internal reference">Moved and removed</a><ul ><li class="list-group-item"><a href="#standard-library-modules" class="ripple internal reference">Standard Library Modules</a></li><li class="list-group-item"><a href="#absolute-imports-pep-328" class="ripple internal reference">Absolute Imports (<strong >PEP 328</strong>)</a></li><li class="list-group-item"><a href="#exception-handlers" class="ripple internal reference">Exception Handlers</a></li><li class="list-group-item"><a href="#operators-keywords" class="ripple internal reference">Operators &amp; keywords</a></li><li class="list-group-item"><a href="#list-iteration-builtins-and-methods" class="ripple internal reference">List/iteration builtins and methods</a></li><li class="list-group-item"><a href="#builtins" class="ripple internal reference">builtins</a><ul ><li class="list-group-item"><a href="#cmp" class="ripple internal reference"><code >cmp</code></a></li><li class="list-group-item"><a href="#execfile" class="ripple internal reference"><code >execfile</code></a></li><li class="list-group-item"><a href="#file" class="ripple internal reference"><code >file</code></a></li><li class="list-group-item"><a href="#long" class="ripple internal reference"><code >long</code></a></li><li class="list-group-item"><a href="#reduce" class="ripple internal reference"><code >reduce</code></a></li><li class="list-group-item"><a href="#xrange" class="ripple internal reference"><code >xrange</code></a></li></ul></li><li class="list-group-item"><a href="#removed-renamed-methods" class="ripple internal reference">Removed/renamed methods</a></li><li class="list-group-item"><a href="#minor-syntax-changes" class="ripple internal reference">Minor syntax changes</a></li></ul></li><li class="list-group-item"><a href="#bytes-string-text-the-big-one" class="ripple internal reference">Bytes/String/Text: The Big One</a><ul ><li class="list-group-item"><a href="#the-builtins" class="ripple internal reference">the builtins</a></li><li class="list-group-item"><a href="#open" class="ripple internal reference"><code >open</code></a></li><li class="list-group-item"><a href="#base64" class="ripple internal reference">base64</a></li><li class="list-group-item"><a href="#csv" class="ripple internal reference">csv</a></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/11.0/doc/python3.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="python-3-compatibility-conversions"><p >Official compatibility: Odoo 11 will be the first LTS release to introduce
+Python 3 compatibility, starting with Python 3.5. It will also be the first
+LTS release to drop official support for Python 2.</p><p >Rationale: Python 3 has been around since 2008, and all Python libraries
+used by the official Odoo distribution have been ported and are considered
+stable. Most supported platforms have a Python 3.5 package, or a similar
+way to deploy it. Preserving dual compatibility is therefore considered
+unnecessary, and would represent a significant overhead in testing for the
+lifetime of Odoo 11.</p><p >Python 2 and Python 3 are somewhat different language, but following
+backports, forward ports and cross-compatibility library it is possible to
+use a subset of Python 2 and Python 3 in order to have a system compatible
+with both.</p><p >Here are a few useful steps or reminders to make Python 2 code compatible
+with Python 3.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >This is not a general-purpose guide for porting Python 2 to Python 3, it's
+a guide to write 2/3-compatible Odoo code. It does not go through all the
+changes in Python but rather through issues which have been found in the
+standard Odoo distribution in order to show how to evolve such code such
+that it works on both Python 2 and Python 3.</p></div><p >References/useful documents:</p><ul ><li ><a href="https://docs.python.org/3.0/whatsnew/3.0.html" class="external reference">What's new in Python 3?</a>
+covers many of the changes between Python 2 and Python 3, though it is
+missing a number of changes which <a href="https://docs.python.org/2.7/whatsnew/2.7.html#python-3-1-features" class="external reference">were backported to Python 2.7</a>
+as well as <a href="#p3support" class="internal reference"><span >some feature reintroductions</span></a> of later Python 3
+revisions</li><li ><a href="https://eev.ee/blog/2016/07/31/python-faq-how-do-i-port-to-python-3/" class="external reference">How do I port to Python 3?</a></li><li ><a href="http://python-future.org/index.html" class="external reference">Python-Future</a></li><li ><a href="https://docs.python.org/3/howto/pyporting.html" class="external reference">Porting Python 2 code to Python 3</a></li><li ><a href="http://lucumr.pocoo.org/2010/2/11/porting-to-python-3-a-guide/" class="external reference">Porting to Python 3: A Guide</a> (a bit outdated but useful for the extensive comments on strings and IO)</li></ul></section><section id="versions-support"><i id="p3support"></i><h2 >Versions Support</h2><p >A cross compatible Odoo would only support Python 2.7 and Python 3.5 and
+above: Python 2.7 backported some Python 3 features, and Python 2 features
+were reintroduced in various Python 3 in order to make conversion easier.
+Python 3.6 adds great features (f-strings, ...) and performance improvements
+(ordered compact dicts) but does not seem to reintroduce compatibility
+features whereas:</p><ul ><li >Python 3.5 reintroduced <code >%</code> for bytes/bytestrings (<a href="https://www.python.org/dev/peps/pep-0461" class="pep external reference"><strong >PEP 461</strong></a>)</li><li >Python 3.4 has no specific compatibility improvement but is the lowest P3
+version for PyLint</li><li >Python 3.3 reintroduced the &quot;u&quot; prefix for proper (unicode) strings</li><li >Python 3.2 made <code >range</code> views more list-like (backported to 2.7)and
+reintroduced <code >callable</code></li></ul><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >While Python 3 adds plenty of great features (keyword-only parameters,
+generator delegation, pathlib, ...), you must <em >not</em> use them in Odoo
+until Python 2 support is dropped</p></div><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >In the <em >very rare</em> cases where you <em >need</em> to differentiate between
+Python 2 and Python 3, use the <code class="py xref py-data">odoo.tools.pycompat.PY2</code> flag.</p></div></section><section id="semantics-changes"><h2 >Semantics changes</h2></section><section id="dict-set-iteration-order-hash-randomisation"><h3 >Dict &amp; set iteration order (&quot;Hash Randomisation&quot;)</h3><p >In Python 2, the iteration order depends on the value's hash (modulo the
+collection's capacity and conflict resolution), which provides a
+spec-undefined but implementation-defined order. While that's not supposed to
+happen, it turns out code may depend on the specific order of iteration over
+a hash collection (<code >dict</code> or <code >set</code>).</p><p >Python 3.3 enables <a href="http://bugs.python.org/issue13703" class="external reference">hash randomisation</a> by default (this can be optionally
+enabled on previous versions including Python 2 by providing the <code >-R</code>
+command-line parameter), which means <em >the order of iteration changes from one
+run to the next</em>.</p><p >When discovered, this can be fixed by one of:</p><ul ><li >making iteration steps properly independent (removing the dependency of
+order of iteration)</li><li >using different checking method (e.g. when serialising sets or dictionaries
+and checking against the specific serialised value)</li><li >fixing dependencies</li><li >using a <code >collections.OrderedDict</code> or <code >odoo.tools.misc.OrderedSet</code> instead
+of a regular one, they guarantee order of iteration is order of insertion</li><li >sorting the collection's items before iterating over them (this may require
+adding some sort of iteration key to the items)</li></ul></section><section id="moved-and-removed"><h2 >Moved and removed</h2></section><section id="standard-library-modules"><h3 >Standard Library Modules</h3><p >Python 3 reorganised, moved or removed a number of modules in the standard
+library:</p><ul ><li ><code >StringIO</code> and <code >cStringIO</code> were removed, you can use <code >io.BytesIO</code> and
+<code >io.StringIO</code> to replace them in a cross-version manner (<code >io.BytesIO</code>
+for binary data, <code >io.StringIO</code> for text/unicode data).</li><li ><p ><code >urllib</code>, <code >urllib2</code> and <code >urlparse</code> were redistributed across
+<code >urllib.parse</code> and <code >urllib.request</code>.</p><p >Since <a href="http://docs.python-requests.org/" class="external reference">requests</a> and <a href="http://werkzeug.pocoo.org/docs/urls/" class="external reference">werkzeug</a> are already hard dependencies of Odoo,
+replace <code >urllib[2].urlopen</code>/<code >urllib2.Request</code> uses by <a href="http://docs.python-requests.org/" class="external reference">requests</a>, and
+<code >urlparse</code> and a few utilty functions (<code >urllib.quote</code>,
+<code >urllib.urlencode</code>) are available through <code >werkzeug.urls</code>, a backport
+of Python 3's <code >urllib.parse</code>.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p ><a href="http://docs.python-requests.org/" class="external reference alert-link">requests</a> does not raise by default on non-200 responses</p></div></li><li ><code >cgi.escape</code> (HTML escaping) is deprecated in Python 3, prefer Odoo's own
+<code class="py xref py-func">odoo.tools.misc.html_encode()</code>.</li><li >Most of <code >types</code>'s content has been stripped out in Python 3: only
+&quot;internal&quot; interpreter types (e.g. CodeType, FrameType, ...) have been left
+in, other types can be obtained directly from the corresponding builtin or
+by getting the <code >type()</code> of a literal value.</li></ul></section><section id="absolute-imports-pep-328"><h3 >Absolute Imports (<a href="https://www.python.org/dev/peps/pep-0328" class="pep external reference"><strong >PEP 328</strong></a>)</h3><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >In Python 3, <code >import foo</code> can only import from a &quot;top-level&quot; library
+(absolute path). If trying to import a sibling or sub-module you <em >must</em>
+use an explicitly <em >relative import</em> e.g. <code >from . import foo</code> or
+<code >from .foo import bar</code>.</p></div><p >In Python 2 <code >import</code> statements are ambiguous: if a file <code >a.py</code> contains
+<code >import b</code>, the import system will first check if there's a <code >b.py</code> file
+next to it before checking if there is a package called that on the
+PYTHONPATH.</p><p >Furthermore if a sibling file is named the same as top-level package, the
+library becomes inaccessible to both the file itself ans siblings, this has
+actually happened in Odoo with <code class="py xref py-mod">odoo.tools.mimetypes</code>.</p><p >Additionally, relative imports allow navigating &quot;up&quot; the tree by using
+multiple leading <code >.</code>.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >Explicitly relative imports are always available in Python 2, and should
+be used everywhere.</p><p >You can ensure you are not using any implicitly relative import by adding
+<code >from __future__ import absolute_import</code> at the top of your files, or by
+running the <code >relative-import</code> PyLint.</p></div></section><section id="exception-handlers"><h3 >Exception Handlers</h3><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >All exception handlers must be converted to <code >except ... as ..</code>. Valid
+forms are:</p><div class="highlight-python"><div class="highlight"><pre>except Exception:
+except (Exception1, ...):
+except Exception as name:
+except (Exception1, ...) as name:
+</pre></div>
+</div>
+</div><p >In Python 2, <code >except</code> statements are of the form:</p><div class="highlight-python"><div class="highlight"><pre>except Exception[, name]:
+</pre></div>
+</div>
+<p >or:</p><div class="highlight-python"><div class="highlight"><pre>except (Exception1, Exception2)[, name]:
+</pre></div>
+</div>
+<p >But because the name is optional, this gets confusing and people can stumble
+into the first form when trying for the second and write:</p><div class="highlight-python"><div class="highlight"><pre>except Exception1, Exception:
+</pre></div>
+</div>
+<p >which will <em >not</em> yield the expected result.</p><p >Python 3 changes this syntax to:</p><div class="highlight-python"><div class="highlight"><pre>except Exception[ as name]:
+</pre></div>
+</div>
+<p >or:</p><div class="highlight-python"><div class="highlight"><pre>except (Exception1, Exception2)[ as name]:
+</pre></div>
+</div>
+<p >This form was implemented in Python 2.5 and is thus compatible across the
+board.</p></section><section id="operators-keywords"><h3 >Operators &amp; keywords</h3><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >The backtick operator <code >`foo`</code> must be converted to an
+explicit call to the <code >repr()</code> builtin</p></div><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >The <code >&lt;&gt;</code> operator must be replaced by <code >!=</code></p></div><p >These two operators were long recommended against/deprecated in Python 2,
+Python 3 removed them from the language.</p><div role="alert" class="alert-warning alert" id="changed-exec"><h3 class="alert-title">Important</h3><p ><code >exec</code> is now a builtin</p></div><p >In Python 2, <code >exec</code> is a statement/keyword. Much like <code >print</code>, it's been
+converted to a builtin function in Python 3. However because the Python 2
+version can take a tuple parameter it is easy to convert the odd <code >exec</code>
+statement to the following cross-language forms:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">exec</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="k">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="p">)</span>
+<span class="k">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="p">,</span> <span class="nb">locals</span><span class="p">)</span>
+</pre></div>
+</div>
+</section><section id="list-iteration-builtins-and-methods"><h3 >List/iteration builtins and methods</h3><p >In Python 3, a number of builtins and methods formerly returning <em >lists</em> were
+converted to return <em >iterators</em> or <em >views</em>, with the corresponding redundant
+methods or functions having been <em >removed entirely</em>:</p><ul ><li ><p >In Python 3, <code >map</code>, <code >filter</code> and <code >zip</code> return iterators,
+<code >itertools.imap</code>, <code >itertools.ifilter</code> and <code >itertools.izip</code> have been
+removed.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >When possible, use comprehensions (list, generator, ...) rather than
+<code >map</code> or <code >filter</code>.</p></div></li><li ><p >In Python 3, <code >dict.keys</code>, <code >dict.values</code> and <code >dict.items</code> return
+<em >views</em> rather than lists, and the <code >iter*</code> and <code >view*</code> methods have
+been removed.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >When the result of the above methods is used for more than a one-shot
+loop (e.g. to be included in returned value), or when the dict needs
+to be modified during iteration, wrap the calls in a <code >list()</code>.</p></div></li></ul></section><section id="builtins"><h3 >builtins</h3></section><section id="cmp"><h4 ><code >cmp</code></h4><p >The <code >cmp</code> builtin function has been removed from Python 3.</p><ul ><li >Most of its uses are in <code >cmp=</code> parameters to sort functions where it can
+usually be replaced by a key function.</li><li >Other uses found were obtaining the sign of an item (<code >cmp(item, 0)</code>), this
+can be replicated using the standard library's <code >math.copysign</code> e.g.
+<code >math.copysign(1, item)</code> will return <code >1.0</code> if <code >item</code> is positive and
+<code >-1.0</code> if <code >item</code> is negative.</li></ul></section><section id="execfile"><h4 ><code >execfile</code></h4><p ><code >execfile(path)</code> has been removed completely from Python 3 but it is
+trivially replaceable in all cases by:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">())</span>
+</pre></div>
+</div>
+<p >of a variant thereof (see <a href="#changed-exec" class="internal reference"><span >exec changes</span></a> for details)</p></section><section id="file"><h4 ><code >file</code></h4><p >The <code >file</code> builtin has been removed in Python 3. Generally, it can just
+be replaced by the <code >open</code> builtin, although you may want to use <code >io.open</code>
+which is more flexible and better handles the binary/text dichotomy,
+<a href="#changed-strings" class="internal reference"><span >a big issue in cross-version Python</span></a>.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >In Python 3, the <code >open</code> builtin is actually an alias for <code >io.open</code>.</p></div></section><section id="long"><h4 ><code >long</code></h4><p >In Python 2, integers can be either <code >int</code> or <code >long</code>. Python 3 unifies this
+under the single <code >int</code> type.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><ul ><li >the <code >L</code> suffix for integer literals must be removed</li><li >calls to <code >long</code> must be replaced by calls to <code >int</code></li><li ><code >(int, long)</code> for type-checking purposes must be replaced by
+<code class="py xref py-data">odoo.tools.pycompat.integer_types</code></li></ul></div><ul ><li >the <code >L</code> suffix on numbers is unsupported in Python 3, and unnecessary in
+Python 2 as &quot;overflowing&quot; integer literals will implicitly instantiate long.</li><li >in Python 2, a call to <code >int()</code> will implicitly create a <code >long</code> object if
+necessary.</li><li ><p >type-testing is the last and bigger issue as in Python 2 <code >long</code> is not a
+subtype of <code >int</code> (nor the reverse), and <code >isinstance(value, (int, long))</code>
+is thus generally necessary to catch all integrals.</p><p >For that case, Odoo 11 now provides a compatibility module with an
+<code class="py xref py-data">integer_types</code> definition which can be used
+for type-testing.</p><p >It is a tuple of types so when used with <code >isinstance</code> it can be provided
+directly or inside an other tuple alongside other types e.g.
+<code >isinstance(value, (BaseModel, integer_types))</code>.</p><p >However when used with <code >type</code> directly (which should be avoided) you
+should use the <code >in</code> operator, and if you need other types you need to
+concatenate <code >integer_types</code> to an other tuple.</p></li></ul></section><section id="reduce"><h4 ><code >reduce</code></h4><p >In Python 3, <code >reduce</code> has been demoted from builtin to <code >functools.reduce</code>.
+However this is because <em >most uses of ``reduce`` can be replaced by ``sum``,
+``all``, ``any``</em> or a list comprehension for a more readable and faster
+result.</p><p >It is easy enough to just add <code >from functools import reduce</code> to the file
+and compatible with Python 2.6 and later, but consider whether you get better
+code by replacing it with some other method altogether.</p></section><section id="xrange"><h4 ><code >xrange</code></h4><p >In Python 3, <code >range()</code> behaves the same as Python 2's <code >xrange</code>.</p><p >For cross-version code, you can just use <code >range()</code> everywhere: while this
+will incur a slight allocation cost on Python 2, Python 3's <code >range</code> supports
+the entire Sequence protocol and thus behaves very much like a regular
+list or tuple.</p></section><section id="removed-renamed-methods"><h3 >Removed/renamed methods</h3><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><ul ><li >the <code >has_key</code> method on dicts must be replaced by use of the <code >in</code>
+operator e.g. <code >foo.has_key(bar)</code> becomes <code >bar in foo</code>.</li></ul></div><p ><code >in</code> for dicts was introduced in Python 2.3, leading to <code >has_key</code> being
+redundant, and removed in Python 3.</p></section><section id="minor-syntax-changes"><h3 >Minor syntax changes</h3><ul ><li ><p >the ability to unpack a parameter (in the parameter declaration list) has
+been removed in Python 3 e.g.:</p><div class="highlight-python"><div class="highlight"><pre>def foo((bar, baz), qux):
+    …
+</pre></div>
+</div>
+<p >is now invalid</p></li><li ><p >octal literals must be prefixed by <code >0o</code> (or <code >0O</code>). Following the C
+family, in Python 2 an octal literal simply has a leading 0, which can be
+confusing and easy to get wrong when e.g. padding for readability (e.g.
+<code >0013</code> would be the decimal 11 rather than 13).</p><p >In Python 3, leading zeroes followed by neither a 0 nor a period is an
+error, octal literals now follow the hexadecimal convention with a <code >0o</code>
+prefix.</p></li></ul></section><section id="bytes-string-text-the-big-one"><i id="changed-strings"></i><h2 >Bytes/String/Text: The Big One</h2><p >The most impactful Python 3 change by far is to the text model: for historical
+reasons the distinction Python 2's bytestrings (<code >bytes</code>/<code >str</code>) and text
+strings (<code >unicode</code>) is fuzzy and it will try to implicitly convert between
+one and the other using the ASCII encoding.</p><p >Python 3 changes this, it removes the implicit conversions, removes APIs which
+contribute to the fuzz and tends to strictly segregate other to work on either
+bytes or text.</p><p >This is fundamentally good and mostly sensible, but it means lots of breakage:</p></section><section id="the-builtins"><h3 >the builtins</h3><p >Python 3 removes both <code >unicode</code> and <code >basestring</code>, and <code >str</code> now
+corresponds to <em >text</em> strings (the old <code >unicode</code>) with <code >bytes</code> being
+bytestrings in both languages <a href="#bytes" class="footnote-ref" id="id1">1</a>.</p><p >Both versions have the following prefixes for string literals:</p><ul ><li ><code >b'foo'</code> is a bytestring (<code >bytes</code> object).</li><li ><code >'foo'</code> is that version's <code >str</code> type, which may be either a bytestring
+or a text string <a href="#native-string" class="footnote-ref" id="id2">2</a>.</li><li ><code >u'foo'</code> is that version's text string.</li></ul><p >For best cross-version compatibility you should avoid unprefixed string
+literals unless you <em >specifically</em> need a &quot;native string&quot; <a href="#native-string" class="footnote-ref" id="id3">2</a>.</p><p >For easier type-testing, <code class="py xref py-mod">odoo.tools.pycompat</code> provides the following
+constants:</p><ul ><li ><code class="py xref py-data">string_types</code> is an alias/type tuple for testing
+string types, essentially a replacement of testing for <code >basestring</code> or
+<code >(str, unicode)</code>.</li><li ><code class="py xref py-data">text_type</code> is the proper <em >text</em> type for the
+current version, it should mostly be used for converting non-bytes objects
+to text.</li><li ><code >bytes</code> should be avoided for type conversions, though it can be used to
+check if an object is a bytestring.</li></ul></section><section id="open"><h3 ><code >open</code></h3><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >the <code >open</code> builtin should always be explicitly used in binary mode
+(<code >rb</code>, <code >wb</code>, ...)</p><p >To read <em >text</em> files, use <code >io.open</code>.</p></div><p >On both P2 and P3, <code >open</code> defaults to returning <em >native strings</em> in default
+(&quot;text&quot;) mode, however in P3 that means it actually decodes the file's bytes
+using whatever encoding was set up (default: UTF-8) while on Python 2 it has
+no concept of encoding.</p><p >Using <code >open</code> in binary mode provides bytestrings on both versions and works
+fine. To read <em >text</em> files, use <code >io.open</code> and provide an explicit encoding.</p></section><section id="base64"><h3 >base64</h3><p >base64 is a bytes-&gt;bytes conversion. bytes-&gt;bytes codecs were removed from the
+&quot;native&quot; encoding/decoding system which is now exclusively for bytes&lt;-&gt;text
+conversions: text is <em >encoded</em> to bytes and bytes are <em >decoded</em> to text.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Important</h3><p >both <code >bytes.encode('base64')</code> and <code >bytes.decode('base64')</code> must be
+migrated to using <code >base64.b64encode</code> and <code >base64.b64decode</code>
+respectively.</p></div></section><section id="csv"><h3 >csv</h3><p ><code >csv</code> is a fairly vicious one: not only is it not a very good format, the
+Python 2 and Python 3 versions of the library are text-model incompatible in
+significant ways:</p><ul ><li >Python 2's CSV only works on <em >ascii-compatible byte streams</em> (it has no
+encoding support at all) and extracts bytestring values</li><li >Python 3's CSV only works on <em >text streams</em> and extract text values</li><li >And <code >io</code> doesn't provide &quot;native string&quot; streaming facilities.</li></ul><p >However with respect to Odoo it turns out most or all uses of <code >csv</code> fit
+inside a model of <em >byte stream to and from text values</em>.</p><p >The latter is thus a model implemented by cross-version wrappers
+<code class="py xref py-func">odoo.tools.pycompat.csv_reader()</code> and
+<code class="py xref py-func">odoo.tools.pycompat.csv_writer()</code>: they take a <em >UTF-8 byte stream</em> and
+read or write <em >text</em> values.</p><div class="footnote" id="bytes"><span class="footnote-label"><a class="footnote-backref" href="#id1">[1]</a></span> with the caveat that Python 3 makes them less text-y and more byte-y e.g.
+in Python 2 <code >b&quot;foo&quot;[0]</code> is <code >b&quot;f&quot;</code>, but in Python 3 it's <code >102</code> (the
+value of the first byte), you'll want to <em >slice</em> bytestrings for
+compatibility.</div><div class="footnote" id="native-string"><span class="footnote-label">[2]</span> <em class="footnote-backrefs">(<a class="footnote-backref" href="#id2">1</a>, <a class="footnote-backref" href="#id3">2</a>)</em> this is important because some API/contexts take a <em >native string</em> rather
+than either bytes or text. The <code >csv</code> module of the standard library is
+one such problematic API (it is also notoriously problematic for its
+terrible support of non-ascii-compatible encodings in Python 2).
+<code >email.message_from_string</code> is an other one.</div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

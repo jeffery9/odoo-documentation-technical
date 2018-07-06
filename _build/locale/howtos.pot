@@ -1,0 +1,4557 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-06 10:19+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../howtos/backend.rst:7
+msgid "Building a Module"
+msgstr ""
+
+#: ../../howtos/backend.rst:11
+msgid "This tutorial requires :ref:`having installed Odoo <setup/install>`"
+msgstr ""
+
+#: ../../howtos/backend.rst:14
+msgid "Start/Stop the Odoo server"
+msgstr ""
+
+#: ../../howtos/backend.rst:16
+msgid "Odoo uses a client/server architecture in which clients are web browsers accessing the Odoo server via RPC."
+msgstr ""
+
+#: ../../howtos/backend.rst:19
+msgid "Business logic and extension is generally performed on the server side, although supporting client features (e.g. new data representation such as interactive maps) can be added to the client."
+msgstr ""
+
+#: ../../howtos/backend.rst:23
+msgid "In order to start the server, simply invoke the command :ref:`odoo-bin <reference/cmdline>` in the shell, adding the full path to the file if necessary:"
+msgstr ""
+
+#: ../../howtos/backend.rst:31
+msgid "The server is stopped by hitting ``Ctrl-C`` twice from the terminal, or by killing the corresponding OS process."
+msgstr ""
+
+#: ../../howtos/backend.rst:35
+msgid "Build an Odoo module"
+msgstr ""
+
+#: ../../howtos/backend.rst:37
+msgid "Both server and client extensions are packaged as *modules* which are optionally loaded in a *database*."
+msgstr ""
+
+#: ../../howtos/backend.rst:40
+msgid "Odoo modules can either add brand new business logic to an Odoo system, or alter and extend existing business logic: a module can be created to add your country's accounting rules to Odoo's generic accounting support, while the next module adds support for real-time visualisation of a bus fleet."
+msgstr ""
+
+#: ../../howtos/backend.rst:45
+msgid "Everything in Odoo thus starts and ends with modules."
+msgstr ""
+
+#: ../../howtos/backend.rst:48
+msgid "Composition of a module"
+msgstr ""
+
+#: ../../howtos/backend.rst:50
+msgid "An Odoo module can contain a number of elements:"
+msgstr ""
+
+#: ../../howtos/backend.rst:54
+msgid "Business objects"
+msgstr ""
+
+#: ../../howtos/backend.rst:53
+msgid "Declared as Python classes, these resources are automatically persisted by Odoo based on their configuration"
+msgstr ""
+
+#: ../../howtos/backend.rst:58
+#: ../../howtos/backend.rst:218
+msgid "Data files"
+msgstr ""
+
+#: ../../howtos/backend.rst:57
+msgid "XML or CSV files declaring metadata (views or reports), configuration data (modules parameterization), demonstration data and more"
+msgstr ""
+
+#: ../../howtos/backend.rst:61
+msgid "Web controllers"
+msgstr ""
+
+#: ../../howtos/backend.rst:61
+msgid "Handle requests from web browsers"
+msgstr ""
+
+#: ../../howtos/backend.rst:64
+msgid "Static web data"
+msgstr ""
+
+#: ../../howtos/backend.rst:64
+msgid "Images, CSS or javascript files used by the web interface or website"
+msgstr ""
+
+#: ../../howtos/backend.rst:67
+msgid "Module structure"
+msgstr ""
+
+#: ../../howtos/backend.rst:69
+msgid "Each module is a directory within a *module directory*. Module directories are specified by using the :option:`--addons-path <odoo-bin --addons-path>` option."
+msgstr ""
+
+#: ../../howtos/backend.rst:76
+msgid "most command-line options can also be set using :ref:`a configuration file <reference/cmdline/config>`"
+msgstr ""
+
+#: ../../howtos/backend.rst:79
+msgid "An Odoo module is declared by its :ref:`manifest <reference/module/manifest>`. See the :ref:`manifest documentation <reference/module/manifest>` about it."
+msgstr ""
+
+#: ../../howtos/backend.rst:82
+msgid "A module is also a `Python package <http://docs.python.org/2/tutorial/modules.html#packages>`_ with a ``__init__.py`` file, containing import instructions for various Python files in the module."
+msgstr ""
+
+#: ../../howtos/backend.rst:87
+msgid "For instance, if the module has a single ``mymodule.py`` file ``__init__.py`` might contain::"
+msgstr ""
+
+#: ../../howtos/backend.rst:92
+msgid "Odoo provides a mechanism to help set up a new module, :ref:`odoo-bin <reference/cmdline/server>` has a subcommand :ref:`scaffold <reference/cmdline/scaffold>` to create an empty module:"
+msgstr ""
+
+#: ../../howtos/backend.rst:100
+msgid "The command creates a subdirectory for your module, and automatically creates a bunch of standard files for a module. Most of them simply contain commented code or XML. The usage of most of those files will be explained along this tutorial."
+msgstr ""
+
+#: ../../howtos/backend.rst:104
+msgid "Module creation"
+msgstr ""
+
+#: ../../howtos/backend.rst:106
+msgid "Use the command line above to  create an empty module Open Academy, and install it in Odoo."
+msgstr ""
+
+#: ../../howtos/backend.rst:111
+msgid "Invoke the command ``odoo-bin scaffold openacademy addons``."
+msgstr ""
+
+#: ../../howtos/backend.rst:112
+msgid "Adapt the manifest file to your module."
+msgstr ""
+
+#: ../../howtos/backend.rst:113
+msgid "Don't bother about the other files."
+msgstr ""
+
+#: ../../howtos/backend.rst:118
+msgid "Object-Relational Mapping"
+msgstr ""
+
+#: ../../howtos/backend.rst:120
+msgid "A key component of Odoo is the :abbr:`ORM (Object-Relational Mapping)` layer. This layer avoids having to write most :abbr:`SQL (Structured Query Language)` by hand and provides extensibility and security services\\ [#rawsql]_."
+msgstr ""
+
+#: ../../howtos/backend.rst:124
+msgid "Business objects are declared as Python classes extending :class:`~odoo.models.Model` which integrates them into the automated persistence system."
+msgstr ""
+
+#: ../../howtos/backend.rst:128
+msgid "Models can be configured by setting a number of attributes at their definition. The most important attribute is :attr:`~odoo.models.Model._name` which is required and defines the name for the model in the Odoo system. Here is a minimally complete definition of a model::"
+msgstr ""
+
+#: ../../howtos/backend.rst:139
+msgid "Model fields"
+msgstr ""
+
+#: ../../howtos/backend.rst:141
+msgid "Fields are used to define what the model can store and where. Fields are defined as attributes on the model class::"
+msgstr ""
+
+#: ../../howtos/backend.rst:152
+msgid "Common Attributes"
+msgstr ""
+
+#: ../../howtos/backend.rst:154
+msgid "Much like the model itself, its fields can be configured, by passing configuration attributes as parameters::"
+msgstr ""
+
+#: ../../howtos/backend.rst:159
+msgid "Some attributes are available on all fields, here are the most common ones:"
+msgstr ""
+
+#: ../../howtos/backend.rst:161
+msgid ":attr:`~odoo.fields.Field.string` (``unicode``, default: field's name)"
+msgstr ""
+
+#: ../../howtos/backend.rst:162
+msgid "The label of the field in UI (visible by users)."
+msgstr ""
+
+#: ../../howtos/backend.rst:164
+msgid ":attr:`~odoo.fields.Field.required` (``bool``, default: ``False``)"
+msgstr ""
+
+#: ../../howtos/backend.rst:164
+msgid "If ``True``, the field can not be empty, it must either have a default value or always be given a value when creating a record."
+msgstr ""
+
+#: ../../howtos/backend.rst:166
+msgid ":attr:`~odoo.fields.Field.help` (``unicode``, default: ``''``)"
+msgstr ""
+
+#: ../../howtos/backend.rst:167
+msgid "Long-form, provides a help tooltip to users in the UI."
+msgstr ""
+
+#: ../../howtos/backend.rst:169
+msgid ":attr:`~odoo.fields.Field.index` (``bool``, default: ``False``)"
+msgstr ""
+
+#: ../../howtos/backend.rst:169
+msgid "Requests that Odoo create a `database index`_ on the column."
+msgstr ""
+
+#: ../../howtos/backend.rst:172
+msgid "Simple fields"
+msgstr ""
+
+#: ../../howtos/backend.rst:174
+msgid "There are two broad categories of fields: \"simple\" fields which are atomic values stored directly in the model's table and \"relational\" fields linking records (of the same model or of different models)."
+msgstr ""
+
+#: ../../howtos/backend.rst:178
+msgid "Example of simple fields are :class:`~odoo.fields.Boolean`, :class:`~odoo.fields.Date`, :class:`~odoo.fields.Char`."
+msgstr ""
+
+#: ../../howtos/backend.rst:182
+msgid "Reserved fields"
+msgstr ""
+
+#: ../../howtos/backend.rst:184
+msgid "Odoo creates a few fields in all models\\ [#autofields]_. These fields are managed by the system and shouldn't be written to. They can be read if useful or necessary:"
+msgstr ""
+
+#: ../../howtos/backend.rst:188
+msgid ":attr:`~odoo.fields.Model.id` (:class:`~odoo.fields.Id`)"
+msgstr ""
+
+#: ../../howtos/backend.rst:189
+msgid "The unique identifier for a record in its model."
+msgstr ""
+
+#: ../../howtos/backend.rst:190
+msgid ":attr:`~odoo.fields.Model.create_date` (:class:`~odoo.fields.Datetime`)"
+msgstr ""
+
+#: ../../howtos/backend.rst:191
+msgid "Creation date of the record."
+msgstr ""
+
+#: ../../howtos/backend.rst:192
+msgid ":attr:`~odoo.fields.Model.create_uid` (:class:`~odoo.fields.Many2one`)"
+msgstr ""
+
+#: ../../howtos/backend.rst:193
+msgid "User who created the record."
+msgstr ""
+
+#: ../../howtos/backend.rst:194
+msgid ":attr:`~odoo.fields.Model.write_date` (:class:`~odoo.fields.Datetime`)"
+msgstr ""
+
+#: ../../howtos/backend.rst:195
+msgid "Last modification date of the record."
+msgstr ""
+
+#: ../../howtos/backend.rst:197
+msgid ":attr:`~odoo.fields.Model.write_uid` (:class:`~odoo.fields.Many2one`)"
+msgstr ""
+
+#: ../../howtos/backend.rst:197
+msgid "user who last modified the record."
+msgstr ""
+
+#: ../../howtos/backend.rst:200
+msgid "Special fields"
+msgstr ""
+
+#: ../../howtos/backend.rst:202
+msgid "By default, Odoo also requires a ``name`` field on all models for various display and search behaviors. The field used for these purposes can be overridden by setting :attr:`~odoo.models.Model._rec_name`."
+msgstr ""
+
+#: ../../howtos/backend.rst:206
+msgid "Define a model"
+msgstr ""
+
+#: ../../howtos/backend.rst:208
+msgid "Define a new data model *Course* in the *openacademy* module. A course has a title and a description. Courses must have a title."
+msgstr ""
+
+#: ../../howtos/backend.rst:213
+msgid "Edit the file ``openacademy/models/models.py`` to include a *Course* class."
+msgstr ""
+
+#: ../../howtos/backend.rst:220
+msgid "Odoo is a highly data driven system. Although behavior is customized using Python_ code part of a module's value is in the data it sets up when loaded."
+msgstr ""
+
+#: ../../howtos/backend.rst:223
+msgid "some modules exist solely to add data into Odoo"
+msgstr ""
+
+#: ../../howtos/backend.rst:226
+msgid "Module data is declared via :ref:`data files <reference/data>`, XML files with ``<record>`` elements. Each ``<record>`` element creates or updates a database record."
+msgstr ""
+
+#: ../../howtos/backend.rst:240
+msgid "``model`` is the name of the Odoo model for the record."
+msgstr ""
+
+#: ../../howtos/backend.rst:241
+msgid "``id`` is an :term:`external identifier`, it allows referring to the record (without having to know its in-database identifier)."
+msgstr ""
+
+#: ../../howtos/backend.rst:243
+msgid "``<field>`` elements have a ``name`` which is the name of the field in the model (e.g. ``description``). Their body is the field's value."
+msgstr ""
+
+#: ../../howtos/backend.rst:246
+msgid "Data files have to be declared in the manifest file to be loaded, they can be declared in the ``'data'`` list (always loaded) or in the ``'demo'`` list (only loaded in demonstration mode)."
+msgstr ""
+
+#: ../../howtos/backend.rst:250
+msgid "Define demonstration data"
+msgstr ""
+
+#: ../../howtos/backend.rst:252
+msgid "Create demonstration data filling the *Courses* model with a few demonstration courses."
+msgstr ""
+
+#: ../../howtos/backend.rst:257
+msgid "Edit the file ``openacademy/demo/demo.xml`` to include some data."
+msgstr ""
+
+#: ../../howtos/backend.rst:261
+msgid "The content of the data files is only loaded when a module is installed or updated."
+msgstr ""
+
+#: ../../howtos/backend.rst:264
+msgid "After making some changes, do not forget to use :ref:`odoo-bin -u openacademy <reference/cmdline>` to save the changes to your database."
+msgstr ""
+
+#: ../../howtos/backend.rst:269
+msgid "Actions and Menus"
+msgstr ""
+
+#: ../../howtos/backend.rst:271
+msgid "Actions and menus are regular records in database, usually declared through data files. Actions can be triggered in three ways:"
+msgstr ""
+
+#: ../../howtos/backend.rst:274
+msgid "by clicking on menu items (linked to specific actions)"
+msgstr ""
+
+#: ../../howtos/backend.rst:275
+msgid "by clicking on buttons in views (if these are connected to actions)"
+msgstr ""
+
+#: ../../howtos/backend.rst:276
+msgid "as contextual actions on object"
+msgstr ""
+
+#: ../../howtos/backend.rst:278
+msgid "Because menus are somewhat complex to declare there is a ``<menuitem>`` shortcut to declare an ``ir.ui.menu`` and connect it to the corresponding action more easily."
+msgstr ""
+
+#: ../../howtos/backend.rst:295
+msgid "The action must be declared before its corresponding menu in the XML file."
+msgstr ""
+
+#: ../../howtos/backend.rst:297
+msgid "Data files are executed sequentially, the action's ``id`` must be present in the database before the menu can be created."
+msgstr ""
+
+#: ../../howtos/backend.rst:300
+msgid "Define new menu entries"
+msgstr ""
+
+#: ../../howtos/backend.rst:302
+msgid "Define new menu entries to access courses under the OpenAcademy menu entry. A user should be able to :"
+msgstr ""
+
+#: ../../howtos/backend.rst:305
+msgid "display a list of all the courses"
+msgstr ""
+
+#: ../../howtos/backend.rst:306
+msgid "create/modify courses"
+msgstr ""
+
+#: ../../howtos/backend.rst:310
+msgid "Create ``openacademy/views/openacademy.xml`` with an action and the menus triggering the action"
+msgstr ""
+
+#: ../../howtos/backend.rst:312
+msgid "Add it to the ``data`` list of ``openacademy/__manifest__.py``"
+msgstr ""
+
+#: ../../howtos/backend.rst:317
+msgid "Basic views"
+msgstr ""
+
+#: ../../howtos/backend.rst:319
+msgid "Views define the way the records of a model are displayed. Each type of view represents a mode of visualization (a list of records, a graph of their aggregation, …). Views can either be requested generically via their type (e.g. *a list of partners*) or specifically via their id. For generic requests, the view with the correct type and the lowest priority will be used (so the lowest-priority view of each type is the default view for that type)."
+msgstr ""
+
+#: ../../howtos/backend.rst:327
+msgid ":ref:`View inheritance <reference/views/inheritance>` allows altering views declared elsewhere (adding or removing content)."
+msgstr ""
+
+#: ../../howtos/backend.rst:331
+msgid "Generic view declaration"
+msgstr ""
+
+#: ../../howtos/backend.rst:333
+msgid "A view is declared as a record of the model ``ir.ui.view``. The view type is implied by the root element of the ``arch`` field:"
+msgstr ""
+
+#: ../../howtos/backend.rst:347
+msgid "The view's content is XML."
+msgstr ""
+
+#: ../../howtos/backend.rst:350
+msgid "The ``arch`` field must thus be declared as ``type=\"xml\"`` to be parsed correctly."
+msgstr ""
+
+#: ../../howtos/backend.rst:354
+#: ../../howtos/backend.rst:987
+msgid "Tree views"
+msgstr ""
+
+#: ../../howtos/backend.rst:356
+msgid "Tree views, also called list views, display records in a tabular form."
+msgstr ""
+
+#: ../../howtos/backend.rst:358
+msgid "Their root element is ``<tree>``. The simplest form of the tree view simply lists all the fields to display in the table (each field as a column):"
+msgstr ""
+
+#: ../../howtos/backend.rst:369
+msgid "Form views"
+msgstr ""
+
+#: ../../howtos/backend.rst:371
+msgid "Forms are used to create and edit single records."
+msgstr ""
+
+#: ../../howtos/backend.rst:374
+msgid "Their root element is ``<form>``. They are composed of high-level structure elements (groups, notebooks) and interactive elements (buttons and fields):"
+msgstr ""
+
+#: ../../howtos/backend.rst:403
+msgid "Customise form view using XML"
+msgstr ""
+
+#: ../../howtos/backend.rst:405
+msgid "Create your own form view for the Course object. Data displayed should be: the name and the description of the course."
+msgstr ""
+
+#: ../../howtos/backend.rst:412
+msgid "Notebooks"
+msgstr ""
+
+#: ../../howtos/backend.rst:414
+msgid "In the Course form view, put the description field under a tab, such that it will be easier to add other tabs later, containing additional information."
+msgstr ""
+
+#: ../../howtos/backend.rst:420
+msgid "Modify the Course form view as follows:"
+msgstr ""
+
+#: ../../howtos/backend.rst:424
+msgid "Form views can also use plain HTML for more flexible layouts:"
+msgstr ""
+
+#: ../../howtos/backend.rst:451
+#: ../../howtos/backend.rst:1075
+#: ../../howtos/backend.rst:1117
+msgid "Search views"
+msgstr ""
+
+#: ../../howtos/backend.rst:453
+msgid "Search views customize the search field associated with the list view (and other aggregated views). Their root element is ``<search>`` and they're composed of fields defining which fields can be searched on:"
+msgstr ""
+
+#: ../../howtos/backend.rst:464
+msgid "If no search view exists for the model, Odoo generates one which only allows searching on the ``name`` field."
+msgstr ""
+
+#: ../../howtos/backend.rst:467
+msgid "Search courses"
+msgstr ""
+
+#: ../../howtos/backend.rst:469
+msgid "Allow searching for courses based on their title or their description."
+msgstr ""
+
+#: ../../howtos/backend.rst:476
+#: ../../howtos/website.rst:367
+msgid "Relations between models"
+msgstr ""
+
+#: ../../howtos/backend.rst:478
+msgid "A record from a model may be related to a record from another model. For instance, a sale order record is related to a client record that contains the client data; it is also related to its sale order line records."
+msgstr ""
+
+#: ../../howtos/backend.rst:482
+msgid "Create a session model"
+msgstr ""
+
+#: ../../howtos/backend.rst:484
+msgid "For the module Open Academy, we consider a model for *sessions*: a session is an occurrence of a course taught at a given time for a given audience."
+msgstr ""
+
+#: ../../howtos/backend.rst:487
+msgid "Create a model for *sessions*. A session has a name, a start date, a duration and a number of seats. Add an action and a menu item to display them. Make the new model visible via a menu item."
+msgstr ""
+
+#: ../../howtos/backend.rst:493
+msgid "Create the class *Session* in ``openacademy/models/models.py``."
+msgstr ""
+
+#: ../../howtos/backend.rst:494
+msgid "Add access to the session object in ``openacademy/view/openacademy.xml``."
+msgstr ""
+
+#: ../../howtos/backend.rst:498
+msgid "``digits=(6, 2)`` specifies the precision of a float number: 6 is the total number of digits, while 2 is the number of digits after the comma. Note that it results in the number digits before the comma is a maximum 4"
+msgstr ""
+
+#: ../../howtos/backend.rst:504
+msgid "Relational fields"
+msgstr ""
+
+#: ../../howtos/backend.rst:506
+msgid "Relational fields link records, either of the same model (hierarchies) or between different models."
+msgstr ""
+
+#: ../../howtos/backend.rst:509
+msgid "Relational field types are:"
+msgstr ""
+
+#: ../../howtos/backend.rst:516
+msgid ":class:`Many2one(other_model, ondelete='set null') <odoo.fields.Many2one>`"
+msgstr ""
+
+#: ../../howtos/backend.rst:512
+msgid "A simple link to an other object::"
+msgstr ""
+
+#: ../../howtos/backend.rst:516
+msgid "`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
+msgstr ""
+
+#: ../../howtos/backend.rst:530
+msgid ":class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
+msgstr ""
+
+#: ../../howtos/backend.rst:519
+msgid "A virtual relationship, inverse of a :class:`~odoo.fields.Many2one`. A :class:`~odoo.fields.One2many` behaves as a container of records, accessing it results in a (possibly empty) set of records::"
+msgstr ""
+
+#: ../../howtos/backend.rst:528
+msgid "Because a :class:`~odoo.fields.One2many` is a virtual relationship, there *must* be a :class:`~odoo.fields.Many2one` field in the :samp:`{other_model}`, and its name *must* be :samp:`{related_field}`"
+msgstr ""
+
+#: ../../howtos/backend.rst:538
+msgid ":class:`Many2many(other_model) <odoo.fields.Many2many>`"
+msgstr ""
+
+#: ../../howtos/backend.rst:533
+msgid "Bidirectional multiple relationship, any record on one side can be related to any number of records on the other side. Behaves as a container of records, accessing it also results in a possibly empty set of records::"
+msgstr ""
+
+#: ../../howtos/backend.rst:540
+msgid "Many2one relations"
+msgstr ""
+
+#: ../../howtos/backend.rst:542
+msgid "Using a many2one, modify the *Course* and *Session* models to reflect their relation with other models:"
+msgstr ""
+
+#: ../../howtos/backend.rst:545
+msgid "A course has a *responsible* user; the value of that field is a record of the built-in model ``res.users``."
+msgstr ""
+
+#: ../../howtos/backend.rst:547
+msgid "A session has an *instructor*; the value of that field is a record of the built-in model ``res.partner``."
+msgstr ""
+
+#: ../../howtos/backend.rst:549
+msgid "A session is related to a *course*; the value of that field is a record of the model ``openacademy.course`` and is required."
+msgstr ""
+
+#: ../../howtos/backend.rst:551
+msgid "Adapt the views."
+msgstr ""
+
+#: ../../howtos/backend.rst:555
+msgid "Add the relevant ``Many2one`` fields to the models, and"
+msgstr ""
+
+#: ../../howtos/backend.rst:556
+msgid "add them in the views."
+msgstr ""
+
+#: ../../howtos/backend.rst:560
+msgid "Inverse one2many relations"
+msgstr ""
+
+#: ../../howtos/backend.rst:562
+msgid "Using the inverse relational field one2many, modify the models to reflect the relation between courses and sessions."
+msgstr ""
+
+#: ../../howtos/backend.rst:567
+msgid "Modify the ``Course`` class, and"
+msgstr ""
+
+#: ../../howtos/backend.rst:568
+msgid "add the field in the course form view."
+msgstr ""
+
+#: ../../howtos/backend.rst:572
+msgid "Multiple many2many relations"
+msgstr ""
+
+#: ../../howtos/backend.rst:574
+msgid "Using the relational field many2many, modify the *Session* model to relate every session to a set of *attendees*. Attendees will be represented by partner records, so we will relate to the built-in model ``res.partner``. Adapt the views accordingly."
+msgstr ""
+
+#: ../../howtos/backend.rst:581
+msgid "Modify the ``Session`` class, and"
+msgstr ""
+
+#: ../../howtos/backend.rst:582
+msgid "add the field in the form view."
+msgstr ""
+
+#: ../../howtos/backend.rst:587
+msgid "Inheritance"
+msgstr ""
+
+#: ../../howtos/backend.rst:590
+msgid "Model inheritance"
+msgstr ""
+
+#: ../../howtos/backend.rst:592
+msgid "Odoo provides two *inheritance* mechanisms to extend an existing model in a modular way."
+msgstr ""
+
+#: ../../howtos/backend.rst:595
+msgid "The first inheritance mechanism allows a module to modify the behavior of a model defined in another module:"
+msgstr ""
+
+#: ../../howtos/backend.rst:598
+msgid "add fields to a model,"
+msgstr ""
+
+#: ../../howtos/backend.rst:599
+msgid "override the definition of fields on a model,"
+msgstr ""
+
+#: ../../howtos/backend.rst:600
+msgid "add constraints to a model,"
+msgstr ""
+
+#: ../../howtos/backend.rst:601
+msgid "add methods to a model,"
+msgstr ""
+
+#: ../../howtos/backend.rst:602
+msgid "override existing methods on a model."
+msgstr ""
+
+#: ../../howtos/backend.rst:604
+msgid "The second inheritance mechanism (delegation) allows to link every record of a model to a record in a parent model, and provides transparent access to the fields of the parent record."
+msgstr ""
+
+#: ../../howtos/backend.rst:613
+msgid ":attr:`~odoo.models.Model._inherit`"
+msgstr ""
+
+#: ../../howtos/backend.rst:614
+msgid ":attr:`~odoo.models.Model._inherits`"
+msgstr ""
+
+#: ../../howtos/backend.rst:617
+msgid "View inheritance"
+msgstr ""
+
+#: ../../howtos/backend.rst:619
+msgid "Instead of modifying existing views in place (by overwriting them), Odoo provides view inheritance where children \"extension\" views are applied on top of root views, and can add or remove content from their parent."
+msgstr ""
+
+#: ../../howtos/backend.rst:623
+msgid "An extension view references its parent using the ``inherit_id`` field, and instead of a single view its ``arch`` field is composed of any number of ``xpath`` elements selecting and altering the content of their parent view:"
+msgstr ""
+
+#: ../../howtos/backend.rst:644
+msgid "``expr``"
+msgstr ""
+
+#: ../../howtos/backend.rst:644
+msgid "An XPath_ expression selecting a single element in the parent view. Raises an error if it matches no element or more than one"
+msgstr ""
+
+#: ../../howtos/backend.rst:660
+msgid "``position``"
+msgstr ""
+
+#: ../../howtos/backend.rst:647
+msgid "Operation to apply to the matched element:"
+msgstr ""
+
+#: ../../howtos/backend.rst:649
+msgid "``inside``"
+msgstr ""
+
+#: ../../howtos/backend.rst:650
+msgid "appends ``xpath``'s body at the end of the matched element"
+msgstr ""
+
+#: ../../howtos/backend.rst:652
+msgid "``replace``"
+msgstr ""
+
+#: ../../howtos/backend.rst:652
+msgid "replaces the matched element with the ``xpath``'s body, replacing any ``$0`` node occurrence in the new body with the original element"
+msgstr ""
+
+#: ../../howtos/backend.rst:654
+msgid "``before``"
+msgstr ""
+
+#: ../../howtos/backend.rst:655
+msgid "inserts the ``xpath``'s body as a sibling before the matched element"
+msgstr ""
+
+#: ../../howtos/backend.rst:656
+msgid "``after``"
+msgstr ""
+
+#: ../../howtos/backend.rst:657
+msgid "inserts the ``xpaths``'s body as a sibling after the matched element"
+msgstr ""
+
+#: ../../howtos/backend.rst:660
+msgid "``attributes``"
+msgstr ""
+
+#: ../../howtos/backend.rst:659
+msgid "alters the attributes of the matched element using special ``attribute`` elements in the ``xpath``'s body"
+msgstr ""
+
+#: ../../howtos/backend.rst:664
+msgid "When matching a single element, the ``position`` attribute can be set directly on the element to be found. Both inheritances below will give the same result."
+msgstr ""
+
+#: ../../howtos/backend.rst:678
+msgid "Alter existing content"
+msgstr ""
+
+#: ../../howtos/backend.rst:680
+msgid "Using model inheritance, modify the existing *Partner* model to add an ``instructor`` boolean field, and a many2many field that corresponds to the session-partner relation"
+msgstr ""
+
+#: ../../howtos/backend.rst:683
+msgid "Using view inheritance, display this fields in the partner form view"
+msgstr ""
+
+#: ../../howtos/backend.rst:689
+msgid "This is the opportunity to introduce the developer mode to inspect the view, find its external ID and the place to put the new field."
+msgstr ""
+
+#: ../../howtos/backend.rst:693
+msgid "Create a file ``openacademy/models/partner.py`` and import it in ``__init__.py``"
+msgstr ""
+
+#: ../../howtos/backend.rst:695
+msgid "Create a file ``openacademy/views/partner.xml`` and add it to ``__manifest__.py``"
+msgstr ""
+
+#: ../../howtos/backend.rst:701
+msgid "Domains"
+msgstr ""
+
+#: ../../howtos/backend.rst:703
+msgid "In Odoo, :ref:`reference/orm/domains` are values that encode conditions on records. A domain is a  list of criteria used to select a subset of a model's records. Each criteria is a triple with a field name, an operator and a value."
+msgstr ""
+
+#: ../../howtos/backend.rst:707
+msgid "For instance, when used on the *Product* model the following domain selects all *services* with a unit price over *1000*::"
+msgstr ""
+
+#: ../../howtos/backend.rst:712
+msgid "By default criteria are combined with an implicit AND. The logical operators ``&`` (AND), ``|`` (OR) and ``!`` (NOT) can be used to explicitly combine criteria. They are used in prefix position (the operator is inserted before its arguments rather than between). For instance to select products \"which are services *OR* have a unit price which is *NOT* between 1000 and 2000\"::"
+msgstr ""
+
+#: ../../howtos/backend.rst:724
+msgid "A ``domain`` parameter can be added to relational fields to limit valid records for the relation when trying to select records in the client interface."
+msgstr ""
+
+#: ../../howtos/backend.rst:727
+msgid "Domains on relational fields"
+msgstr ""
+
+#: ../../howtos/backend.rst:729
+msgid "When selecting the instructor for a *Session*, only instructors (partners with ``instructor`` set to ``True``) should be visible."
+msgstr ""
+
+#: ../../howtos/backend.rst:738
+msgid "A domain declared as a literal list is evaluated server-side and can't refer to dynamic values on the right-hand side, a domain declared as a string is evaluated client-side and allows field names on the right-hand side"
+msgstr ""
+
+#: ../../howtos/backend.rst:743
+msgid "More complex domains"
+msgstr ""
+
+#: ../../howtos/backend.rst:745
+msgid "Create new partner categories *Teacher / Level 1* and *Teacher / Level 2*. The instructor for a session can be either an instructor or a teacher (of any level)."
+msgstr ""
+
+#: ../../howtos/backend.rst:751
+msgid "Modify the *Session* model's domain"
+msgstr ""
+
+#: ../../howtos/backend.rst:752
+msgid "Modify ``openacademy/view/partner.xml`` to get access to *Partner categories*:"
+msgstr ""
+
+#: ../../howtos/backend.rst:758
+msgid "Computed fields and default values"
+msgstr ""
+
+#: ../../howtos/backend.rst:760
+msgid "So far fields have been stored directly in and retrieved directly from the database. Fields can also be *computed*. In that case, the field's value is not retrieved from the database but computed on-the-fly by calling a method of the model."
+msgstr ""
+
+#: ../../howtos/backend.rst:765
+msgid "To create a computed field, create a field and set its attribute :attr:`~odoo.fields.Field.compute` to the name of a method. The computation method should simply set the value of the field to compute on every record in ``self``."
+msgstr ""
+
+#: ../../howtos/backend.rst:770
+msgid "``self`` is a collection"
+msgstr ""
+
+#: ../../howtos/backend.rst:773
+msgid "The object ``self`` is a *recordset*, i.e., an ordered collection of records. It supports the standard Python operations on collections, like ``len(self)`` and ``iter(self)``, plus extra set operations like ``recs1 + recs2``."
+msgstr ""
+
+#: ../../howtos/backend.rst:778
+msgid "Iterating over ``self`` gives the records one by one, where each record is itself a collection of size 1. You can access/assign fields on single records by using the dot notation, like ``record.name``."
+msgstr ""
+
+#: ../../howtos/backend.rst:799
+msgid "Dependencies"
+msgstr ""
+
+#: ../../howtos/backend.rst:801
+msgid "The value of a computed field usually depends on the values of other fields on the computed record. The ORM expects the developer to specify those dependencies on the compute method with the decorator :func:`~odoo.api.depends`. The given dependencies are used by the ORM to trigger the recomputation of the field whenever some of its dependencies have been modified::"
+msgstr ""
+
+#: ../../howtos/backend.rst:820
+msgid "Computed fields"
+msgstr ""
+
+#: ../../howtos/backend.rst:822
+msgid "Add the percentage of taken seats to the *Session* model"
+msgstr ""
+
+#: ../../howtos/backend.rst:823
+msgid "Display that field in the tree and form views"
+msgstr ""
+
+#: ../../howtos/backend.rst:824
+msgid "Display the field as a progress bar"
+msgstr ""
+
+#: ../../howtos/backend.rst:828
+msgid "Add a computed field to *Session*"
+msgstr ""
+
+#: ../../howtos/backend.rst:829
+msgid "Show the field in the *Session* view:"
+msgstr ""
+
+#: ../../howtos/backend.rst:834
+msgid "Default values"
+msgstr ""
+
+#: ../../howtos/backend.rst:836
+msgid "Any field can be given a default value. In the field definition, add the option ``default=X`` where ``X`` is either a Python literal value (boolean, integer, float, string), or a function taking a recordset and returning a value::"
+msgstr ""
+
+#: ../../howtos/backend.rst:845
+msgid "The object ``self.env`` gives access to request parameters and other useful things:"
+msgstr ""
+
+#: ../../howtos/backend.rst:848
+msgid "``self.env.cr`` or ``self._cr`` is the database *cursor* object; it is used for querying the database"
+msgstr ""
+
+#: ../../howtos/backend.rst:850
+msgid "``self.env.uid`` or ``self._uid`` is the current user's database id"
+msgstr ""
+
+#: ../../howtos/backend.rst:851
+msgid "``self.env.user`` is the current user's record"
+msgstr ""
+
+#: ../../howtos/backend.rst:852
+msgid "``self.env.context`` or ``self._context`` is the context dictionary"
+msgstr ""
+
+#: ../../howtos/backend.rst:853
+msgid "``self.env.ref(xml_id)`` returns the record corresponding to an XML id"
+msgstr ""
+
+#: ../../howtos/backend.rst:854
+msgid "``self.env[model_name]`` returns an instance of the given model"
+msgstr ""
+
+#: ../../howtos/backend.rst:856
+msgid "Active objects – Default values"
+msgstr ""
+
+#: ../../howtos/backend.rst:858
+msgid "Define the start_date default value as today (see :class:`~odoo.fields.Date`)."
+msgstr ""
+
+#: ../../howtos/backend.rst:860
+msgid "Add a field ``active`` in the class Session, and set sessions as active by default."
+msgstr ""
+
+#: ../../howtos/backend.rst:869
+msgid "Odoo has built-in rules making fields with an ``active`` field set to ``False`` invisible."
+msgstr ""
+
+#: ../../howtos/backend.rst:873
+msgid "Onchange"
+msgstr ""
+
+#: ../../howtos/backend.rst:875
+msgid "The \"onchange\" mechanism provides a way for the client interface to update a form whenever the user has filled in a value in a field, without saving anything to the database."
+msgstr ""
+
+#: ../../howtos/backend.rst:879
+msgid "For instance, suppose a model has three fields ``amount``, ``unit_price`` and ``price``, and you want to update the price on the form when any of the other fields is modified. To achieve this, define a method where ``self`` represents the record in the form view, and decorate it with :func:`~odoo.api.onchange` to specify on which field it has to be triggered. Any change you make on ``self`` will be reflected on the form."
+msgstr ""
+
+#: ../../howtos/backend.rst:908
+msgid "For computed fields, valued ``onchange`` behavior is built-in as can be seen by playing with the *Session* form: change the number of seats or participants, and the ``taken_seats`` progressbar is automatically updated."
+msgstr ""
+
+#: ../../howtos/backend.rst:912
+msgid "Warning"
+msgstr ""
+
+#: ../../howtos/backend.rst:914
+msgid "Add an explicit onchange to warn about invalid values, like a negative number of seats, or more participants than seats."
+msgstr ""
+
+#: ../../howtos/backend.rst:922
+msgid "Model constraints"
+msgstr ""
+
+#: ../../howtos/backend.rst:924
+msgid "Odoo provides two ways to set up automatically verified invariants: :func:`Python constraints <odoo.api.constrains>` and :attr:`SQL constraints <odoo.models.Model._sql_constraints>`."
+msgstr ""
+
+#: ../../howtos/backend.rst:928
+msgid "A Python constraint is defined as a method decorated with :func:`~odoo.api.constrains`, and invoked on a recordset. The decorator specifies which fields are involved in the constraint, so that the constraint is automatically evaluated when one of them is modified. The method is expected to raise an exception if its invariant is not satisfied::"
+msgstr ""
+
+#: ../../howtos/backend.rst:943
+msgid "Add Python constraints"
+msgstr ""
+
+#: ../../howtos/backend.rst:945
+msgid "Add a constraint that checks that the instructor is not present in the attendees of his/her own session."
+msgstr ""
+
+#: ../../howtos/backend.rst:952
+msgid "SQL constraints are defined through the model attribute :attr:`~odoo.models.Model._sql_constraints`. The latter is assigned to a list of triples of strings ``(name, sql_definition, message)``, where ``name`` is a valid SQL constraint name, ``sql_definition`` is a table_constraint_ expression, and ``message`` is the error message."
+msgstr ""
+
+#: ../../howtos/backend.rst:958
+msgid "Add SQL constraints"
+msgstr ""
+
+#: ../../howtos/backend.rst:960
+msgid "With the help of `PostgreSQL's documentation`_ , add the following constraints:"
+msgstr ""
+
+#: ../../howtos/backend.rst:963
+msgid "CHECK that the course description and the course title are different"
+msgstr ""
+
+#: ../../howtos/backend.rst:964
+msgid "Make the Course's name UNIQUE"
+msgstr ""
+
+#: ../../howtos/backend.rst:970
+msgid "Exercise 6 - Add a duplicate option"
+msgstr ""
+
+#: ../../howtos/backend.rst:972
+msgid "Since we added a constraint for the Course name uniqueness, it is not possible to use the \"duplicate\" function anymore (:menuselection:`Form --> Duplicate`)."
+msgstr ""
+
+#: ../../howtos/backend.rst:976
+msgid "Re-implement your own \"copy\" method which allows to duplicate the Course object, changing the original name into \"Copy of [original name]\"."
+msgstr ""
+
+#: ../../howtos/backend.rst:984
+msgid "Advanced Views"
+msgstr ""
+
+#: ../../howtos/backend.rst:989
+msgid "Tree views can take supplementary attributes to further customize their behavior:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1013
+msgid "``decoration-{$name}``"
+msgstr ""
+
+#: ../../howtos/backend.rst:993
+msgid "allow changing the style of a row's text based on the corresponding record's attributes."
+msgstr ""
+
+#: ../../howtos/backend.rst:996
+msgid "Values are Python expressions. For each record, the expression is evaluated with the record's attributes as context values and if ``true``, the corresponding style is applied to the row. Other context values are ``uid`` (the id of the current user) and ``current_date`` (the current date as a string of the form ``yyyy-MM-dd``)."
+msgstr ""
+
+#: ../../howtos/backend.rst:1002
+msgid "``{$name}`` can be ``bf`` (``font-weight: bold``), ``it`` (``font-style: italic``), or any `bootstrap contextual color <https://getbootstrap.com/docs/3.3/components/#available-variations>`_ (``danger``, ``info``, ``muted``, ``primary``, ``success`` or ``warning``)."
+msgstr ""
+
+#: ../../howtos/backend.rst:1018
+msgid "``editable``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1016
+msgid "Either ``\"top\"`` or ``\"bottom\"``. Makes the tree view editable in-place (rather than having to go through the form view), the value is the position where new rows appear."
+msgstr ""
+
+#: ../../howtos/backend.rst:1020
+msgid "List coloring"
+msgstr ""
+
+#: ../../howtos/backend.rst:1022
+msgid "Modify the Session tree view in such a way that sessions lasting less than 5 days are colored blue, and the ones lasting more than 15 days are colored red."
+msgstr ""
+
+#: ../../howtos/backend.rst:1028
+msgid "Modify the session tree view:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1033
+msgid "Calendars"
+msgstr ""
+
+#: ../../howtos/backend.rst:1035
+msgid "Displays records as calendar events. Their root element is ``<calendar>`` and their most common attributes are:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1041
+msgid "``color``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1039
+msgid "The name of the field used for *color segmentation*. Colors are automatically distributed to events, but events in the same color segment (records which have the same value for their ``@color`` field) will be given the same color."
+msgstr ""
+
+#: ../../howtos/backend.rst:1043
+msgid "``date_start``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1044
+msgid "record's field holding the start date/time for the event"
+msgstr ""
+
+#: ../../howtos/backend.rst:1045
+msgid "``date_stop`` (optional)"
+msgstr ""
+
+#: ../../howtos/backend.rst:1046
+msgid "record's field holding the end date/time for the event"
+msgstr ""
+
+#: ../../howtos/backend.rst:1048
+msgid "``string``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1048
+msgid "record's field to define the label for each calendar event"
+msgstr ""
+
+#: ../../howtos/backend.rst:1056
+msgid "Calendar view"
+msgstr ""
+
+#: ../../howtos/backend.rst:1058
+msgid "Add a Calendar view to the *Session* model enabling the user to view the events associated to the Open Academy."
+msgstr ""
+
+#: ../../howtos/backend.rst:1063
+msgid "Add an ``end_date`` field computed from ``start_date`` and ``duration``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1066
+msgid "the inverse function makes the field writable, and allows moving the sessions (via drag and drop) in the calendar view"
+msgstr ""
+
+#: ../../howtos/backend.rst:1069
+msgid "Add a calendar view to the *Session* model"
+msgstr ""
+
+#: ../../howtos/backend.rst:1070
+msgid "And add the calendar view to the *Session* model's actions"
+msgstr ""
+
+#: ../../howtos/backend.rst:1077
+msgid "Search view ``<field>`` elements can have a ``@filter_domain`` that overrides the domain generated for searching on the given field. In the given domain, ``self`` represents the value entered by the user. In the example below, it is used to search on both fields ``name`` and ``description``."
+msgstr ""
+
+#: ../../howtos/backend.rst:1082
+msgid "Search views can also contain ``<filter>`` elements, which act as toggles for predefined searches. Filters must have one of the following attributes:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1085
+msgid "``domain``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1086
+msgid "add the given domain to the current search"
+msgstr ""
+
+#: ../../howtos/backend.rst:1089
+#: ../../howtos/web.rst:1708
+msgid "``context``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1088
+msgid "add some context to the current search; use the key ``group_by`` to group results on the given field name"
+msgstr ""
+
+#: ../../howtos/backend.rst:1108
+msgid "To use a non-default search view in an action, it should be linked using the ``search_view_id`` field of the action record."
+msgstr ""
+
+#: ../../howtos/backend.rst:1111
+msgid "The action can also set default values for search fields through its ``context`` field: context keys of the form :samp:`search_default_{field_name}` will initialize *field_name* with the provided value. Search filters must have an optional ``@name`` to have a default and behave as booleans (they can only be enabled by default)."
+msgstr ""
+
+#: ../../howtos/backend.rst:1119
+msgid "Add a button to filter the courses for which the current user is the responsible in the course search view. Make it selected by default."
+msgstr ""
+
+#: ../../howtos/backend.rst:1121
+msgid "Add a button to group courses by responsible user."
+msgstr ""
+
+#: ../../howtos/backend.rst:1128
+msgid "Gantt"
+msgstr ""
+
+#: ../../howtos/backend.rst:1132
+msgid "The gantt view requires the web_gantt module which is present in :ref:`the enterprise edition <setup/install/editions>` version."
+msgstr ""
+
+#: ../../howtos/backend.rst:1135
+msgid "Horizontal bar charts typically used to show project planning and advancement, their root element is ``<gantt>``."
+msgstr ""
+
+#: ../../howtos/backend.rst:1146
+msgid "Gantt charts"
+msgstr ""
+
+#: ../../howtos/backend.rst:1148
+msgid "Add a Gantt Chart enabling the user to view the sessions scheduling linked to the Open Academy module. The sessions should be grouped by instructor."
+msgstr ""
+
+#: ../../howtos/backend.rst:1153
+msgid "Create a computed field expressing the session's duration in hours"
+msgstr ""
+
+#: ../../howtos/backend.rst:1154
+msgid "Add the gantt view's definition, and add the gantt view to the *Session* model's action"
+msgstr ""
+
+#: ../../howtos/backend.rst:1160
+msgid "Graph views"
+msgstr ""
+
+#: ../../howtos/backend.rst:1162
+msgid "Graph views allow aggregated overview and analysis of models, their root element is ``<graph>``."
+msgstr ""
+
+#: ../../howtos/backend.rst:1166
+msgid "Pivot views (element ``<pivot>``) a multidimensional table, allows the selection of filers and dimensions to get the right aggregated dataset before moving to a more graphical overview. The pivot view shares the same content definition as graph views."
+msgstr ""
+
+#: ../../howtos/backend.rst:1171
+msgid "Graph views have 4 display modes, the default mode is selected using the ``@type`` attribute."
+msgstr ""
+
+#: ../../howtos/backend.rst:1178
+msgid "Bar (default)"
+msgstr ""
+
+#: ../../howtos/backend.rst:1175
+msgid "a bar chart, the first dimension is used to define groups on the horizontal axis, other dimensions define aggregated bars within each group."
+msgstr ""
+
+#: ../../howtos/backend.rst:1178
+msgid "By default bars are side-by-side, they can be stacked by using ``@stacked=\"True\"`` on the ``<graph>``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1180
+msgid "Line"
+msgstr ""
+
+#: ../../howtos/backend.rst:1181
+msgid "2-dimensional line chart"
+msgstr ""
+
+#: ../../howtos/backend.rst:1183
+msgid "Pie"
+msgstr ""
+
+#: ../../howtos/backend.rst:1183
+msgid "2-dimensional pie"
+msgstr ""
+
+#: ../../howtos/backend.rst:1185
+msgid "Graph views contain ``<field>`` with a mandatory ``@type`` attribute taking the values:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1188
+msgid "``row`` (default)"
+msgstr ""
+
+#: ../../howtos/backend.rst:1189
+msgid "the field should be aggregated by default"
+msgstr ""
+
+#: ../../howtos/backend.rst:1191
+msgid "``measure``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1191
+msgid "the field should be aggregated rather than grouped on"
+msgstr ""
+
+#: ../../howtos/backend.rst:1202
+msgid "Graph views perform aggregations on database values, they do not work with non-stored computed fields."
+msgstr ""
+
+#: ../../howtos/backend.rst:1205
+msgid "Graph view"
+msgstr ""
+
+#: ../../howtos/backend.rst:1207
+msgid "Add a Graph view in the Session object that displays, for each course, the number of attendees under the form of a bar chart."
+msgstr ""
+
+#: ../../howtos/backend.rst:1212
+msgid "Add the number of attendees as a stored computed field"
+msgstr ""
+
+#: ../../howtos/backend.rst:1213
+msgid "Then add the relevant view"
+msgstr ""
+
+#: ../../howtos/backend.rst:1218
+msgid "Kanban"
+msgstr ""
+
+#: ../../howtos/backend.rst:1220
+msgid "Used to organize tasks, production processes, etc… their root element is ``<kanban>``."
+msgstr ""
+
+#: ../../howtos/backend.rst:1223
+msgid "A kanban view shows a set of cards possibly grouped in columns. Each card represents a record, and each column the values of an aggregation field."
+msgstr ""
+
+#: ../../howtos/backend.rst:1226
+msgid "For instance, project tasks may be organized by stage (each column is a stage), or by responsible (each column is a user), and so on."
+msgstr ""
+
+#: ../../howtos/backend.rst:1229
+msgid "Kanban views define the structure of each card as a mix of form elements (including basic HTML) and :ref:`reference/qweb`."
+msgstr ""
+
+#: ../../howtos/backend.rst:1232
+msgid "Kanban view"
+msgstr ""
+
+#: ../../howtos/backend.rst:1234
+msgid "Add a Kanban view that displays sessions grouped by course (columns are thus courses)."
+msgstr ""
+
+#: ../../howtos/backend.rst:1239
+msgid "Add an integer ``color`` field to the *Session* model"
+msgstr ""
+
+#: ../../howtos/backend.rst:1240
+msgid "Add the kanban view and update the action"
+msgstr ""
+
+#: ../../howtos/backend.rst:1245
+msgid "Security"
+msgstr ""
+
+#: ../../howtos/backend.rst:1247
+msgid "Access control mechanisms must be configured to achieve a coherent security policy."
+msgstr ""
+
+#: ../../howtos/backend.rst:1251
+msgid "Group-based access control mechanisms"
+msgstr ""
+
+#: ../../howtos/backend.rst:1253
+msgid "Groups are created as normal records on the model ``res.groups``, and granted menu access via menu definitions. However even without a menu, objects may still be accessible indirectly, so actual object-level permissions (read, write, create, unlink) must be defined for groups. They are usually inserted via CSV files inside modules. It is also possible to restrict access to specific fields on a view or object using the field's groups attribute."
+msgstr ""
+
+#: ../../howtos/backend.rst:1261
+msgid "Access rights"
+msgstr ""
+
+#: ../../howtos/backend.rst:1263
+msgid "Access rights are defined as records of the model ``ir.model.access``. Each access right is associated to a model, a group (or no group for global access), and a set of permissions: read, write, create, unlink. Such access rights are usually created by a CSV file named after its model: ``ir.model.access.csv``."
+msgstr ""
+
+#: ../../howtos/backend.rst:1275
+msgid "Add access control through the Odoo interface"
+msgstr ""
+
+#: ../../howtos/backend.rst:1277
+msgid "Create a new user \"John Smith\". Then create a group \"OpenAcademy / Session Read\" with read access to the *Session* model."
+msgstr ""
+
+#: ../../howtos/backend.rst:1282
+msgid "Create a new user *John Smith* through :menuselection:`Settings --> Users --> Users`"
+msgstr ""
+
+#: ../../howtos/backend.rst:1284
+msgid "Create a new group ``session_read`` through :menuselection:`Settings --> Users --> Groups`, it should have read access on the *Session* model"
+msgstr ""
+
+#: ../../howtos/backend.rst:1287
+msgid "Edit *John Smith* to make them a member of ``session_read``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1288
+msgid "Log in as *John Smith* to check the access rights are correct"
+msgstr ""
+
+#: ../../howtos/backend.rst:1290
+msgid "Add access control through data files in your module"
+msgstr ""
+
+#: ../../howtos/backend.rst:1292
+msgid "Using data files,"
+msgstr ""
+
+#: ../../howtos/backend.rst:1294
+msgid "Create a group *OpenAcademy / Manager* with full access to all OpenAcademy models"
+msgstr ""
+
+#: ../../howtos/backend.rst:1296
+msgid "Make *Session* and *Course* readable by all users"
+msgstr ""
+
+#: ../../howtos/backend.rst:1300
+msgid "Create a new file ``openacademy/security/security.xml`` to hold the OpenAcademy Manager group"
+msgstr ""
+
+#: ../../howtos/backend.rst:1302
+msgid "Edit the file ``openacademy/security/ir.model.access.csv`` with the access rights to the models"
+msgstr ""
+
+#: ../../howtos/backend.rst:1304
+msgid "Finally update ``openacademy/__manifest__.py`` to add the new data files to it"
+msgstr ""
+
+#: ../../howtos/backend.rst:1310
+msgid "Record rules"
+msgstr ""
+
+#: ../../howtos/backend.rst:1312
+msgid "A record rule restricts the access rights to a subset of records of the given model. A rule is a record of the model ``ir.rule``, and is associated to a model, a number of groups (many2many field), permissions to which the restriction applies, and a domain. The domain specifies to which records the access rights are limited."
+msgstr ""
+
+#: ../../howtos/backend.rst:1318
+msgid "Here is an example of a rule that prevents the deletion of leads that are not in state ``cancel``. Notice that the value of the field ``groups`` must follow the same convention as the method :meth:`~odoo.models.Model.write` of the ORM."
+msgstr ""
+
+#: ../../howtos/backend.rst:1335
+msgid "Record rule"
+msgstr ""
+
+#: ../../howtos/backend.rst:1337
+msgid "Add a record rule for the model Course and the group \"OpenAcademy / Manager\", that restricts ``write`` and ``unlink`` accesses to the responsible of a course. If a course has no responsible, all users of the group must be able to modify it."
+msgstr ""
+
+#: ../../howtos/backend.rst:1344
+msgid "Create a new rule in ``openacademy/security/security.xml``:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1349
+msgid "Wizards"
+msgstr ""
+
+#: ../../howtos/backend.rst:1351
+msgid "Wizards describe interactive sessions with the user (or dialog boxes) through dynamic forms. A wizard is simply a model that extends the class :class:`~odoo.models.TransientModel` instead of :class:`~odoo.models.Model`. The class :class:`~odoo.models.TransientModel` extends :class:`~odoo.models.Model` and reuse all its existing mechanisms, with the following particularities:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1358
+msgid "Wizard records are not meant to be persistent; they are automatically deleted from the database after a certain time. This is why they are called *transient*."
+msgstr ""
+
+#: ../../howtos/backend.rst:1361
+msgid "Wizard models do not require explicit access rights: users have all permissions on wizard records."
+msgstr ""
+
+#: ../../howtos/backend.rst:1363
+msgid "Wizard records may refer to regular records or wizard records through many2one fields, but regular records *cannot* refer to wizard records through a many2one field."
+msgstr ""
+
+#: ../../howtos/backend.rst:1367
+msgid "We want to create a wizard that allow users to create attendees for a particular session, or for a list of sessions at once."
+msgstr ""
+
+#: ../../howtos/backend.rst:1370
+msgid "Define the wizard"
+msgstr ""
+
+#: ../../howtos/backend.rst:1372
+msgid "Create a wizard model with a many2one relationship with the *Session* model and a many2many relationship with the *Partner* model."
+msgstr ""
+
+#: ../../howtos/backend.rst:1377
+msgid "Add a new file ``openacademy/wizard.py``:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1382
+msgid "Launching wizards"
+msgstr ""
+
+#: ../../howtos/backend.rst:1384
+msgid "Wizards are launched by ``ir.actions.act_window`` records, with the field ``target`` set to the value ``new``. The latter opens the wizard view into a popup window. The action may be triggered by a menu item."
+msgstr ""
+
+#: ../../howtos/backend.rst:1388
+msgid "There is another way to launch the wizard: using an ``ir.actions.act_window`` record like above, but with an extra field ``src_model`` that specifies in the context of which model the action is available. The wizard will appear in the contextual actions of the model, above the main view. Because of some internal hooks in the ORM, such an action is declared in XML with the tag ``act_window``."
+msgstr ""
+
+#: ../../howtos/backend.rst:1404
+msgid "Wizards use regular views and their buttons may use the attribute ``special=\"cancel\"`` to close the wizard window without saving."
+msgstr ""
+
+#: ../../howtos/backend.rst:1407
+msgid "Launch the wizard"
+msgstr ""
+
+#: ../../howtos/backend.rst:1409
+msgid "Define a form view for the wizard."
+msgstr ""
+
+#: ../../howtos/backend.rst:1410
+msgid "Add the action to launch it in the context of the *Session* model."
+msgstr ""
+
+#: ../../howtos/backend.rst:1411
+msgid "Define a default value for the session field in the wizard; use the context parameter ``self._context`` to retrieve the current session."
+msgstr ""
+
+#: ../../howtos/backend.rst:1418
+msgid "Register attendees"
+msgstr ""
+
+#: ../../howtos/backend.rst:1420
+msgid "Add buttons to the wizard, and implement the corresponding method for adding the attendees to the given session."
+msgstr ""
+
+#: ../../howtos/backend.rst:1427
+msgid "Register attendees to multiple sessions"
+msgstr ""
+
+#: ../../howtos/backend.rst:1429
+msgid "Modify the wizard model so that attendees can be registered to multiple sessions."
+msgstr ""
+
+#: ../../howtos/backend.rst:1437
+msgid "Internationalization"
+msgstr ""
+
+#: ../../howtos/backend.rst:1439
+msgid "Each module can provide its own translations within the i18n directory, by having files named LANG.po where LANG is the locale code for the language, or the language and country combination when they differ (e.g. pt.po or pt_BR.po). Translations will be loaded automatically by Odoo for all enabled languages. Developers always use English when creating a module, then export the module terms using Odoo's gettext POT export feature (:menuselection:`Settings --> Translations --> Import/Export --> Export Translation` without specifying a language), to create the module template POT file, and then derive the translated PO files. Many IDE's have plugins or modes for editing and merging PO/POT files."
+msgstr ""
+
+#: ../../howtos/backend.rst:1450
+msgid "The Portable Object files generated by Odoo are published on `Transifex <https://www.transifex.com/odoo/public/>`__, making it easy to translate the software."
+msgstr ""
+
+#: ../../howtos/backend.rst:1465
+msgid "By default Odoo's POT export only extracts labels inside XML files or inside field definitions in Python code, but any Python string can be translated this way by surrounding it with the function :func:`odoo._` (e.g. ``_(\"Label\")``)"
+msgstr ""
+
+#: ../../howtos/backend.rst:1470
+msgid "Translate a module"
+msgstr ""
+
+#: ../../howtos/backend.rst:1472
+msgid "Choose a second language for your Odoo installation. Translate your module using the facilities provided by Odoo."
+msgstr ""
+
+#: ../../howtos/backend.rst:1477
+msgid "Create a directory ``openacademy/i18n/``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1478
+msgid "Install whichever language you want ( :menuselection:`Administration --> Translations --> Load an Official Translation`)"
+msgstr ""
+
+#: ../../howtos/backend.rst:1481
+msgid "Synchronize translatable terms (:menuselection:`Administration --> Translations --> Application Terms --> Synchronize Translations`)"
+msgstr ""
+
+#: ../../howtos/backend.rst:1483
+msgid "Create a template translation file by exporting ( :menuselection:`Administration --> Translations -> Import/Export --> Export Translation`) without specifying a language, save in ``openacademy/i18n/``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1487
+msgid "Create a translation file by exporting ( :menuselection:`Administration --> Translations --> Import/Export --> Export Translation`) and specifying a language. Save it in ``openacademy/i18n/``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1491
+msgid "Open the exported translation file (with a basic text editor or a dedicated PO-file editor e.g. POEdit_ and translate the missing terms"
+msgstr ""
+
+#: ../../howtos/backend.rst:1495
+msgid "In ``models.py``, add an import statement for the function ``odoo._`` and mark missing strings as translatable"
+msgstr ""
+
+#: ../../howtos/backend.rst:1498
+msgid "Repeat steps 3-6"
+msgstr ""
+
+#: ../../howtos/backend.rst:1506
+msgid "Reporting"
+msgstr ""
+
+#: ../../howtos/backend.rst:1509
+msgid "Printed reports"
+msgstr ""
+
+#: ../../howtos/backend.rst:1511
+msgid "Odoo 11.0 uses a report engine based on :ref:`reference/qweb`, `Twitter Bootstrap`_ and Wkhtmltopdf_."
+msgstr ""
+
+#: ../../howtos/backend.rst:1514
+msgid "A report is a combination two elements:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1516
+msgid "an ``ir.actions.report``, for which a ``<report>`` shortcut element is provided, it sets up various basic parameters for the report (default type, whether the report should be saved to the database after generation,…)"
+msgstr ""
+
+#: ../../howtos/backend.rst:1535
+msgid "A standard :ref:`QWeb view <reference/views/qweb>` for the actual report:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1557
+msgid "Because reports are standard web pages, they are available through a URL and output parameters can be manipulated through this URL, for instance the HTML version of the *Invoice* report is available through http://localhost:8069/report/html/account.report_invoice/1 (if ``account`` is installed) and the PDF version through http://localhost:8069/report/pdf/account.report_invoice/1."
+msgstr ""
+
+#: ../../howtos/backend.rst:1568
+msgid "If it appears that your PDF report is missing the styles (i.e. the text appears but the style/layout is different from the html version), probably your wkhtmltopdf_ process cannot reach your web server to download them."
+msgstr ""
+
+#: ../../howtos/backend.rst:1572
+msgid "If you check your server logs and see that the CSS styles are not being downloaded when generating a PDF report, most surely this is the problem."
+msgstr ""
+
+#: ../../howtos/backend.rst:1575
+msgid "The wkhtmltopdf_ process will use the ``web.base.url`` system parameter as the *root path* to all linked files, but this parameter is automatically updated each time the Administrator is logged in. If your server resides behind some kind of proxy, that could not be reachable. You can fix this by adding one of these system parameters:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1581
+msgid "``report.url``, pointing to an URL reachable from your server (probably ``http://localhost:8069`` or something similar). It will be used for this particular purpose only."
+msgstr ""
+
+#: ../../howtos/backend.rst:1585
+msgid "``web.base.url.freeze``, when set to ``True``, will stop the automatic updates to ``web.base.url``."
+msgstr ""
+
+#: ../../howtos/backend.rst:1588
+msgid "Create a report for the Session model"
+msgstr ""
+
+#: ../../howtos/backend.rst:1590
+msgid "For each session, it should display session's name, its start and end, and list the session's attendees."
+msgstr ""
+
+#: ../../howtos/backend.rst:1598
+msgid "Dashboards"
+msgstr ""
+
+#: ../../howtos/backend.rst:1600
+msgid "Define a Dashboard"
+msgstr ""
+
+#: ../../howtos/backend.rst:1602
+msgid "Define a dashboard containing the graph view you created, the sessions calendar view and a list view of the courses (switchable to a form view). This dashboard should be available through a menuitem in the menu, and automatically displayed in the web client when the OpenAcademy main menu is selected."
+msgstr ""
+
+#: ../../howtos/backend.rst:1610
+msgid "Create a file ``openacademy/views/session_board.xml``. It should contain the board view, the actions referenced in that view, an action to open the dashboard and a re-definition of the main menu item to add the dashboard action"
+msgstr ""
+
+#: ../../howtos/backend.rst:1615
+msgid "Available dashboard styles are ``1``, ``1-1``, ``1-2``, ``2-1`` and ``1-1-1``"
+msgstr ""
+
+#: ../../howtos/backend.rst:1618
+msgid "Update ``openacademy/__manifest__.py`` to reference the new data file"
+msgstr ""
+
+#: ../../howtos/backend.rst:1624
+msgid "WebServices"
+msgstr ""
+
+#: ../../howtos/backend.rst:1626
+msgid "The web-service module offer a common interface for all web-services :"
+msgstr ""
+
+#: ../../howtos/backend.rst:1628
+msgid "XML-RPC"
+msgstr ""
+
+#: ../../howtos/backend.rst:1629
+msgid "JSON-RPC"
+msgstr ""
+
+#: ../../howtos/backend.rst:1631
+msgid "Business objects can also be accessed via the distributed object mechanism. They can all be modified via the client interface with contextual views."
+msgstr ""
+
+#: ../../howtos/backend.rst:1635
+msgid "Odoo is accessible through XML-RPC/JSON-RPC interfaces, for which libraries exist in many languages."
+msgstr ""
+
+#: ../../howtos/backend.rst:1639
+msgid "XML-RPC Library"
+msgstr ""
+
+#: ../../howtos/backend.rst:1641
+msgid "The following example is a Python 3 program that interacts with an Odoo server with the library ``xmlrpc.client``::"
+msgstr ""
+
+#: ../../howtos/backend.rst:1660
+msgid "Add a new service to the client"
+msgstr ""
+
+#: ../../howtos/backend.rst:1662
+msgid "Write a Python program able to send XML-RPC requests to a PC running Odoo (yours, or your instructor's). This program should display all the sessions, and their corresponding number of seats. It should also create a new session for one of the courses."
+msgstr ""
+
+#: ../../howtos/backend.rst:1698
+msgid "Instead of using a hard-coded course id, the code can look up a course by name::"
+msgstr ""
+
+#: ../../howtos/backend.rst:1709
+msgid "JSON-RPC Library"
+msgstr ""
+
+#: ../../howtos/backend.rst:1711
+msgid "The following example is a Python 3 program that interacts with an Odoo server with the standard Python libraries ``urllib.request`` and ``json``. This example assumes the **Productivity** app (``note``) is installed::"
+msgstr ""
+
+#: ../../howtos/backend.rst:1755
+msgid "Examples can be easily adapted from XML-RPC to JSON-RPC."
+msgstr ""
+
+#: ../../howtos/backend.rst:1759
+msgid "There are a number of high-level APIs in various languages to access Odoo systems without *explicitly* going through XML-RPC or JSON-RPC, such as:"
+msgstr ""
+
+#: ../../howtos/backend.rst:1762
+msgid "https://github.com/akretion/ooor"
+msgstr ""
+
+#: ../../howtos/backend.rst:1763
+msgid "https://github.com/syleam/openobject-library"
+msgstr ""
+
+#: ../../howtos/backend.rst:1764
+msgid "https://github.com/nicolas-van/openerp-client-lib"
+msgstr ""
+
+#: ../../howtos/backend.rst:1765
+msgid "http://pythonhosted.org/OdooRPC"
+msgstr ""
+
+#: ../../howtos/backend.rst:1766
+msgid "https://github.com/abhishek-jaiswal/php-openerp-lib"
+msgstr ""
+
+#: ../../howtos/backend.rst:1768
+msgid "it is possible to :attr:`disable the automatic creation of some fields <odoo.models.Model._log_access>`"
+msgstr ""
+
+#: ../../howtos/backend.rst:1770
+msgid "writing raw SQL queries is possible, but requires care as it bypasses all Odoo authentication and security mechanisms."
+msgstr ""
+
+#: ../../howtos/profilecode.rst:3
+msgid "Profiling Odoo code"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:7
+msgid "This tutorial requires :ref:`having installed Odoo <setup/install>` and :doc:`writing Odoo code <backend>`"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:11
+msgid "Graph a method"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:13
+msgid "Odoo embeds a profiler of code. This embeded profiler output can be used to generate a graph of calls triggered by the method, number of queries, percentage of time taken in the method itself as well as time taken in method and it's sub-called methods."
+msgstr ""
+
+#: ../../howtos/profilecode.rst:26
+msgid "This produce a file called /temp/prof.profile"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:28
+msgid "A tool called *gprof2dot* will produce a graph with this result:"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:34
+msgid "A tool called *xdot* will display the resulting graph:"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:40
+msgid "The profiler can be also used without saving data in a file."
+msgstr ""
+
+#: ../../howtos/profilecode.rst:48
+msgid "The statistics will be displayed into the logs once the method to be analysed is completely reviewed."
+msgstr ""
+
+#: ../../howtos/profilecode.rst:79
+msgid "Dump stack"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:81
+msgid "Sending the SIGQUIT signal to an odoo process (only available on POSIX) makes this process output the current stack trace to log, with info level. When an odoo process seems stucked, sending this signal to the process permit to know what the process is doing, and letting the process continue his job."
+msgstr ""
+
+#: ../../howtos/profilecode.rst:87
+msgid "Tracing code execution"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:89
+msgid "Instead of sending the SIGQUIT signal to an odoo process often enough, to check where processes is performing worse than expected, we can use pyflame tool to do it for us."
+msgstr ""
+
+#: ../../howtos/profilecode.rst:94
+msgid "Install pyflame and flamegraph"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:109
+msgid "Record executed code"
+msgstr ""
+
+#: ../../howtos/profilecode.rst:111
+msgid "As pyflame is installed, we now record the executed code lines with pyflame. This tool will record, multiple times a second, the stacktrace of the process. Once done, we'll display them as an execution graph."
+msgstr ""
+
+#: ../../howtos/profilecode.rst:119
+msgid "where <PID> is the process ID of the odoo process you want to graph. This will wait until the dead of the process, with a maximum of one hour, and and get 5 traces a second. With the output of pyflame, we can produce an svg graph with the flamegraph tool:"
+msgstr ""
+
+#: ../../howtos/themes.rst:5
+msgid "Theme Tutorial"
+msgstr ""
+
+#: ../../howtos/themes.rst:9
+msgid "Odoo celebrates freedom. Freedom for the designer to go further and freedom for the user to customize everything according to their needs."
+msgstr ""
+
+#: ../../howtos/themes.rst:12
+msgid "Ready to create your own theme? Great. Here are some things you should know before you begin. This tutorial is a guide to creating an Odoo theme."
+msgstr ""
+
+#: ../../howtos/themes.rst:18
+msgid "An introduction for web designers"
+msgstr ""
+
+#: ../../howtos/themes.rst:20
+msgid "If you are a web designer using Odoo for the first time, you are in the right place. This introduction will outline the basics of Odoo theme creation."
+msgstr ""
+
+#: ../../howtos/themes.rst:25
+msgid "Odoo’s team has created a framework that’s powerful and easy to use. There’s no need to know special syntaxes to use this set of tools."
+msgstr ""
+
+#: ../../howtos/themes.rst:28
+msgid "From common CMS to Odoo"
+msgstr ""
+
+#: ../../howtos/themes.rst:32
+msgid "If you always think and work in the same way, you’ll probably get the same results. If you want something completely new,  then try something different."
+msgstr ""
+
+#: ../../howtos/themes.rst:36
+msgid "Where is my header.php file?"
+msgstr ""
+
+#: ../../howtos/themes.rst:38
+msgid "This is usually the first question from a web designer used to working with Wordpress or Joomla and coming to Odoo for the first time."
+msgstr ""
+
+#: ../../howtos/themes.rst:48
+msgid "Indeed, when using common CMSs, you have to code several files (like header.php, page.php, post.php, etc.) in order to create a basic structure for your website. With those systems, this base structure acts as a design foundation that you have to update over time to ensure compatibility within your CMS. So, even after you have spent hours coding the files, you have not even started on the design yet."
+msgstr ""
+
+#: ../../howtos/themes.rst:50
+msgid "This **does not** apply to creating Odoo themes."
+msgstr ""
+
+#: ../../howtos/themes.rst:54
+msgid "We think that theme design should be simple (and powerful). When we created our Website Builder, we decided to start from scratch instead of relying on what already existed. This approach gave us the freedom to focus on the things that are really important for designers: styles, content and the logic behind them. No more struggling with technical stuff."
+msgstr ""
+
+#: ../../howtos/themes.rst:57
+msgid "Odoo default theme structure"
+msgstr ""
+
+#: ../../howtos/themes.rst:63
+msgid "Odoo comes with a default theme structure. It is a very basic “theme” that provides minimal structure and layout. When you create a new theme, you are actually extending this. Indeed it’s always enabled in your setup and it acts exactly like the CMS’s base structure we mentioned above, except that you don’t have to create or maintain it. It will upgrade automatically within your Odoo installation and, since it is included in the Website Builder module, everything is smoothly integrated by default."
+msgstr ""
+
+#: ../../howtos/themes.rst:68
+msgid "As a result, you are totally free to focus on design while this structure does the job of providing integrations and functionality."
+msgstr ""
+
+#: ../../howtos/themes.rst:78
+msgid "**Main features:**"
+msgstr ""
+
+#: ../../howtos/themes.rst:80
+msgid "Basic layouts for pages, blog and eCommerce"
+msgstr ""
+
+#: ../../howtos/themes.rst:81
+msgid "Website Builder integration"
+msgstr ""
+
+#: ../../howtos/themes.rst:82
+msgid "Basic Snippets"
+msgstr ""
+
+#: ../../howtos/themes.rst:83
+msgid "Automatic Less/Sass compiling"
+msgstr ""
+
+#: ../../howtos/themes.rst:84
+msgid "Automatic Js and CSS minification and combination"
+msgstr ""
+
+#: ../../howtos/themes.rst:88
+msgid "**Main technologies:**"
+msgstr ""
+
+#: ../../howtos/themes.rst:90
+msgid "Twitter Bootstrap"
+msgstr ""
+
+#: ../../howtos/themes.rst:91
+msgid "jQuery"
+msgstr ""
+
+#: ../../howtos/themes.rst:92
+msgid "jQuery UI"
+msgstr ""
+
+#: ../../howtos/themes.rst:93
+msgid "underscore.js"
+msgstr ""
+
+#: ../../howtos/themes.rst:96
+msgid "Thinking \"modular\""
+msgstr ""
+
+#: ../../howtos/themes.rst:98
+msgid "An Odoo theme is not a folder containing HTML or PHP files, it’s a modular framework written in XML. Never worked with XML files before? Don’t worry, after following the tutorial, you’ll be able to create your first theme with only basic knowledge of HTML."
+msgstr ""
+
+#: ../../howtos/themes.rst:100
+msgid "Using classical web design workflows, you usually code the layout of the entire page. The result of this is a “static” web page. You can update the content, of course, but your client will need you to work on making even basic changes."
+msgstr ""
+
+#: ../../howtos/themes.rst:102
+msgid "Creating themes for Odoo is a total change of perspective. Instead of defining the complete layout for a page, you can create blocks (snippets) at let the user choose where to “drag&drop” them, creating the page layout on their own. We call this modular design."
+msgstr ""
+
+#: ../../howtos/themes.rst:105
+msgid "Imagine an Odoo theme as a “list” of elements and options that you have to create and style. As a designer, your goal is to style these elements in order to achieve a wonderful result, regardless of where the end user chooses to place them."
+msgstr ""
+
+#: ../../howtos/themes.rst:108
+msgid "Let’s take a tour of our “list” elements:"
+msgstr ""
+
+#: ../../howtos/themes.rst:115
+msgid "Snippets (or building-blocks)"
+msgstr ""
+
+#: ../../howtos/themes.rst:117
+msgid "A piece of HTML code.  The user  will  drag&drop, modify and combine them using our built-in Website Builder interface. You can define sets of options and styles for each snippet. The user will choose from them according to their needs."
+msgstr ""
+
+#: ../../howtos/themes.rst:122
+msgid "Pages"
+msgstr ""
+
+#: ../../howtos/themes.rst:124
+msgid "These are normal web pages, except that they will be editable by the final user and that you can define an empty area that the user can “fill” by dragging snippets into it."
+msgstr ""
+
+#: ../../howtos/themes.rst:135
+msgid "Styles"
+msgstr ""
+
+#: ../../howtos/themes.rst:137
+msgid "Styles are defined using standard CSS files (or Less/Sass). You can define a style as **default** or **optional**. The default styles are always active in your theme, the optional styles can be enabled or disabled by the user."
+msgstr ""
+
+#: ../../howtos/themes.rst:142
+msgid "Functionalities"
+msgstr ""
+
+#: ../../howtos/themes.rst:144
+msgid "Thanks to Odoo’s modularity, everything can be personalized even more. This means there are endless possibilities for your creativity. Adding functionalities is easy and it’s simple to provide the end user with customizable options."
+msgstr ""
+
+#: ../../howtos/themes.rst:148
+msgid "Odoo's XML files, an overview"
+msgstr ""
+
+#: ../../howtos/themes.rst:150
+msgid "Any Odoo XML file starts with encoding specifications. After that, you have to write your code inside a ``<odoo>`` tag."
+msgstr ""
+
+#: ../../howtos/themes.rst:163
+msgid "Almost every element and option that you create has to be placed inside a ``<template>`` tag, like in this example."
+msgstr ""
+
+#: ../../howtos/themes.rst:175
+msgid "don't misunderstand what ``template`` means. A template tag only defines a piece of html code or options - but it does not necessarily coincide with a visual arrangement of elements."
+msgstr ""
+
+#: ../../howtos/themes.rst:179
+msgid "The previous code defines a title, but it will not be displayed anywhere because that *template* is not associated with any part of the **Odoo default structure**.  In order to do that you can use **xpath**, **qWeb** or a combination of both."
+msgstr ""
+
+#: ../../howtos/themes.rst:184
+msgid "Keep reading the tutorial to learn to how properly extend it with your own code."
+msgstr ""
+
+#: ../../howtos/themes.rst:187
+#: ../../howtos/themes.rst:362
+#: ../../howtos/themes.rst:537
+#: ../../howtos/themes.rst:637
+#: ../../howtos/themes.rst:908
+msgid "Update your theme"
+msgstr ""
+
+#: ../../howtos/themes.rst:193
+msgid "Since XML files are only loaded when you install the theme, you will have to force reloading every time you make changes on an xml file."
+msgstr ""
+
+#: ../../howtos/themes.rst:195
+msgid "To do that, click on the Upgrade button in the module’s page."
+msgstr ""
+
+#: ../../howtos/themes.rst:206
+msgid "Create a theme module"
+msgstr ""
+
+#: ../../howtos/themes.rst:208
+msgid "Odoo’s themes are packaged like modules. Even if you are designing a very simple website for your company or client, you need to package the theme like an Odoo module."
+msgstr ""
+
+#: ../../howtos/themes.rst:212
+msgid "``main folder``"
+msgstr ""
+
+#: ../../howtos/themes.rst:211
+msgid "Create a folder and name it like this: ``theme_`` followed by your theme's name."
+msgstr ""
+
+#: ../../howtos/themes.rst:217
+msgid "``__manifest__.py``"
+msgstr ""
+
+#: ../../howtos/themes.rst:215
+msgid "Create an empty document and save it to your folder as ``__manifest__.py``. This will contain the configuration info for your theme."
+msgstr ""
+
+#: ../../howtos/themes.rst:221
+msgid "``__init__.py``"
+msgstr ""
+
+#: ../../howtos/themes.rst:220
+msgid "Create another empty file and name it ``__init__.py``. It's a mandatory system file. Create and leave it blank."
+msgstr ""
+
+#: ../../howtos/themes.rst:227
+msgid "``views`` and ``static`` folders"
+msgstr ""
+
+#: ../../howtos/themes.rst:224
+msgid "Create them in the main folder. In ``views`` you'll place your xml files that define your snippets, your pages and your options. ``static`` folder is the right place for your style , images and custom js code."
+msgstr ""
+
+#: ../../howtos/themes.rst:231
+msgid "Use two underscore characters at the beginning and two at the end of odoo and init file names."
+msgstr ""
+
+#: ../../howtos/themes.rst:234
+msgid "The final result should be something like this:"
+msgstr ""
+
+#: ../../howtos/themes.rst:239
+msgid "Edit ``__manifest__.py``"
+msgstr ""
+
+#: ../../howtos/themes.rst:241
+msgid "Open the ``__manifest__.py`` you created and copy/paste the following:"
+msgstr ""
+
+#: ../../howtos/themes.rst:257
+msgid "Replace the first four property’s values with anything you like. These values will be used to identify your new theme in Odoo’s backend."
+msgstr ""
+
+#: ../../howtos/themes.rst:260
+msgid "The ``data`` property will contain the xml files list. Right now it’s empty, but we will add any new files created."
+msgstr ""
+
+#: ../../howtos/themes.rst:262
+msgid "``category`` defines your module category (always “Theme”) and, after a slash, the subcategory. You can use one subcategory from the Odoo Apps categories list. (https://www.odoo.com/apps/themes)"
+msgstr ""
+
+#: ../../howtos/themes.rst:265
+msgid "``depends`` specifies the modules needed by our theme to work properly. For our tutorial theme, we only need website. If you need blogging or eCommerce features as well, you have to add those modules too."
+msgstr ""
+
+#: ../../howtos/themes.rst:276
+msgid "Installing your theme"
+msgstr ""
+
+#: ../../howtos/themes.rst:278
+msgid "To install your theme, you just place your theme folder inside addons in your Odoo installation."
+msgstr ""
+
+#: ../../howtos/themes.rst:280
+msgid "After that, navigate to the Settings page, look for your theme and click on the install button."
+msgstr ""
+
+#: ../../howtos/themes.rst:283
+msgid "Structure of an Odoo page"
+msgstr ""
+
+#: ../../howtos/themes.rst:285
+msgid "An Odoo page is the visual result of a combination of 2 kind of elements, **cross-pages** and **unique**. By default, Odoo provides you with a **Header** and a **Footer** (cross-pages) and a unique main element that contains the content that makes your page unique."
+msgstr ""
+
+#: ../../howtos/themes.rst:290
+msgid "Cross-pages elements will be the same on every page. Unique elements are related to a specific page only."
+msgstr ""
+
+#: ../../howtos/themes.rst:294
+msgid "To inspect the default layout, simply create a new page using the Website Builder.  Click on :menuselection:`Content --> New Page` and add a page name.  Inspect the page using your browser."
+msgstr ""
+
+#: ../../howtos/themes.rst:307
+msgid "Extend the default Header"
+msgstr ""
+
+#: ../../howtos/themes.rst:309
+msgid "By default, Odoo header contains a responsive navigation menu and the company’s logo. You can easily add new elements or style the existing one."
+msgstr ""
+
+#: ../../howtos/themes.rst:311
+msgid "To do so, create a **layout.xml** file in your **views** folder and add the default Odoo xml markup."
+msgstr ""
+
+#: ../../howtos/themes.rst:322
+msgid "Create a new template into the ``<odoo>`` tag, copy-pasting the following code."
+msgstr ""
+
+#: ../../howtos/themes.rst:345
+msgid "The first xpath will add the id ``my_header`` to the header. It’s the best option if you want to target css rules to that element and avoid these affecting other content on the page."
+msgstr ""
+
+#: ../../howtos/themes.rst:350
+msgid "Be careful replacing default elements attributes. As your theme will extend the default one, your changes will take priority in any future Odoo’s update."
+msgstr ""
+
+#: ../../howtos/themes.rst:353
+msgid "The second xpath will add a welcome message just after the navigation menu."
+msgstr ""
+
+#: ../../howtos/themes.rst:355
+msgid "The last step is to add layout.xml to the list of xml files used by the theme. To do that, edit your ``__manifest__.py`` file like this"
+msgstr ""
+
+#: ../../howtos/themes.rst:366
+msgid "Great! We successfully added an id to the header and an element after the navigation menu. These changes will be applied to each page of the website."
+msgstr ""
+
+#: ../../howtos/themes.rst:374
+msgid "Create a specific page layout"
+msgstr ""
+
+#: ../../howtos/themes.rst:376
+msgid "Imagine that we want to create a specific layout for a Services page. For this page, we need to add a list of services to the top and give the client the possibility of setting the rest of the page’s layout using snippets."
+msgstr ""
+
+#: ../../howtos/themes.rst:379
+msgid "Inside your *views* folder, create a **pages.xml** file and add the default Odoo markup.  Inside ``<odoo>``, instead of defining a ``<template>``, we will create a *page* object."
+msgstr ""
+
+#: ../../howtos/themes.rst:409
+msgid "As you can see, pages come with many additional properties like the *name* or the *url* where it is reachable."
+msgstr ""
+
+#: ../../howtos/themes.rst:412
+msgid "We successfully created a new page layout, but we haven't told the system **how to use it**. To do that, we can use **QWeb**. Wrap the html code into a ``<t>`` tag, like in this example."
+msgstr ""
+
+#: ../../howtos/themes.rst:443
+msgid "Using ``<t t-call=\"website.layout\">`` we will extend the Odoo default page layout with our code."
+msgstr ""
+
+#: ../../howtos/themes.rst:446
+msgid "As you can see, we wrapped our code into two ``<div>``,  one with ID ``wrap`` and the other one with class ``container``. This is to provide a minimal layout."
+msgstr ""
+
+#: ../../howtos/themes.rst:448
+msgid "The next step is to add an empty area that the user can fill with snippets. To achieve this, just create a ``div`` with ``oe_structure`` class just before closing the ``div#wrap`` element."
+msgstr ""
+
+#: ../../howtos/themes.rst:489
+msgid "You can create as many snippet areas as you like and place them anywhere in your pages."
+msgstr ""
+
+#: ../../howtos/themes.rst:491
+msgid "It is worth mentioning there is an alternative to create pages using the ``<template>`` directive we saw before."
+msgstr ""
+
+#: ../../howtos/themes.rst:526
+msgid "This would allow your page content to be further customized using ``<xpath>``."
+msgstr ""
+
+#: ../../howtos/themes.rst:528
+msgid "Our page is almost ready. Now all we have to do is add **pages.xml** in our **__manifest__.py** file"
+msgstr ""
+
+#: ../../howtos/themes.rst:541
+msgid "Great, our Services page is ready and you’ll be able to access it by navigating to ``<yourwebsite>/services`` (the URL we chose above)."
+msgstr ""
+
+#: ../../howtos/themes.rst:543
+msgid "You will notice that it's possible to drag/drop snippets underneath the *Our Services* list."
+msgstr ""
+
+#: ../../howtos/themes.rst:549
+msgid "Now let's go back to our *pages.xml* and, after our page template, copy/paste the following code."
+msgstr ""
+
+#: ../../howtos/themes.rst:561
+msgid "This code will add a link to the main menu, referring to the page we created."
+msgstr ""
+
+#: ../../howtos/themes.rst:566
+msgid "The **sequence** attribute defines the link’s position in the top menu. In our example, we set the value to ``99`` in order to place it last. I you want to place it in a particular position, you have to replace the value according to your needs."
+msgstr ""
+
+#: ../../howtos/themes.rst:569
+msgid "As you can see inspecting the *data.xml* file in the ``website`` module, the **Home** link is set to ``10`` and the **Contact** us one is set to ``60`` by default. If, for example, you want to place your link in the **middle**, you can set your link’s sequence value to ``40``."
+msgstr ""
+
+#: ../../howtos/themes.rst:573
+msgid "Add Styles"
+msgstr ""
+
+#: ../../howtos/themes.rst:575
+msgid "Odoo includes Bootstrap by default. This means that you can take advantage of all Bootstrap styles and layout functionalities out of the box."
+msgstr ""
+
+#: ../../howtos/themes.rst:577
+msgid "Of course Bootstrap is not enough if you want to provide a unique design. The following steps will guide you through how to add custom styles to your theme. The final result won't be pretty, but will provide you with enough information to build upon on your own."
+msgstr ""
+
+#: ../../howtos/themes.rst:580
+msgid "Let’s start by creating an empty file called **style.scss** and place it in a folder called **scss** in your static folder. The following rules will style our *Services* page. Copy and paste it, then save the file."
+msgstr ""
+
+#: ../../howtos/themes.rst:605
+msgid "Our file is ready but it is not included in our theme yet."
+msgstr ""
+
+#: ../../howtos/themes.rst:607
+msgid "Let’s navigate to the view folder and create an XML file called *assets.xml*. Add the default Odoo xml markup and copy/paste the following code. Remember to replace ``theme folder`` with your theme’s main folder name."
+msgstr ""
+
+#: ../../howtos/themes.rst:617
+msgid "We just created a template specifying our scss file. As you can see, our template has a special attribute called ``inherit_id``.  This attribute tells Odoo that our template is referring to another one in order to operate."
+msgstr ""
+
+#: ../../howtos/themes.rst:622
+msgid "In this case, we are referring to ``assets_frontend`` template, located in the ``website`` module. ``assets_frontend`` specifies the list of assets loaded by the website builder and our goal is to add our scss file to this list."
+msgstr ""
+
+#: ../../howtos/themes.rst:627
+msgid "This can be achieved using xpath with the attributes ``expr=\"link[last()]\"`` and ``position=\"after\"``, which means \"*take my style file and place it after the last link in the list of the assets*\"."
+msgstr ""
+
+#: ../../howtos/themes.rst:632
+msgid "Placing it after the last one, we ensure that our file will be loaded at the end and take priority."
+msgstr ""
+
+#: ../../howtos/themes.rst:635
+msgid "Finally add **assets.xml** in your **__manifest__.py** file."
+msgstr ""
+
+#: ../../howtos/themes.rst:642
+msgid "Our scss file is now included in our theme, it will be automatically compiled, minified and combined with all Odoo’s assets."
+msgstr ""
+
+#: ../../howtos/themes.rst:648
+msgid "Create Snippets"
+msgstr ""
+
+#: ../../howtos/themes.rst:650
+msgid "Since snippets are how users design and layout pages, they are the most important element of your design. Let’s create a snippet for our Service page. The snippet will display three testimonials and it will be editable by the end user using the Website Builder UI. Navigate to the view folder and create an XML file called **snippets.xml**. Add the default Odoo xml markup and copy/paste the following code. The template contains the HTML markup that will be displayed by the snippet."
+msgstr ""
+
+#: ../../howtos/themes.rst:682
+msgid "As you can see, we used Bootstrap default classes for our three columns. It’s not just about layout, these classes **will be triggered by the Website Builder to make them resizable by the user**."
+msgstr ""
+
+#: ../../howtos/themes.rst:684
+msgid "The previous code will create the snippet’s content, but we still need to place it into the editor bar, so the user will be able to drag&drop it into the page. Copy/paste this template in your **snippets.xml** file."
+msgstr ""
+
+#: ../../howtos/themes.rst:697
+msgid "Using xpath, we are targeting a particular element with id ``snippet_structure``. This means that the snippet will appear in the Structure tab. If you want to change the destination tab, you have just to replace the ``id`` value in the xpath expression."
+msgstr ""
+
+#: ../../howtos/themes.rst:709
+msgid "Tab Name"
+msgstr ""
+
+#: ../../howtos/themes.rst:709
+msgid "Xpath expression"
+msgstr ""
+
+#: ../../howtos/themes.rst:711
+msgid "Structure"
+msgstr ""
+
+#: ../../howtos/themes.rst:711
+msgid "``//div[@id='snippet_structure']``"
+msgstr ""
+
+#: ../../howtos/themes.rst:712
+msgid "Content"
+msgstr ""
+
+#: ../../howtos/themes.rst:712
+msgid "``//div[@id='snippet_content']``"
+msgstr ""
+
+#: ../../howtos/themes.rst:713
+msgid "Feature"
+msgstr ""
+
+#: ../../howtos/themes.rst:713
+msgid "``//div[@id='snippet_feature']``"
+msgstr ""
+
+#: ../../howtos/themes.rst:714
+msgid "Effect"
+msgstr ""
+
+#: ../../howtos/themes.rst:714
+msgid "``//div[@id='snippet_effect']``"
+msgstr ""
+
+#: ../../howtos/themes.rst:717
+msgid "The ``<t>`` tag will call our snippet's template and will assign a thumbnail placed in the img folder. You can now drag your snippet from the snippet bar, drop it in your page and see the result."
+msgstr ""
+
+#: ../../howtos/themes.rst:724
+msgid "Snippet options"
+msgstr ""
+
+#: ../../howtos/themes.rst:726
+msgid "Options allow publishers to edit a snippet’s appearance using the Website Builder’s UI. Using Website Builder functionalities, you can create snippet options easily and automatically add them to the UI."
+msgstr ""
+
+#: ../../howtos/themes.rst:730
+msgid "Options group properties"
+msgstr ""
+
+#: ../../howtos/themes.rst:732
+msgid "Options are wrapped in groups. Groups can have properties that define how the included options will interact with the user interface."
+msgstr ""
+
+#: ../../howtos/themes.rst:734
+msgid "``data-selector=\"[css selector(s)]\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:735
+msgid "Bind all the options included into the group to a particular element."
+msgstr ""
+
+#: ../../howtos/themes.rst:736
+msgid "``data-js=\" custom method name \"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:737
+msgid "Is used to bind custom Javascript methods."
+msgstr ""
+
+#: ../../howtos/themes.rst:738
+msgid "``data-drop-in=\"[css selector(s)]\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:739
+msgid "Defines the list of elements where the snippet can be dropped into."
+msgstr ""
+
+#: ../../howtos/themes.rst:741
+msgid "``data-drop-near=\"[css selector(s)]\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:741
+msgid "Defines the list of elements that the snippet can be dropped beside."
+msgstr ""
+
+#: ../../howtos/themes.rst:744
+msgid "Default option methods"
+msgstr ""
+
+#: ../../howtos/themes.rst:746
+msgid "Options apply standard CSS classes to the snippet. Depending on the method that you choose, the UI will behave differently."
+msgstr ""
+
+#: ../../howtos/themes.rst:749
+msgid "``data-select-class=\"[class name]\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:749
+msgid "More data-select-class in the same group defines a list of classes that the user can choose to apply. Only one option can be enabled at a time."
+msgstr ""
+
+#: ../../howtos/themes.rst:752
+msgid "``data-toggle-class=\"[class name]\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:752
+msgid "The data-toggle-class is used to apply one or more CSS classes from the list to a snippet. Multiple selections can be applied at once."
+msgstr ""
+
+#: ../../howtos/themes.rst:754
+msgid "Let's demonstrate how default options work with a basic example."
+msgstr ""
+
+#: ../../howtos/themes.rst:756
+msgid "We start by adding a new file in our views folder - name it **options.xml** and add the default Odoo XML markup. Create a new template copy/pasting the following"
+msgstr ""
+
+#: ../../howtos/themes.rst:778
+msgid "The previous template will inherit the default **snippet_options template** adding our options after the **background** options (xpath expr attribute). To place your options in a particular order, inspect the **snippet_options template** from the **website module** and add your options before/after the desired position."
+msgstr ""
+
+#: ../../howtos/themes.rst:781
+msgid "As you can see, we wrapped all our options inside a DIV tag that will group our options and that will target them to the right selector (``data-selector=\".snippet_testimonial\"``)."
+msgstr ""
+
+#: ../../howtos/themes.rst:785
+msgid "To define our options we applied ``data-select-class`` attributes to the ``li`` elements. When the user selects an option, the class contained in the attribute will automatically be applied to the element."
+msgstr ""
+
+#: ../../howtos/themes.rst:789
+msgid "Since ``selectClass`` method avoids multiple selections, the last \"empty\" option will reset the snippet to default."
+msgstr ""
+
+#: ../../howtos/themes.rst:792
+msgid "Add **options.xml** to ``__manifest__.py`` and update your theme."
+msgstr ""
+
+#: ../../howtos/themes.rst:796
+msgid "Dropping our snippet onto the page, you will notice that our new options are automatically added to the customize menu. Inspecting the page, you will also notice that the class will be applied to the element when selecting an option."
+msgstr ""
+
+#: ../../howtos/themes.rst:800
+msgid "Let’s create some css rules in order to provide a visual feedback for our options. Open our **style.scss** file and add the following"
+msgstr ""
+
+#: ../../howtos/themes.rst:828
+msgid "Great! We successfully created options for our snippet."
+msgstr ""
+
+#: ../../howtos/themes.rst:830
+msgid "Any time the publisher clicks on an option, the system will add the class specified in the data-select-class attribute."
+msgstr ""
+
+#: ../../howtos/themes.rst:832
+msgid "By replacing ``data-select-class`` with ``data-toggle-class`` you will be able to select more classes at the same time."
+msgstr ""
+
+#: ../../howtos/themes.rst:837
+msgid "Javascript Options"
+msgstr ""
+
+#: ../../howtos/themes.rst:839
+msgid "``data-select-class`` and ``data-toggle-class`` are great if you need to perform simple class change operations. But what if your snippet’s customization needs something more?"
+msgstr ""
+
+#: ../../howtos/themes.rst:842
+msgid "As we said before, ``data-js`` propriety can be assigned to an options group in order to define a custom method. Let’s create one for our *testimonials snippet* by adding a ``data-js`` attribute to the option’s group div that we created earlier."
+msgstr ""
+
+#: ../../howtos/themes.rst:850
+msgid "Done. From now on, the Website Builder will look for a ``snippet_testimonial_options`` method each time the publisher enters in edit mode."
+msgstr ""
+
+#: ../../howtos/themes.rst:854
+msgid "Let's go one step further by creating a javascript file, name it **tutorial_editor.js** and place it into the **static** folder.  Copy/paste the following code"
+msgstr ""
+
+#: ../../howtos/themes.rst:866
+msgid "Great, we successfully created our javascript editor file. This file will contain all the javascript functions used by our snippets in edit mode. Let’s create a new function for our testimonial snippet using the ``snippet_testimonial_options`` method that we created before."
+msgstr ""
+
+#: ../../howtos/themes.rst:882
+msgid "As you will notice, we used a method called ``onFocus`` to trigger our function. The Website Builder provides several events you can use to trigger your custom functions."
+msgstr ""
+
+#: ../../howtos/themes.rst:885
+msgid "Event"
+msgstr ""
+
+#: ../../howtos/themes.rst:885
+msgid "Description"
+msgstr ""
+
+#: ../../howtos/themes.rst:887
+msgid "``start``"
+msgstr ""
+
+#: ../../howtos/themes.rst:887
+msgid "Fires when the publisher selects the snippet for the first time in an editing session or when the snippet is drag-dropped into the page"
+msgstr ""
+
+#: ../../howtos/themes.rst:888
+msgid "``onFocus``"
+msgstr ""
+
+#: ../../howtos/themes.rst:888
+msgid "Fires each time the snippet is selected by the user or when the snippet is drag-dropped into the page."
+msgstr ""
+
+#: ../../howtos/themes.rst:889
+msgid "``onBlur``"
+msgstr ""
+
+#: ../../howtos/themes.rst:889
+msgid "This event occurs when a snippet loses focus."
+msgstr ""
+
+#: ../../howtos/themes.rst:890
+msgid "``onClone``"
+msgstr ""
+
+#: ../../howtos/themes.rst:890
+msgid "Fires just after a snippet is duplicated."
+msgstr ""
+
+#: ../../howtos/themes.rst:891
+msgid "``onRemove``"
+msgstr ""
+
+#: ../../howtos/themes.rst:891
+msgid "It occurs just before that the snippet is removed."
+msgstr ""
+
+#: ../../howtos/themes.rst:892
+msgid "``onBuilt``"
+msgstr ""
+
+#: ../../howtos/themes.rst:892
+msgid "Fires just after that the snippet is drag and dropped into a drop zone. When this event is triggered, the content is already inserted in the page."
+msgstr ""
+
+#: ../../howtos/themes.rst:893
+msgid "``cleanForSave``"
+msgstr ""
+
+#: ../../howtos/themes.rst:893
+msgid "It trigger before the publisher save the page."
+msgstr ""
+
+#: ../../howtos/themes.rst:896
+msgid "Let’s add our new javascript files to the editor assets list. Go back to **assets.xml** and create a new template like the previous one. This time we have to inherit ``assets_editor`` instead of ``assets_frontend``."
+msgstr ""
+
+#: ../../howtos/themes.rst:913
+msgid "Let’s test our new javascript function. Enter in Edit mode and drop into the page. You should now see the javascript alert that we bound on the ``onFocus`` event. If you close it, then click outside of your snippet and then click in it again, the event will trigger again."
+msgstr ""
+
+#: ../../howtos/themes.rst:923
+msgid "Editing Reference Guide"
+msgstr ""
+
+#: ../../howtos/themes.rst:925
+msgid "Basically all the elements in a page can be edited by the publisher. Besides that, some element types and css classes will trigger special Website Builder functionalities when edited."
+msgstr ""
+
+#: ../../howtos/themes.rst:929
+msgid "Layout"
+msgstr ""
+
+#: ../../howtos/themes.rst:932
+msgid "``<section />``"
+msgstr ""
+
+#: ../../howtos/themes.rst:932
+msgid "Any section element can be edited like a block of content. The publisher can move or duplicate it. It’s also possible to set a background image or color. Section is the standard main container of any snippet."
+msgstr ""
+
+#: ../../howtos/themes.rst:935
+msgid "``.row > .col-md-*``"
+msgstr ""
+
+#: ../../howtos/themes.rst:935
+msgid "Any medium  bootstrap columns  directly descending from a .row element, will be resizable by the publisher."
+msgstr ""
+
+#: ../../howtos/themes.rst:938
+msgid "``contenteditable=\"False\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:938
+msgid "This attribute will prevent editing to the element and all its children."
+msgstr ""
+
+#: ../../howtos/themes.rst:941
+msgid "``contenteditable=\"True\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:941
+msgid "Apply it to an element inside a contenteditable=\"False\" element in order to create an exception and make the element and its children editable."
+msgstr ""
+
+#: ../../howtos/themes.rst:944
+msgid "``<a href=”#” />``"
+msgstr ""
+
+#: ../../howtos/themes.rst:944
+msgid "In Edit Mode, any link can be edited and styled. Using the “Link Modal” it’s also possible to replace it with a button."
+msgstr ""
+
+#: ../../howtos/themes.rst:947
+msgid "Media"
+msgstr ""
+
+#: ../../howtos/themes.rst:949
+msgid "``<span class=”fa” />``"
+msgstr ""
+
+#: ../../howtos/themes.rst:949
+msgid "Pictogram elements. Editing this element will open the Pictogram library to replace the icon. It’s also possible to transform the elements using CSS."
+msgstr ""
+
+#: ../../howtos/themes.rst:952
+msgid "``<img />``"
+msgstr ""
+
+#: ../../howtos/themes.rst:952
+msgid "Once clicked, the Image Library will open and you can replace images. Transformation is also possible for this kind of element."
+msgstr ""
+
+#: ../../howtos/themes.rst:962
+msgid "This html structure will create an ``<iframe>`` element editable by the publisher."
+msgstr ""
+
+#: ../../howtos/themes.rst:967
+msgid "SEO best practice"
+msgstr ""
+
+#: ../../howtos/themes.rst:970
+msgid "Facilitate content insertion"
+msgstr ""
+
+#: ../../howtos/themes.rst:972
+msgid "Modern search engine algorithms increasingly focus on content, which means there is less focus on **keyword saturation** and more focus on whether or not the content is **actually relevant to the keywords**."
+msgstr ""
+
+#: ../../howtos/themes.rst:974
+msgid "As content is so important for SEO, you should concentrate on giving publishers the tools to easily insert it. It is important that your snippets are “content-responsive”, meaning that they should fit the publisher’s content regardless of size."
+msgstr ""
+
+#: ../../howtos/themes.rst:976
+msgid "Let’s have a look to this example of a classic two column snippet, implemented in two different ways."
+msgstr ""
+
+#: ../../howtos/themes.rst:986
+msgid "**Bad**"
+msgstr ""
+
+#: ../../howtos/themes.rst:988
+msgid "Using fixed image, the publisher will be forced to limit the text in order to follow the layout."
+msgstr ""
+
+#: ../../howtos/themes.rst:998
+msgid "**Good**"
+msgstr ""
+
+#: ../../howtos/themes.rst:1000
+msgid "Using background images that fit the column height, the publisher will be free to add the content regardless of the image’s height."
+msgstr ""
+
+#: ../../howtos/themes.rst:1005
+msgid "Page segmentation"
+msgstr ""
+
+#: ../../howtos/themes.rst:1007
+msgid "Basically, page segmentation means that a page is divided into several separate parts and these parts are treated as separate entries by search engines. When you design pages or snippets, you should be sure to use the right tags in order to facilitate search engine indexing."
+msgstr ""
+
+#: ../../howtos/themes.rst:1011
+msgid "``<article>``"
+msgstr ""
+
+#: ../../howtos/themes.rst:1011
+msgid "Specifies an independent block of content. Within it should be a piece of self-contained content that should make sense on its own. You can nest ``<article>`` elements within one another. In this case, it’s implied that the nested elements are related to the outer ``<article>`` element."
+msgstr ""
+
+#: ../../howtos/themes.rst:1014
+msgid "``<header>``"
+msgstr ""
+
+#: ../../howtos/themes.rst:1014
+msgid "Indicates the header section of a self-contained block of content (an ``<article>``)."
+msgstr ""
+
+#: ../../howtos/themes.rst:1017
+msgid "``<section>``"
+msgstr ""
+
+#: ../../howtos/themes.rst:1017
+msgid "Is the snippet default tag and it specifies a subsection of a block of content. It can be used to split ``<article>`` content into several parts. It’s advisable to use a heading element (``<h1>`` – ``<h6>``) to define the section’s topic."
+msgstr ""
+
+#: ../../howtos/themes.rst:1027
+msgid "``<hgroup>``"
+msgstr ""
+
+#: ../../howtos/themes.rst:1020
+msgid "Is used to wrap a section of headings (``<h1>`` - ``<h6>``). A great example would be an article with both a headline and sub-headline at the top:"
+msgstr ""
+
+#: ../../howtos/themes.rst:1030
+msgid "Describe your page"
+msgstr ""
+
+#: ../../howtos/themes.rst:1033
+msgid "Define keywords"
+msgstr ""
+
+#: ../../howtos/themes.rst:1034
+msgid "You should use appropriate, relevant keywords and synonyms for those keywords. You can define them for each page using the built-in “Promote” function found in the bar at the top."
+msgstr ""
+
+#: ../../howtos/themes.rst:1037
+msgid "Define a title and a description"
+msgstr ""
+
+#: ../../howtos/themes.rst:1039
+msgid "Define them using the “Promote” function. Keep your page titles short and include the main keyword phrase for the page. Good titles evoke an emotional response, ask a question or promise something."
+msgstr ""
+
+#: ../../howtos/themes.rst:1042
+msgid "Descriptions, while not important to search engine rankings, are extremely important in gaining user click-through. These are an opportunity to advertise content and to let people searching know exactly whether the given page contains the information they're looking for. It is important that titles and descriptions on each page are unique."
+msgstr ""
+
+#: ../../howtos/web.rst:5
+msgid "Customizing the web client"
+msgstr ""
+
+#: ../../howtos/web.rst:7
+msgid "Note: this section is really really out of date. It will be updated someday, but meanwhile, this tutorial will probably be frustrating to follow, since it was written a long time ago."
+msgstr ""
+
+#: ../../howtos/web.rst:16
+msgid "This guide is about creating modules for Odoo's web client."
+msgstr ""
+
+#: ../../howtos/web.rst:18
+msgid "To create websites with Odoo, see :doc:`website`; to add business capabilities or extend existing business systems of Odoo, see :doc:`backend`."
+msgstr ""
+
+#: ../../howtos/web.rst:23
+msgid "This guide assumes knowledge of:"
+msgstr ""
+
+#: ../../howtos/web.rst:25
+msgid "Javascript basics and good practices"
+msgstr ""
+
+#: ../../howtos/web.rst:26
+msgid "jQuery_"
+msgstr ""
+
+#: ../../howtos/web.rst:27
+msgid "`Underscore.js`_"
+msgstr ""
+
+#: ../../howtos/web.rst:29
+msgid "It also requires :ref:`an installed Odoo <setup/install>`, and Git_."
+msgstr ""
+
+#: ../../howtos/web.rst:33
+msgid "A Simple Module"
+msgstr ""
+
+#: ../../howtos/web.rst:35
+msgid "Let's start with a simple Odoo module holding basic web component configuration and letting us test the web framework."
+msgstr ""
+
+#: ../../howtos/web.rst:38
+msgid "The example module is available online and can be downloaded using the following command:"
+msgstr ""
+
+#: ../../howtos/web.rst:45
+msgid "This will create a ``petstore`` folder wherever you executed the command. You then need to add that folder to Odoo's :option:`addons path <odoo-bin --addons-path>`, create a new database and install the ``oepetstore`` module."
+msgstr ""
+
+#: ../../howtos/web.rst:50
+msgid "If you browse the ``petstore`` folder, you should see the following content:"
+msgstr ""
+
+#: ../../howtos/web.rst:76
+msgid "The module already holds various server customizations. We'll come back to these later, for now let's focus on the web-related content, in the ``static`` folder."
+msgstr ""
+
+#: ../../howtos/web.rst:80
+msgid "Files used in the \"web\" side of an Odoo module must be placed in a ``static`` folder so they are available to a web browser, files outside that folder can not be fetched by browsers. The ``src/css``, ``src/js`` and ``src/xml`` sub-folders are conventional and not strictly necessary."
+msgstr ""
+
+#: ../../howtos/web.rst:85
+msgid "``oepetstore/static/css/petstore.css``"
+msgstr ""
+
+#: ../../howtos/web.rst:86
+msgid "Currently empty, will hold the CSS_ for pet store content"
+msgstr ""
+
+#: ../../howtos/web.rst:87
+msgid "``oepetstore/static/xml/petstore.xml``"
+msgstr ""
+
+#: ../../howtos/web.rst:88
+msgid "Mostly empty, will hold :ref:`reference/qweb` templates"
+msgstr ""
+
+#: ../../howtos/web.rst:107
+msgid "``oepetstore/static/js/petstore.js``"
+msgstr ""
+
+#: ../../howtos/web.rst:90
+msgid "The most important (and interesting) part, contains the logic of the application (or at least its web-browser side) as javascript. It should currently look like::"
+msgstr ""
+
+#: ../../howtos/web.rst:109
+msgid "Which only prints a small message in the browser's console."
+msgstr ""
+
+#: ../../howtos/web.rst:111
+msgid "The files in the ``static`` folder, need to be defined within the module in order for them to be loaded correctly. Everything in ``src/xml`` is defined in ``__manifest__.py`` while the contents of ``src/css`` and ``src/js`` are defined in ``petstore.xml``, or a similar file."
+msgstr ""
+
+#: ../../howtos/web.rst:115
+msgid "All JavaScript files are concatenated and :term:`minified` to improve application load time."
+msgstr ""
+
+#: ../../howtos/web.rst:118
+msgid "One of the drawback is debugging becomes more difficult as individual files disappear and the code is made significantly less readable. It is possible to disable this process by enabling the \"developer mode\": log into your Odoo instance (user *admin* password *admin* by default) open the user menu (in the top-right corner of the Odoo screen) and select :guilabel:`About Odoo` then :guilabel:`Activate the developer mode`:"
+msgstr ""
+
+#: ../../howtos/web.rst:132
+msgid "This will reload the web client with optimizations disabled, making development and debugging significantly more comfortable."
+msgstr ""
+
+#: ../../howtos/web.rst:138
+msgid "Odoo JavaScript Module"
+msgstr ""
+
+#: ../../howtos/web.rst:140
+msgid "Javascript doesn't have built-in modules. As a result variables defined in different files are all mashed together and may conflict. This has given rise to various module patterns used to build clean namespaces and limit risks of naming conflicts."
+msgstr ""
+
+#: ../../howtos/web.rst:145
+msgid "The Odoo framework uses one such pattern to define modules within web addons, in order to both namespace code and correctly order its loading."
+msgstr ""
+
+#: ../../howtos/web.rst:148
+msgid "``oepetstore/static/js/petstore.js`` contains a module declaration::"
+msgstr ""
+
+#: ../../howtos/web.rst:154
+msgid "In Odoo web, modules are declared as functions set on the global ``odoo`` variable. The function's name must be the same as the addon (in this case ``oepetstore``) so the framework can find it, and automatically initialize it."
+msgstr ""
+
+#: ../../howtos/web.rst:158
+msgid "When the web client loads your module it will call the root function and provide two parameters:"
+msgstr ""
+
+#: ../../howtos/web.rst:161
+msgid "the first parameter is the current instance of the Odoo web client, it gives access to various capabilities defined by the Odoo (translations, network services) as well as objects defined by the core or by other modules."
+msgstr ""
+
+#: ../../howtos/web.rst:165
+msgid "the second parameter is your own local namespace automatically created by the web client. Objects and variables which should be accessible from outside your module (either because the Odoo web client needs to call them or because others may want to customize them) should be set inside that namespace."
+msgstr ""
+
+#: ../../howtos/web.rst:172
+msgid "Classes"
+msgstr ""
+
+#: ../../howtos/web.rst:174
+msgid "Much as modules, and contrary to most object-oriented languages, javascript does not build in *classes*\\ [#classes]_ although it provides roughly equivalent (if lower-level and more verbose) mechanisms."
+msgstr ""
+
+#: ../../howtos/web.rst:178
+msgid "For simplicity and developer-friendliness Odoo web provides a class system based on John Resig's `Simple JavaScript Inheritance`_."
+msgstr ""
+
+#: ../../howtos/web.rst:181
+msgid "New classes are defined by calling the :func:`~odoo.web.Class.extend` method of :class:`odoo.web.Class`::"
+msgstr ""
+
+#: ../../howtos/web.rst:190
+msgid "The :func:`~odoo.web.Class.extend` method takes a dictionary describing the new class's content (methods and static attributes). In this case, it will only have a ``say_hello`` method which takes no parameters."
+msgstr ""
+
+#: ../../howtos/web.rst:194
+msgid "Classes are instantiated using the ``new`` operator::"
+msgstr ""
+
+#: ../../howtos/web.rst:200
+msgid "And attributes of the instance can be accessed via ``this``::"
+msgstr ""
+
+#: ../../howtos/web.rst:213
+msgid "Classes can provide an initializer to perform the initial setup of the instance, by defining an ``init()`` method. The initializer receives the parameters passed when using the ``new`` operator::"
+msgstr ""
+
+#: ../../howtos/web.rst:230
+msgid "It is also possible to create subclasses from existing (used-defined) classes by calling :func:`~odoo.web.Class.extend` on the parent class, as is done to subclass :class:`~odoo.web.Class`::"
+msgstr ""
+
+#: ../../howtos/web.rst:244
+msgid "When overriding a method using inheritance, you can use ``this._super()`` to call the original method::"
+msgstr ""
+
+#: ../../howtos/web.rst:260
+msgid "``_super`` is not a standard method, it is set on-the-fly to the next method in the current inheritance chain, if any. It is only defined during the *synchronous* part of a method call, for use in asynchronous handlers (after network calls or in ``setTimeout`` callbacks) a reference to its value should be retained, it should not be accessed via ``this``::"
+msgstr ""
+
+#: ../../howtos/web.rst:283
+msgid "Widgets Basics"
+msgstr ""
+
+#: ../../howtos/web.rst:285
+msgid "The Odoo web client bundles jQuery_ for easy DOM manipulation. It is useful and provides a better API than standard `W3C DOM`_\\ [#dombugs]_, but insufficient to structure complex applications leading to difficult maintenance."
+msgstr ""
+
+#: ../../howtos/web.rst:290
+msgid "Much like object-oriented desktop UI toolkits (e.g. Qt_, Cocoa_ or GTK_), Odoo Web makes specific components responsible for sections of a page. In Odoo web, the base for such components is the :class:`~odoo.Widget` class, a component specialized in handling a page section and displaying information for the user."
+msgstr ""
+
+#: ../../howtos/web.rst:297
+msgid "Your First Widget"
+msgstr ""
+
+#: ../../howtos/web.rst:299
+msgid "The initial demonstration module already provides a basic widget::"
+msgstr ""
+
+#: ../../howtos/web.rst:307
+msgid "It extends :class:`~odoo.Widget` and overrides the standard method :func:`~odoo.Widget.start`, which — much like the previous ``MyClass`` — does little for now."
+msgstr ""
+
+#: ../../howtos/web.rst:311
+msgid "This line at the end of the file::"
+msgstr ""
+
+#: ../../howtos/web.rst:316
+msgid "registers our basic widget as a client action. Client actions will be explained later, for now this is just what allows our widget to be called and displayed when we select the :menuselection:`Pet Store --> Pet Store --> Home Page` menu."
+msgstr ""
+
+#: ../../howtos/web.rst:323
+msgid "because the widget will be called from outside our module, the web client needs its \"fully qualified\" name, not the local version."
+msgstr ""
+
+#: ../../howtos/web.rst:327
+msgid "Display Content"
+msgstr ""
+
+#: ../../howtos/web.rst:329
+msgid "Widgets have a number of methods and features, but the basics are simple:"
+msgstr ""
+
+#: ../../howtos/web.rst:331
+msgid "set up a widget"
+msgstr ""
+
+#: ../../howtos/web.rst:332
+msgid "format the widget's data"
+msgstr ""
+
+#: ../../howtos/web.rst:333
+msgid "display the widget"
+msgstr ""
+
+#: ../../howtos/web.rst:335
+msgid "The ``HomePage`` widget already has a :func:`~odoo.Widget.start` method. That method is part of the normal widget lifecycle and automatically called once the widget is inserted in the page. We can use it to display some content."
+msgstr ""
+
+#: ../../howtos/web.rst:340
+msgid "All widgets have a :attr:`~odoo.Widget.$el` which represents the section of page they're in charge of (as a jQuery_ object). Widget content should be inserted there. By default, :attr:`~odoo.Widget.$el` is an empty ``<div>`` element."
+msgstr ""
+
+#: ../../howtos/web.rst:345
+msgid "A ``<div>`` element is usually invisible to the user if it has no content (or without specific styles giving it a size) which is why nothing is displayed on the page when ``HomePage`` is launched."
+msgstr ""
+
+#: ../../howtos/web.rst:349
+msgid "Let's add some content to the widget's root element, using jQuery::"
+msgstr ""
+
+#: ../../howtos/web.rst:357
+msgid "That message will now appear when you open :menuselection:`Pet Store --> Pet Store --> Home Page`"
+msgstr ""
+
+#: ../../howtos/web.rst:362
+msgid "to refresh the javascript code loaded in Odoo Web, you will need to reload the page. There is no need to restart the Odoo server."
+msgstr ""
+
+#: ../../howtos/web.rst:365
+msgid "The ``HomePage`` widget is used by Odoo Web and managed automatically. To learn how to use a widget \"from scratch\" let's create a new one::"
+msgstr ""
+
+#: ../../howtos/web.rst:374
+msgid "We can now add our ``GreetingsWidget`` to the ``HomePage`` by using the ``GreetingsWidget``'s :func:`~odoo.Widget.appendTo` method::"
+msgstr ""
+
+#: ../../howtos/web.rst:385
+msgid "``HomePage`` first adds its own content to its DOM root"
+msgstr ""
+
+#: ../../howtos/web.rst:386
+msgid "``HomePage`` then instantiates ``GreetingsWidget``"
+msgstr ""
+
+#: ../../howtos/web.rst:387
+msgid "Finally it tells ``GreetingsWidget`` where to insert itself, delegating part of its :attr:`~odoo.Widget.$el` to the ``GreetingsWidget``."
+msgstr ""
+
+#: ../../howtos/web.rst:390
+msgid "When the :func:`~odoo.Widget.appendTo` method is called, it asks the widget to insert itself at the specified position and to display its content. The :func:`~odoo.Widget.start` method will be called during the call to :func:`~odoo.Widget.appendTo`."
+msgstr ""
+
+#: ../../howtos/web.rst:395
+msgid "To see what happens under the displayed interface, we will use the browser's DOM Explorer. But first let's alter our widgets slightly so we can more easily find where they are, by :attr:`adding a class to their root elements <odoo.Widget.className>`::"
+msgstr ""
+
+#: ../../howtos/web.rst:409
+msgid "If you can find the relevant section of the DOM (right-click on the text then :guilabel:`Inspect Element`), it should look like this:"
+msgstr ""
+
+#: ../../howtos/web.rst:421
+msgid "Which clearly shows the two ``<div>`` elements automatically created by :class:`~odoo.Widget`, because we added some classes on them."
+msgstr ""
+
+#: ../../howtos/web.rst:424
+msgid "We can also see the two message-holding divs we added ourselves"
+msgstr ""
+
+#: ../../howtos/web.rst:426
+msgid "Finally, note the ``<div class=\"oe_petstore_greetings\">`` element which represents the ``GreetingsWidget`` instance is *inside* the ``<div class=\"oe_petstore_homepage\">`` which represents the ``HomePage`` instance, since we appended"
+msgstr ""
+
+#: ../../howtos/web.rst:432
+msgid "Widget Parents and Children"
+msgstr ""
+
+#: ../../howtos/web.rst:434
+msgid "In the previous part, we instantiated a widget using this syntax::"
+msgstr ""
+
+#: ../../howtos/web.rst:438
+msgid "The first argument is ``this``, which in that case was a ``HomePage`` instance. This tells the widget being created which other widget is its *parent*."
+msgstr ""
+
+#: ../../howtos/web.rst:442
+msgid "As we've seen, widgets are usually inserted in the DOM by another widget and *inside* that other widget's root element. This means most widgets are \"part\" of another widget, and exist on behalf of it. We call the container the *parent*, and the contained widget the *child*."
+msgstr ""
+
+#: ../../howtos/web.rst:447
+msgid "Due to multiple technical and conceptual reasons, it is necessary for a widget to know who is its parent and who are its children."
+msgstr ""
+
+#: ../../howtos/web.rst:458
+msgid ":func:`~odoo.Widget.getParent`"
+msgstr ""
+
+#: ../../howtos/web.rst:451
+msgid "can be used to get the parent of a widget::"
+msgstr ""
+
+#: ../../howtos/web.rst:470
+msgid ":func:`~odoo.Widget.getChildren`"
+msgstr ""
+
+#: ../../howtos/web.rst:461
+msgid "can be used to get a list of its children::"
+msgstr ""
+
+#: ../../howtos/web.rst:472
+msgid "When overriding the :func:`~odoo.Widget.init` method of a widget it is *of the utmost importance* to pass the parent to the ``this._super()`` call, otherwise the relation will not be set up correctly::"
+msgstr ""
+
+#: ../../howtos/web.rst:483
+msgid "Finally, if a widget does not have a parent (e.g. because it's the root widget of the application), ``null`` can be provided as parent::"
+msgstr ""
+
+#: ../../howtos/web.rst:489
+msgid "Destroying Widgets"
+msgstr ""
+
+#: ../../howtos/web.rst:491
+msgid "If you can display content to your users, you should also be able to erase it. This is done via the :func:`~odoo.Widget.destroy` method::"
+msgstr ""
+
+#: ../../howtos/web.rst:496
+msgid "When a widget is destroyed it will first call :func:`~odoo.Widget.destroy` on all its children. Then it erases itself from the DOM. If you have set up permanent structures in :func:`~odoo.Widget.init` or :func:`~odoo.Widget.start` which must be explicitly cleaned up (because the garbage collector will not handle them), you can override :func:`~odoo.Widget.destroy`."
+msgstr ""
+
+#: ../../howtos/web.rst:505
+msgid "when overriding :func:`~odoo.Widget.destroy`, ``_super()`` *must always* be called otherwise the widget and its children are not correctly cleaned up leaving possible memory leaks and \"phantom events\", even if no error is displayed"
+msgstr ""
+
+#: ../../howtos/web.rst:511
+msgid "The QWeb Template Engine"
+msgstr ""
+
+#: ../../howtos/web.rst:513
+msgid "In the previous section we added content to our widgets by directly manipulating (and adding to) their DOM::"
+msgstr ""
+
+#: ../../howtos/web.rst:518
+msgid "This allows generating and displaying any type of content, but gets unwieldy when generating significant amounts of DOM (lots of duplication, quoting issues, ...)"
+msgstr ""
+
+#: ../../howtos/web.rst:522
+msgid "As many other environments, Odoo's solution is to use a `template engine`_. Odoo's template engine is called :ref:`reference/qweb`."
+msgstr ""
+
+#: ../../howtos/web.rst:525
+msgid "QWeb is an XML-based templating language, similar to `Genshi <http://en.wikipedia.org/wiki/Genshi_(templating_language)>`_, `Thymeleaf <http://en.wikipedia.org/wiki/Thymeleaf>`_ or `Facelets <http://en.wikipedia.org/wiki/Facelets>`_. It has the following characteristics:"
+msgstr ""
+
+#: ../../howtos/web.rst:531
+msgid "It's implemented fully in JavaScript and rendered in the browser"
+msgstr ""
+
+#: ../../howtos/web.rst:532
+msgid "Each template file (XML files) contains multiple templates"
+msgstr ""
+
+#: ../../howtos/web.rst:533
+msgid "It has special support in Odoo Web's :class:`~odoo.Widget`, though it can be used outside of Odoo's web client (and it's possible to use :class:`~odoo.Widget` without relying on QWeb)"
+msgstr ""
+
+#: ../../howtos/web.rst:539
+msgid "The rationale behind using QWeb instead of existing javascript template engines is the extensibility of pre-existing (third-party) templates, much like Odoo :ref:`views <reference/views>`."
+msgstr ""
+
+#: ../../howtos/web.rst:543
+msgid "Most javascript template engines are text-based which precludes easy structural extensibility where an XML-based templating engine can be generically altered using e.g. XPath or CSS and a tree-alteration DSL (or even just XSLT). This flexibility and extensibility is a core characteristic of Odoo, and losing it was considered unacceptable."
+msgstr ""
+
+#: ../../howtos/web.rst:550
+msgid "Using QWeb"
+msgstr ""
+
+#: ../../howtos/web.rst:552
+msgid "First let's define a simple QWeb template in the almost-empty ``oepetstore/static/src/xml/petstore.xml`` file:"
+msgstr ""
+
+#: ../../howtos/web.rst:564
+msgid "Now we can use this template inside of the ``HomePage`` widget. Using the ``QWeb`` loader variable defined at the top of the page, we can call to the template defined in the XML file::"
+msgstr ""
+
+#: ../../howtos/web.rst:574
+msgid ":func:`QWeb.render` looks for the specified template, renders it to a string and returns the result."
+msgstr ""
+
+#: ../../howtos/web.rst:577
+msgid "However, because :class:`~odoo.Widget` has special integration for QWeb the template can be set directly on the widget via its :attr:`~odoo.Widget.template` attribute::"
+msgstr ""
+
+#: ../../howtos/web.rst:588
+msgid "Although the result looks similar, there are two differences between these usages:"
+msgstr ""
+
+#: ../../howtos/web.rst:591
+msgid "with the second version, the template is rendered right before :func:`~odoo.Widget.start` is called"
+msgstr ""
+
+#: ../../howtos/web.rst:593
+msgid "in the first version the template's content is added to the widget's root element, whereas in the second version the template's root element is directly *set as* the widget's root element. Which is why the \"greetings\" sub-widget also gets a red background"
+msgstr ""
+
+#: ../../howtos/web.rst:600
+msgid "templates should have a single non-``t`` root element, especially if they're set as a widget's :attr:`~odoo.Widget.template`. If there are multiple \"root elements\", results are undefined (usually only the first root element will be used and the others will be ignored)"
+msgstr ""
+
+#: ../../howtos/web.rst:606
+msgid "QWeb Context"
+msgstr ""
+
+#: ../../howtos/web.rst:608
+msgid "QWeb templates can be given data and can contain basic display logic."
+msgstr ""
+
+#: ../../howtos/web.rst:610
+msgid "For explicit calls to :func:`QWeb.render`, the template data is passed as second parameter::"
+msgstr ""
+
+#: ../../howtos/web.rst:615
+msgid "with the template modified to:"
+msgstr ""
+
+#: ../../howtos/web.rst:623
+msgid "will result in:"
+msgstr ""
+
+#: ../../howtos/web.rst:629
+msgid "When using :class:`~odoo.Widget`'s integration it is not possible to provide additional data to the template. The template will be given a single ``widget`` context variable, referencing the widget being rendered right before :func:`~odoo.Widget.start` is called (the widget's state will essentially be that set up by :func:`~odoo.Widget.init`):"
+msgstr ""
+
+#: ../../howtos/web.rst:653
+msgid "Result:"
+msgstr ""
+
+#: ../../howtos/web.rst:660
+msgid "Template Declaration"
+msgstr ""
+
+#: ../../howtos/web.rst:662
+msgid "We've seen how to *render* QWeb templates, let's now see the syntax of the templates themselves."
+msgstr ""
+
+#: ../../howtos/web.rst:665
+msgid "A QWeb template is composed of regular XML mixed with QWeb *directives*. A QWeb directive is declared with XML attributes starting with ``t-``."
+msgstr ""
+
+#: ../../howtos/web.rst:668
+msgid "The most basic directive is ``t-name``, used to declare new templates in a template file:"
+msgstr ""
+
+#: ../../howtos/web.rst:679
+msgid "``t-name`` takes the name of the template being defined, and declares that it can be called using :func:`QWeb.render`. It can only be used at the top-level of a template file."
+msgstr ""
+
+#: ../../howtos/web.rst:684
+msgid "Escaping"
+msgstr ""
+
+#: ../../howtos/web.rst:686
+msgid "The ``t-esc`` directive can be used to output text:"
+msgstr ""
+
+#: ../../howtos/web.rst:692
+msgid "It takes a Javascript expression which is evaluated, the result of the expression is then HTML-escaped and inserted in the document. Since it's an expression it's possible to provide just a variable name as above, or a more complex expression like a computation:"
+msgstr ""
+
+#: ../../howtos/web.rst:701
+msgid "or method calls:"
+msgstr ""
+
+#: ../../howtos/web.rst:708
+msgid "Outputting HTML"
+msgstr ""
+
+#: ../../howtos/web.rst:710
+msgid "To inject HTML in the page being rendered, use ``t-raw``. Like ``t-esc`` it takes an arbitrary Javascript expression as parameter, but it does not perform an HTML-escape step."
+msgstr ""
+
+#: ../../howtos/web.rst:720
+msgid "``t-raw`` *must not* be used on any data which may contain non-escaped user-provided content as this leads to `cross-site scripting`_ vulnerabilities"
+msgstr ""
+
+#: ../../howtos/web.rst:725
+msgid "Conditionals"
+msgstr ""
+
+#: ../../howtos/web.rst:727
+msgid "QWeb can have conditional blocks using ``t-if``. The directive takes an arbitrary expression, if the expression is falsy (``false``, ``null``, ``0`` or an empty string) the whole block is suppressed, otherwise it is displayed."
+msgstr ""
+
+#: ../../howtos/web.rst:744
+msgid "QWeb doesn't have an \"else\" structure, use a second ``t-if`` with the original condition inverted. You may want to store the condition in a local variable if it's a complex or expensive expression."
+msgstr ""
+
+#: ../../howtos/web.rst:749
+msgid "Iteration"
+msgstr ""
+
+#: ../../howtos/web.rst:751
+msgid "To iterate on a list, use ``t-foreach`` and ``t-as``. ``t-foreach`` takes an expression returning a list to iterate on ``t-as`` takes a variable name to bind to each item during iteration."
+msgstr ""
+
+#: ../../howtos/web.rst:765
+msgid "``t-foreach`` can also be used with numbers and objects (dictionaries)"
+msgstr ""
+
+#: ../../howtos/web.rst:769
+msgid "Defining attributes"
+msgstr ""
+
+#: ../../howtos/web.rst:771
+msgid "QWeb provides two related directives to define computed attributes: :samp:`t-att-{name}` and :samp:`t-attf-{name}`. In either case, *name* is the name of the attribute to create (e.g. ``t-att-id`` defines the attribute ``id`` after rendering)."
+msgstr ""
+
+#: ../../howtos/web.rst:776
+msgid "``t-att-`` takes a javascript expression whose result is set as the attribute's value, it is most useful if all of the attribute's value is computed:"
+msgstr ""
+
+#: ../../howtos/web.rst:787
+msgid "``t-attf-`` takes a *format string*. A format string is literal text with interpolation blocks inside, an interpolation block is a javascript expression between ``{{`` and ``}}``, which will be replaced by the result of the expression. It is most useful for attributes which are partially literal and partially computed such as a class:"
+msgstr ""
+
+#: ../../howtos/web.rst:800
+msgid "Calling other templates"
+msgstr ""
+
+#: ../../howtos/web.rst:802
+msgid "Templates can be split into sub-templates (for simplicity, maintainability, reusability or to avoid excessive markup nesting)."
+msgstr ""
+
+#: ../../howtos/web.rst:805
+msgid "This is done using the ``t-call`` directive, which takes the name of the template to render:"
+msgstr ""
+
+#: ../../howtos/web.rst:819
+msgid "rendering the ``A`` template will result in:"
+msgstr ""
+
+#: ../../howtos/web.rst:827
+msgid "Sub-templates inherit the rendering context of their caller."
+msgstr ""
+
+#: ../../howtos/web.rst:830
+msgid "To Learn More About QWeb"
+msgstr ""
+
+#: ../../howtos/web.rst:832
+msgid "For a QWeb reference, see :ref:`reference/qweb`."
+msgstr ""
+
+#: ../../howtos/web.rst:835
+#: ../../howtos/web.rst:1101
+msgid "Exercise"
+msgstr ""
+
+#: ../../howtos/web.rst:837
+msgid "Usage of QWeb in Widgets"
+msgstr ""
+
+#: ../../howtos/web.rst:839
+msgid "Create a widget whose constructor takes two parameters aside from ``parent``: ``product_names`` and ``color``."
+msgstr ""
+
+#: ../../howtos/web.rst:842
+msgid "``product_names`` should an array of strings, each one the name of a product"
+msgstr ""
+
+#: ../../howtos/web.rst:844
+msgid "``color`` is a string containing a color in CSS color format (ie: ``#000000`` for black)."
+msgstr ""
+
+#: ../../howtos/web.rst:847
+msgid "The widget should display the given product names one under the other, each one in a separate box with a background color with the value of ``color`` and a border. You should use QWeb to render the HTML. Any necessary CSS should be in ``oepetstore/static/src/css/petstore.css``."
+msgstr ""
+
+#: ../../howtos/web.rst:852
+msgid "Use the widget in ``HomePage`` with half a dozen products."
+msgstr ""
+
+#: ../../howtos/web.rst:916
+msgid "Widget Helpers"
+msgstr ""
+
+#: ../../howtos/web.rst:919
+msgid "``Widget``'s jQuery Selector"
+msgstr ""
+
+#: ../../howtos/web.rst:921
+msgid "Selecting DOM elements within a widget can be performed by calling the ``find()`` method on the widget's DOM root::"
+msgstr ""
+
+#: ../../howtos/web.rst:926
+msgid "But because it's a common operation, :class:`~odoo.Widget` provides an equivalent shortcut through the :func:`~odoo.Widget.$` method::"
+msgstr ""
+
+#: ../../howtos/web.rst:937
+msgid "The global jQuery function ``$()`` should *never* be used unless it is absolutely necessary: selection on a widget's root are scoped to the widget and local to it, but selections with ``$()`` are global to the page/application and may match parts of other widgets and views, leading to odd or dangerous side-effects. Since a widget should generally act only on the DOM section it owns, there is no cause for global selection."
+msgstr ""
+
+#: ../../howtos/web.rst:945
+msgid "Easier DOM Events Binding"
+msgstr ""
+
+#: ../../howtos/web.rst:947
+msgid "We have previously bound DOM events using normal jQuery event handlers (e.g. ``.click()`` or ``.change()``) on widget elements::"
+msgstr ""
+
+#: ../../howtos/web.rst:962
+msgid "While this works it has a few issues:"
+msgstr ""
+
+#: ../../howtos/web.rst:964
+msgid "it is rather verbose"
+msgstr ""
+
+#: ../../howtos/web.rst:965
+msgid "it does not support replacing the widget's root element at runtime as the binding is only performed when ``start()`` is run (during widget initialization)"
+msgstr ""
+
+#: ../../howtos/web.rst:968
+msgid "it requires dealing with ``this``-binding issues"
+msgstr ""
+
+#: ../../howtos/web.rst:970
+msgid "Widgets thus provide a shortcut to DOM event binding via :attr:`~odoo.Widget.events`::"
+msgstr ""
+
+#: ../../howtos/web.rst:982
+msgid ":attr:`~odoo.Widget.events` is an object (mapping) of an event to the function or method to call when the event is triggered:"
+msgstr ""
+
+#: ../../howtos/web.rst:985
+msgid "the key is an event name, possibly refined with a CSS selector in which case only if the event happens on a selected sub-element will the function or method run: ``click`` will handle all clicks within the widget, but ``click .my_button`` will only handle clicks in elements bearing the ``my_button`` class"
+msgstr ""
+
+#: ../../howtos/web.rst:990
+msgid "the value is the action to perform when the event is triggered"
+msgstr ""
+
+#: ../../howtos/web.rst:992
+msgid "It can be either a function::"
+msgstr ""
+
+#: ../../howtos/web.rst:998
+msgid "or the name of a method on the object (see example above)."
+msgstr ""
+
+#: ../../howtos/web.rst:1000
+msgid "In either case, the ``this`` is the widget instance and the handler is given a single parameter, the `jQuery event object`_ for the event."
+msgstr ""
+
+#: ../../howtos/web.rst:1004
+msgid "Widget Events and Properties"
+msgstr ""
+
+#: ../../howtos/web.rst:1007
+msgid "Events"
+msgstr ""
+
+#: ../../howtos/web.rst:1009
+msgid "Widgets provide an event system (separate from the DOM/jQuery event system described above): a widget can fire events on itself, and other widgets (or itself) can bind themselves and listen for these events::"
+msgstr ""
+
+#: ../../howtos/web.rst:1029
+msgid "This widget acts as a facade, transforming user input (through DOM events) into a documentable internal event to which parent widgets can bind themselves."
+msgstr ""
+
+#: ../../howtos/web.rst:1033
+msgid ":func:`~odoo.Widget.trigger` takes the name of the event to trigger as its first (mandatory) argument, any further arguments are treated as event data and passed directly to listeners."
+msgstr ""
+
+#: ../../howtos/web.rst:1037
+msgid "We can then set up a parent event instantiating our generic widget and listening to the ``user_chose`` event using :func:`~odoo.Widget.on`::"
+msgstr ""
+
+#: ../../howtos/web.rst:1055
+msgid ":func:`~odoo.Widget.on` binds a function to be called when the event identified by ``event_name`` is. The ``func`` argument is the function to call and ``object`` is the object to which that function is related if it is a method. The bound function will be called with the additional arguments of :func:`~odoo.Widget.trigger` if it has any. Example::"
+msgstr ""
+
+#: ../../howtos/web.rst:1074
+msgid "Triggering events on an other widget is generally a bad idea. The main exception to that rule is ``odoo.web.bus`` which exists specifically to broadcasts evens in which any widget could be interested throughout the Odoo web application."
+msgstr ""
+
+#: ../../howtos/web.rst:1080
+msgid "Properties"
+msgstr ""
+
+#: ../../howtos/web.rst:1082
+msgid "Properties are very similar to normal object attributes in that they allow storing data on a widget instance, however they have the additional feature that they trigger events when set::"
+msgstr ""
+
+#: ../../howtos/web.rst:1095
+msgid ":func:`~odoo.Widget.set` sets the value of a property and triggers :samp:`change:{propname}` (where *propname* is the property name passed as first parameter to :func:`~odoo.Widget.set`) and ``change``"
+msgstr ""
+
+#: ../../howtos/web.rst:1098
+msgid ":func:`~odoo.Widget.get` retrieves the value of a property."
+msgstr ""
+
+#: ../../howtos/web.rst:1103
+msgid "Widget Properties and Events"
+msgstr ""
+
+#: ../../howtos/web.rst:1105
+msgid "Create a widget ``ColorInputWidget`` that will display 3 ``<input type=\"text\">``. Each of these ``<input>`` is dedicated to type a hexadecimal number from 00 to FF. When any of these ``<input>`` is modified by the user the widget must query the content of the three ``<input>``, concatenate their values to have a complete CSS color code (ie: ``#00FF00``) and put the result in a property named ``color``. Please note the jQuery ``change()`` event that you can bind on any HTML ``<input>`` element and the ``val()`` method that can query the current value of that ``<input>`` could be useful to you for this exercise."
+msgstr ""
+
+#: ../../howtos/web.rst:1115
+msgid "Then, modify the ``HomePage`` widget to instantiate ``ColorInputWidget`` and display it. The ``HomePage`` widget should also display an empty rectangle. That rectangle must always, at any moment, have the same background color as the color in the ``color`` property of the ``ColorInputWidget`` instance."
+msgstr ""
+
+#: ../../howtos/web.rst:1121
+msgid "Use QWeb to generate all HTML."
+msgstr ""
+
+#: ../../howtos/web.rst:1194
+msgid "Modify existing widgets and classes"
+msgstr ""
+
+#: ../../howtos/web.rst:1196
+msgid "The class system of the Odoo web framework allows direct modification of existing classes using the :func:`~odoo.web.Class.include` method::"
+msgstr ""
+
+#: ../../howtos/web.rst:1214
+msgid "This system is similar to the inheritance mechanism, except it will alter the target class in-place instead of creating a new class."
+msgstr ""
+
+#: ../../howtos/web.rst:1217
+msgid "In that case, ``this._super()`` will call the original implementation of a method being replaced/redefined. If the class already had sub-classes, all calls to ``this._super()`` in sub-classes will call the new implementations defined in the call to :func:`~odoo.web.Class.include`. This will also work if some instances of the class (or of any of its sub-classes) were created prior to the call to :func:`~odoo.Widget.include`."
+msgstr ""
+
+#: ../../howtos/web.rst:1225
+msgid "Translations"
+msgstr ""
+
+#: ../../howtos/web.rst:1227
+msgid "The process to translate text in Python and JavaScript code is very similar. You could have noticed these lines at the beginning of the ``petstore.js`` file::"
+msgstr ""
+
+#: ../../howtos/web.rst:1234
+msgid "These lines are simply used to import the translation functions in the current JavaScript module. They are used thus::"
+msgstr ""
+
+#: ../../howtos/web.rst:1239
+msgid "In Odoo, translations files are automatically generated by scanning the source code. All piece of code that calls a certain function are detected and their content is added to a translation file that will then be sent to the translators. In Python, the function is ``_()``. In JavaScript the function is :func:`~odoo.web._t` (and also :func:`~odoo.web._lt`)."
+msgstr ""
+
+#: ../../howtos/web.rst:1245
+msgid "``_t()`` will return the translation defined for the text it is given. If no translation is defined for that text, it will return the original text as-is."
+msgstr ""
+
+#: ../../howtos/web.rst:1250
+msgid "To inject user-provided values in translatable strings, it is recommended to use `_.str.sprintf <http://gabceb.github.io/underscore.string.site/#sprintf>`_ with named arguments *after* the translation::"
+msgstr ""
+
+#: ../../howtos/web.rst:1260
+msgid "This makes translatable strings more readable to translators, and gives them more flexibility to reorder or ignore parameters."
+msgstr ""
+
+#: ../../howtos/web.rst:1263
+msgid ":func:`~odoo.web._lt` (\"lazy translate\") is similar but somewhat more complex: instead of translating its parameter immediately, it returns an object which, when converted to a string, will perform the translation."
+msgstr ""
+
+#: ../../howtos/web.rst:1267
+msgid "It is used to define translatable terms before the translations system is initialized, for class attributes for instance (as modules are loaded before the user's language is configured and translations are downloaded)."
+msgstr ""
+
+#: ../../howtos/web.rst:1272
+msgid "Communication with the Odoo Server"
+msgstr ""
+
+#: ../../howtos/web.rst:1275
+msgid "Contacting Models"
+msgstr ""
+
+#: ../../howtos/web.rst:1277
+msgid "Most operations with Odoo involve communicating with *models* implementing business concern, these models will then (potentially) interact with some storage engine (usually PostgreSQL_)."
+msgstr ""
+
+#: ../../howtos/web.rst:1281
+msgid "Although jQuery_ provides a `$.ajax`_ function for network interactions, communicating with Odoo requires additional metadata whose setup before every call would be verbose and error-prone. As a result, Odoo web provides higher-level communication primitives."
+msgstr ""
+
+#: ../../howtos/web.rst:1286
+msgid "To demonstrate this, the file ``petstore.py`` already contains a small model with a sample method:"
+msgstr ""
+
+#: ../../howtos/web.rst:1301
+msgid "This declares a model with two fields, and a method ``my_method()`` which returns a literal dictionary."
+msgstr ""
+
+#: ../../howtos/web.rst:1304
+msgid "Here is a sample widget that calls ``my_method()`` and displays the result::"
+msgstr ""
+
+#: ../../howtos/web.rst:1317
+msgid "The class used to call Odoo models is :class:`odoo.Model`. It is instantiated with the Odoo model's name as first parameter (``oepetstore.message_of_the_day`` here)."
+msgstr ""
+
+#: ../../howtos/web.rst:1321
+msgid ":func:`~odoo.web.Model.call` can be used to call any (public) method of an Odoo model. It takes the following positional arguments:"
+msgstr ""
+
+#: ../../howtos/web.rst:1324
+msgid "``name``"
+msgstr ""
+
+#: ../../howtos/web.rst:1325
+msgid "The name of the method to call, ``my_method`` here"
+msgstr ""
+
+#: ../../howtos/web.rst:1341
+msgid "``args``"
+msgstr ""
+
+#: ../../howtos/web.rst:1327
+msgid "an array of `positional arguments`_ to provide to the method. Because the example has no positional argument to provide, the ``args`` parameter is not provided."
+msgstr ""
+
+#: ../../howtos/web.rst:1331
+msgid "Here is an other example with positional arguments:"
+msgstr ""
+
+#: ../../howtos/web.rst:1355
+msgid "``kwargs``"
+msgstr ""
+
+#: ../../howtos/web.rst:1344
+msgid "a mapping of `keyword arguments`_ to pass. The example provides a single named argument ``context``."
+msgstr ""
+
+#: ../../howtos/web.rst:1357
+msgid ":func:`~odoo.Widget.call` returns a deferred resolved with the value returned by the model's method as first argument."
+msgstr ""
+
+#: ../../howtos/web.rst:1361
+msgid "CompoundContext"
+msgstr ""
+
+#: ../../howtos/web.rst:1363
+msgid "The previous section used a ``context`` argument which was not explained in the method call::"
+msgstr ""
+
+#: ../../howtos/web.rst:1368
+msgid "The context is like a \"magic\" argument that the web client will always give to the server when calling a method. The context is a dictionary containing multiple keys. One of the most important key is the language of the user, used by the server to translate all the messages of the application. Another one is the time zone of the user, used to compute correctly dates and times if Odoo is used by people in different countries."
+msgstr ""
+
+#: ../../howtos/web.rst:1375
+msgid "The ``argument`` is necessary in all methods, otherwise bad things could happen (such as the application not being translated correctly). That's why, when you call a model's method, you should always provide that argument. The solution to achieve that is to use :class:`odoo.web.CompoundContext`."
+msgstr ""
+
+#: ../../howtos/web.rst:1380
+msgid ":class:`~odoo.web.CompoundContext` is a class used to pass the user's context (with language, time zone, etc...) to the server as well as adding new keys to the context (some models' methods use arbitrary keys added to the context). It is created by giving to its constructor any number of dictionaries or other :class:`~odoo.web.CompoundContext` instances. It will merge all those contexts before sending them to the server."
+msgstr ""
+
+#: ../../howtos/web.rst:1398
+msgid "You can see the dictionary in the argument ``context`` contains some keys that are related to the configuration of the current user in Odoo plus the ``new_key`` key that was added when instantiating :class:`~odoo.web.CompoundContext`."
+msgstr ""
+
+#: ../../howtos/web.rst:1404
+msgid "Queries"
+msgstr ""
+
+#: ../../howtos/web.rst:1406
+msgid "While :func:`~odoo.Model.call` is sufficient for any interaction with Odoo models, Odoo Web provides a helper for simpler and clearer querying of models (fetching of records based on various conditions): :func:`~odoo.Model.query` which acts as a shortcut for the common combination of :py:meth:`~odoo.models.Model.search` and ::py:meth:`~odoo.models.Model.read`. It provides a clearer syntax to search and read models::"
+msgstr ""
+
+#: ../../howtos/web.rst:1421
+msgid "versus::"
+msgstr ""
+
+#: ../../howtos/web.rst:1431
+msgid ":func:`~odoo.web.Model.query` takes an optional list of fields as parameter (if no field is provided, all fields of the model are fetched). It returns a :class:`odoo.web.Query` which can be further customized before being executed"
+msgstr ""
+
+#: ../../howtos/web.rst:1435
+msgid ":class:`~odoo.web.Query` represents the query being built. It is immutable, methods to customize the query actually return a modified copy, so it's possible to use the original and the new version side-by-side. See :class:`~odoo.web.Query` for its customization options."
+msgstr ""
+
+#: ../../howtos/web.rst:1440
+msgid "When the query is set up as desired, simply call :func:`~odoo.web.Query.all` to execute it and return a deferred to its result. The result is the same as :py:meth:`~odoo.models.Model.read`'s, an array of dictionaries where each dictionary is a requested record, with each requested field a dictionary key."
+msgstr ""
+
+#: ../../howtos/web.rst:1447
+msgid "Exercises"
+msgstr ""
+
+#: ../../howtos/web.rst:1449
+msgid "Message of the Day"
+msgstr ""
+
+#: ../../howtos/web.rst:1451
+msgid "Create a ``MessageOfTheDay``  widget displaying the last record of the ``oepetstore.message_of_the_day`` model. The widget should fetch its record as soon as it is displayed."
+msgstr ""
+
+#: ../../howtos/web.rst:1455
+msgid "Display the widget in the Pet Store home page."
+msgstr ""
+
+#: ../../howtos/web.rst:1515
+msgid "Pet Toys List"
+msgstr ""
+
+#: ../../howtos/web.rst:1517
+msgid "Create a ``PetToysList`` widget displaying 5 toys (using their name and their images)."
+msgstr ""
+
+#: ../../howtos/web.rst:1520
+msgid "The pet toys are not stored in a new model, instead they're stored in ``product.product`` using a special category *Pet Toys*. You can see the pre-generated toys and add new ones by going to :menuselection:`Pet Store --> Pet Store --> Pet Toys`. You will probably need to explore ``product.product`` to create the right domain to select just pet toys."
+msgstr ""
+
+#: ../../howtos/web.rst:1527
+msgid "In Odoo, images are generally stored in regular fields encoded as base64_, HTML supports displaying images straight from base64 with :samp:`<img src=\"data:{mime_type};base64,{base64_image_data}\"/>`"
+msgstr ""
+
+#: ../../howtos/web.rst:1531
+msgid "The ``PetToysList`` widget should be displayed on the home page on the right of the ``MessageOfTheDay`` widget. You will need to make some layout with CSS to achieve this."
+msgstr ""
+
+#: ../../howtos/web.rst:1651
+msgid "Existing web components"
+msgstr ""
+
+#: ../../howtos/web.rst:1654
+msgid "The Action Manager"
+msgstr ""
+
+#: ../../howtos/web.rst:1656
+msgid "In Odoo, many operations start from an :ref:`action <reference/actions>`: opening a menu item (to a view), printing a report, ..."
+msgstr ""
+
+#: ../../howtos/web.rst:1659
+msgid "Actions are pieces of data describing how a client should react to the activation of a piece of content. Actions can be stored (and read through a model) or they can be generated on-the fly (locally to the client by javascript code, or remotely by a method of a model)."
+msgstr ""
+
+#: ../../howtos/web.rst:1664
+msgid "In Odoo Web, the component responsible for handling and reacting to these actions is the *Action Manager*."
+msgstr ""
+
+#: ../../howtos/web.rst:1668
+msgid "Using the Action Manager"
+msgstr ""
+
+#: ../../howtos/web.rst:1670
+msgid "The action manager can be invoked explicitly from javascript code by creating a dictionary describing :ref:`an action <reference/actions>` of the right type, and calling an action manager instance with it."
+msgstr ""
+
+#: ../../howtos/web.rst:1674
+msgid ":func:`~odoo.Widget.do_action` is a shortcut of :class:`~odoo.Widget` looking up the \"current\" action manager and executing the action::"
+msgstr ""
+
+#: ../../howtos/web.rst:1690
+msgid "The most common action ``type`` is ``ir.actions.act_window`` which provides views to a model (displays a model in various manners), its most common attributes are:"
+msgstr ""
+
+#: ../../howtos/web.rst:1694
+msgid "``res_model``"
+msgstr ""
+
+#: ../../howtos/web.rst:1695
+msgid "The model to display in views"
+msgstr ""
+
+#: ../../howtos/web.rst:1696
+msgid "``res_id`` (optional)"
+msgstr ""
+
+#: ../../howtos/web.rst:1697
+msgid "For form views, a preselected record in ``res_model``"
+msgstr ""
+
+#: ../../howtos/web.rst:1702
+msgid "``views``"
+msgstr ""
+
+#: ../../howtos/web.rst:1699
+msgid "Lists the views available through the action. A list of ``[view_id, view_type]``, ``view_id`` can either be the database identifier of a view of the right type, or ``false`` to use the view by default for the specified type. View types can not be present multiple times. The action will open the first view of the list by default."
+msgstr ""
+
+#: ../../howtos/web.rst:1705
+msgid "``target``"
+msgstr ""
+
+#: ../../howtos/web.rst:1705
+msgid "Either ``current`` (the default) which replaces the \"content\" section of the web client by the action, or ``new`` to open the action in a dialog box."
+msgstr ""
+
+#: ../../howtos/web.rst:1708
+msgid "Additional context data to use within the action."
+msgstr ""
+
+#: ../../howtos/web.rst:1710
+msgid "Jump to Product"
+msgstr ""
+
+#: ../../howtos/web.rst:1712
+msgid "Modify the ``PetToysList`` component so clicking on a toy replaces the homepage by the toy's form view."
+msgstr ""
+
+#: ../../howtos/web.rst:1757
+msgid "Client Actions"
+msgstr ""
+
+#: ../../howtos/web.rst:1759
+msgid "Throughout this guide, we used a simple ``HomePage`` widget which the web client automatically starts when we select the right menu item. But how did the Odoo web know to start this widget? Because the widget is registered as a *client action*."
+msgstr ""
+
+#: ../../howtos/web.rst:1764
+msgid "A client action is (as its name implies) an action type defined almost entirely in the client, in javascript for Odoo web. The server simply sends an action tag (an arbitrary name), and optionally adds a few parameters, but beyond that *everything* is handled by custom client code."
+msgstr ""
+
+#: ../../howtos/web.rst:1769
+msgid "Our widget is registered as the handler for the client action through this::"
+msgstr ""
+
+#: ../../howtos/web.rst:1774
+msgid "``instance.web.client_actions`` is a :class:`~odoo.web.Registry` in which the action manager looks up client action handlers when it needs to execute one. The first parameter of :class:`~odoo.web.Registry.add` is the name (tag) of the client action, and the second parameter is the path to the widget from the Odoo web client root."
+msgstr ""
+
+#: ../../howtos/web.rst:1780
+msgid "When a client action must be executed, the action manager looks up its tag in the registry, walks the specified path and displays the widget it finds at the end."
+msgstr ""
+
+#: ../../howtos/web.rst:1784
+msgid "a client action handler can also be a regular function, in whch case it'll be called and its result (if any) will be interpreted as the next action to execute."
+msgstr ""
+
+#: ../../howtos/web.rst:1788
+msgid "On the server side, we had simply defined an ``ir.actions.client`` action:"
+msgstr ""
+
+#: ../../howtos/web.rst:1796
+msgid "and a menu opening the action:"
+msgstr ""
+
+#: ../../howtos/web.rst:1804
+msgid "Architecture of the Views"
+msgstr ""
+
+#: ../../howtos/web.rst:1806
+msgid "Much of Odoo web's usefulness (and complexity) resides in views. Each view type is a way of displaying a model in the client."
+msgstr ""
+
+#: ../../howtos/web.rst:1810
+msgid "The View Manager"
+msgstr ""
+
+#: ../../howtos/web.rst:1812
+msgid "When an ``ActionManager`` instance receive an action of type ``ir.actions.act_window``, it delegates the synchronization and handling of the views themselves to a *view manager*, which will then set up one or multiple views depending on the original action's requirements:"
+msgstr ""
+
+#: ../../howtos/web.rst:1822
+msgid "The Views"
+msgstr ""
+
+#: ../../howtos/web.rst:1824
+msgid "Most :ref:`Odoo views <reference/views>` are implemented through a subclass of :class:`odoo.web.View` which provides a bit of generic basic structure for handling events and displaying model information."
+msgstr ""
+
+#: ../../howtos/web.rst:1828
+msgid "The *search view* is considered a view type by the main Odoo framework, but handled separately by the web client (as it's a more permanent fixture and can interact with other views, which regular views don't do)."
+msgstr ""
+
+#: ../../howtos/web.rst:1832
+msgid "A view is responsible for loading its own description XML (using :py:class:`~odoo.models.Model.fields_view_get`) and any other data source it needs. To that purpose, views are provided with an optional view identifier set as the :attr:`~odoo.web.View.view_id` attribute."
+msgstr ""
+
+#: ../../howtos/web.rst:1837
+msgid "Views are also provided with a :class:`~odoo.web.DataSet` instance which holds most necessary model information (the model name and possibly various record ids)."
+msgstr ""
+
+#: ../../howtos/web.rst:1841
+msgid "Views may also want to handle search queries by overriding :func:`~odoo.web.View.do_search`, and updating their :class:`~odoo.web.DataSet` as necessary."
+msgstr ""
+
+#: ../../howtos/web.rst:1846
+msgid "The Form View Fields"
+msgstr ""
+
+#: ../../howtos/web.rst:1848
+msgid "A common need is the extension of the web form view to add new ways of displaying fields."
+msgstr ""
+
+#: ../../howtos/web.rst:1851
+msgid "All built-in fields have a default display implementation, a new form widget may be necessary to correctly interact with a new field type (e.g. a :term:`GIS` field) or to provide new representations and ways to interact with existing field types (e.g. validate :py:class:`~odoo.fields.Char` fields which should contain email addresses and display them as email links)."
+msgstr ""
+
+#: ../../howtos/web.rst:1858
+msgid "To explicitly specify which form widget should be used to display a field, simply use the ``widget`` attribute in the view's XML description:"
+msgstr ""
+
+#: ../../howtos/web.rst:1867
+msgid "the same widget is used in both \"view\" (read-only) and \"edition\" modes of a form view, it's not possible to use a widget in one and an other widget in the other"
+msgstr ""
+
+#: ../../howtos/web.rst:1870
+msgid "and a given field (name) can not be used multiple times in the same form"
+msgstr ""
+
+#: ../../howtos/web.rst:1871
+msgid "a widget may ignore the current mode of the form view and remain the same in both view and edition"
+msgstr ""
+
+#: ../../howtos/web.rst:1876
+msgid "Fields are instantiated by the form view after it has read its XML description and constructed the corresponding HTML representing that description. After that, the form view will communicate with the field objects using some methods. These methods are defined by the ``FieldInterface`` interface. Almost all fields inherit the ``AbstractField`` abstract class. That class defines some default mechanisms that need to be implemented by most fields."
+msgstr ""
+
+#: ../../howtos/web.rst:1884
+msgid "Here are some of the responsibilities of a field class:"
+msgstr ""
+
+#: ../../howtos/web.rst:1886
+msgid "The field class must display and allow the user to edit the value of the field."
+msgstr ""
+
+#: ../../howtos/web.rst:1887
+msgid "It must correctly implement the 3 field attributes available in all fields of Odoo. The ``AbstractField`` class already implements an algorithm that dynamically calculates the value of these attributes (they can change at any moment because their value change according to the value of other fields). Their values are stored in *Widget Properties* (the widget properties were explained earlier in this guide). It is the responsibility of each field class to check these widget properties and dynamically adapt depending of their values. Here is a description of each of these attributes:"
+msgstr ""
+
+#: ../../howtos/web.rst:1897
+msgid "``required``: The field must have a value before saving. If ``required`` is ``true`` and the field doesn't have a value, the method ``is_valid()`` of the field must return ``false``."
+msgstr ""
+
+#: ../../howtos/web.rst:1900
+msgid "``invisible``: When this is ``true``, the field must be invisible. The ``AbstractField`` class already has a basic implementation of this behavior that fits most fields."
+msgstr ""
+
+#: ../../howtos/web.rst:1903
+msgid "``readonly``: When ``true``, the field must not be editable by the user. Most fields in Odoo have a completely different behavior depending on the value of ``readonly``. As example, the ``FieldChar`` displays an HTML ``<input>`` when it is editable and simply displays the text when it is read-only. This also means it has much more code it would need to implement only one behavior, but this is necessary to ensure a good user experience."
+msgstr ""
+
+#: ../../howtos/web.rst:1911
+msgid "Fields have two methods, ``set_value()`` and ``get_value()``, which are called by the form view to give it the value to display and get back the new value entered by the user. These methods must be able to handle the value as given by the Odoo server when a ``read()`` is performed on a model and give back a valid value for a ``write()``.  Remember that the JavaScript/Python data types used to represent the values given by ``read()`` and given to ``write()`` is not necessarily the same in Odoo. As example, when you read a many2one, it is always a tuple whose first value is the id of the pointed record and the second one is the name get (ie: ``(15, \"Agrolait\")``). But when you write a many2one it must be a single integer, not a tuple anymore. ``AbstractField`` has a default implementation of these methods that works well for simple data type and set a widget property named ``value``."
+msgstr ""
+
+#: ../../howtos/web.rst:1925
+msgid "Please note that, to better understand how to implement fields, you are strongly encouraged to look at the definition of the ``FieldInterface`` interface and the ``AbstractField`` class directly in the code of the Odoo web client."
+msgstr ""
+
+#: ../../howtos/web.rst:1931
+msgid "Creating a New Type of Field"
+msgstr ""
+
+#: ../../howtos/web.rst:1933
+msgid "In this part we will explain how to create a new type of field. The example here will be to re-implement the ``FieldChar`` class and progressively explain each part."
+msgstr ""
+
+#: ../../howtos/web.rst:1938
+msgid "Simple Read-Only Field"
+msgstr ""
+
+#: ../../howtos/web.rst:1940
+msgid "Here is a first implementation that will only display text. The user will not be able to modify the content of the field."
+msgstr ""
+
+#: ../../howtos/web.rst:1957
+msgid "In this example, we declare a class named ``FieldChar2`` inheriting from ``AbstractField``. We also register this class in the registry ``instance.web.form.widgets`` under the key ``char2``. That will allow us to use this new field in any form view by specifying ``widget=\"char2\"`` in the ``<field/>`` tag in the XML declaration of the view."
+msgstr ""
+
+#: ../../howtos/web.rst:1963
+msgid "In this example, we define a single method: ``render_value()``. All it does is display the widget property ``value``.  Those are two tools defined by the ``AbstractField`` class. As explained before, the form view will call the method ``set_value()`` of the field to set the value to display. This method already has a default implementation in ``AbstractField`` which simply sets the widget property ``value``. ``AbstractField`` also watch the ``change:value`` event on itself and calls the ``render_value()`` when it occurs. So, ``render_value()`` is a convenience method to implement in child classes to perform some operation each time the value of the field changes."
+msgstr ""
+
+#: ../../howtos/web.rst:1973
+msgid "In the ``init()`` method, we also define the default value of the field if none is specified by the form view (here we assume the default value of a ``char`` field should be an empty string)."
+msgstr ""
+
+#: ../../howtos/web.rst:1978
+msgid "Read-Write Field"
+msgstr ""
+
+#: ../../howtos/web.rst:1980
+msgid "Read-only fields, which only display content and don't allow the user to modify it can be useful, but most fields in Odoo also allow editing. This makes the field classes more complicated, mostly because fields are supposed to handle both editable and non-editable mode, those modes are often completely different (for design and usability purpose) and the fields must be able to switch between modes at any moment."
+msgstr ""
+
+#: ../../howtos/web.rst:1987
+msgid "To know in which mode the current field should be, the ``AbstractField`` class sets a widget property named ``effective_readonly``. The field should watch for changes in that widget property and display the correct mode accordingly. Example::"
+msgstr ""
+
+#: ../../howtos/web.rst:2035
+msgid "In the ``start()`` method (which is called immediately after a widget has been appended to the DOM), we bind on the event ``change:effective_readonly``. That allows us to redisplay the field each time the widget property ``effective_readonly`` changes. This event handler will call ``display_field()``, which is also called directly in ``start()``. This ``display_field()`` was created specifically for this field, it's not a method defined in ``AbstractField`` or any other class. We can use this method to display the content of the field depending on the current mode."
+msgstr ""
+
+#: ../../howtos/web.rst:2044
+msgid "From now on the conception of this field is typical, except there is a lot of verifications to know the state of the ``effective_readonly`` property:"
+msgstr ""
+
+#: ../../howtos/web.rst:2047
+msgid "In the QWeb template used to display the content of the widget, it displays an ``<input type=\"text\" />`` if we are in read-write mode and nothing in particular in read-only mode."
+msgstr ""
+
+#: ../../howtos/web.rst:2050
+msgid "In the ``display_field()`` method, we have to bind on the ``change`` event of the ``<input type=\"text\" />`` to know when the user has changed the value. When it happens, we call the ``internal_set_value()`` method with the new value of the field. This is a convenience method provided by the ``AbstractField`` class. That method will set a new value in the ``value`` property but will not trigger a call to ``render_value()`` (which is not necessary since the ``<input type=\"text\" />`` already contains the correct value)."
+msgstr ""
+
+#: ../../howtos/web.rst:2058
+msgid "In ``render_value()``, we use a completely different code to display the value of the field depending if we are in read-only or in read-write mode."
+msgstr ""
+
+#: ../../howtos/web.rst:2061
+msgid "Create a Color Field"
+msgstr ""
+
+#: ../../howtos/web.rst:2063
+msgid "Create a ``FieldColor`` class. The value of this field should be a string containing a color code like those used in CSS (example: ``#FF0000`` for red). In read-only mode, this color field should display a little block whose color corresponds to the value of the field. In read-write mode, you should display an ``<input type=\"color\" />``. That type of ``<input />`` is an HTML5 component that doesn't work in all browsers but works well in Google Chrome. So it's OK to use as an exercise."
+msgstr ""
+
+#: ../../howtos/web.rst:2071
+msgid "You can use that widget in the form view of the ``message_of_the_day`` model for its field named ``color``. As a bonus, you can change the ``MessageOfTheDay`` widget created in the previous part of this guide to display the message of the day with the background color indicated in the ``color`` field."
+msgstr ""
+
+#: ../../howtos/web.rst:2136
+msgid "The Form View Custom Widgets"
+msgstr ""
+
+#: ../../howtos/web.rst:2138
+msgid "Form fields are used to edit a single field, and are intrinsically linked to a field. Because this may be limiting, it is also possible to create *form widgets* which are not so restricted and have less ties to a specific lifecycle."
+msgstr ""
+
+#: ../../howtos/web.rst:2143
+msgid "Custom form widgets can be added to a form view through the ``widget`` tag:"
+msgstr ""
+
+#: ../../howtos/web.rst:2149
+msgid "This type of widget will simply be created by the form view during the creation of the HTML according to the XML definition. They have properties in common with the fields (like the ``effective_readonly`` property) but they are not assigned a precise field. And so they don't have methods like ``get_value()`` and ``set_value()``. They must inherit from the ``FormWidget`` abstract class."
+msgstr ""
+
+#: ../../howtos/web.rst:2156
+msgid "Form widgets can interact with form fields by listening for their changes and fetching or altering their values. They can access form fields through their :attr:`~odoo.web.form.FormWidget.field_manager` attribute::"
+msgstr ""
+
+#: ../../howtos/web.rst:2176
+msgid ":attr:`~odoo.web.form.FormWidget` is generally the :class:`~odoo.web.form.FormView` itself, but features used from it should be limited to those defined by :class:`~odoo.web.form.FieldManagerMixin`, the most useful being:"
+msgstr ""
+
+#: ../../howtos/web.rst:2181
+msgid ":func:`~odoo.web.form.FieldManagerMixin.get_field_value(field_name)` which returns the value of a field."
+msgstr ""
+
+#: ../../howtos/web.rst:2183
+msgid ":func:`~odoo.web.form.FieldManagerMixin.set_values(values)` sets multiple field values, takes a mapping of ``{field_name: value_to_set}``"
+msgstr ""
+
+#: ../../howtos/web.rst:2185
+msgid "An event :samp:`field_changed:{field_name}` is triggered any time the value of the field called ``field_name`` is changed"
+msgstr ""
+
+#: ../../howtos/web.rst:2188
+msgid "Show Coordinates on Google Map"
+msgstr ""
+
+#: ../../howtos/web.rst:2190
+msgid "Add two fields to ``product.product`` storing a latitude and a longitude, then create a new form widget to display the latitude and longitude of a product's origin on a map"
+msgstr ""
+
+#: ../../howtos/web.rst:2194
+msgid "To display the map, use Google Map's embedding:"
+msgstr ""
+
+#: ../../howtos/web.rst:2201
+msgid "where ``XXX`` should be replaced by the latitude and ``YYY`` by the longitude."
+msgstr ""
+
+#: ../../howtos/web.rst:2204
+msgid "Display the two position fields and a map widget using them in a new notebook page of the product's form view."
+msgstr ""
+
+#: ../../howtos/web.rst:2236
+msgid "Get the Current Coordinate"
+msgstr ""
+
+#: ../../howtos/web.rst:2238
+msgid "Add a button resetting the product's coordinates to the location of the user, you can get these coordinates using the `javascript geolocation API`_."
+msgstr ""
+
+#: ../../howtos/web.rst:2242
+msgid "Now we would like to display an additional button to automatically set the coordinates to the location of the current user."
+msgstr ""
+
+#: ../../howtos/web.rst:2245
+msgid "To get the coordinates of the user, an easy way is to use the geolocation JavaScript API.  `See the online documentation to know how to use it`_."
+msgstr ""
+
+#: ../../howtos/web.rst:2250
+msgid "Please also note that the user should not be able to click on that button when the form view is in read-only mode. So, this custom widget should handle correctly the ``effective_readonly`` property just like any field. One way to do this would be to make the button disappear when ``effective_readonly`` is true."
+msgstr ""
+
+#: ../../howtos/web.rst:2301
+msgid "as a separate concept from instances. In many languages classes are full-fledged objects and themselves instance (of metaclasses) but there remains two fairly separate hierarchies between classes and instances"
+msgstr ""
+
+#: ../../howtos/web.rst:2305
+msgid "as well as papering over cross-browser differences, although this has become less necessary over time"
+msgstr ""
+
+#: ../../howtos/website.rst:7
+msgid "Building a Website"
+msgstr ""
+
+#: ../../howtos/website.rst:11
+msgid "This guide assumes `basic knowledge of Python <http://docs.python.org/2/tutorial/>`_"
+msgstr ""
+
+#: ../../howtos/website.rst:13
+msgid "This guide assumes :ref:`an installed Odoo <setup/install>`"
+msgstr ""
+
+#: ../../howtos/website.rst:16
+msgid "Creating a basic module"
+msgstr ""
+
+#: ../../howtos/website.rst:18
+msgid "In Odoo, tasks are performed by creating modules."
+msgstr ""
+
+#: ../../howtos/website.rst:20
+msgid "Modules customize the behavior of an Odoo installation, either by adding new behaviors or by altering existing ones (including behaviors added by other modules)."
+msgstr ""
+
+#: ../../howtos/website.rst:24
+msgid ":ref:`Odoo's scaffolding <reference/cmdline/scaffold>` can setup a basic module. To quickly get started simply invoke:"
+msgstr ""
+
+#: ../../howtos/website.rst:31
+msgid "This will automatically create a ``my-modules`` *module directory* with an ``academy`` module inside. The directory can be an existing module directory if you want, but the module name must be unique within the directory."
+msgstr ""
+
+#: ../../howtos/website.rst:39
+msgid "A demonstration module"
+msgstr ""
+
+#: ../../howtos/website.rst:41
+msgid "We have a \"complete\" module ready for installation."
+msgstr ""
+
+#: ../../howtos/website.rst:43
+msgid "Although it does absolutely nothing we can install it:"
+msgstr ""
+
+#: ../../howtos/website.rst:45
+msgid "start the Odoo server"
+msgstr ""
+
+#: ../../howtos/website.rst:51
+msgid "go to http://localhost:8069"
+msgstr ""
+
+#: ../../howtos/website.rst:52
+msgid "create a new database including demonstration data"
+msgstr ""
+
+#: ../../howtos/website.rst:53
+msgid "to go :menuselection:`Settings --> Modules --> Modules`"
+msgstr ""
+
+#: ../../howtos/website.rst:54
+msgid "in the top-right corner remove the *Installed* filter and search for *academy*"
+msgstr ""
+
+#: ../../howtos/website.rst:56
+msgid "click the :guilabel:`Install` button for the *Academy* module"
+msgstr ""
+
+#: ../../howtos/website.rst:59
+msgid "To the browser"
+msgstr ""
+
+#: ../../howtos/website.rst:61
+msgid ":ref:`Controllers <reference/http/controllers>` interpret browser requests and send data back."
+msgstr ""
+
+#: ../../howtos/website.rst:64
+msgid "Add a simple controller and ensure it is imported by ``__init__.py`` (so Odoo can find it):"
+msgstr ""
+
+#: ../../howtos/website.rst:69
+msgid "Shut down your server (:kbd:`^C`) then restart it:"
+msgstr ""
+
+#: ../../howtos/website.rst:75
+msgid "and open a page to http://localhost:8069/academy/academy/, you should see your \"page\" appear:"
+msgstr ""
+
+#: ../../howtos/website.rst:81
+msgid "Templates"
+msgstr ""
+
+#: ../../howtos/website.rst:83
+msgid "Generating HTML in Python isn't very pleasant."
+msgstr ""
+
+#: ../../howtos/website.rst:85
+msgid "The usual solution is templates_, pseudo-documents with placeholders and display logic. Odoo allows any Python templating system, but provides its own :ref:`QWeb <reference/qweb>` templating system which integrates with other features."
+msgstr ""
+
+#: ../../howtos/website.rst:90
+msgid "Create a template and ensure the template file is registered in the ``__manifest__.py`` manifest, and alter the controller to use our template:"
+msgstr ""
+
+#: ../../howtos/website.rst:95
+msgid "The templates iterates (``t-foreach``) on all the teachers (passed through the *template context*), and prints each teacher in its own paragraph."
+msgstr ""
+
+#: ../../howtos/website.rst:98
+msgid "Finally restart Odoo and update the module's data (to install the template) by going to :menuselection:`Settings --> Modules --> Modules --> Academy` and clicking :guilabel:`Upgrade`."
+msgstr ""
+
+#: ../../howtos/website.rst:104
+msgid "Alternatively, Odoo can be restarted :option:`and update modules at the same time<odoo-bin -u>`:"
+msgstr ""
+
+#: ../../howtos/website.rst:111
+msgid "Going to http://localhost:8069/academy/academy/ should now result in:"
+msgstr ""
+
+#: ../../howtos/website.rst:116
+msgid "Storing data in Odoo"
+msgstr ""
+
+#: ../../howtos/website.rst:118
+msgid ":ref:`Odoo models <reference/orm/model>` map to database tables."
+msgstr ""
+
+#: ../../howtos/website.rst:120
+msgid "In the previous section we just displayed a list of string entered statically in the Python code. This doesn't allow modifications or persistent storage so we'll now move our data to the database."
+msgstr ""
+
+#: ../../howtos/website.rst:125
+msgid "Defining the data model"
+msgstr ""
+
+#: ../../howtos/website.rst:127
+msgid "Define a teacher model, and ensure it is imported from ``__init__.py`` so it is correctly loaded:"
+msgstr ""
+
+#: ../../howtos/website.rst:132
+msgid "Then setup :ref:`basic access control <reference/security/acl>` for the model and add them to the manifest:"
+msgstr ""
+
+#: ../../howtos/website.rst:137
+msgid "this simply gives read access (``perm_read``) to all users (``group_id:id`` left empty)."
+msgstr ""
+
+#: ../../howtos/website.rst:142
+msgid ":ref:`Data files <reference/data>` (XML or CSV) must be added to the module manifest, Python files (models or controllers) don't but have to be imported from ``__init__.py`` (directly or indirectly)"
+msgstr ""
+
+#: ../../howtos/website.rst:148
+msgid "the administrator user bypasses access control, they have access to all models even if not given access"
+msgstr ""
+
+#: ../../howtos/website.rst:152
+msgid "Demonstration data"
+msgstr ""
+
+#: ../../howtos/website.rst:154
+msgid "The second step is to add some demonstration data to the system so it's possible to test it easily. This is done by adding a ``demo`` :ref:`data file <reference/data>`, which must be linked from the manifest:"
+msgstr ""
+
+#: ../../howtos/website.rst:162
+msgid ":ref:`Data files <reference/data>` can be used for demo and non-demo data. Demo data are only loaded in \"demonstration mode\" and can be used for flow testing and demonstration, non-demo data are always loaded and used as initial system setup."
+msgstr ""
+
+#: ../../howtos/website.rst:167
+msgid "In this case we're using demonstration data because an actual user of the system would want to input or import their own teachers list, this list is only useful for testing."
+msgstr ""
+
+#: ../../howtos/website.rst:172
+msgid "Accessing the data"
+msgstr ""
+
+#: ../../howtos/website.rst:174
+msgid "The last step is to alter model and template to use our demonstration data:"
+msgstr ""
+
+#: ../../howtos/website.rst:176
+msgid "fetch the records from the database instead of having a static list"
+msgstr ""
+
+#: ../../howtos/website.rst:177
+msgid "Because :meth:`~odoo.models.Model.search` returns a set of records matching the filter (\"all records\" here), alter the template to print each teacher's ``name``"
+msgstr ""
+
+#: ../../howtos/website.rst:183
+msgid "Restart the server and update the module (in order to update the manifest and templates and load the demo file) then navigate to http://localhost:8069/academy/academy/. The page should look slightly different: names should simply be prefixed by a number (the database identifier for the teacher)."
+msgstr ""
+
+#: ../../howtos/website.rst:190
+msgid "Website support"
+msgstr ""
+
+#: ../../howtos/website.rst:192
+msgid "Odoo bundles a module dedicated to building websites."
+msgstr ""
+
+#: ../../howtos/website.rst:194
+msgid "So far we've used controllers fairly directly, but Odoo 8 added deeper integration and a few other services (e.g. default styling, theming) via the ``website`` module."
+msgstr ""
+
+#: ../../howtos/website.rst:198
+msgid "first, add ``website`` as a dependency to ``academy``"
+msgstr ""
+
+#: ../../howtos/website.rst:199
+msgid "then add the ``website=True`` flag on the controller, this sets up a few new variables on :ref:`the request object <reference/http/request>` and allows using the website layout in our template"
+msgstr ""
+
+#: ../../howtos/website.rst:202
+msgid "use the website layout in the template"
+msgstr ""
+
+#: ../../howtos/website.rst:206
+msgid "After restarting the server while updating the module (in order to update the manifest and template) access http://localhost:8069/academy/academy/ should yield a nicer looking page with branding and a number of built-in page elements (top-level menu, footer, …)"
+msgstr ""
+
+#: ../../howtos/website.rst:213
+msgid "The website layout also provides support for edition tools: click :guilabel:`Sign In` (in the top-right), fill the credentials in (``admin`` / ``admin`` by default) then click :guilabel:`Log In`."
+msgstr ""
+
+#: ../../howtos/website.rst:217
+msgid "You're now in Odoo \"proper\": the administrative interface. For now click on the :guilabel:`Website` menu item (top-left corner."
+msgstr ""
+
+#: ../../howtos/website.rst:220
+msgid "We're back in the website but as an administrator, with access to advanced edition features provided by the *website* support:"
+msgstr ""
+
+#: ../../howtos/website.rst:223
+msgid "a template code editor (:menuselection:`Customize --> HTML Editor`) where you can see and edit all templates used for the current page"
+msgstr ""
+
+#: ../../howtos/website.rst:225
+msgid "the :guilabel:`Edit` button in the top-left switches to \"edition mode\" where blocks (snippets) and rich text edition are available"
+msgstr ""
+
+#: ../../howtos/website.rst:227
+msgid "a number of other features such as mobile preview or :abbr:`SEO (Search Engine Optimization)`"
+msgstr ""
+
+#: ../../howtos/website.rst:231
+msgid "URLs and routing"
+msgstr ""
+
+#: ../../howtos/website.rst:233
+msgid "Controller methods are associated with *routes* via the :func:`~odoo.http.route` decorator which takes a routing string and a number of attributes to customise its behavior or security."
+msgstr ""
+
+#: ../../howtos/website.rst:237
+msgid "We've seen a \"literal\" routing string, which matches a URL section exactly, but routing strings can also use `converter patterns`_ which match bits of URLs and make those available as local variables. For instance we can create a new controller method which takes a bit of URL and prints it out:"
+msgstr ""
+
+#: ../../howtos/website.rst:244
+msgid "restart Odoo, access http://localhost:8069/academy/Alice/ and http://localhost:8069/academy/Bob/ and see the difference."
+msgstr ""
+
+#: ../../howtos/website.rst:247
+msgid "As the name indicates, `converter patterns`_ don't just do extraction, they also do *validation* and *conversion*, so we can change the new controller to only accept integers:"
+msgstr ""
+
+#: ../../howtos/website.rst:253
+msgid "Restart Odoo, access http://localhost:8069/academy/2, note how the old value was a string, but the new one was converted to an integers. Try accessing http://localhost:8069/academy/Carol/ and note that the page was not found: since \"Carol\" is not an integer, the route was ignored and no route could be found."
+msgstr ""
+
+#: ../../howtos/website.rst:259
+msgid "Odoo provides an additional converter called ``model`` which provides records directly when given their id. Let's use this to create a generic page for teacher biographies:"
+msgstr ""
+
+#: ../../howtos/website.rst:265
+msgid "then change the list of model to link to our new controller:"
+msgstr ""
+
+#: ../../howtos/website.rst:269
+msgid "Restart Odoo and upgrade the module, then you can visit each teacher's page. As an exercise, try adding blocks to a teacher's page to write a biography, then go to another teacher's page and so forth. You will discover, that your biography is shared between all teachers, because blocks are added to the *template*, and the *biography* template is shared between all teachers, when one page is edited they're all edited at the same time."
+msgstr ""
+
+#: ../../howtos/website.rst:277
+msgid "Field edition"
+msgstr ""
+
+#: ../../howtos/website.rst:279
+msgid "Data which is specific to a record should be saved on that record, so let us add a new biography field to our teachers:"
+msgstr ""
+
+#: ../../howtos/website.rst:284
+msgid "Restart Odoo and update the views, reload the teacher's page and… the field is invisible since it contains nothing."
+msgstr ""
+
+#: ../../howtos/website.rst:290
+msgid "For record fields, templates can use a special ``t-field`` directive which allows editing the field content from the website using field-specific interfaces. Change the *person* template to use ``t-field``:"
+msgstr ""
+
+#: ../../howtos/website.rst:296
+msgid "Restart Odoo and upgrade the module, there is now a placeholder under the teacher's name and a new zone for blocks in :guilabel:`Edit` mode. Content dropped there is stored in the corresponding teacher's ``biography`` field, and thus specific to that teacher."
+msgstr ""
+
+#: ../../howtos/website.rst:301
+msgid "The teacher's name is also editable, and when saved the change is visible on the index page."
+msgstr ""
+
+#: ../../howtos/website.rst:304
+msgid "``t-field`` can also take formatting options which depend on the exact field. For instance if we display the modification date for a teacher's record:"
+msgstr ""
+
+#: ../../howtos/website.rst:309
+msgid "it is displayed in a very \"computery\" manner and hard to read, but we could ask for a human-readable version:"
+msgstr ""
+
+#: ../../howtos/website.rst:314
+msgid "or a relative display:"
+msgstr ""
+
+#: ../../howtos/website.rst:319
+msgid "Administration and ERP integration"
+msgstr ""
+
+#: ../../howtos/website.rst:322
+msgid "A brief and incomplete introduction to the Odoo administration"
+msgstr ""
+
+#: ../../howtos/website.rst:324
+msgid "The Odoo administration was briefly seen during the `website support`_ section. We can go back to it using :menuselection:`Administrator --> Administrator` in the menu (or :guilabel:`Sign In` if you're signed out)."
+msgstr ""
+
+#: ../../howtos/website.rst:328
+msgid "The conceptual structure of the Odoo backend is simple:"
+msgstr ""
+
+#: ../../howtos/website.rst:330
+msgid "first are menus, a tree (menus can have sub-menus) of records. Menus without children map to…"
+msgstr ""
+
+#: ../../howtos/website.rst:332
+msgid "actions. Actions have various types: links, reports, code which Odoo should execute or data display. Data display actions are called *window actions*, and tell Odoo to display a given *model* according to a set of views…"
+msgstr ""
+
+#: ../../howtos/website.rst:335
+msgid "a view has a type, a broad category to which it corresponds (a list, a graph, a calendar) and an *architecture* which customises the way the model is displayed inside the view."
+msgstr ""
+
+#: ../../howtos/website.rst:340
+msgid "Editing in the Odoo administration"
+msgstr ""
+
+#: ../../howtos/website.rst:342
+msgid "By default, an Odoo model is essentially invisible to a user. To make it visible it must be available through an action, which itself needs to be reachable, generally through a menu."
+msgstr ""
+
+#: ../../howtos/website.rst:346
+msgid "Let's create a menu for our model:"
+msgstr ""
+
+#: ../../howtos/website.rst:350
+msgid "then accessing http://localhost:8069/web/ in the top left should be a menu :guilabel:`Academy`, which is selected by default, as it is the first menu, and having opened a listing of teachers. From the listing it is possible to :guilabel:`Create` new teacher records, and to switch to the \"form\" by-record view."
+msgstr ""
+
+#: ../../howtos/website.rst:356
+msgid "If there is no definition of how to present records (a :ref:`view <reference/views>`) Odoo will automatically create a basic one on-the-fly. In our case it works for the \"list\" view for now (only displays the teacher's name) but in the \"form\" view the HTML ``biography`` field is displayed side-by-side with the ``name`` field and not given enough space. Let's define a custom form view to make viewing and editing teacher records a better experience:"
+msgstr ""
+
+#: ../../howtos/website.rst:369
+msgid "We have seen a pair of \"basic\" fields stored directly in the record. There are :ref:`a number of basic fields <reference/orm/fields/basic>`. The second broad categories of fields are :ref:`relational <reference/orm/fields/relational>` and used to link records to one another (within a model or across models)."
+msgstr ""
+
+#: ../../howtos/website.rst:375
+msgid "For demonstration, let's create a *courses* model. Each course should have a ``teacher`` field, linking to a single teacher record, but each teacher can teach many courses:"
+msgstr ""
+
+#: ../../howtos/website.rst:381
+msgid "let's also add views so we can see and edit a course's teacher:"
+msgstr ""
+
+#: ../../howtos/website.rst:385
+msgid "It should also be possible to create new courses directly from a teacher's page, or to see all the courses they teach, so add :class:`the inverse relationship <odoo.fields.One2many>` to the *teachers* model:"
+msgstr ""
+
+#: ../../howtos/website.rst:393
+msgid "Discussions and notifications"
+msgstr ""
+
+#: ../../howtos/website.rst:395
+msgid "Odoo provides technical models, which don't directly fulfill business needs but which add capabilities to business objects without having to build them by hand."
+msgstr ""
+
+#: ../../howtos/website.rst:399
+msgid "One of these is the *Chatter* system, part of Odoo's email and messaging system, which can add notifications and discussion threads to any model. The model simply has to :attr:`~odoo.models.Model._inherit` ``mail.thread``, and add the ``message_ids`` field to its form view to display the discussion thread. Discussion threads are per-record."
+msgstr ""
+
+#: ../../howtos/website.rst:405
+msgid "For our academy, it makes sense to allow discussing courses to handle e.g. scheduling changes or discussions between teachers and assistants:"
+msgstr ""
+
+#: ../../howtos/website.rst:410
+msgid "At the bottom of each course form, there is now a discussion thread and the possibility for users of the system to leave messages and follow or unfollow discussions linked to specific courses."
+msgstr ""
+
+#: ../../howtos/website.rst:415
+msgid "Selling courses"
+msgstr ""
+
+#: ../../howtos/website.rst:417
+msgid "Odoo also provides business models which allow using or opting in business needs more directly. For instance the ``website_sale`` module sets up an e-commerce site based on the products in the Odoo system. We can easily make course subscriptions sellable by making our courses specific kinds of products."
+msgstr ""
+
+#: ../../howtos/website.rst:423
+msgid "Rather than the previous classical inheritance, this means replacing our *course* model by the *product* model, and extending products in-place (to add anything we need to it)."
+msgstr ""
+
+#: ../../howtos/website.rst:427
+msgid "First of all we need to add a dependency on ``website_sale`` so we get both products (via ``sale``) and the ecommerce interface:"
+msgstr ""
+
+#: ../../howtos/website.rst:432
+msgid "restart Odoo, update your module, there is now a :guilabel:`Shop` section in the website, listing a number of pre-filled (via demonstration data) products."
+msgstr ""
+
+#: ../../howtos/website.rst:435
+msgid "The second step is to replace the *courses* model by ``product.template``, and add a new category of product for courses:"
+msgstr ""
+
+#: ../../howtos/website.rst:440
+msgid "With this installed, a few courses are now available in the :guilabel:`Shop`, though they may have to be looked for."
+msgstr ""
+
+#: ../../howtos/website.rst:445
+msgid "to extend a model in-place, it's :attr:`inherited <odoo.models.Model._inherit>` without giving it a new :attr:`~odoo.models.Model._name`"
+msgstr ""
+
+#: ../../howtos/website.rst:448
+msgid "``product.template`` already uses the discussions system, so we can remove it from our extension model"
+msgstr ""
+
+#: ../../howtos/website.rst:450
+msgid "we're creating our courses as *published* by default so they can be seen without having to log in"
+msgstr ""
+
+#: ../../howtos/website.rst:454
+msgid "Altering existing views"
+msgstr ""
+
+#: ../../howtos/website.rst:456
+msgid "So far, we have briefly seen:"
+msgstr ""
+
+#: ../../howtos/website.rst:458
+msgid "the creation of new models"
+msgstr ""
+
+#: ../../howtos/website.rst:459
+msgid "the creation of new views"
+msgstr ""
+
+#: ../../howtos/website.rst:460
+msgid "the creation of new records"
+msgstr ""
+
+#: ../../howtos/website.rst:461
+msgid "the alteration of existing models"
+msgstr ""
+
+#: ../../howtos/website.rst:463
+msgid "We're left with the alteration of existing records and the alteration of existing views. We'll do both on the :guilabel:`Shop` pages."
+msgstr ""
+
+#: ../../howtos/website.rst:466
+msgid "View alteration is done by creating *extension* views, which are applied on top of the original view and alter it. These alteration views can be added or removed without modifying the original, making it easier to try things out and roll changes back."
+msgstr ""
+
+#: ../../howtos/website.rst:471
+msgid "Since our courses are free, there is no reason to display their price on the shop page, so we're going to alter the view and hide the price if it's 0. The first task is finding out which view displays the price, this can be done via :menuselection:`Customize --> HTML Editor` which lets us read the various templates involved in rendering a page. Going through a few of them, \"Product item\" looks a likely culprit."
+msgstr ""
+
+#: ../../howtos/website.rst:478
+msgid "Altering view architectures is done in 3 steps:"
+msgstr ""
+
+#: ../../howtos/website.rst:480
+msgid "Create a new view"
+msgstr ""
+
+#: ../../howtos/website.rst:481
+msgid "Extend the view to modify by setting the new view's ``inherit_id`` to the modified view's external id"
+msgstr ""
+
+#: ../../howtos/website.rst:483
+msgid "In the architecture, use the ``xpath`` tag to select and alter elements from the modified view"
+msgstr ""
+
+#: ../../howtos/website.rst:488
+msgid "The second thing we will change is making the product categories sidebar visible by default: :menuselection:`Customize --> Product Categories` lets you toggle a tree of product categories (used to filter the main display) on and off."
+msgstr ""
+
+#: ../../howtos/website.rst:493
+msgid "This is done via the ``customize_show`` and ``active`` fields of extension templates: an extension template (such as the one we've just created) can be *customize_show=True*. This choice will display the view in the :guilabel:`Customize` menu with a check box, allowing administrators to activate or disable them (and easily customize their website pages)."
+msgstr ""
+
+#: ../../howtos/website.rst:499
+msgid "We simply need to modify the *Product Categories* record and set its default to *active=\"True\"*:"
+msgstr ""
+
+#: ../../howtos/website.rst:504
+msgid "With this, the *Product Categories* sidebar will automatically be enabled when the *Academy* module is installed."
+msgstr ""
+

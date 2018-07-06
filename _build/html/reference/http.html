@@ -1,0 +1,470 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Web Controllers &mdash; odoo 11.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 11.0 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="../reference.html" />
+    <link rel="next" title="QWeb" href="qweb.html" />
+    <link rel="prev" title="Testing Odoo" href="testing.html" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Web Controllers</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/11.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/index.html">Developer</a></li>
+<li><a href="https://training.odoo.com/">Training center</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/webservices/odoo.html">API</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/setup/install.html">Installation</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/web_controllers.jpg');"></span>
+      <div class="container text-center">
+        <h1> Web Controllers </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#routing" class="ripple internal reference">Routing</a></li><li class="list-group-item"><a href="#request" class="ripple internal reference">Request</a></li><li class="list-group-item"><a href="#response" class="ripple internal reference">Response</a></li><li class="list-group-item"><a href="#controllers" class="ripple internal reference">Controllers</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/11.0/doc/reference/http.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="web-controllers"></section><section id="routing"><i id="reference-http-routing"></i><h2 >Routing</h2><section class="code-function"><h6 id="odoo.http.route"><code>odoo.http.route(<em>route=None</em>, <em>**kw</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L428" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Decorator marking the decorated method as being a handler for
+requests. The method must be part of a subclass of <code >Controller</code>.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >route</strong> -- string or array. The route part that will determine which
+http requests will match the decorated method. Can be a
+single string or an array of strings. See werkzeug's routing
+documentation for the format of route expression (
+<a href="http://werkzeug.pocoo.org/docs/routing/" class="external reference alert-link">http://werkzeug.pocoo.org/docs/routing/</a> ).</li><li ><strong >type</strong> -- The type of request, can be <code >'http'</code> or <code >'json'</code>.</li><li ><strong >auth</strong> -- <p >The type of authentication method, can on of the following:</p><ul ><li ><code >user</code>: The user must be authenticated and the current request
+will perform using the rights of the user.</li><li ><code >public</code>: The user may or may not be authenticated. If she isn't,
+the current request will perform using the shared Public user.</li><li ><code >none</code>: The method is always active, even if there is no
+database. Mainly used by the framework and authentication
+modules. There request code will not have any facilities to access
+the database nor have any configuration indicating the current
+database nor the current user.</li></ul></li><li ><strong >methods</strong> -- A sequence of http methods this route applies to. If not
+specified, all methods are allowed.</li><li ><strong >cors</strong> -- The Access-Control-Allow-Origin cors directive value.</li><li ><strong >csrf</strong> (<a href="https://docs.python.org/3/library/functions.html#bool" class="external reference alert-link" title="(in Python v3.7)"><code >bool</code></a>) -- <p >Whether CSRF protection should be enabled for the route.</p><p >Defaults to <code >True</code>. See <a href="#csrf" class="internal alert-link reference"><span >CSRF Protection</span></a> for more.</p></li></ul></div></div></div><div role="alert" class="alert-warning alert" id="csrf"><h3 class="alert-title">CSRF Protection</h3><div class="versionadded"><p ><span class="versionmodified">New in version 9.0.</span></p></div><p >Odoo implements token-based <a href="https://en.wikipedia.org/wiki/CSRF" class="external reference alert-link">CSRF protection</a>.</p><p >CSRF protection is enabled by default and applies to <em >UNSAFE</em>
+HTTP methods as defined by <a href="https://tools.ietf.org/html/rfc7231.html" class="rfc external reference alert-link"><strong >RFC 7231</strong></a> (all methods other than
+<code >GET</code>, <code >HEAD</code>, <code >TRACE</code> and <code >OPTIONS</code>).</p><p >CSRF protection is implemented by checking requests using
+unsafe methods for a value called <code >csrf_token</code> as part of
+the request's form data. That value is removed from the form
+as part of the validation and does not have to be taken in
+account by your own form processing.</p><p >When adding a new controller for an unsafe method (mostly POST
+for e.g. forms):</p><ul ><li >if the form is generated in Python, a csrf token is
+available via <code class="py py-meth xref">request.csrf_token()
+&lt;odoo.http.WebRequest.csrf_token()</code>, the
+<code class="py xref py-data">request</code> object is available by default
+in QWeb (python) templates, it may have to be added
+explicitly if you are not using QWeb.</li><li ><p >if the form is generated in Javascript, the CSRF token is
+added by default to the QWeb (js) rendering context as
+<code >csrf_token</code> and is otherwise available as <code >csrf_token</code>
+on the <code >web.core</code> module:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.core&#39;</span><span class="p">).</span><span class="nx">csrf_token</span>
+</pre></div>
+</div>
+</li><li >if the endpoint can be called by external parties (not from
+Odoo) as e.g. it is a REST API or a <a href="https://en.wikipedia.org/wiki/Webhook" class="external reference alert-link">webhook</a>, CSRF protection
+must be disabled on the endpoint. If possible, you may want
+to implement other methods of request validation (to ensure
+it is not called by an unrelated third-party).</li></ul></div></section></section><section id="request"><i id="reference-http-request"></i><h2 >Request</h2><p >The request object is automatically set on <code class="py xref py-data">odoo.http.request</code> at
+the start of the request</p><section class="code-class"><h6 id="odoo.http.WebRequest"><code><em >class </em>odoo.http.WebRequest(<em>httprequest</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L175" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Parent class for all Odoo Web request types, mostly deals with
+initialization and setup of the request object (the dispatching itself has
+to be handled by the subclasses)</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><strong >httprequest</strong> (<a href="http://werkzeug.pocoo.org/docs/wrappers/#werkzeug.wrappers.BaseRequest" class="external reference alert-link" title="(in Werkzeug v0.14-dev)"><code class="py xref py-class">werkzeug.wrappers.BaseRequest</code></a>) -- a wrapped werkzeug Request object</div></div></div><section class="code-attribute"><h6 id="WebRequest.httprequest"><code>httprequest</code></h6><p >the original <a href="http://werkzeug.pocoo.org/docs/wrappers/#werkzeug.wrappers.Request" class="external reference alert-link" title="(in Werkzeug v0.14-dev)"><code class="py xref py-class">werkzeug.wrappers.Request</code></a> object provided to the
+request</p></section><section class="code-attribute"><h6 id="WebRequest.params"><code>params</code></h6><p ><code class="py xref py-class">Mapping</code> of request parameters, not generally
+useful as they're provided directly to the handler method as keyword
+arguments</p></section><section class="code-attribute"><h6 id="odoo.http.WebRequest.cr"><code>cr</code></h6><p ><code class="py xref py-class">Cursor</code> initialized for the current method call.</p><p >Accessing the cursor when the current request uses the <code >none</code>
+authentication will raise an exception.</p></section><section class="code-attribute"><h6 id="odoo.http.WebRequest.context"><code>context</code></h6><p ><code class="py xref py-class">Mapping</code> of context values for the current request</p></section><section class="code-attribute"><h6 id="odoo.http.WebRequest.env"><code>env</code></h6><p >The <code class="py xref py-class">Environment</code> bound to current request.</p></section><section class="code-attribute"><h6 id="odoo.http.WebRequest.session"><code>session</code></h6><p ><code class="py xref py-class">OpenERPSession</code> holding the HTTP session data for the
+current http session</p></section><section class="code-attribute"><h6 id="odoo.http.WebRequest.debug"><code>debug</code></h6><p >Indicates whether the current request is in &quot;debug&quot; mode</p></section><section class="code-attribute"><h6 id="odoo.http.WebRequest.registry"><code>registry</code></h6><p >The registry to the database linked to this request. Can be <code >None</code>
+if the current request uses the <code >none</code> authentication.</p><div class="deprecated"><p ><span class="versionmodified">Deprecated since version 8.0: </span>use <a href="#odoo.http.WebRequest.env" class="internal alert-link reference" title="odoo.http.WebRequest.env"><code class="py xref py-attr">env</code></a></p></div></section><section class="code-attribute"><h6 id="odoo.http.WebRequest.db"><code>db</code></h6><p >The database linked to this request. Can be <code >None</code>
+if the current request uses the <code >none</code> authentication.</p></section><section class="code-method"><h6 id="odoo.http.WebRequest.csrf_token"><code>csrf_token(<em>time_limit=3600</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L386" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Generates and returns a CSRF token for the current session</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><strong >time_limit</strong> (<code >int | None</code>) -- the CSRF token should only be valid for the
+specified duration (in second), by default 1h,
+<code >None</code> for the token to be valid as long as the
+current user's session is.</div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">ASCII token string</div></div></div></section></section><section class="code-class"><h6 id="odoo.http.HttpRequest"><code><em >class </em>odoo.http.HttpRequest(<em>*args</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L736" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Handler for the <code >http</code> request type.</p><p >matched routing parameters, query string parameters, <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2" class="external reference alert-link">form</a> parameters
+and files are passed to the handler method as keyword arguments.</p><p >In case of name conflict, routing parameters have priority.</p><p >The handler method's result can be:</p><ul ><li >a falsy value, in which case the HTTP response will be an
+<a href="http://tools.ietf.org/html/rfc7231#section-6.3.5" class="external reference alert-link">HTTP 204</a> (No Content)</li><li >a werkzeug Response object, which is returned as-is</li><li >a <code >str</code> or <code >unicode</code>, will be wrapped in a Response object and
+interpreted as HTML</li></ul><section class="code-method"><h6 id="odoo.http.HttpRequest.make_response"><code>make_response(<em>data</em>, <em>headers=None</em>, <em>cookies=None</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L834" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Helper for non-HTML responses, or HTML responses with custom
+response headers or cookies.</p><p >While handlers can just return the HTML markup of a page they want to
+send as a string if non-HTML data is returned they need to create a
+complete response object, or the returned data will not be correctly
+interpreted by the clients.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >data</strong> (<code >basestring</code>) -- response body</li><li ><strong >headers</strong> (<code >[(name, value)]</code>) -- HTTP headers to set on the response</li><li ><strong >cookies</strong> (<code >collections.Mapping</code>) -- cookies to set on the client</li></ul></div></div></div></section><section class="code-method"><h6 id="odoo.http.HttpRequest.not_found"><code>not_found(<em>description=None</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L872" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Shortcut for a <a href="http://tools.ietf.org/html/rfc7231#section-6.5.4" class="external reference alert-link">HTTP 404</a> (Not Found)
+response</p></section><section class="code-method"><h6 id="odoo.http.HttpRequest.render"><code>render(<em>template</em>, <em>qcontext=None</em>, <em>lazy=True</em>, <em>**kw</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L854" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Lazy render of a QWeb template.</p><p >The actual rendering of the given template will occur at then end of
+the dispatching. Meanwhile, the template and/or qcontext can be
+altered or even replaced by a static response.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >template</strong> (<code >basestring</code>) -- template to render</li><li ><strong >qcontext</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#dict" class="external reference alert-link" title="(in Python v3.7)"><code >dict</code></a>) -- Rendering context to use</li><li ><strong >lazy</strong> (<a href="https://docs.python.org/3/library/functions.html#bool" class="external reference alert-link" title="(in Python v3.7)"><code >bool</code></a>) -- whether the template rendering should be deferred
+until the last possible moment</li><li ><strong >kw</strong> -- forwarded to werkzeug's Response object</li></ul></div></div></div></section></section><section class="code-class"><h6 id="odoo.http.JsonRequest"><code><em >class </em>odoo.http.JsonRequest(<em>*args</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L536" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Request handler for <a href="http://www.jsonrpc.org/specification" class="external reference alert-link">JSON-RPC 2</a> over HTTP</p><ul ><li ><code >method</code> is ignored</li><li ><code >params</code> must be a JSON object (not an array) and is passed as keyword
+arguments to the handler method</li><li >the handler method's result is returned as JSON-RPC <code >result</code> and
+wrapped in the <a href="http://www.jsonrpc.org/specification#response_object" class="external reference alert-link">JSON-RPC Response</a></li></ul><p >Sucessful request:</p><div class="highlight-python"><div class="highlight"><pre>--&gt; {&quot;jsonrpc&quot;: &quot;2.0&quot;,
+     &quot;method&quot;: &quot;call&quot;,
+     &quot;params&quot;: {&quot;context&quot;: {},
+                &quot;arg1&quot;: &quot;val1&quot; },
+     &quot;id&quot;: null}
+
+&lt;-- {&quot;jsonrpc&quot;: &quot;2.0&quot;,
+     &quot;result&quot;: { &quot;res1&quot;: &quot;val1&quot; },
+     &quot;id&quot;: null}
+</pre></div>
+</div>
+<p >Request producing a error:</p><div class="highlight-python"><div class="highlight"><pre>--&gt; {&quot;jsonrpc&quot;: &quot;2.0&quot;,
+     &quot;method&quot;: &quot;call&quot;,
+     &quot;params&quot;: {&quot;context&quot;: {},
+                &quot;arg1&quot;: &quot;val1&quot; },
+     &quot;id&quot;: null}
+
+&lt;-- {&quot;jsonrpc&quot;: &quot;2.0&quot;,
+     &quot;error&quot;: {&quot;code&quot;: 1,
+               &quot;message&quot;: &quot;End user error message.&quot;,
+               &quot;data&quot;: {&quot;code&quot;: &quot;codestring&quot;,
+                        &quot;debug&quot;: &quot;traceback&quot; } },
+     &quot;id&quot;: null}
+</pre></div>
+</div>
+</section></section><section id="response"><h2 >Response</h2><section class="code-class"><h6 id="odoo.http.Response"><code><em >class </em>odoo.http.Response(<em>*args</em>, <em>**kw</em>)<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L1213" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Response object passed through controller route chain.</p><p >In addition to the <a href="http://werkzeug.pocoo.org/docs/wrappers/#werkzeug.wrappers.Response" class="external reference alert-link" title="(in Werkzeug v0.14-dev)"><code class="py xref py-class">werkzeug.wrappers.Response</code></a> parameters, this
+class's constructor can take the following additional parameters
+for QWeb Lazy Rendering.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parameters</div><div class="code-field-body"><ul ><li ><strong >template</strong> (<code >basestring</code>) -- template to render</li><li ><strong >qcontext</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#dict" class="external reference alert-link" title="(in Python v3.7)"><code >dict</code></a>) -- Rendering context to use</li><li ><strong >uid</strong> (<a href="https://docs.python.org/3/library/functions.html#int" class="external reference alert-link" title="(in Python v3.7)"><code >int</code></a>) -- User id to use for the ir.ui.view render call,
+<code >None</code> to use the request's user (the default)</li></ul></div></div></div><p >these attributes are available as parameters on the Response object and
+can be altered at any time before rendering</p><p >Also exposes all the attributes and methods of
+<a href="http://werkzeug.pocoo.org/docs/wrappers/#werkzeug.wrappers.Response" class="external reference alert-link" title="(in Werkzeug v0.14-dev)"><code class="py xref py-class">werkzeug.wrappers.Response</code></a>.</p><section class="code-method"><h6 id="odoo.http.Response.render"><code>render()<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L1257" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Renders the Response's template, returns the result</p></section><section class="code-method"><h6 id="odoo.http.Response.flatten"><code>flatten()<a href="https://github.com/odoo/odoo/blob/11.0/odoo/http.py#L1264" class="external reference alert-link"><span class="viewcode-link">[source]</span></a></code></h6><p >Forces the rendering of the response's template, sets the result
+as response body and unsets <code class="py xref py-attr">template</code></p></section></section></section><section id="controllers"><i id="reference-http-controllers"></i><h2 >Controllers</h2><p >Controllers need to provide extensibility, much like
+<a href="orm.html#odoo.models.Model" class="internal reference" title="odoo.models.Model"><code class="py xref py-class">Model</code></a>, but can't use the same mechanism as the
+pre-requisites (a database with loaded modules) may not be available yet (e.g.
+no database created, or no database selected).</p><p >Controllers thus provide their own extension mechanism, separate from that of
+models:</p><p >Controllers are created by <a href="https://docs.python.org/3/tutorial/classes.html#tut-inheritance" class="external reference" title="(in Python v3.7)"><span class="std xref std-ref">inheriting</span></a> from</p><section class="code-class"><h6 id="odoo.http.Controller"><code><em >class </em>odoo.http.Controller</code></h6></section><p >and defining methods decorated with <a href="#odoo.http.route" class="internal reference" title="odoo.http.route"><code class="py xref py-func">route()</code></a>:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/some_url&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">stuff</span><span class="p">()</span>
+</pre></div>
+</div>
+<p >To <em >override</em> a controller, <a href="https://docs.python.org/3/tutorial/classes.html#tut-inheritance" class="external reference" title="(in Python v3.7)"><span class="std xref std-ref">inherit</span></a> from its
+class and override relevant methods, re-exposing them if necessary:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Extension</span><span class="p">(</span><span class="n">MyController</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">do_before</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Extension</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">handler</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul ><li >decorating with <a href="#odoo.http.route" class="internal reference" title="odoo.http.route"><code class="py xref py-func">route()</code></a> is necessary to keep the method
+(and route) visible: if the method is redefined without decorating, it
+will be &quot;unpublished&quot;</li><li ><p >the decorators of all methods are combined, if the overriding method's
+decorator has no argument all previous ones will be kept, any provided
+argument will override previously defined ones e.g.:</p><div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Restrict</span><span class="p">(</span><span class="n">MyController</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Restrict</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">handler</span><span class="p">()</span>
+</pre></div>
+</div>
+<p >will change <code >/some_url</code> from public authentication to user (requiring a
+log-in)</p></li></ul></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

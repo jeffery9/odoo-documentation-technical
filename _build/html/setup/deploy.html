@@ -1,0 +1,607 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Deploying Odoo &mdash; odoo 11.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 11.0 documentation" href="../index.html" />
+    <link rel="up" title="Setting Up" href="../setup.html" />
+    <link rel="next" title="Deploying with Content Delivery Networks" href="cdn.html" />
+    <link rel="prev" title="Installing Odoo" href="install.html" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Deploying Odoo</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/11.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/index.html">Developer</a></li>
+<li><a href="https://training.odoo.com/">Training center</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/webservices/odoo.html">API</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/setup/install.html">Installation</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/deploying_odoo.jpg');"></span>
+      <div class="container text-center">
+        <h1> Deploying Odoo </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#dbfilter" class="ripple internal reference">dbfilter</a><ul ><li class="list-group-item"><a href="#configuration-samples" class="ripple internal reference">Configuration samples</a></li></ul></li><li class="list-group-item"><a href="#postgresql" class="ripple internal reference">PostgreSQL</a><ul ><li class="list-group-item"><a href="#configuration-sample" class="ripple internal reference">Configuration sample</a></li><li class="list-group-item"><a href="#configuring-odoo" class="ripple internal reference">Configuring Odoo</a><ul ><li class="list-group-item"><a href="#id3" class="ripple internal reference">Configuration sample</a></li></ul></li><li class="list-group-item"><a href="#ssl-between-odoo-and-postgresql" class="ripple internal reference">SSL Between Odoo and PostgreSQL</a></li></ul></li><li class="list-group-item"><a href="#builtin-server" class="ripple internal reference">Builtin server</a><ul ><li class="list-group-item"><a href="#worker-number-calculation" class="ripple internal reference">Worker number calculation</a></li><li class="list-group-item"><a href="#memory-size-calculation" class="ripple internal reference">memory size calculation</a></li><li class="list-group-item"><a href="#livechat" class="ripple internal reference">LiveChat</a></li><li class="list-group-item"><a href="#id5" class="ripple internal reference">Configuration sample</a></li></ul></li><li class="list-group-item"><a href="#https" class="ripple internal reference">HTTPS</a><ul ><li class="list-group-item"><a href="#id7" class="ripple internal reference">Configuration sample</a></li></ul></li><li class="list-group-item"><a href="#odoo-as-a-wsgi-application" class="ripple internal reference">Odoo as a WSGI Application</a><ul ><li class="list-group-item"><a href="#cron-workers" class="ripple internal reference">Cron Workers</a></li><li class="list-group-item"><a href="#id8" class="ripple internal reference">LiveChat</a></li></ul></li><li class="list-group-item"><a href="#serving-static-files" class="ripple internal reference">Serving Static Files</a></li><li class="list-group-item"><a href="#security" class="ripple internal reference">Security</a><ul ><li class="list-group-item"><a href="#database-manager-security" class="ripple internal reference">Database Manager Security</a></li></ul></li><li class="list-group-item"><a href="#supported-browsers" class="ripple internal reference">Supported Browsers</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/11.0/doc/setup/deploy.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="deploying-odoo"><p >This document describes basic steps to set up Odoo in production or on an
+internet-facing server. It follows <a href="install.html#setup-install" class="internal reference"><span >installation</span></a>, and is
+not generally necessary for a development systems that is not exposed on the
+internet.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >If you are setting up a public server, be sure to check our <a href="#security" class="internal alert-link reference"><span >Security</span></a> recommandations!</p></div></section><section id="dbfilter"><i id="db-filter"></i><h2 >dbfilter</h2><p >Odoo is a multi-tenant system: a single Odoo system may run and serve a number
+of database instances. It is also highly customizable, with customizations
+(starting from the modules being loaded) depending on the &quot;current database&quot;.</p><p >This is not an issue when working with the backend (web client) as a logged-in
+company user: the database can be selected when logging in, and customizations
+loaded afterwards.</p><p >However it is an issue for non-logged users (portal, website) which aren't
+bound to a database: Odoo needs to know which database should be used to load
+the website page or perform the operation. If multi-tenancy is not used that is not an
+issue, there's only one database to use, but if there are multiple databases
+accessible Odoo needs a rule to know which one it should use.</p><p >That is one of the purposes of <a href="../reference/cmdline.html#cmdoption-odoo-bin--db-filter" class="internal reference"><code class="std xref std-option">--db-filter</code></a>:
+it specifies how the database should be selected based on the hostname (domain)
+that is being requested. The value is a <a href="https://docs.python.org/3/library/re.html" class="external reference">regular expression</a>, possibly
+including the dynamically injected hostname (<code >%h</code>) or the first subdomain
+(<code >%d</code>) through which the system is being accessed.</p><p >For servers hosting multiple databases in production, especially if <code >website</code>
+is used, dbfilter <strong >must</strong> be set, otherwise a number of features will not work
+correctly.</p></section><section id="configuration-samples"><h3 >Configuration samples</h3><ul ><li >Show only databases with names beginning with 'mycompany'</li></ul><p >in <code >/etc/odoo.conf</code> set:</p><div class="highlight-ini"><div class="highlight"><pre><span class="k">[options]</span>
+<span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^mycompany.*$</span>
+</pre></div>
+</div>
+<ul ><li >Show only databases matching the first subdomain after <code >www</code>: for example
+the database &quot;mycompany&quot; will be shown if the incoming request
+was sent to <code >www.mycompany.com</code> or <code >mycompany.co.uk</code>, but not
+for <code >www2.mycompany.com</code> or <code >helpdesk.mycompany.com</code>.</li></ul><p >in <code >/etc/odoo.conf</code> set:</p><div class="highlight-ini"><div class="highlight"><pre><span class="k">[options]</span>
+<span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^%d$</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >Setting a proper <a href="../reference/cmdline.html#cmdoption-odoo-bin--db-filter" class="internal alert-link reference"><code class="std xref std-option">--db-filter</code></a> is an important part
+of securing your deployment.
+Once it is correctly working and only matching a single database per hostname, it
+is strongly recommended to block access to the database manager screens,
+and to use the <code >--no-database-list</code> startup paramater to prevent listing
+your databases, and to block access to the database management screens.
+See also <a href="#security" class="internal alert-link reference">security</a>.</p></div></section><section id="postgresql"><h2 >PostgreSQL</h2><p >By default, PostgreSQL only allows connection over UNIX sockets and loopback
+connections (from &quot;localhost&quot;, the same machine the PostgreSQL server is
+installed on).</p><p >UNIX socket is fine if you want Odoo and PostgreSQL to execute on the same
+machine, and is the default when no host is provided, but if you want Odoo and
+PostgreSQL to execute on different machines <a href="#different-machines" class="footnote-ref" id="id1">1</a> it will
+need to <a href="http://www.postgresql.org/docs/9.6/static/runtime-config-connection.html" class="external reference">listen to network interfaces</a> <a href="#remote-socket" class="footnote-ref" id="id2">2</a>, either:</p><ul ><li >Only accept loopback connections and <a href="http://www.postgresql.org/docs/9.6/static/ssh-tunnels.html" class="external reference">use an SSH tunnel</a> between the
+machine on which Odoo runs and the one on which PostgreSQL runs, then
+configure Odoo to connect to its end of the tunnel</li><li >Accept connections to the machine on which Odoo is installed, possibly
+over ssl (see <a href="http://www.postgresql.org/docs/9.6/static/runtime-config-connection.html" class="external reference">PostgreSQL connection settings</a> for details), then configure
+Odoo to connect over the network</li></ul></section><section id="configuration-sample"><h3 >Configuration sample</h3><ul ><li >Allow tcp connection on localhost</li><li >Allow tcp connection from 192.168.1.x network</li></ul><p >in <code >/etc/postgresql/9.5/main/pg_hba.conf</code> set:</p><div class="highlight-text"><div class="highlight"><pre># IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+host    all             all             192.168.1.0/24          md5
+</pre></div>
+</div>
+<p >in <code >/etc/postgresql/9.5/main/postgresql.conf</code> set:</p><div class="highlight-text"><div class="highlight"><pre>listen_addresses = &#39;localhost,192.168.1.2&#39;
+port = 5432
+max_connections = 80
+</pre></div>
+</div>
+</section><section id="configuring-odoo"><i id="setup-deploy-odoo"></i><h3 >Configuring Odoo</h3><p >Out of the box, Odoo connects to a local postgres over UNIX socket via port
+5432. This can be overridden using <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><span >the database options</span></a> when your Postgres deployment is not
+local and/or does not use the installation defaults.</p><p >The <a href="install.html#setup-install-packaged" class="internal reference"><span >packaged installers</span></a> will automatically
+create a new user (<code >odoo</code>) and set it as the database user.</p><ul ><li >The database management screens are protected by the <code >admin_passwd</code>
+setting. This setting can only be set using configuration files, and is
+simply checked before performing database alterations. It should be set to
+a randomly generated value to ensure third parties can not use this
+interface.</li><li >All database operations use the <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><span >database options</span></a>, including the database management
+screen. For the database management screen to work requires that the PostgreSQL user
+have <code >createdb</code> right.</li><li ><p >Users can always drop databases they own. For the database management screen
+to be completely non-functional, the PostgreSQL user needs to be created with
+<code >no-createdb</code> and the database must be owned by a different PostgreSQL user.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >the PostgreSQL user <em >must not</em> be a superuser</p></div></li></ul></section><section id="id3"><h4 >Configuration sample</h4><ul ><li >connect to a PostgreSQL server on 192.168.1.2</li><li >port 5432</li><li >using an 'odoo' user account,</li><li >with 'pwd' as a password</li><li >filtering only db with a name beginning with 'mycompany'</li></ul><p >in <code >/etc/odoo.conf</code> set:</p><div class="highlight-ini"><div class="highlight"><pre><span class="k">[options]</span>
+<span class="na">admin_passwd</span> <span class="o">=</span> <span class="s">mysupersecretpassword</span>
+<span class="na">db_host</span> <span class="o">=</span> <span class="s">192.168.1.2</span>
+<span class="na">db_port</span> <span class="o">=</span> <span class="s">5432</span>
+<span class="na">db_user</span> <span class="o">=</span> <span class="s">odoo</span>
+<span class="na">db_password</span> <span class="o">=</span> <span class="s">pwd</span>
+<span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^mycompany.*$</span>
+</pre></div>
+</div>
+</section><section id="ssl-between-odoo-and-postgresql"><i id="postgresql-ssl-connect"></i><h3 >SSL Between Odoo and PostgreSQL</h3><p >Since Odoo 11.0, you can enforce ssl connection between Odoo and PostgreSQL.
+in Odoo the db_sslmode control the ssl security of the connection
+with value choosed out of 'disable', 'allow', 'prefer', 'require', 'verify-ca'
+or 'verify-full'</p><p ><a href="https://www.postgresql.org/docs/current/static/libpq-ssl.html" class="external reference">PostgreSQL Doc</a></p></section><section id="builtin-server"><i id="id4"></i><h2 >Builtin server</h2><p >Odoo includes built-in HTTP servers, using either multithreading or
+multiprocessing.</p><p >For production use, it is recommended to use the multiprocessing server as it
+increases stability, makes somewhat better use of computing resources and can
+be better monitored and resource-restricted.</p><ul ><li >Multiprocessing is enabled by configuring <a href="../reference/cmdline.html#cmdoption-odoo-bin--workers" class="internal reference"><code class="std xref std-option">a non-zero number of
+worker processes</code></a>, the number of workers should be based
+on the number of cores in the machine (possibly with some room for cron
+workers depending on how much cron work is predicted)</li><li >Worker limits can be configured based on the hardware configuration to avoid
+resources exhaustion</li></ul><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >multiprocessing mode currently isn't available on Windows</p></div></section><section id="worker-number-calculation"><h3 >Worker number calculation</h3><ul ><li >Rule of thumb : (#CPU * 2) + 1</li><li >Cron workers need CPU</li><li >1 worker ~= 6 concurrent users</li></ul></section><section id="memory-size-calculation"><h3 >memory size calculation</h3><ul ><li >We consider 20% of the requests are heavy requests, while 80% are simpler ones</li><li >A heavy worker, when all computed field are well designed, SQL requests are well designed, ... is estimated to consume around 1Go of RAM</li><li >A lighter worker, in the same scenario, is estimated to consume around 150MB of RAM</li></ul><p >Needed RAM = #worker * ( (light_worker_ratio * light_worker_ram_estimation) + (heavy_worker_ratio * heavy_worker_ram_estimation) )</p></section><section id="livechat"><h3 >LiveChat</h3><p >In multiprocessing, a dedicated LiveChat worker is automatically started and
+listening on <a href="../reference/cmdline.html#cmdoption-odoo-bin--longpolling-port" class="internal reference"><code class="std xref std-option">the longpolling port</code></a> but
+the client will not connect to it.</p><p >Instead you must have a proxy redirecting requests whose URL starts with
+<code >/longpolling/</code> to the longpolling port. Other request should be proxied to
+the <a href="../reference/cmdline.html#cmdoption-odoo-bin--http-port" class="internal reference"><code class="std xref std-option">normal HTTP port</code></a></p><p >To achieve such a thing, you'll need to deploy a reverse proxy in front of Odoo,
+like nginx or apache. When doing so, you'll need to forward some more http Headers
+to Odoo, and activate the proxy_mode in Odoo configuration to have Odoo read those
+headers.</p></section><section id="id5"><h3 >Configuration sample</h3><ul ><li >Server with 4 CPU, 8 Thread</li><li >60 concurrent users</li><li >60 users / 6 = 10 &lt;- theorical number of worker needed</li><li >(4 * 2) + 1 = 9 &lt;- theorical maximal number of worker</li><li >We'll use 8 workers + 1 for cron. We'll also use a monitoring system to measure cpu load, and check if it's between 7 and 7.5 .</li><li >RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Odoo</li></ul><p >in <code >/etc/odoo.conf</code>:</p><div class="highlight-ini"><div class="highlight"><pre><span class="k">[options]</span>
+<span class="na">limit_memory_hard</span> <span class="o">=</span> <span class="s">1677721600</span>
+<span class="na">limit_memory_soft</span> <span class="o">=</span> <span class="s">629145600</span>
+<span class="na">limit_request</span> <span class="o">=</span> <span class="s">8192</span>
+<span class="na">limit_time_cpu</span> <span class="o">=</span> <span class="s">600</span>
+<span class="na">limit_time_real</span> <span class="o">=</span> <span class="s">1200</span>
+<span class="na">max_cron_threads</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">workers</span> <span class="o">=</span> <span class="s">8</span>
+</pre></div>
+</div>
+</section><section id="https"><i id="https-proxy"></i><h2 >HTTPS</h2><p >Whether it's accessed via website/web client or web service, Odoo transmits
+authentication information in cleartext. This means a secure deployment of
+Odoo must use HTTPS<a href="#switching" class="footnote-ref" id="id6">3</a>. SSL termination can be implemented via
+just about any SSL termination proxy, but requires the following setup:</p><ul ><li >Enable Odoo's <a href="../reference/cmdline.html#cmdoption-odoo-bin--proxy-mode" class="internal reference"><code class="std xref std-option">proxy mode</code></a>. This should only be enabled when Odoo is behind a reverse proxy</li><li >Set up the SSL termination proxy (<a href="http://nginx.com/resources/admin-guide/nginx-ssl-termination/" class="external reference">Nginx termination example</a>)</li><li >Set up the proxying itself (<a href="http://nginx.com/resources/admin-guide/reverse-proxy/" class="external reference">Nginx proxying example</a>)</li><li >Your SSL termination proxy should also automatically redirect non-secure
+connections to the secure port</li></ul><div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >In case you are using the Point of Sale module in combination with a <a href="https://www.odoo.com/page/point-of-sale-hardware#part_2" class="external reference alert-link">POSBox</a>,
+you must disable the HTTPS configuration for the route <code >/pos/web</code> to avoid
+mixed-content errors.</p></div></section><section id="id7"><h3 >Configuration sample</h3><ul ><li >Redirect http requests to https</li><li >Proxy requests to odoo</li></ul><p >in <code >/etc/odoo.conf</code> set:</p><div class="highlight-ini"><div class="highlight"><pre><span class="na">proxy_mode</span> <span class="o">=</span> <span class="s">True</span>
+</pre></div>
+</div>
+<p >in <code >/etc/nginx/sites-enabled/odoo.conf</code> set:</p><div class="highlight-nginx"><div class="highlight"><pre><span class="c1">#odoo server</span>
+<span class="k">upstream</span> <span class="s">odoo</span> <span class="p">{</span>
+ <span class="kn">server</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8069</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">upstream</span> <span class="s">odoochat</span> <span class="p">{</span>
+ <span class="kn">server</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8072</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># http -&gt; https</span>
+<span class="k">server</span> <span class="p">{</span>
+   <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+   <span class="kn">server_name</span> <span class="s">odoo.mycompany.com</span><span class="p">;</span>
+   <span class="kn">rewrite</span> <span class="s">^(.*)</span> <span class="s">https://</span><span class="nv">$host$1</span> <span class="s">permanent</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">server</span> <span class="p">{</span>
+ <span class="kn">listen</span> <span class="mi">443</span><span class="p">;</span>
+ <span class="kn">server_name</span> <span class="s">odoo.mycompany.com</span><span class="p">;</span>
+ <span class="kn">proxy_read_timeout</span> <span class="s">720s</span><span class="p">;</span>
+ <span class="kn">proxy_connect_timeout</span> <span class="s">720s</span><span class="p">;</span>
+ <span class="kn">proxy_send_timeout</span> <span class="s">720s</span><span class="p">;</span>
+
+ <span class="c1"># Add Headers for odoo proxy mode</span>
+ <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Host</span> <span class="nv">$host</span><span class="p">;</span>
+ <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+ <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
+ <span class="kn">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+
+ <span class="c1"># SSL parameters</span>
+ <span class="kn">ssl</span> <span class="no">on</span><span class="p">;</span>
+ <span class="kn">ssl_certificate</span> <span class="s">/etc/ssl/nginx/server.crt</span><span class="p">;</span>
+ <span class="kn">ssl_certificate_key</span> <span class="s">/etc/ssl/nginx/server.key</span><span class="p">;</span>
+ <span class="kn">ssl_session_timeout</span> <span class="mi">30m</span><span class="p">;</span>
+ <span class="kn">ssl_protocols</span> <span class="s">TLSv1</span> <span class="s">TLSv1.1</span> <span class="s">TLSv1.2</span><span class="p">;</span>
+ <span class="kn">ssl_ciphers</span> <span class="s">&#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;</span><span class="p">;</span>
+ <span class="kn">ssl_prefer_server_ciphers</span> <span class="no">on</span><span class="p">;</span>
+
+ <span class="c1"># log</span>
+ <span class="kn">access_log</span> <span class="s">/var/log/nginx/odoo.access.log</span><span class="p">;</span>
+ <span class="kn">error_log</span> <span class="s">/var/log/nginx/odoo.error.log</span><span class="p">;</span>
+
+ <span class="c1"># Redirect longpoll requests to odoo longpolling port</span>
+ <span class="kn">location</span> <span class="s">/longpolling</span> <span class="p">{</span>
+ <span class="kn">proxy_pass</span> <span class="s">http://odoochat</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="c1"># Redirect requests to odoo backend server</span>
+ <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+   <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
+   <span class="kn">proxy_pass</span> <span class="s">http://odoo</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="c1"># common gzip</span>
+ <span class="kn">gzip_types</span> <span class="s">text/css</span> <span class="s">text/less</span> <span class="s">text/plain</span> <span class="s">text/xml</span> <span class="s">application/xml</span> <span class="s">application/json</span> <span class="s">application/javascript</span><span class="p">;</span>
+ <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section><section id="odoo-as-a-wsgi-application"><h2 >Odoo as a WSGI Application</h2><p >It is also possible to mount Odoo as a standard <a href="http://wsgi.readthedocs.org/" class="external reference">WSGI</a> application. Odoo
+provides the base for a WSGI launcher script as <code >odoo-wsgi.example.py</code>. That
+script should be customized (possibly after copying it from the setup directory) to correctly set the
+configuration directly in <code class="py xref py-mod">odoo.tools.config</code> rather than through the
+command-line or a configuration file.</p><p >However the WSGI server will only expose the main HTTP endpoint for the web
+client, website and webservice API. Because Odoo does not control the creation
+of workers anymore it can not setup cron or livechat workers</p></section><section id="cron-workers"><h3 >Cron Workers</h3><p >To run cron jobs for an Odoo deployment as a WSGI application requires</p><ul ><li >A classical Odoo (run via <code >odoo-bin</code>)</li><li >Connected to the database in which cron jobs have to be run (via
+<a href="../reference/cmdline.html#cmdoption-odoo-bin-d" class="internal reference"><code class="std xref std-option">odoo-bin -d</code></a>)</li><li >Which should not be exposed to the network. To ensure cron runners are not
+network-accessible, it is possible to disable the built-in HTTP server
+entirely with <a href="../reference/cmdline.html#cmdoption-odoo-bin--no-http" class="internal reference"><code class="std xref std-option">odoo-bin --no-http</code></a> or setting <code >http_enable = False</code>
+in the configuration file</li></ul></section><section id="id8"><h3 >LiveChat</h3><p >The second problematic subsystem for WSGI deployments is the LiveChat: where
+most HTTP connections are relatively short and quickly free up their worker
+process for the next request, LiveChat require a long-lived connection for
+each client in order to implement near-real-time notifications.</p><p >This is in conflict with the process-based worker model, as it will tie
+up worker processes and prevent new users from accessing the system. However,
+those long-lived connections do very little and mostly stay parked waiting for
+notifications.</p><p >The solutions to support livechat/motifications in a WSGI application are:</p><ul ><li >Deploy a threaded version of Odoo (instread of a process-based preforking
+one) and redirect only requests to URLs starting with <code >/longpolling/</code> to
+that Odoo, this is the simplest and the longpolling URL can double up as
+the cron instance.</li><li >Deploy an evented Odoo via <code >odoo-gevent</code> and proxy requests starting
+with <code >/longpolling/</code> to
+<a href="../reference/cmdline.html#cmdoption-odoo-bin--longpolling-port" class="internal reference"><code class="std xref std-option">the longpolling port</code></a>.</li></ul></section><section id="serving-static-files"><h2 >Serving Static Files</h2><p >For development convenience, Odoo directly serves all static files in its
+modules. This may not be ideal when it comes to performances, and static
+files should generally be served by a static HTTP server.</p><p >Odoo static files live in each module's <code >static/</code> folder, so static files
+can be served by intercepting all requests to <code class="samp">/<em >MODULE</em>/static/<em >FILE</em></code>,
+and looking up the right module (and file) in the various addons paths.</p></section><section id="security"><i id="id9"></i><h2 >Security</h2><p >For starters, keep in mind that securing an information system is a continuous process,
+not a one-shot operation. At any moment, you will only be as secure as the weakest link
+in your environment.</p><p >So please do not take this section as the ultimate list of measures that will prevent
+all security problems. It's only intended as a summary of the first important things
+you should be sure to include in your security action plan. The rest will come
+from best security practices for your operating system and distribution,
+best practices in terms of users, passwords, and access control management, etc.</p><p >When deploying an internet-facing server, please be sure to consider the following
+security-related topics:</p><ul ><li >Always set a strong super-admin admin password, and restrict access to the database
+management pages as soon as the system is set up. See <a href="#db-manager-security" class="internal reference"><span >Database Manager Security</span></a>.</li><li >Choose unique logins and strong passwords for all administrator accounts on all databases.
+Do not use 'admin' as the login. Do not use those logins for day-to-day operations,
+only for controlling/managing the installation.
+<em >Never</em> use any default passwords like admin/admin, even for test/staging databases.</li><li >Do <strong >not</strong> install demo data on internet-facing servers. Databases with demo data contain
+default logins and passwords that can be used to get into your systems and cause significant
+trouble, even on staging/dev systems.</li><li >Use appropriate database filters ( <a href="../reference/cmdline.html#cmdoption-odoo-bin--db-filter" class="internal reference"><code class="std xref std-option">--db-filter</code></a>)
+to restrict the visibility of your databases according to the hostname.
+See <a href="#db-filter" class="internal reference"><span >dbfilter</span></a>.
+You may also use <a href="../reference/cmdline.html#cmdoption-odoo-bin-d" class="internal reference"><code class="std xref std-option">-d</code></a> to provide your own (comma-separated)
+list of available databases to filter from, instead of letting the system fetch
+them all from the database backend.</li><li >Once your <code >db_name</code> and <code >db_filter</code> are configured and only match a single database
+per hostname, you should set <code >list_db</code> configuration option to <code >False</code>, to prevent
+listing databases entirely, and to block access to the database management screens
+(this is also exposed as the <a href="../reference/cmdline.html#cmdoption-odoo-bin--no-database-list" class="internal reference"><code class="std xref std-option">--no-database-list</code></a>
+command-line option)</li><li >Make sure the PostgreSQL user (<a href="../reference/cmdline.html#cmdoption-odoo-bin--db_user" class="internal reference"><code class="std xref std-option">--db_user</code></a>) is <em >not</em> a super-user,
+and that your databases are owned by a different user. For example they could be owned by
+the <code >postgres</code> super-user if you are using a dedicated non-privileged <code >db_user</code>.
+See also <a href="#setup-deploy-odoo" class="internal reference"><span >Configuring Odoo</span></a>.</li><li >Keep installations updated by regularly installing the latest builds,
+either via GitHub or by downloading the latest version from
+<a href="https://www.odoo.com/page/download" class="external reference">https://www.odoo.com/page/download</a> or <a href="http://nightly.odoo.com" class="external reference">http://nightly.odoo.com</a></li><li >Configure your server in multi-process mode with proper limits matching your typical
+usage (memory/CPU/timeouts). See also <a href="#builtin-server" class="internal reference"><span >Builtin server</span></a>.</li><li >Run Odoo behind a web server providing HTTPS termination with a valid SSL certificate,
+in order to prevent eavesdropping on cleartext communications. SSL certificates are
+cheap, and many free options exist.
+Configure the web proxy to limit the size of requests, set appropriate timeouts,
+and then enable the <a href="../reference/cmdline.html#cmdoption-odoo-bin--proxy-mode" class="internal reference"><code class="std xref std-option">proxy mode</code></a> option.
+See also <a href="#https-proxy" class="internal reference"><span >HTTPS</span></a>.</li><li >If you need to allow remote SSH access to your servers, make sure to set a strong password
+for <strong >all</strong> accounts, not just <code >root</code>. It is strongly recommended to entirely disable
+password-based authentication, and only allow public key authentication. Also consider
+restricting access via a VPN, allowing only trusted IPs in the firewall, and/or
+running a brute-force detection system such as <code >fail2ban</code> or equivalent.</li><li >Whenever possible, host your public-facing demo/test/staging instances on different
+machines than the production ones. And apply the same security precautions as for
+production.</li><li >If you are hosting multiple customers, isolate customer data and files from each other
+using containers or appropriate &quot;jail&quot; techniques.</li><li >Setup daily backups of your databases and filestore data, and copy them to a remote
+archiving server that is not accessible from the server itself.</li></ul></section><section id="database-manager-security"><i id="db-manager-security"></i><h3 >Database Manager Security</h3><p ><a href="#setup-deploy-odoo" class="internal reference"><span >Configuring Odoo</span></a> mentioned <code >admin_passwd</code> in passing.</p><p >This setting is used on all database management screens (to create, delete,
+dump or restore databases).</p><p >If the management screens must not be accessible at all, you should set <code >list_db</code>
+configuration option to <code >False</code>, to block access to all the database selection and
+management screens. But be sure to setup an appropriate <code >db_name</code> parameter
+(and optionally, <code >db_filter</code> too) so that the system can determine the target database
+for each request, otherwise users will be blocked as they won't be allowed to choose the
+database themselves.</p><p >If the management screens must only be accessible from a selected set of machines,
+use the proxy server's features to block access to all routes starting with <code >/web/database</code>
+except (maybe) <code >/web/database/selector</code> which displays the database-selection screen.</p><p >If the database-management screen should be left accessible, the
+<code >admin_passwd</code> setting must be changed from its <code >admin</code> default: this
+password is checked before allowing database-alteration operations.</p><p >It should be stored securely, and should be generated randomly e.g.</p><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> python3 -c <span class="s1">&#39;import base64, os; print(base64.b64encode(os.urandom(24)))&#39;</span>
+</pre></div>
+</div>
+<p >which will generate a 32 characters pseudorandom printable string.</p></section><section id="supported-browsers"><h2 >Supported Browsers</h2><p >Odoo is supported by multiple browsers for each of its versions. No
+distinction is made according to the browser version in order to be
+up-to-date. Odoo is supported on the current browser version. The list
+of the supported browsers is the following:</p><ul ><li >IE11,</li><li >Mozilla Firefox,</li><li >Google Chrome,</li><li >Safari,</li><li >Microsoft Edge</li></ul><div class="footnote" id="different-machines"><span class="footnote-label"><a class="footnote-backref" href="#id1">[1]</a></span> to have multiple Odoo installations use the same PostgreSQL database,
+or to provide more computing resources to both software.</div><div class="footnote" id="remote-socket"><span class="footnote-label"><a class="footnote-backref" href="#id2">[2]</a></span> technically a tool like <a href="http://www.dest-unreach.org/socat/" class="external reference">socat</a> can be used to proxy UNIX sockets across
+networks, but that is mostly for software which can only be used over
+UNIX sockets</div><div class="footnote" id="switching"><span class="footnote-label"><a class="footnote-backref" href="#id6">[3]</a></span> or be accessible only over an internal packet-switched network, but that
+requires secured switches, protections against <a href="http://en.wikipedia.org/wiki/ARP_spoofing" class="external reference">ARP spoofing</a> and
+precludes usage of WiFi. Even over secure packet-switched networks,
+deployment over HTTPS is recommended, and possible costs are lowered as
+&quot;self-signed&quot; certificates are easier to deploy on a controlled
+environment than over the internet.</div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

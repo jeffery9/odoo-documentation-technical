@@ -1,0 +1,489 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Actions &mdash; odoo 10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/doc.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 10.0 documentation" href="../../" />
+    <link rel="up" title="Reference" href="../" />
+    <link rel="next" title="Views" href="../views/" />
+    <link rel="prev" title="Data Files" href="../data/" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../../">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Actions</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../../_static/banners/actions.jpg');"></span>
+      <div class="container text-center">
+        <h1> Actions </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#window-actions-ir-actions-act-window" class="ripple internal reference">Window Actions (<code >ir.actions.act_window</code>)</a></li><li class="list-group-item"><a href="#url-actions-ir-actions-act-url" class="ripple internal reference">URL Actions (<code >ir.actions.act_url</code>)</a></li><li class="list-group-item"><a href="#server-actions-ir-actions-server" class="ripple internal reference">Server Actions (<code >ir.actions.server</code>)</a><ul ><li class="list-group-item"><a href="#code" class="ripple internal reference"><code >code</code></a></li><li class="list-group-item"><a href="#object-create" class="ripple internal reference"><code >object_create</code></a></li><li class="list-group-item"><a href="#object-write" class="ripple internal reference"><code >object_write</code></a></li><li class="list-group-item"><a href="#multi" class="ripple internal reference"><code >multi</code></a></li><li class="list-group-item"><a href="#trigger" class="ripple internal reference"><code >trigger</code></a></li><li class="list-group-item"><a href="#client-action" class="ripple internal reference"><code >client_action</code></a></li><li class="list-group-item"><a href="#evaluation-context" class="ripple internal reference">Evaluation context</a></li></ul></li><li class="list-group-item"><a href="#report-actions-ir-actions-report-xml" class="ripple internal reference">Report Actions (<code >ir.actions.report.xml</code>)</a></li><li class="list-group-item"><a href="#client-actions-ir-actions-client" class="ripple internal reference">Client Actions (<code >ir.actions.client</code>)</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/reference/actions.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="actions"><i id="reference-actions"></i><p >Actions define the behavior of the system in response to user actions: login,
+action button, selection of an invoice, ...</p><p >Actions can be stored in the database or returned directly as dictionaries in
+e.g. button methods. All actions share two mandatory attributes:</p><dl ><dt ><code >type</code></dt><dd >the category of the current action, determines which fields may be
+used and how the action is interpreted</dd><dt ><code >name</code></dt><dd >short user-readable description of the action, may be displayed in the
+client's interface</dd></dl><p >A client can get actions in 4 forms:</p><dl ><dt ><code >False</code></dt><dd >if any action dialog is currently open, close it</dd><dt >A string</dt><dd >if a <a href="#reference-actions-client" class="internal reference"><span >client action</span></a> matches, interpret as
+a client action's tag, otherwise treat as a number</dd><dt >A number</dt><dd >read the corresponding action record from the database, may be a database
+identifier or an <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a></dd><dt >A dictionary</dt><dd >treat as a client action descriptor and execute</dd></dl></section><section id="window-actions-ir-actions-act-window"><i id="reference-actions-window"></i><h2 >Window Actions (<code >ir.actions.act_window</code>)</h2><p >The most common action type, used to present visualisations of a model through
+<a href="../views/#reference-views" class="internal reference"><span >views</span></a>: a window action defines a set of view types
+(and possibly specific views) for a model (and possibly specific record of the
+model).</p><p >Its fields are:</p><dl ><dt ><code >res_model</code></dt><dd >model to present views for</dd><dt ><code >views</code></dt><dd >a list of <code >(view_id, view_type)</code> pairs. The second element of each pair
+is the category of the view (tree, form, graph, ...) and the first is
+an optional database id (or <code >False</code>). If no id is provided, the client
+should fetch the default view of the specified type for the requested
+model (this is automatically done by
+<a href="../orm/#odoo.models.Model.fields_view_get" class="internal reference" title="odoo.models.Model.fields_view_get"><code class="py py-meth xref">fields_view_get()</code></a>). The first type of the
+list is the default view type and will be open by default when the action
+is executed. Each view type should be present at most once in the list</dd><dt ><code >res_id</code> (optional)</dt><dd >if the default view is <code >form</code>, specifies the record to load (otherwise
+a new record should be created)</dd><dt ><code >search_view_id</code> (optional)</dt><dd ><code >(id, name)</code> pair, <code >id</code> is the database identifier of a specific
+search view to load for the action. Defaults to fetching the default
+search view for the model</dd><dt ><code >target</code> (optional)</dt><dd >whether the views should be open in the main content area (<code >current</code>),
+in full screen mode (<code >fullscreen</code>) or in a dialog/popup (<code >new</code>). Use
+<code >main</code> instead of <code >current</code> to clear the breadcrumbs. Defaults to
+<code >current</code>.</dd><dt ><code >context</code> (optional)</dt><dd >additional context data to pass to the views</dd><dt ><code >domain</code> (optional)</dt><dd >filtering domain to implicitly add to all view search queries</dd><dt ><code >limit</code> (optional)</dt><dd >number of records to display in lists by default. Defaults to 80 in the
+web client</dd><dt ><code >auto_search</code> (optional)</dt><dd >whether a search should be performed immediately after loading the default
+view. Defaults to <code >True</code></dd></dl><p >For instance, to open customers (partner with the <code >customer</code> flag set) with
+list and form views:</p><div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ir.actions.act_window&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;res_model&quot;</span><span class="p">:</span> <span class="s2">&quot;res.partner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;views&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;tree&quot;</span><span class="p">],</span> <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;form&quot;</span><span class="p">]],</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;customer&quot;</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">]],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >Or to open the form view of a specific product (obtained separately) in a new
+dialog:</p><div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ir.actions.act_window&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;res_model&quot;</span><span class="p">:</span> <span class="s2">&quot;product.product&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;views&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;form&quot;</span><span class="p">]],</span>
+    <span class="s2">&quot;res_id&quot;</span><span class="p">:</span> <span class="n">a_product_id</span><span class="p">,</span>
+    <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;new&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >In-database window actions have a few different fields which should be ignored
+by clients, mostly to use in composing the <code >views</code> list:</p><dl ><dt ><code >view_mode</code></dt><dd >comma-separated list of view types as a string. All of these types will be
+present in the generated <code >views</code> list (with at least a <code >False</code> view_id)</dd><dt ><code >view_ids</code></dt><dd >M2M<a href="#notquitem2m" class="footnote-ref" id="id1">1</a> to view objects, defines the initial content of
+<code >views</code></dd><dt ><code >view_id</code></dt><dd >specific view added to the <code >views</code> list in case its type is part of the
+<code >view_mode</code> list and not already filled by one of the views in
+<code >view_ids</code></dd></dl><p >These are mostly used when defining actions from <a href="../data/#reference-data" class="internal reference"><span >Data Files</span></a>:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;ir.actions.act_window&quot;</span> <span class="na">id=</span><span class="s">&quot;test_action&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>A Test Action<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>some.model<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;view_mode&quot;</span><span class="nt">&gt;</span>graph<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;view_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;my_specific_view&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<p >will use the &quot;my_specific_view&quot; view even if that's not the default view for
+the model.</p><p >The server-side composition of the <code >views</code> sequence is the following:</p><ul ><li >get each <code >(id, type)</code> from <code >view_ids</code> (ordered by <code >sequence</code>)</li><li >if <code >view_id</code> is defined and its type isn't already filled, append its
+<code >(id, type)</code></li><li >for each unfilled type in <code >view_mode</code>, append <code >(False, type)</code></li></ul></section><section id="url-actions-ir-actions-act-url"><i id="reference-actions-url"></i><h2 >URL Actions (<code >ir.actions.act_url</code>)</h2><p >Allow opening a URL (website/web page) via an Odoo action. Can be customized
+via two fields:</p><dl ><dt ><code >url</code></dt><dd >the address to open when activating the action</dd><dt ><code >target</code></dt><dd >opens the address in a new window/page if <code >new</code>, replaces
+the current content with the page if <code >self</code>. Defaults to <code >new</code></dd></dl><div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ir.actions.act_url&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://odoo.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >will replace the current content section by the Odoo home page.</p></section><section id="server-actions-ir-actions-server"><i id="reference-actions-server"></i><h2 >Server Actions (<code >ir.actions.server</code>)</h2><p >Allow triggering complex server code from any valid action location. Only
+two fields are relevant to clients:</p><dl ><dt ><code >id</code></dt><dd >the in-database identifier of the server action to run</dd><dt ><code >context</code> (optional)</dt><dd >context data to use when running the server action</dd></dl><p >In-database records are significantly richer and can perform a number of
+specific or generic actions based on their <code >state</code>. Some fields (and
+corresponding behaviors) are shared between states:</p><dl ><dt ><code >model_id</code></dt><dd >Odoo model linked to the action, made available in
+<a href="#reference-actions-server-context" class="internal reference"><span >evaluation contexts</span></a></dd><dt ><code >condition</code> (optional)</dt><dd >evaluated as Python code using the server action's
+<a href="#reference-actions-server-context" class="internal reference"><span >evaluation context</span></a>. If
+<code >False</code>, prevents the action from running. Default: <code >True</code></dd></dl><p >Valid action types (<code >state</code> field) are extensible, the default types are:</p></section><section id="code"><h3 ><code >code</code></h3><p >The default and most flexible server action type, executes arbitrary Python
+code with the action's <a href="#reference-actions-server-context" class="internal reference"><span >evaluation context</span></a>. Only uses one specific type-specific
+field:</p><dl ><dt ><code >code</code></dt><dd >a piece of Python code to execute when the action is called</dd></dl><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;ir.actions.server&quot;</span> <span class="na">id=</span><span class="s">&quot;print_instance&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Res Partner Server Action<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;model_res_partner&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;code&quot;</span><span class="nt">&gt;</span>
+        raise Warning(object.name)
+    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >The code segment can define a variable called <code >action</code>, which will be
+returned to the client as the next action to execute:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;ir.actions.server&quot;</span> <span class="na">id=</span><span class="s">&quot;print_instance&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Res Partner Server Action<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;model_res_partner&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;code&quot;</span><span class="nt">&gt;</span>
+        if object.some_condition():
+            action = {
+                &quot;type&quot;: &quot;ir.actions.act_window&quot;,
+                &quot;view_mode&quot;: &quot;form&quot;,
+                &quot;res_model&quot;: object._name,
+                &quot;res_id&quot;: object.id,
+            }
+    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<p >will ask the client to open a form for the record if it fulfills some
+condition</p></div><p >This tends to be the only action type created from <a href="../data/#reference-data" class="internal reference"><span >data files</span></a>, other types aside from
+<a href="#reference-actions-server-multi" class="internal reference"><span >multi</span></a> are simpler than Python code to define
+from the UI, but not from <a href="../data/#reference-data" class="internal reference"><span >data files</span></a>.</p></section><section id="object-create"><i id="reference-actions-server-object-create"></i><h3 ><code >object_create</code></h3><p >Creates a new record, from scratch (via <a href="../orm/#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a>)
+or by copying an existing record (via <a href="../orm/#odoo.models.Model.copy" class="internal reference" title="odoo.models.Model.copy"><code class="py py-meth xref">copy()</code></a>)</p><dl ><dt ><code >use_create</code></dt><dd ><p >the creation policy, one of:</p><dl ><dt ><code >new</code></dt><dd >creates a record in the model specified by <code >model_id</code></dd><dt ><code >new_other</code></dt><dd >creates a record in the model specified by <code >crud_model_id</code></dd><dt ><code >copy_current</code></dt><dd >copies the record on which the action was invoked</dd><dt ><code >copy_other</code></dt><dd >copies an other record, obtained via <code >ref_object</code></dd></dl></dd><dt ><code >fields_lines</code></dt><dd ><p >fields to override when creating or copying the record.
+<a href="../orm/#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> with the fields:</p><dl ><dt ><code >col1</code></dt><dd ><code >ir.model.fields</code> to set in the model implied by <code >use_create</code></dd><dt ><code >value</code></dt><dd >value for the field, interpreted via <code >type</code></dd><dt ><code >type</code></dt><dd >If <code >value</code>, the <code >value</code> field is interpreted as a literal value
+(possibly converted), if <code >equation</code> the <code >value</code> field is
+interpreted as a Python expression and evaluated</dd></dl></dd><dt ><code >crud_model_id</code></dt><dd >model in which to create a new record, if <code >use_create</code> is set to
+<code >new_other</code></dd><dt ><code >ref_object</code></dt><dd ><a href="../orm/#odoo.fields.Reference" class="internal reference" title="odoo.fields.Reference"><code class="py xref py-class">Reference</code></a> to an arbitrary record to copy, used if
+<code >use_create</code> is set to <code >copy_other</code></dd><dt ><code >link_new_record</code></dt><dd >boolean flag linking the newly created record to the current one via a
+many2one field specified through <code >link_field_id</code>, defaults to <code >False</code></dd><dt ><code >link_field_id</code></dt><dd >many2one to <code >ir.model.fields</code>, specifies the current record's m2o field
+on which the newly created record should be set (models should match)</dd></dl></section><section id="object-write"><h3 ><code >object_write</code></h3><p >Similar to <a href="#reference-actions-server-object-create" class="internal reference"><span >object_create</span></a> but alters an
+existing records instead of creating one</p><dl ><dt ><code >use_write</code></dt><dd ><p >write policy, one of:</p><dl ><dt ><code >current</code></dt><dd >write to the current record</dd><dt ><code >other</code></dt><dd >write to an other record selected via <code >crud_model_id</code> and
+<code >ref_object</code></dd><dt ><code >expression</code></dt><dd >write to an other record whose model is selected via <code >crud_model_id</code>
+and whose id is selected by evaluating <code >write_expression</code></dd></dl></dd><dt ><code >write_expression</code></dt><dd >Python expression returning a record or an object id, used when
+<code >use_write</code> is set to <code >expression</code> in order to decide which record
+should be modified</dd><dt ><code >fields_lines</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><span >object_create</span></a></dd><dt ><code >crud_model_id</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><span >object_create</span></a></dd><dt ><code >ref_object</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><span >object_create</span></a></dd></dl></section><section id="multi"><i id="reference-actions-server-multi"></i><h3 ><code >multi</code></h3><p >Executes multiple actions one after the other. Actions to execute are defined
+via the <code >child_ids</code> m2m. If sub-actions themselves return actions, the last
+one will be returned to the client as the multi's own next action</p></section><section id="trigger"><h3 ><code >trigger</code></h3><p >Sends a signal to a workflow.</p><dl ><dt ><code >wkf_transition_id</code></dt><dd ><a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> to a <code >workflow.transition</code> to trigger</dd><dt ><code >use_relational_model</code></dt><dd >if <code >base</code> (the default), trigger the signal on behalf of the current
+record. If <code >relational</code>, trigger the signal on behalf of a field of the
+current record selected through <code >wkf_model_id</code> and <code >wkf_field_id</code></dd></dl></section><section id="client-action"><h3 ><code >client_action</code></h3><p >Indirection for directly returning an other action defined using
+<code >action_id</code>. Simply returns that action to the client for execution.</p></section><section id="evaluation-context"><i id="reference-actions-server-context"></i><h3 >Evaluation context</h3><p >A number of keys are available in the evaluation context of or surrounding
+server actions:</p><dl ><dt ><code >model</code></dt><dd >the model object linked to the action via <code >model_id</code></dd><dt ><code >object</code>, <code >obj</code></dt><dd >only available if <code >active_model</code> and <code >active_id</code> are provided (via
+context) otherwise <code >None</code>. The actual record selected by <code >active_id</code></dd><dt ><code >pool</code></dt><dd >the current database registry</dd><dt ><code >datetime</code>, <code >dateutil</code>, <code >time</code></dt><dd >corresponding Python modules</dd><dt ><code >cr</code></dt><dd >the current cursor</dd><dt ><code >user</code></dt><dd >the current user record</dd><dt ><code >context</code></dt><dd >execution context</dd><dt ><code >Warning</code></dt><dd >constructor for the <code >Warning</code> exception</dd></dl></section><section id="report-actions-ir-actions-report-xml"><i id="reference-actions-report"></i><h2 >Report Actions (<code >ir.actions.report.xml</code>)</h2><p >Triggers the printing of a report</p><dl ><dt ><code >name</code> (mandatory)</dt><dd >only useful as a mnemonic/description of the report when looking for one
+in a list of some sort</dd><dt ><code >model</code> (mandatory)</dt><dd >the model your report will be about</dd><dt ><code >report_type</code> (mandatory)</dt><dd >either <code >qweb-pdf</code> for PDF reports or <code >qweb-html</code> for HTML</dd><dt ><code >report_name</code></dt><dd >the name of your report (which will be the name of the PDF output)</dd><dt ><code >groups_id</code></dt><dd ><a href="../orm/#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> field to the groups allowed to view/use
+the current report</dd><dt ><code >paperformat_id</code></dt><dd ><a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> field to the paper format you wish to
+use for this report (if not specified, the company format will be used)</dd><dt ><code >attachment_use</code></dt><dd ><p >if set to <code >True</code>, the report is only generated once the first time it is
+requested, and re-printed from the stored report afterwards instead of
+being re-generated every time.</p><p >Can be used for reports which must only be generated once (e.g. for legal
+reasons)</p></dd><dt ><code >attachment</code></dt><dd >python expression that defines the name of the report; the record is
+accessible as the variable <code >object</code></dd></dl></section><section id="client-actions-ir-actions-client"><i id="reference-actions-client"></i><h2 >Client Actions (<code >ir.actions.client</code>)</h2><p >Triggers an action implemented entirely in the client.</p><dl ><dt ><code >tag</code></dt><dd >the client-side identifier of the action, an arbitrary string which
+the client should know how to react to</dd><dt ><code >params</code> (optional)</dt><dd >a Python dictionary of additional data to send to the client, alongside
+the client action tag</dd><dt ><code >target</code> (optional)</dt><dd >whether the client action should be open in the main content area
+(<code >current</code>), in full screen mode (<code >fullscreen</code>) or in a dialog/popup
+(<code >new</code>). Use <code >main</code> instead of <code >current</code> to clear the breadcrumbs.
+Defaults to <code >current</code>.</dd></dl><div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ir.actions.client&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;pos.ui&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >tells the client to start the Point of Sale interface, the server has no idea
+how the POS interface works.</p><div class="footnote" id="notquitem2m"><span class="footnote-label"><a class="footnote-backref" href="#id1">[1]</a></span> technically not an M2M: adds a sequence field and may be
+composed of just a view type, without a view id.</div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

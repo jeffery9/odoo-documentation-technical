@@ -1,0 +1,1397 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Web Service API &mdash; odoo 10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 10.0 documentation" href="../" />
+    <link rel="next" title="Setting Up" href="../setup/" />
+    <link rel="prev" title="Building Interface Extensions" href="../howtos/web/" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted has_code_col">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+    <li class="active"><a href="#">Web Service API</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="has_code_col">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/web_service_api.jpg');"></span>
+      <div class="container text-center">
+        <h1> Web Service API </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container-fluid has_code_col">
+      <main class="container-fluid has_code_col">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#connection" class="ripple internal reference">Connection</a><ul ><li class="list-group-item"><a href="#configuration" class="ripple internal reference">Configuration</a><ul ><li class="list-group-item"><a href="#demo" class="ripple internal reference">demo</a></li></ul></li><li class="list-group-item"><a href="#logging-in" class="ripple internal reference">Logging in</a></li></ul></li><li class="list-group-item"><a href="#calling-methods" class="ripple internal reference">Calling methods</a><ul ><li class="list-group-item"><a href="#list-records" class="ripple internal reference">List records</a><ul ><li class="list-group-item"><a href="#pagination" class="ripple internal reference">Pagination</a></li></ul></li><li class="list-group-item"><a href="#count-records" class="ripple internal reference">Count records</a></li><li class="list-group-item"><a href="#read-records" class="ripple internal reference">Read records</a></li><li class="list-group-item"><a href="#listing-record-fields" class="ripple internal reference">Listing record fields</a></li><li class="list-group-item"><a href="#search-and-read" class="ripple internal reference">Search and read</a></li><li class="list-group-item"><a href="#create-records" class="ripple internal reference">Create records</a></li><li class="list-group-item"><a href="#update-records" class="ripple internal reference">Update records</a></li><li class="list-group-item"><a href="#delete-records" class="ripple internal reference">Delete records</a></li><li class="list-group-item"><a href="#inspection-and-introspection" class="ripple internal reference">Inspection and introspection</a><ul ><li class="list-group-item"><a href="#ir-model" class="ripple internal reference"><code >ir.model</code></a></li><li class="list-group-item"><a href="#ir-model-fields" class="ripple internal reference"><code >ir.model.fields</code></a></li></ul></li><li class="list-group-item"><a href="#workflow-manipulations" class="ripple internal reference">Workflow manipulations</a></li><li class="list-group-item"><a href="#report-printing" class="ripple internal reference">Report printing</a></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/api_integration.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="web-service-api"><p >Odoo is usually extended internally via modules, but many of its features and
+all of its data are also available from the outside for external analysis or
+integration with various tools. Part of the <a href="../reference/orm/#reference-orm-model" class="internal reference"><span >Model Reference</span></a> API is
+easily available over <a href="http://en.wikipedia.org/wiki/XML-RPC" class="external reference">XML-RPC</a> and accessible from a variety of languages.</p></section><section id="connection"><h2 >Connection</h2><div class="hidden highlight-python setupcode"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">xmlrpclib</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> \
+    <span class="n">info</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+<span class="n">common</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;{}/xmlrpc/2/common&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+<span class="n">uid</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="p">{})</span>
+<span class="n">models</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;{}/xmlrpc/2/object&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="hidden highlight-ruby setupcode"><div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;xmlrpc/client&quot;</span>
+<span class="n">info</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+<span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="p">\</span>
+    <span class="n">info</span><span class="o">[</span><span class="s1">&#39;host&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;database&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;user&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;password&#39;</span><span class="o">]</span>
+<span class="n">common</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">/xmlrpc/2/common&quot;</span><span class="p">)</span>
+<span class="n">uid</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;authenticate&#39;</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="p">{})</span>
+<span class="n">models</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">/xmlrpc/2/object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">proxy</span>
+</pre></div>
+</div>
+<div class="highlight-php hidden setupcode"><div class="highlight"><pre><span class="k">require_once</span><span class="p">(</span><span class="s1">&#39;ripcord.php&#39;</span><span class="p">);</span>
+<span class="nv">$info</span> <span class="o">=</span> <span class="nx">ripcord</span><span class="o">::</span><span class="na">client</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="k">list</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$db</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">)</span> <span class="o">=</span>
+  <span class="k">array</span><span class="p">(</span><span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">],</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]);</span>
+<span class="nv">$common</span> <span class="o">=</span> <span class="nx">ripcord</span><span class="o">::</span><span class="na">client</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$url</span><span class="s2">/xmlrpc/2/common&quot;</span><span class="p">);</span>
+<span class="nv">$uid</span> <span class="o">=</span> <span class="nv">$common</span><span class="o">-&gt;</span><span class="na">authenticate</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="k">array</span><span class="p">());</span>
+<span class="nv">$models</span> <span class="o">=</span> <span class="nx">ripcord</span><span class="o">::</span><span class="na">client</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$url</span><span class="s2">/xmlrpc/2/object&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="hidden highlight-java setupcode"><div class="highlight"><pre><span class="kd">final</span> <span class="n">XmlRpcClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClient</span><span class="o">();</span>
+<span class="kd">final</span> <span class="n">XmlRpcClientConfigImpl</span> <span class="n">start_config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">();</span>
+<span class="n">start_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;https://demo.odoo.com/start&quot;</span><span class="o">));</span>
+<span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">info</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;)</span><span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="n">start_config</span><span class="o">,</span> <span class="s">&quot;start&quot;</span><span class="o">,</span> <span class="n">emptyList</span><span class="o">());</span>
+
+<span class="kd">final</span> <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;host&quot;</span><span class="o">),</span>
+              <span class="n">db</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;database&quot;</span><span class="o">),</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;user&quot;</span><span class="o">),</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="n">XmlRpcClientConfigImpl</span> <span class="n">common_config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">();</span>
+<span class="n">common_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s/xmlrpc/2/common&quot;</span><span class="o">,</span> <span class="n">url</span><span class="o">)));</span>
+
+<span class="kt">int</span> <span class="n">uid</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="n">common_config</span><span class="o">,</span> <span class="s">&quot;authenticate&quot;</span><span class="o">,</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">emptyMap</span><span class="o">()));</span>
+
+<span class="kd">final</span> <span class="n">XmlRpcClient</span> <span class="n">models</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClient</span><span class="o">()</span> <span class="o">{{</span>
+    <span class="n">setConfig</span><span class="o">(</span><span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">()</span> <span class="o">{{</span>
+        <span class="n">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s/xmlrpc/2/object&quot;</span><span class="o">,</span> <span class="n">url</span><span class="o">)));</span>
+    <span class="o">}});</span>
+<span class="o">}};</span>
+</pre></div>
+</div>
+</section><section id="configuration"><h3 >Configuration</h3><p >If you already have an Odoo server installed, you can just use its
+parameters</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >For Odoo Online instances (&lt;domain&gt;.odoo.com), users are created without a
+<em >local</em> password (as a person you are logged in via the Odoo Online
+authentication system, not by the instance itself). To use XML-RPC on Odoo
+Online instances, you will need to set a password on the user account you
+want to use:</p><ul ><li >Log in your instance with an administrator account</li><li >Go to <span class="menuselection">Settings ‣ Users ‣ Users</span></li><li >Click on the user you want to use for XML-RPC access</li><li >Click the <span class="guilabel">Change Password</span> button</li><li >Set a <span class="guilabel">New Password</span> value then click
+<span class="guilabel">Change Password</span>.</li></ul><p >The <em >server url</em> is the instance's domain (e.g.
+<em >https://mycompany.odoo.com</em>), the <em >database name</em> is the name of the
+instance (e.g. <em >mycompany</em>). The <em >username</em> is the configured user's login
+as shown by the <em >Change Password</em> screen.</p></div><div class="doc-aside content-switcher setup"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">url</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">server</span> <span class="n">URL</span><span class="o">&gt;</span>
+<span class="n">db</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">database</span> <span class="n">name</span><span class="o">&gt;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">password</span> <span class="k">for</span> <span class="n">your</span> <span class="n">admin</span> <span class="n">user</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="n">admin</span><span class="p">)</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">url</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">server</span> <span class="no">URL</span><span class="o">&gt;</span>
+<span class="n">db</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">database</span> <span class="nb">name</span><span class="o">&gt;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;admin&quot;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">password</span> <span class="k">for</span> <span class="n">your</span> <span class="n">admin</span> <span class="n">user</span> <span class="p">(</span><span class="ss">default</span><span class="p">:</span> <span class="n">admin</span><span class="p">)</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$url</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">insert</span> <span class="nx">server</span> <span class="nx">URL</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="nv">$db</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">insert</span> <span class="nx">database</span> <span class="nx">name</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="nv">$username</span> <span class="o">=</span> <span class="s2">&quot;admin&quot;</span><span class="p">;</span>
+<span class="nv">$password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">insert</span> <span class="nx">password</span> <span class="k">for</span> <span class="nx">your</span> <span class="nx">admin</span> <span class="nx">user</span> <span class="p">(</span><span class="k">default</span><span class="o">:</span> <span class="nx">admin</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">server</span> <span class="n">URL</span><span class="o">&gt;,</span>
+              <span class="n">db</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">database</span> <span class="n">name</span><span class="o">&gt;,</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="s">&quot;admin&quot;</span><span class="o">,</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">password</span> <span class="k">for</span> <span class="n">your</span> <span class="n">admin</span> <span class="nf">user</span> <span class="o">(</span><span class="k">default</span><span class="o">:</span> <span class="n">admin</span><span class="o">)&gt;;</span>
+</pre></div>
+</div>
+</div></div></section><section id="demo"><h4 >demo</h4><p >To make exploration simpler, you can also ask <a href="https://demo.odoo.com" class="external reference">https://demo.odoo.com</a> for a test
+database:</p><div class="doc-aside content-switcher setup"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">xmlrpclib</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> \
+    <span class="n">info</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;xmlrpc/client&quot;</span>
+<span class="n">info</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+<span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="p">\</span>
+    <span class="n">info</span><span class="o">[</span><span class="s1">&#39;host&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;database&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;user&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;password&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<div ><div class="highlight-php"><div class="highlight"><pre><span class="k">require_once</span><span class="p">(</span><span class="s1">&#39;ripcord.php&#39;</span><span class="p">);</span>
+<span class="nv">$info</span> <span class="o">=</span> <span class="nx">ripcord</span><span class="o">::</span><span class="na">client</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="k">list</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$db</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">)</span> <span class="o">=</span>
+  <span class="k">array</span><span class="p">(</span><span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">],</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >These examples use the <a href="https://code.google.com/p/ripcord/" class="external reference alert-link">Ripcord</a>
+library, which provides a simple XML-RPC API. Ripcord requires that
+<a href="http://php.net/manual/en/xmlrpc.installation.php" class="external reference alert-link">XML-RPC support be enabled</a> in your PHP
+installation.</p><p >Since calls are performed over
+<a href="http://en.wikipedia.org/wiki/HTTP_Secure" class="external reference alert-link">HTTPS</a>, it also requires that
+the <a href="http://php.net/manual/en/openssl.installation.php" class="external reference alert-link">OpenSSL extension</a> be enabled.</p></div></div><div ><div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">XmlRpcClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClient</span><span class="o">();</span>
+
+<span class="kd">final</span> <span class="n">XmlRpcClientConfigImpl</span> <span class="n">start_config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">();</span>
+<span class="n">start_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;https://demo.odoo.com/start&quot;</span><span class="o">));</span>
+<span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">info</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;)</span><span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="n">start_config</span><span class="o">,</span> <span class="s">&quot;start&quot;</span><span class="o">,</span> <span class="n">emptyList</span><span class="o">());</span>
+
+<span class="kd">final</span> <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;host&quot;</span><span class="o">),</span>
+              <span class="n">db</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;database&quot;</span><span class="o">),</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;user&quot;</span><span class="o">),</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >These examples use the <a href="https://ws.apache.org/xmlrpc/" class="external reference alert-link">Apache XML-RPC library</a></p><p >The examples do not include imports as these imports couldn't be
+pasted in the code.</p></div></div></div></div></section><section id="logging-in"><h3 >Logging in</h3><p >Odoo requires users of the API to be authenticated before they can query most
+data.</p><p >The <code >xmlrpc/2/common</code> endpoint provides meta-calls which don't require
+authentication, such as the authentication itself or fetching version
+information. To verify if the connection information is correct before trying
+to authenticate, the simplest call is to ask for the server's version. The
+authentication itself is done through the <code >authenticate</code> function and
+returns a user identifier (<code >uid</code>) used in authenticated calls instead of
+the login.</p><div class="doc-aside content-switcher setup"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">common</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;{}/xmlrpc/2/common&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+<span class="n">common</span><span class="o">.</span><span class="n">version</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">common</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">/xmlrpc/2/common&quot;</span><span class="p">)</span>
+<span class="n">common</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;version&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$common</span> <span class="o">=</span> <span class="nx">ripcord</span><span class="o">::</span><span class="na">client</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$url</span><span class="s2">/xmlrpc/2/common&quot;</span><span class="p">);</span>
+<span class="nv">$common</span><span class="o">-&gt;</span><span class="na">version</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">XmlRpcClientConfigImpl</span> <span class="n">common_config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">();</span>
+<span class="n">common_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span>
+    <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s/xmlrpc/2/common&quot;</span><span class="o">,</span> <span class="n">url</span><span class="o">)));</span>
+<span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">common_config</span><span class="o">,</span> <span class="s">&quot;version&quot;</span><span class="o">,</span> <span class="n">emptyList</span><span class="o">());</span>
+</pre></div>
+</div>
+</div></div><div class="doc-aside highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;server_version&quot;</span><span class="p">:</span> <span class="s2">&quot;8.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;server_version_info&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;final&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="nt">&quot;server_serie&quot;</span><span class="p">:</span> <span class="s2">&quot;8.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;protocol_version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="doc-aside content-switcher setup"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">uid</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="p">{})</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">uid</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;authenticate&#39;</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="p">{})</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$uid</span> <span class="o">=</span> <span class="nv">$common</span><span class="o">-&gt;</span><span class="na">authenticate</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="k">array</span><span class="p">());</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kt">int</span> <span class="n">uid</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="n">common_config</span><span class="o">,</span> <span class="s">&quot;authenticate&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">emptyMap</span><span class="o">()));</span>
+</pre></div>
+</div>
+</div></div></section><section id="calling-methods"><h2 >Calling methods</h2><p >The second endpoint is <code >xmlrpc/2/object</code>, is used to call methods of odoo
+models via the <code >execute_kw</code> RPC function.</p><p >Each call to <code >execute_kw</code> takes the following parameters:</p><ul ><li >the database to use, a string</li><li >the user id (retrieved through <code >authenticate</code>), an integer</li><li >the user's password, a string</li><li >the model name, a string</li><li >the method name, a string</li><li >an array/list of parameters passed by position</li><li >a mapping/dict of parameters to pass by keyword (optional)</li></ul><div class="doc-aside"><p >For instance to see if we can read the <code >res.partner</code> model we can call
+<code >check_access_rights</code> with <code >operation</code> passed by position and
+<code >raise_exception</code> passed by keyword (in order to get a true/false result
+rather than true/error):</p><div class="content-switcher setup"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;{}/xmlrpc/2/object&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;check_access_rights&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;read&#39;</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;raise_exception&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">/xmlrpc/2/object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">proxy</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;check_access_rights&#39;</span><span class="p">,</span>
+    <span class="o">[</span><span class="s1">&#39;read&#39;</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span><span class="ss">raise_exception</span><span class="p">:</span> <span class="kp">false</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span> <span class="o">=</span> <span class="nx">ripcord</span><span class="o">::</span><span class="na">client</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$url</span><span class="s2">/xmlrpc/2/object&quot;</span><span class="p">);</span>
+<span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;check_access_rights&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;read&#39;</span><span class="p">),</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;raise_exception&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">XmlRpcClient</span> <span class="n">models</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClient</span><span class="o">()</span> <span class="o">{{</span>
+    <span class="n">setConfig</span><span class="o">(</span><span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">()</span> <span class="o">{{</span>
+        <span class="n">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s/xmlrpc/2/object&quot;</span><span class="o">,</span> <span class="n">url</span><span class="o">)));</span>
+    <span class="o">}});</span>
+<span class="o">}};</span>
+<span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;check_access_rights&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="s">&quot;read&quot;</span><span class="o">),</span>
+    <span class="k">new</span> <span class="n">HashMap</span><span class="o">()</span> <span class="o">{{</span> <span class="n">put</span><span class="o">(</span><span class="s">&quot;raise_exception&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span> <span class="o">}}</span>
+<span class="o">));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="kc">true</span>
+</pre></div>
+</div>
+</div></section><section id="list-records"><h3 >List records</h3><p >Records can be listed and filtered via <a href="../reference/orm/#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a>.</p><p ><a href="../reference/orm/#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> takes a mandatory
+<a href="../reference/orm/#reference-orm-domains" class="internal reference"><span >domain</span></a> filter (possibly empty), and returns the
+database identifiers of all records matching the filter. To list customer
+companies for instance:</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="p">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="o">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">),</span>
+              <span class="k">array</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">))));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">asList</span><span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;search&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">&quot;is_company&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">&quot;customer&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">)))</span>
+<span class="o">)));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></section><section id="pagination"><h4 >Pagination</h4><p >By default a search will return the ids of all records matching the
+condition, which may be a huge number. <code >offset</code> and <code >limit</code> parameters are
+available to only retrieve a subset of all matched records.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="p">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]]],</span>
+    <span class="p">{</span><span class="s1">&#39;offset&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="o">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]]]</span><span class="p">,</span>
+    <span class="p">{</span><span class="ss">offset</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="ss">limit</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">),</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">))),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;offset&#39;</span><span class="o">=&gt;</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="o">=&gt;</span><span class="mi">5</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">asList</span><span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;search&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">&quot;is_company&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">&quot;customer&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">))),</span>
+    <span class="k">new</span> <span class="n">HashMap</span><span class="o">()</span> <span class="o">{{</span> <span class="n">put</span><span class="o">(</span><span class="s">&quot;offset&quot;</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span> <span class="n">put</span><span class="o">(</span><span class="s">&quot;limit&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span> <span class="o">}}</span>
+<span class="o">)));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></section><section id="count-records"><h3 >Count records</h3><p >Rather than retrieve a possibly gigantic list of records and count them,
+<a href="../reference/orm/#odoo.models.Model.search_count" class="internal reference" title="odoo.models.Model.search_count"><code class="py py-meth xref">search_count()</code></a> can be used to retrieve
+only the number of records matching the query. It takes the same
+<a href="../reference/orm/#reference-orm-domains" class="internal reference"><span >domain</span></a> filter as
+<a href="../reference/orm/#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> and no other parameter.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_count&#39;</span><span class="p">,</span>
+    <span class="p">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_count&#39;</span><span class="p">,</span>
+    <span class="o">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_count&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">),</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">))));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;search_count&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">&quot;is_company&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">&quot;customer&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">)))</span>
+<span class="o">));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="mi">19</span>
+</pre></div>
+</div>
+</div><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >calling <code >search</code> then <code >search_count</code> (or the other way around) may not
+yield coherent results if other users are using the server: stored data
+could have changed between the calls</p></div></section><section id="read-records"><h3 >Read records</h3><p >Record data is accessible via the <a href="../reference/orm/#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a> method,
+which takes a list of ids (as returned by
+<a href="../reference/orm/#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a>) and optionally a list of fields to
+fetch. By default, it will fetch all the fields the current user can read,
+which tends to be a huge amount.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">ids</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="p">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]]],</span>
+    <span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="p">[</span><span class="n">record</span><span class="p">]</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">ids</span><span class="p">])</span>
+<span class="c1"># count the number of fields fetched by default</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">ids</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="o">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]]]</span><span class="p">,</span>
+    <span class="p">{</span><span class="ss">limit</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="n">record</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span> <span class="o">[</span><span class="n">ids</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">first</span>
+<span class="c1"># count the number of fields fetched by default</span>
+<span class="n">record</span><span class="o">.</span><span class="n">length</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$ids</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">),</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">))),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;limit&#39;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">));</span>
+<span class="nv">$records</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nv">$ids</span><span class="p">));</span>
+<span class="c1">// count the number of fields fetched by default</span>
+<span class="nb">count</span><span class="p">(</span><span class="nv">$records</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">List</span> <span class="n">ids</span> <span class="o">=</span> <span class="n">asList</span><span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;search&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span>
+            <span class="n">asList</span><span class="o">(</span><span class="s">&quot;is_company&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+            <span class="n">asList</span><span class="o">(</span><span class="s">&quot;customer&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">))),</span>
+        <span class="k">new</span> <span class="n">HashMap</span><span class="o">()</span> <span class="o">{{</span> <span class="n">put</span><span class="o">(</span><span class="s">&quot;limit&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="o">}})));</span>
+<span class="kd">final</span> <span class="n">Map</span> <span class="n">record</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">)((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;read&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="n">ids</span><span class="o">)</span>
+    <span class="o">)</span>
+<span class="o">))[</span><span class="mi">0</span><span class="o">];</span>
+<span class="c1">// count the number of fields fetched by default</span>
+<span class="n">record</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="mi">121</span>
+</pre></div>
+</div>
+</div><p >Conversedly, picking only three fields deemed interesting.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">ids</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;country_id&#39;</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span>
+    <span class="o">[</span><span class="n">ids</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span><span class="ss">fields</span><span class="p">:</span> <span class="sx">%w(name country_id comment)</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="nv">$ids</span><span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;fields&#39;</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;country_id&#39;</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">)));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">asList</span><span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;read&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="n">ids</span><span class="o">),</span>
+    <span class="k">new</span> <span class="n">HashMap</span><span class="o">()</span> <span class="o">{{</span>
+        <span class="n">put</span><span class="o">(</span><span class="s">&quot;fields&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;country_id&quot;</span><span class="o">,</span> <span class="s">&quot;comment&quot;</span><span class="o">));</span>
+    <span class="o">}}</span>
+<span class="o">)));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">[{</span><span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;Belgium&quot;</span><span class="p">],</span> <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Agrolait&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >even if the <code >id</code> field is not requested, it is always returned</p></div></section><section id="listing-record-fields"><h3 >Listing record fields</h3><p ><a href="../reference/orm/#odoo.models.Model.fields_get" class="internal reference" title="odoo.models.Model.fields_get"><code class="py py-meth xref">fields_get()</code></a> can be used to inspect
+a model's fields and check which ones seem to be of interest.</p><p >Because it returns a large amount of meta-information (it is also used by client
+programs) it should be filtered before printing, the most interesting items
+for a human user are <code >string</code> (the field's label), <code >help</code> (a help text if
+available) and <code >type</code> (to know which values to expect, or to send when
+updating a record):</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;fields_get&#39;</span><span class="p">,</span>
+    <span class="p">[],</span> <span class="p">{</span><span class="s1">&#39;attributes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;help&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;fields_get&#39;</span><span class="p">,</span>
+    <span class="o">[]</span><span class="p">,</span> <span class="p">{</span><span class="ss">attributes</span><span class="p">:</span> <span class="sx">%w(string help type)</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;fields_get&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(),</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;attributes&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;help&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">)));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;)</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;fields_get&quot;</span><span class="o">,</span>
+    <span class="n">emptyList</span><span class="o">(),</span>
+    <span class="k">new</span> <span class="n">HashMap</span><span class="o">()</span> <span class="o">{{</span>
+        <span class="n">put</span><span class="o">(</span><span class="s">&quot;attributes&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span><span class="s">&quot;string&quot;</span><span class="o">,</span> <span class="s">&quot;help&quot;</span><span class="o">,</span> <span class="s">&quot;type&quot;</span><span class="o">));</span>
+    <span class="o">}}</span>
+<span class="o">));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;ean13&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;char&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;BarCode&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;EAN13&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;property_account_position_id&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;many2one&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;The fiscal position will determine taxes and accounts used for the partner.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Fiscal Position&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;signup_valid&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Signup Token is Valid&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;date_localization&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Geo Localization Date&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;ref_company_ids&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;one2many&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Companies that refers to partner&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;sale_order_count&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;# of Sales Order&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;purchase_order_count&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;# of Purchase Order&quot;</span>
+    <span class="p">},</span>
+</pre></div>
+</div>
+</div></section><section id="search-and-read"><h3 >Search and read</h3><p >Because it is a very common task, Odoo provides a
+<code class="py py-meth xref">search_read()</code> shortcut which as its name suggests is
+equivalent to a <a href="../reference/orm/#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> followed by a
+<a href="../reference/orm/#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a>, but avoids having to perform two requests
+and keep ids around.</p><p >Its arguments are similar to <a href="../reference/orm/#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a>'s, but it
+can also take a list of <code >fields</code> (like <a href="../reference/orm/#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a>,
+if that list is not provided it will fetch all fields of matched records):</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
+    <span class="p">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]]],</span>
+    <span class="p">{</span><span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;country_id&#39;</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">],</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
+    <span class="o">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]]]</span><span class="p">,</span>
+    <span class="p">{</span><span class="ss">fields</span><span class="p">:</span> <span class="sx">%w(name country_id comment)</span><span class="p">,</span> <span class="ss">limit</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">),</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">))),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;fields&#39;</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;country_id&#39;</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">),</span> <span class="s1">&#39;limit&#39;</span><span class="o">=&gt;</span><span class="mi">5</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">asList</span><span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;search_read&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">&quot;is_company&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">&quot;customer&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">))),</span>
+    <span class="k">new</span> <span class="n">HashMap</span><span class="o">()</span> <span class="o">{{</span>
+        <span class="n">put</span><span class="o">(</span><span class="s">&quot;fields&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;country_id&quot;</span><span class="o">,</span> <span class="s">&quot;comment&quot;</span><span class="o">));</span>
+        <span class="n">put</span><span class="o">(</span><span class="s">&quot;limit&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+    <span class="o">}}</span>
+<span class="o">)));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;Belgium&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Agrolait&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">76</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Axelor&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">233</span><span class="p">,</span> <span class="s2">&quot;United Kingdom&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bank Wealthy and sons&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">105</span><span class="p">,</span> <span class="s2">&quot;India&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Best Designers&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">76</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Camptocamp&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></section><section id="create-records"><h3 >Create records</h3><p >Records of a model are created using <a href="../reference/orm/#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a>. The
+method will create a single record and return its database identifier.</p><p ><a href="../reference/orm/#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a> takes a mapping of fields to values, used
+to initialize the record. For any field which has a default value and is not
+set through the mapping argument, the default value will be used.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;New Partner&quot;</span><span class="p">,</span>
+<span class="p">}])</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="o">[</span><span class="p">{</span>
+    <span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;New Partner&quot;</span><span class="p">,</span>
+<span class="p">}</span><span class="o">]</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$id</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="o">=&gt;</span><span class="s2">&quot;New Partner&quot;</span><span class="p">)));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">Integer</span> <span class="n">id</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;create&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">()</span> <span class="o">{{</span> <span class="n">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;New Partner&quot;</span><span class="o">);</span> <span class="o">}})</span>
+<span class="o">));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="mi">78</span>
+</pre></div>
+</div>
+</div><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >while most value types are what would be expected (integer for
+<a href="../reference/orm/#odoo.fields.Integer" class="internal alert-link reference" title="odoo.fields.Integer"><code class="py xref py-class">Integer</code></a>, string for <a href="../reference/orm/#odoo.fields.Char" class="internal alert-link reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a>
+or <a href="../reference/orm/#odoo.fields.Text" class="internal alert-link reference" title="odoo.fields.Text"><code class="py xref py-class">Text</code></a>),</p><ul ><li ><a href="../reference/orm/#odoo.fields.Date" class="internal alert-link reference" title="odoo.fields.Date"><code class="py xref py-class">Date</code></a>, <a href="../reference/orm/#odoo.fields.Datetime" class="internal alert-link reference" title="odoo.fields.Datetime"><code class="py xref py-class">Datetime</code></a> and
+<code class="py xref py-class">Binary</code> fields use string values</li><li ><a href="../reference/orm/#odoo.fields.One2many" class="internal alert-link reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> and <a href="../reference/orm/#odoo.fields.Many2many" class="internal alert-link reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a>
+use a special command protocol detailed in <a href="../reference/orm/#odoo.models.Model.write" class="internal alert-link reference" title="odoo.models.Model.write"><code class="py py-meth xref">the documentation to
+the write method</code></a>.</li></ul></div></section><section id="update-records"><h3 >Update records</h3><p >Records can be updated using <a href="../reference/orm/#odoo.models.Model.write" class="internal reference" title="odoo.models.Model.write"><code class="py py-meth xref">write()</code></a>, it takes
+a list of records to update and a mapping of updated fields to values similar
+to <a href="../reference/orm/#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a>.</p><p >Multiple records can be updated simultanously, but they will all get the same
+values for the fields being set. It is not currently possible to perform
+&quot;computed&quot; updates (where the value being set depends on an existing value of
+a record).</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="nb">id</span><span class="p">],</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;Newer partner&quot;</span>
+<span class="p">}])</span>
+<span class="c1"># get record name after having changed it</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;name_get&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="nb">id</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span><span class="p">,</span> <span class="o">[[</span><span class="nb">id</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;Newer partner&quot;</span>
+<span class="p">}</span><span class="o">]</span><span class="p">)</span>
+<span class="c1"># get record name after having changed it</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;name_get&#39;</span><span class="p">,</span> <span class="o">[[</span><span class="nb">id</span><span class="o">]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$id</span><span class="p">),</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="o">=&gt;</span><span class="s2">&quot;Newer partner&quot;</span><span class="p">)));</span>
+<span class="c1">// get record name after having changed it</span>
+<span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;name_get&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$id</span><span class="p">)));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;write&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span>
+        <span class="n">asList</span><span class="o">(</span><span class="n">id</span><span class="o">),</span>
+        <span class="k">new</span> <span class="n">HashMap</span><span class="o">()</span> <span class="o">{{</span> <span class="n">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;Newer Partner&quot;</span><span class="o">);</span> <span class="o">}}</span>
+    <span class="o">)</span>
+<span class="o">));</span>
+<span class="c1">// get record name after having changed it</span>
+<span class="n">asList</span><span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;name_get&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">id</span><span class="o">))</span>
+<span class="o">)));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">[[</span><span class="mi">78</span><span class="p">,</span> <span class="s2">&quot;Newer partner&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div></section><section id="delete-records"><h3 >Delete records</h3><p >Records can be deleted in bulk by providing their ids to
+<a href="../reference/orm/#odoo.models.Model.unlink" class="internal reference" title="odoo.models.Model.unlink"><code class="py py-meth xref">unlink()</code></a>.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;unlink&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="nb">id</span><span class="p">]])</span>
+<span class="c1"># check if the deleted record is still in the database</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="p">[[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;unlink&#39;</span><span class="p">,</span> <span class="o">[[</span><span class="nb">id</span><span class="o">]]</span><span class="p">)</span>
+<span class="c1"># check if the deleted record is still in the database</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="o">[[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">]]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;unlink&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$id</span><span class="p">)));</span>
+<span class="c1">// check if the deleted record is still in the database</span>
+<span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nv">$id</span><span class="p">))));</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;unlink&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">id</span><span class="o">))));</span>
+<span class="c1">// check if the deleted record is still in the database</span>
+<span class="n">asList</span><span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+    <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+    <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;search&quot;</span><span class="o">,</span>
+    <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="mi">78</span><span class="o">)))</span>
+<span class="o">)));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">[]</span>
+</pre></div>
+</div>
+</div></section><section id="inspection-and-introspection"><h3 >Inspection and introspection</h3><p >While we previously used <a href="../reference/orm/#odoo.models.Model.fields_get" class="internal reference" title="odoo.models.Model.fields_get"><code class="py py-meth xref">fields_get()</code></a> to query a
+model and have been using an arbitrary model from the start, Odoo stores
+most model metadata inside a few meta-models which allow both querying the
+system and altering models and fields (with some limitations) on the fly over
+XML-RPC.</p></section><section id="ir-model"><i id="reference-webservice-inspection-models"></i><h4 ><code >ir.model</code></h4><p >Provides information about Odoo models via its various fields</p><dl ><dt ><code >name</code></dt><dd >a human-readable description of the model</dd><dt ><code >model</code></dt><dd >the name of each model in the system</dd><dt ><code >state</code></dt><dd >whether the model was generated in Python code (<code >base</code>) or by creating
+an <code >ir.model</code> record (<code >manual</code>)</dd><dt ><code >field_id</code></dt><dd >list of the model's fields through a <a href="../reference/orm/#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> to
+<a href="#reference-webservice-inspection-fields" class="internal reference"><span >ir.model.fields</span></a></dd><dt ><code >view_ids</code></dt><dd ><a href="../reference/orm/#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> to the <a href="../reference/views/#reference-views" class="internal reference"><span >Views</span></a> defined
+for the model</dd><dt ><code >access_ids</code></dt><dd ><a href="../reference/orm/#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> relation to the
+<a href="../reference/security/#reference-security-acl" class="internal reference"><span >Access Control</span></a> set on the model</dd></dl><p ><code >ir.model</code> can be used to</p><ul ><li >query the system for installed models (as a precondition to operations
+on the model or to explore the system's content)</li><li >get information about a specific model (generally by listing the fields
+associated with it)</li><li >create new models dynamically over RPC</li></ul><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><ul ><li >&quot;custom&quot; model names must start with <code >x_</code></li><li >the <code >state</code> must be provided and <code >manual</code>, otherwise the model will
+not be loaded</li><li >it is not possible to add new <em >methods</em> to a custom model, only fields</li></ul></div><div class="doc-aside"><p >a custom model will initially contain only the &quot;built-in&quot; fields available
+on all models:</p><div class="content-switcher"><ul ><li >Python</li><li >PHP</li><li >Ruby</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;ir.model&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;Custom Model&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s2">&quot;x_custom_model&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;manual&#39;</span><span class="p">,</span>
+<span class="p">}])</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;x_custom_model&#39;</span><span class="p">,</span> <span class="s1">&#39;fields_get&#39;</span><span class="p">,</span>
+    <span class="p">[],</span> <span class="p">{</span><span class="s1">&#39;attributes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;help&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;ir.model&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Custom Model&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;model&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;x_custom_model&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;state&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;manual&#39;</span>
+    <span class="p">))</span>
+<span class="p">);</span>
+<span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;x_custom_model&#39;</span><span class="p">,</span> <span class="s1">&#39;fields_get&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;attributes&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;help&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">))</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;ir.model&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="o">[</span><span class="p">{</span>
+        <span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;Custom Model&quot;</span><span class="p">,</span>
+        <span class="ss">model</span><span class="p">:</span> <span class="s1">&#39;x_custom_model&#39;</span><span class="p">,</span>
+        <span class="ss">state</span><span class="p">:</span> <span class="s1">&#39;manual&#39;</span>
+    <span class="p">}</span><span class="o">]</span><span class="p">)</span>
+<span class="n">fields</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;x_custom_model&#39;</span><span class="p">,</span> <span class="s1">&#39;fields_get&#39;</span><span class="p">,</span>
+    <span class="o">[]</span><span class="p">,</span> <span class="p">{</span><span class="ss">attributes</span><span class="p">:</span> <span class="sx">%w(string help type)</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;ir.model&quot;</span><span class="o">,</span> <span class="s">&quot;create&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;Custom Model&quot;</span><span class="o">);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;model&quot;</span><span class="o">,</span> <span class="s">&quot;x_custom_model&quot;</span><span class="o">);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;state&quot;</span><span class="o">,</span> <span class="s">&quot;manual&quot;</span><span class="o">);</span>
+        <span class="o">}})</span>
+<span class="o">));</span>
+<span class="kd">final</span> <span class="n">Object</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;x_custom_model&quot;</span><span class="o">,</span> <span class="s">&quot;fields_get&quot;</span><span class="o">,</span>
+        <span class="n">emptyList</span><span class="o">(),</span>
+        <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="o">()</span> <span class="o">{{</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;attributes&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+                    <span class="s">&quot;string&quot;</span><span class="o">,</span>
+                    <span class="s">&quot;help&quot;</span><span class="o">,</span>
+                    <span class="s">&quot;type&quot;</span><span class="o">));</span>
+        <span class="o">}}</span>
+<span class="o">));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;create_uid&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;many2one&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Created by&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;create_date&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Created on&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;__last_update&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Last Modified on&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;write_uid&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;many2one&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Last Updated by&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;write_date&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Last Updated on&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;char&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Display Name&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Id&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></section><section id="ir-model-fields"><i id="reference-webservice-inspection-fields"></i><h4 ><code >ir.model.fields</code></h4><p >Provides information about the fields of Odoo models and allows adding
+custom fields without using Python code</p><dl ><dt ><code >model_id</code></dt><dd ><a href="../reference/orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> to
+<a href="#reference-webservice-inspection-models" class="internal reference"><span >ir.model</span></a> to which the field belongs</dd><dt ><code >name</code></dt><dd >the field's technical name (used in <code >read</code> or <code >write</code>)</dd><dt ><code >field_description</code></dt><dd >the field's user-readable label (e.g. <code >string</code> in <code >fields_get</code>)</dd><dt ><code >ttype</code></dt><dd >the <a href="../reference/orm/#reference-orm-fields" class="internal reference"><span >type</span></a> of field to create</dd><dt ><code >state</code></dt><dd >whether the field was created via Python code (<code >base</code>) or via
+<code >ir.model.fields</code> (<code >manual</code>)</dd><dt ><code >required</code>, <code >readonly</code>, <code >translate</code></dt><dd >enables the corresponding flag on the field</dd><dt ><code >groups</code></dt><dd ><a href="../reference/security/#reference-security-fields" class="internal reference"><span >field-level access control</span></a>, a
+<a href="../reference/orm/#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> to <code >res.groups</code></dd><dt ><code >selection</code>, <code >size</code>, <code >on_delete</code>, <code >relation</code>, <code >relation_field</code>, <code >domain</code></dt><dd >type-specific properties and customizations, see <a href="../reference/orm/#reference-orm-fields" class="internal reference"><span >the fields
+documentation</span></a> for details</dd></dl><p >Like custom models, only new fields created with <code >state=&quot;manual&quot;</code> are
+activated as actual fields on the model.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >computed fields can not be added via <code >ir.model.fields</code>, some
+field meta-information (defaults, onchange) can not be set either</p></div><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >PHP</li><li >Ruby</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;ir.model&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;Custom Model&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s2">&quot;x_custom&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;manual&#39;</span><span class="p">,</span>
+<span class="p">}])</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;ir.model.fields&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
+        <span class="s1">&#39;model_id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;x_name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ttype&#39;</span><span class="p">:</span> <span class="s1">&#39;char&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;manual&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="p">}])</span>
+<span class="n">record_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;x_custom&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
+        <span class="s1">&#39;x_name&#39;</span><span class="p">:</span> <span class="s2">&quot;test record&quot;</span><span class="p">,</span>
+    <span class="p">}])</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;x_custom&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="n">record_id</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$id</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;ir.model&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Custom Model&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;model&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;x_custom&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;state&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;manual&#39;</span>
+    <span class="p">))</span>
+<span class="p">);</span>
+<span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;ir.model.fields&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;model_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;x_name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ttype&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;char&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;state&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;manual&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span>
+    <span class="p">))</span>
+<span class="p">);</span>
+<span class="nv">$record_id</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;x_custom&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;x_name&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;test record&quot;</span>
+    <span class="p">))</span>
+<span class="p">);</span>
+<span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;x_custom&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$record_id</span><span class="p">)));</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;ir.model&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="o">[</span><span class="p">{</span>
+        <span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;Custom Model&quot;</span><span class="p">,</span>
+        <span class="ss">model</span><span class="p">:</span> <span class="s2">&quot;x_custom&quot;</span><span class="p">,</span>
+        <span class="ss">state</span><span class="p">:</span> <span class="s1">&#39;manual&#39;</span>
+    <span class="p">}</span><span class="o">]</span><span class="p">)</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;ir.model.fields&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="o">[</span><span class="p">{</span>
+        <span class="ss">model_id</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+        <span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;x_name&quot;</span><span class="p">,</span>
+        <span class="ss">ttype</span><span class="p">:</span> <span class="s2">&quot;char&quot;</span><span class="p">,</span>
+        <span class="ss">state</span><span class="p">:</span> <span class="s2">&quot;manual&quot;</span><span class="p">,</span>
+        <span class="ss">required</span><span class="p">:</span> <span class="kp">true</span>
+    <span class="p">}</span><span class="o">]</span><span class="p">)</span>
+<span class="n">record_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;x_custom&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="o">[</span><span class="p">{</span>
+        <span class="ss">x_name</span><span class="p">:</span> <span class="s2">&quot;test record&quot;</span>
+    <span class="p">}</span><span class="o">]</span><span class="p">)</span>
+<span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;x_custom&#39;</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span> <span class="o">[[</span><span class="n">record_id</span><span class="o">]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">Integer</span> <span class="n">id</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;ir.model&quot;</span><span class="o">,</span> <span class="s">&quot;create&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;Custom Model&quot;</span><span class="o">);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;model&quot;</span><span class="o">,</span> <span class="s">&quot;x_custom&quot;</span><span class="o">);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;state&quot;</span><span class="o">,</span> <span class="s">&quot;manual&quot;</span><span class="o">);</span>
+        <span class="o">}})</span>
+<span class="o">));</span>
+<span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;ir.model.fields&quot;</span><span class="o">,</span> <span class="s">&quot;create&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;model_id&quot;</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;x_name&quot;</span><span class="o">);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;ttype&quot;</span><span class="o">,</span> <span class="s">&quot;char&quot;</span><span class="o">);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;state&quot;</span><span class="o">,</span> <span class="s">&quot;manual&quot;</span><span class="o">);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;required&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+        <span class="o">}})</span>
+<span class="o">));</span>
+<span class="kd">final</span> <span class="n">Integer</span> <span class="n">record_id</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;x_custom&quot;</span><span class="o">,</span> <span class="s">&quot;create&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;x_name&quot;</span><span class="o">,</span> <span class="s">&quot;test record&quot;</span><span class="o">);</span>
+        <span class="o">}})</span>
+<span class="o">));</span>
+
+<span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;x_custom&quot;</span><span class="o">,</span> <span class="s">&quot;read&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">record_id</span><span class="o">))</span>
+<span class="o">));</span>
+</pre></div>
+</div>
+</div></div><div class="highlight-json"><div class="highlight"><pre><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;create_uid&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Administrator&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;x_name&quot;</span><span class="p">:</span> <span class="s2">&quot;test record&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;__last_update&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-11-12 16:32:13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;write_uid&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Administrator&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;write_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-11-12 16:32:13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;create_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-11-12 16:32:13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;test record&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></section><section id="workflow-manipulations"><h3 >Workflow manipulations</h3><p ><a href="../reference/workflows/#reference-workflows" class="internal reference"><span >Workflows</span></a> can be moved along by sending them <em >signals</em>.
+Instead of using the top-level <code >execute_kw</code>, signals are sent using
+<code >exec_workflow</code>.</p><p >Signals are sent to a specific record, and possibly trigger a transition on
+the workflow instance associated with the record.</p><div class="doc-aside"><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >this example needs <code >account</code> module installed</p></div><div class="content-switcher"><ul ><li >Python</li><li >PHP</li><li >Ruby</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">client</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
+    <span class="p">[[(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)]],</span>
+    <span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;property_account_receivable_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;property_payment_term_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;property_account_position_id&#39;</span><span class="p">]</span>
+    <span class="p">})[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">invoice_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
+        <span class="s1">&#39;partner_id&#39;</span><span class="p">:</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;account_id&#39;</span><span class="p">:</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;property_account_receivable_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;invoice_line_ids&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;AAA&quot;</span><span class="p">})]</span>
+    <span class="p">}])</span>
+
+<span class="n">models</span><span class="o">.</span><span class="n">exec_workflow</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;invoice_open&#39;</span><span class="p">,</span> <span class="n">invoice_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$client</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">))),</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;limit&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;fields&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;property_account_receivable_id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;property_payment_term_id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;property_account_position_id&#39;</span>
+        <span class="p">)))[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nv">$invoice_id</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;partner_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;account_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client</span><span class="p">[</span><span class="s1">&#39;property_account_receivable_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;invoice_line_ids&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;AAA&quot;</span><span class="p">)))</span>
+    <span class="p">)));</span>
+
+<span class="nv">$models</span><span class="o">-&gt;</span><span class="na">exec_workflow</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;invoice_open&#39;</span><span class="p">,</span>
+     <span class="nv">$invoice_id</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">client</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
+    <span class="o">[[[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]]]</span><span class="p">,</span>
+    <span class="p">{</span><span class="ss">limit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">fields</span><span class="p">:</span> <span class="sx">%w(property_account_receivable_id property_payment_term_id property_account_position_id)</span><span class="p">}</span>
+<span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="n">invoice_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="o">[</span><span class="p">{</span>
+        <span class="ss">partner_id</span><span class="p">:</span> <span class="n">client</span><span class="o">[</span><span class="s1">&#39;id&#39;</span><span class="o">]</span><span class="p">,</span>
+        <span class="ss">account_id</span><span class="p">:</span> <span class="n">client</span><span class="o">[</span><span class="s1">&#39;property_account_receivable_id&#39;</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+        <span class="ss">invoice_line_ids</span><span class="p">:</span> <span class="o">[[</span><span class="mi">0</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="p">{</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;AAA&quot;</span><span class="p">}</span><span class="o">]]</span>
+    <span class="p">}</span><span class="o">]</span><span class="p">)</span>
+
+<span class="n">models</span><span class="o">.</span><span class="n">exec_workflow</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;invoice_open&#39;</span><span class="p">,</span> <span class="n">invoice_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;)</span>
+    <span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+            <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+            <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;search_read&quot;</span><span class="o">,</span>
+            <span class="n">asList</span><span class="o">(</span>
+                <span class="n">asList</span><span class="o">(</span>
+                    <span class="n">asList</span><span class="o">(</span><span class="s">&quot;customer&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">))),</span>
+            <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
+                    <span class="n">put</span><span class="o">(</span><span class="s">&quot;limit&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+                    <span class="n">put</span><span class="o">(</span><span class="s">&quot;fields&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+                        <span class="s">&quot;property_account_receivable_id&quot;</span><span class="o">,</span>
+                        <span class="s">&quot;property_payment_term_id&quot;</span><span class="o">,</span>
+                        <span class="s">&quot;property_account_position_id&quot;</span>
+                    <span class="o">));</span>
+                <span class="o">}}</span>
+    <span class="o">)))[</span><span class="mi">0</span><span class="o">];</span>
+<span class="kd">final</span> <span class="n">Integer</span> <span class="n">invoice_id</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;account.invoice&quot;</span><span class="o">,</span> <span class="s">&quot;create&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;partner_id&quot;</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">));</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;account_id&quot;</span><span class="o">,</span> <span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">c</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;property_account_receivable_id&quot;</span><span class="o">))[</span><span class="mi">0</span><span class="o">]);</span>
+            <span class="n">put</span><span class="o">(</span><span class="s">&quot;invoice_line_ids&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+                <span class="n">asList</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
+                    <span class="n">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;AAA&quot;</span><span class="o">);</span>
+                <span class="o">}})</span>
+            <span class="o">));</span>
+        <span class="o">}})</span>
+<span class="o">));</span>
+
+<span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;exec_workflow&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;account.invoice&quot;</span><span class="o">,</span> <span class="s">&quot;invoice_open&quot;</span><span class="o">,</span> <span class="n">invoice_id</span><span class="o">));</span>
+</pre></div>
+</div>
+</div></div></div></section><section id="report-printing"><h3 >Report printing</h3><p >Available reports can be listed by searching the <code >ir.actions.report.xml</code>
+model, fields of interest being</p><dl ><dt ><code >model</code></dt><dd >the model on which the report applies, can be used to look for available
+reports on a specific model</dd><dt ><code >name</code></dt><dd >human-readable report name</dd><dt ><code >report_name</code></dt><dd >the technical name of the report, used to print it</dd></dl><p >Reports can be printed over RPC with the following information:</p><ul ><li >the name of the report (<code >report_name</code>)</li><li >the ids of the records to include in the report</li></ul><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >PHP</li><li >Ruby</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span class="n">invoice_ids</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="p">[[(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;out_invoice&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">)]])</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;{}/xmlrpc/2/report&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">render_report</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;account.report_invoice&#39;</span><span class="p">,</span> <span class="n">invoice_ids</span><span class="p">)</span>
+<span class="n">report_data</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="nv">$invoice_ids</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;out_invoice&#39;</span><span class="p">),</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">))));</span>
+<span class="nv">$report</span> <span class="o">=</span> <span class="nx">ripcord</span><span class="o">::</span><span class="na">client</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$url</span><span class="s2">/xmlrpc/2/report&quot;</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$report</span><span class="o">-&gt;</span><span class="na">render_report</span><span class="p">(</span>
+    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
+    <span class="s1">&#39;account.report_invoice&#39;</span><span class="p">,</span> <span class="nv">$invoice_ids</span><span class="p">);</span>
+<span class="nv">$report_data</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;base64&#39;</span>
+<span class="n">invoice_ids</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+    <span class="o">[[[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;out_invoice&#39;</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="o">]]]</span><span class="p">)</span>
+<span class="n">report</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">/xmlrpc/2/report&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">proxy</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">render_report</span><span class="p">(</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">&#39;account.report_invoice&#39;</span><span class="p">,</span> <span class="n">invoice_ids</span><span class="p">)</span>
+<span class="n">report_data</span> <span class="o">=</span> <span class="no">Base64</span><span class="o">.</span><span class="n">decode64</span><span class="p">(</span><span class="n">result</span><span class="o">[</span><span class="s1">&#39;result&#39;</span><span class="o">]</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">final</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">invoice_ids</span> <span class="o">=</span> <span class="o">(</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;account.invoice&quot;</span><span class="o">,</span> <span class="s">&quot;search&quot;</span><span class="o">,</span>
+        <span class="n">asList</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span>
+            <span class="n">asList</span><span class="o">(</span><span class="s">&quot;type&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="s">&quot;out_invoice&quot;</span><span class="o">),</span>
+            <span class="n">asList</span><span class="o">(</span><span class="s">&quot;state&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="s">&quot;open&quot;</span><span class="o">)))</span>
+<span class="o">));</span>
+<span class="kd">final</span> <span class="n">XmlRpcClientConfigImpl</span> <span class="n">report_config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">();</span>
+<span class="n">report_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span>
+    <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s/xmlrpc/2/report&quot;</span><span class="o">,</span> <span class="n">url</span><span class="o">)));</span>
+<span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;)</span><span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="n">report_config</span><span class="o">,</span> <span class="s">&quot;render_report&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
+        <span class="s">&quot;account.report_invoice&quot;</span><span class="o">,</span>
+        <span class="n">invoice_ids</span><span class="o">));</span>
+<span class="kd">final</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">report_data</span> <span class="o">=</span> <span class="n">DatatypeConverter</span><span class="o">.</span><span class="na">parseBase64Binary</span><span class="o">(</span>
+    <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;result&quot;</span><span class="o">));</span>
+</pre></div>
+</div>
+</div></div><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >the report is sent as PDF binary data encoded in <a href="http://en.wikipedia.org/wiki/Base64" class="external reference alert-link">base64</a>, it must be
+decoded and may need to be saved to disk before use</p></div></div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

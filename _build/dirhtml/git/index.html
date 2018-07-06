@@ -1,0 +1,404 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Bazaar to git &mdash; odoo 10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 10.0 documentation" href="../" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+    <li class="active"><a href="#">Bazaar to git</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/installing_odoo.jpg');"></span>
+      <div class="container text-center">
+        <h1> Bazaar to git </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <article class="doc-body index-category">
+            
+            
+  <section id="bazaar-to-git"></section><section id="initializing-a-working-copy"><h2 >Initializing a working copy</h2><p >Use the easy-setup shell script:</p><div class="highlight-python"><div class="highlight"><pre>curl -O https://raw.githubusercontent.com/odoo/odoo/10.0/setup/setup_dev.py | python2
+</pre></div>
+</div>
+<p >it will will ask a few questions and create a local copy.</p></section><section id="git-concepts"><h2 >Git concepts</h2></section><section id="remotes"><h3 >Remotes</h3><p >Remotes are &quot;remote repositories&quot; which can be fetched from and pushed
+to. Remotes can be listed with <code >git remote</code><a href="#remote-default" class="footnote-ref" id="id1">1</a> and a local
+repository can have any number of remotes. The setup script creates 2 remotes:</p><dl ><dt ><code >odoo</code></dt><dd >the official repository and main branches, roughly corresponds to the old
+&quot;mainline&quot; branches in bazaar. You should never need to push to it, and by
+default your local copy is configured to forbid it.</dd><dt ><code >odoo-dev</code></dt><dd >a grab-bag of development branches, you can push your work to it so other
+coworkers can work with you.</dd></dl></section><section id="branches"><h3 >Branches</h3><p >The working copy and each remote contain multiple branches. Local branches can
+be listed by <code >git branch</code>, remote branches can be listed with <code >git branch
+-r</code>. Both types can be listed with <code >git branch -a</code>.</p><p >Work is only possible on local branches, even though it's possible to check
+out a remote branch work on it will be lost.</p></section><section id="staging"><h3 >Staging</h3><p ><code >bzr commit</code> takes all alterations to the working copy and creates a commit
+from them. Git has an intermediate step called &quot;staging&quot;. <code >git commit</code> will
+create a commit from what has been staged, not from the working copy<a href="#commit-no-staging" class="footnote-ref" id="id2">2</a>. Staging is done with <code >git add</code>. A commit with nothing
+staged is a null operation.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >It's possible for a single file to have changes in both the index and
+working copy: if a file is altered, staged and altered again, the second
+set of change has to be staged separately</p></div></section><section id="sha1"><h3 >SHA1</h3><p >Git has no sequential identifier, each commit is uniquely identified by a SHA
+(40 hexadecimal characters) roughly corresponding to a bazaar
+revision-id. Providing the full sha is rarely necessary, any unique leading
+substring is sufficient, e.g. <code >dae86e</code> will probably stand in for
+<code >dae86e1950b1277e545cee180551750029cfe735</code>.</p></section><section id="basic-development-workflow"><h2 >Basic development workflow</h2><ul ><li >update your remotes with <code >git fetch --all</code></li><li >create your development branch with <code >git checkout -b &lt;branch_name&gt;
+&lt;source_branch&gt;</code>. For instance if you wanted to add support for full-text
+search in master you could use <code >git checkout -b master-fts-xxx odoo/master</code></li><li >do your changes, stage them with <code >git add</code> and commit them with <code >git
+commit</code></li><li ><p >if your branch is long-lived, you may want to update it to its parent</p><ul ><li >update the remotes with <code >git fetch --all</code></li><li >merge the remote branch into the local one with <code >git merge --no-ff
+odoo/master</code></li></ul></li><li >to push the branch to the development repository, use <code >git push -u dev
+&lt;branchname&gt;</code>, this will automatically create a branch called
+<code >&lt;branchname&gt;</code> on dev. Next time around you do not have to use <code >-u</code></li><li >once the feature is done, create a pull request</li></ul></section><section id="tasks"><h2 >Tasks</h2></section><section id="converting-your-feature-branches-from-bazaar"><h3 >Converting your feature branches from bazaar</h3><p ><a href="https://github.com/odoo/odoo/blob/master/README.md#migration-from-bazaar" class="external reference">The readme</a> has some instructions.</p></section><section id="viewing-history-git-log"><h3 >Viewing history: <code >git log</code></h3><p ><code >git log</code> fulfills the same role as <code >bzr log</code> and is fairly similar, with
+a few differences:</p><ul ><li ><code >git log</code> has no <code >-r</code> argument, its first argument (optional) is a
+revision spec</li><li ><code >git log</code> always operates on ranges, if a single commit is provided (via
+hash, tag, branch or other) it will list the specified commit <em >and all of
+its ancestors</em>. To see a single commit, use <code >git show</code>.</li><li ><p ><code >git log</code>'s second positional argument is a path (file or
+directory). Because both are optional, if both a revision and a file match
+the revision will be selected. It is recommended to use <code >--</code> before a file
+path:</p><div class="highlight-python"><div class="highlight"><pre>git log -- filepath
+</pre></div>
+</div>
+</li><li ><code >git log</code> will actually work if given a directory, instead of pegging the
+CPU forever</li><li ><code >git log</code> works with removed files or directories without having to
+provide a revision during which the file or directory still existed</li><li ><code >git log</code> has <em >lots</em> of options to customize the output, e.g. <code >-p</code> will
+display the changes to each file<a href="#log-patch-empty" class="footnote-ref" id="id3">3</a>, <code >--name-status</code>
+will list the changed files and how they changed SVN-style (with a <code >M</code> or
+<code >D</code> prefix), <code >--name-only</code> will just list the changed files, <code >--stat</code>
+generates a diffstat view, <code >--grep</code> filters by grepping on the commit
+message, …</li></ul></section><section id="reverting-uncommitted-changes"><h3 >Reverting uncommitted changes</h3><div role="alert" class="alert-danger alert"><p class="alert-title">Danger</p><p >Do <em >not</em> use <code >git revert</code>, it does something completely
+different than <code >bzr revert</code></p></div><ul ><li >If you have altered files which you want to revert, use <code >git checkout --
+&lt;path&gt;</code>. To revert every file in the directory, use <code >git checkout -- .</code></li><li >If you have staged a file and you want to unstage it, use <code >git reset HEAD
+&lt;file&gt;</code>. This will not revert the file's changes, the file will be marked
+as modified again</li></ul></section><section id="diffing-git-diff"><h3 >Diffing: <code >git diff</code></h3><p ><code >git diff</code> is fairly similar to <code >bzr diff</code>: it compares the working copy
+with stored content and can be restricted to a given file path. However:</p><ul ><li ><code >git diff</code> compares the working copy and the staging area, not the latest
+commit</li><li ><code >git diff --staged</code> compares the staging area and the latest commit</li><li ><code >git diff HEAD</code> ignores the staging area and compares the working copy
+with the latest commit. More generally <code >git diff &lt;commit&gt;</code> will diff the
+working copy and the specified commit</li><li >to diff between commits, simply pass the commit identifiers (no <code >-r</code>
+argument)</li><li ><code >git diff --stat</code> provides a diffstat-view of the diff, and can be
+combined with other flags. It can be used as an intermediate between <code >git
+status</code> and <code >git status -s</code></li></ul></section><section id="update-to-a-previous-revision"><h3 >Update to a previous revision</h3><p ><code >git checkout</code> takes an arbitrary commit, the equivalent to <code >bzr update
+-r&lt;rev&gt;</code> is thus <code >git checkout &lt;rev&gt;</code>.</p></section><section id="file-from-the-past"><h3 >File from the past</h3><p ><code >bzr cat -r&lt;revision&gt; &lt;filename&gt;</code> shows the file <code >&lt;filename&gt;</code> as it was at
+<code >&lt;revision&gt;</code>. The Git equivalent is <code >git show &lt;revision&gt;:&lt;filename&gt;</code></p></section><section id="incorrect-last-commit-fix-it"><h3 >Incorrect last commit: fix it</h3><p >If the last commit has to be fixed a bit (error, missing data,
+incomplete/incorrect commit message) it can be fixed with <code >git commit
+--amend</code>. Instead of creating a new commit, it adds whatever is being
+committed to the previous commit.</p></section><section id="incorrect-last-commit-remove-it"><h3 >Incorrect last commit: remove it</h3><p >If the last commit has to be removed entirely (similar to <code >bzr uncommit</code>),
+use <code >git reset HEAD~1</code>.</p><div role="alert" class="alert-danger alert"><p class="alert-title">Danger</p><p >do not use this command or the previous one on commits you have
+already pushed</p></div></section><section id="useful-tips"><h2 >Useful tips</h2></section><section id="partial-operations"><h3 >Partial operations</h3><p ><code >checkout</code>, <code >add</code>, <code >commit</code>, <code >reset</code> and <code >stash</code> can take a <code >-p</code>
+flag, which allows operating (staging, reverting, ...) on a subset of the
+file. It opens a UI allowing the selection (or not) of each patch hunk, and
+even the splitting of hunk if they're too big.</p><p >Allows reverting only part of the changes to a file, or cleanly splitting
+refactorings and fixes mixed in a file.</p></section><section id="short-status"><h3 >short status</h3><p >The default <code >status</code> command is very verbose (though useful, it provides
+instructions for reverting things). The <code >-s</code> flag provides an SVN-like
+display instead with just a listing of files and <abbr title="Added">A</abbr>, <abbr title="Modified">M</abbr> or <abbr title="Deleted">D</abbr> flags next to them. Each file can have 2
+flags, the first is for the index (difference between the last commit and the
+index) and the and the second is for the working copy (difference between the
+index and the working copy).</p></section><section id="checkout-shortcut"><h3 ><code >checkout</code> shortcut</h3><p ><code >checkout -</code> will behave like <code >cd -</code>, it will switch to the previously
+checked-out branch/commit</p><div class="footnote" id="remote-default"><span class="footnote-label"><a class="footnote-backref" href="#id1">[1]</a></span> by default, <code >git remote</code> will only give the names of
+the various remotes. <code >git remote -v</code> will give the name
+and URL of each remote.</div><div class="footnote" id="commit-no-staging"><span class="footnote-label"><a class="footnote-backref" href="#id2">[2]</a></span> the <code >-a</code> option will automatically stage modified
+and deleted files</div><div class="footnote" id="log-patch-empty"><span class="footnote-label"><a class="footnote-backref" href="#id3">[3]</a></span> but only the changes performed by this actual commit,
+for a merge the merged changes are not considered part
+of the merge commit</div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,726 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Views &mdash; odoo 10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/doc.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 10.0 documentation" href="../../" />
+    <link rel="up" title="Reference" href="../" />
+    <link rel="next" title="Modules" href="../module/" />
+    <link rel="prev" title="Actions" href="../actions/" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../../">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Views</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../../_static/banners/views.jpg');"></span>
+      <div class="container text-center">
+        <h1> Views </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#common-structure" class="ripple internal reference">Common Structure</a></li><li class="list-group-item"><a href="#inheritance" class="ripple internal reference">Inheritance</a><ul ><li class="list-group-item"><a href="#view-matching" class="ripple internal reference">View matching</a></li><li class="list-group-item"><a href="#view-resolution" class="ripple internal reference">View resolution</a></li><li class="list-group-item"><a href="#inheritance-specs" class="ripple internal reference">Inheritance specs</a></li></ul></li><li class="list-group-item"><a href="#lists" class="ripple internal reference">Lists</a></li><li class="list-group-item"><a href="#forms" class="ripple internal reference">Forms</a><ul ><li class="list-group-item"><a href="#structural-components" class="ripple internal reference">Structural components</a></li><li class="list-group-item"><a href="#semantic-components" class="ripple internal reference">Semantic components</a></li><li class="list-group-item"><a href="#business-views-guidelines" class="ripple internal reference">Business Views guidelines</a><ul ><li class="list-group-item"><a href="#the-status-bar" class="ripple internal reference">The Status Bar</a><ul ><li class="list-group-item"><a href="#the-buttons" class="ripple internal reference">The Buttons</a></li><li class="list-group-item"><a href="#the-status" class="ripple internal reference">The Status</a></li></ul></li><li class="list-group-item"><a href="#the-sheet" class="ripple internal reference">The Sheet</a><ul ><li class="list-group-item"><a href="#sheet-headers" class="ripple internal reference">Sheet Headers</a></li><li class="list-group-item"><a href="#button-box" class="ripple internal reference">Button Box</a></li><li class="list-group-item"><a href="#groups-and-titles" class="ripple internal reference">Groups and Titles</a><ul ><li class="list-group-item"><a href="#special-case-subtotals" class="ripple internal reference">Special Case: Subtotals</a></li></ul></li><li class="list-group-item"><a href="#placeholders-and-inline-fields" class="ripple internal reference">Placeholders and Inline Fields</a></li><li class="list-group-item"><a href="#images" class="ripple internal reference">Images</a></li><li class="list-group-item"><a href="#tags" class="ripple internal reference">Tags</a></li></ul></li></ul></li><li class="list-group-item"><a href="#configuration-forms-guidelines" class="ripple internal reference">Configuration forms guidelines</a></li><li class="list-group-item"><a href="#dialog-forms-guidelines" class="ripple internal reference">Dialog forms guidelines</a></li><li class="list-group-item"><a href="#configuration-wizards-guidelines" class="ripple internal reference">Configuration Wizards guidelines</a></li></ul></li><li class="list-group-item"><a href="#graphs" class="ripple internal reference">Graphs</a><ul ><li class="list-group-item"><a href="#pivots" class="ripple internal reference">Pivots</a></li></ul></li><li class="list-group-item"><a href="#kanban" class="ripple internal reference">Kanban</a><ul ><li class="list-group-item"><a href="#javascript-api" class="ripple internal reference">Javascript API</a></li></ul></li><li class="list-group-item"><a href="#calendar" class="ripple internal reference">Calendar</a></li><li class="list-group-item"><a href="#gantt" class="ripple internal reference">Gantt</a></li><li class="list-group-item"><a href="#diagram" class="ripple internal reference">Diagram</a></li><li class="list-group-item"><a href="#search" class="ripple internal reference">Search</a><ul ><li class="list-group-item"><a href="#search-defaults" class="ripple internal reference">Search defaults</a></li></ul></li><li class="list-group-item"><a href="#qweb" class="ripple internal reference">QWeb</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/reference/views.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="views"><i id="reference-views"></i></section><section id="common-structure"><i id="reference-views-structure"></i><h2 >Common Structure</h2><p >View objects expose a number of fields, they are optional unless specified
+otherwise.</p><dl ><dt ><code >name</code> (mandatory)</dt><dd >only useful as a mnemonic/description of the view when looking for one in
+a list of some sort</dd><dt ><code >model</code></dt><dd >the model linked to the view, if applicable (it doesn't for QWeb views)</dd><dt ><code >priority</code></dt><dd ><p >client programs can request views by <code >id</code>, or by <code >(model, type)</code>. For
+the latter, all the views for the right type and model will be searched,
+and the one with the lowest <code >priority</code> number will be returned (it is
+the &quot;default view&quot;).</p><p ><code >priority</code> also defines the order of application during <a href="#reference-views-inheritance" class="internal reference"><span >view
+inheritance</span></a></p></dd><dt ><code >arch</code></dt><dd >the description of the view's layout</dd><dt ><code >groups_id</code></dt><dd ><a href="../orm/#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> field to the groups allowed to view/use
+the current view</dd><dt ><code >inherit_id</code></dt><dd >the current view's parent view, see <a href="#reference-views-inheritance" class="internal reference"><span >Inheritance</span></a>,
+unset by default</dd><dt ><code >mode</code></dt><dd >inheritance mode, see <a href="#reference-views-inheritance" class="internal reference"><span >Inheritance</span></a>. If
+<code >inherit_id</code> is unset the <code >mode</code> can only be <code >primary</code>. If
+<code >inherit_id</code> is set, <code >extension</code> by default but can be explicitly set
+to <code >primary</code></dd><dt ><code >application</code></dt><dd >website feature defining togglable views. By default, views are always
+applied</dd></dl></section><section id="inheritance"><i id="reference-views-inheritance"></i><h2 >Inheritance</h2></section><section id="view-matching"><h3 >View matching</h3><ul ><li >if a view is requested by <code >(model, type)</code>, the view with the right model
+and type, <code >mode=primary</code> and the lowest priority is matched</li><li >when a view is requested by <code >id</code>, if its mode is not <code >primary</code> its
+<em >closest</em> parent with mode <code >primary</code> is matched</li></ul></section><section id="view-resolution"><h3 >View resolution</h3><p >Resolution generates the final <code >arch</code> for a requested/matched <code >primary</code>
+view:</p><ol ><li >if the view has a parent, the parent is fully resolved then the current
+view's inheritance specs are applied</li><li >if the view has no parent, its <code >arch</code> is used as-is</li><li >the current view's children with mode <code >extension</code> are looked up  and their
+inheritance specs are applied depth-first (a child view is applied, then
+its children, then its siblings)</li></ol><p >The result of applying children views yields the final <code >arch</code></p></section><section id="inheritance-specs"><h3 >Inheritance specs</h3><p >Inheritance specs are comprised of an element locator, to match
+the inherited element in the parent view, and children element that
+will be used to modify the inherited element.</p><p >There are three types of element locators for matching a target element:</p><ul ><li >An <code >xpath</code> element with an <code >expr</code> attribute. <code >expr</code> is an <a href="http://en.wikipedia.org/wiki/XPath" class="external reference">XPath</a>
+expression<a href="#hasclass" class="footnote-ref" id="id1">2</a> applied to the current <code >arch</code>, the first node
+it finds is the match</li><li >a <code >field</code> element with a <code >name</code> attribute, matches the first <code >field</code>
+with the same <code >name</code>. All other attributes are ignored during matching</li><li >any other element: the first element with the same name and identical
+attributes (ignoring <code >position</code> and <code >version</code> attributes) is matched</li></ul><p >The inheritance spec may have an optional <code >position</code> attribute specifying
+how the matched node should be altered:</p><dl ><dt ><code >inside</code> (default)</dt><dd >the content of the inheritance spec is appended to the matched node</dd><dt ><code >replace</code></dt><dd >the content of the inheritance spec replaces the matched node.
+Any text node containing only <code >$0</code> within the contents of the spec will
+be replaced  by a complete copy of the matched node, effectively wrapping
+the matched node.</dd><dt ><code >after</code></dt><dd >the content of the inheritance spec is added to the matched node's
+parent, after the matched node</dd><dt ><code >before</code></dt><dd >the content of the inheritance spec is added to the matched node's
+parent, before the matched node</dd><dt ><code >attributes</code></dt><dd ><p >the content of the inheritance spec should be <code >attribute</code> elements
+with a <code >name</code> attribute and an optional body:</p><ul ><li >if the <code >attribute</code> element has a body, a new attributed named
+after its <code >name</code> is created on the matched node with the
+<code >attribute</code> element's text as value</li><li >if the <code >attribute</code> element has no body, the attribute named after
+its <code >name</code> is removed from the matched node. If no such attribute
+exists, an error is raised</li></ul></dd></dl><p >A view's specs are applied sequentially.</p></section><section id="lists"><i id="reference-views-list"></i><h2 >Lists</h2><p >The root element of list views is <code >&lt;tree&gt;</code><a href="#treehistory" class="footnote-ref" id="id2">3</a>. The list view's
+root can have the following attributes:</p><dl ><dt ><code >editable</code></dt><dd ><p >by default, selecting a list view's row opens the corresponding
+<a href="#reference-views-form" class="internal reference"><span >form view</span></a>. The <code >editable</code> attributes makes
+the list view itself editable in-place.</p><p >Valid values are <code >top</code> and <code >bottom</code>, making <em >new</em> records appear
+respectively at the top or bottom of the list.</p><p >The architecture for the inline <a href="#reference-views-form" class="internal reference"><span >form view</span></a> is
+derived from the list view. Most attributes valid on a <a href="#reference-views-form" class="internal reference"><span >form view</span></a>'s fields and buttons are thus accepted by list
+views although they may not have any meaning if the list view is
+non-editable</p></dd><dt ><code >default_order</code></dt><dd ><p >overrides the ordering of the view, replacing the model's default order.
+The value is a comma-separated list of fields, postfixed by <code >desc</code> to
+sort in reverse order:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;tree</span> <span class="na">default_order=</span><span class="s">&quot;sequence,name desc&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+</dd><dt ><code >colors</code></dt><dd ><div class="deprecated"><p ><span class="versionmodified">Deprecated since version 9.0: </span>replaced by <code >decoration-{$name}</code></p></div></dd><dt ><code >fonts</code></dt><dd ><div class="deprecated"><p ><span class="versionmodified">Deprecated since version 9.0: </span>replaced by <code >decoration-{$name}</code></p></div></dd><dt ><code >decoration-{$name}</code></dt><dd ><p >allow changing the style of a row's text based on the corresponding
+record's attributes.</p><p >Values are Python expressions. For each record, the expression is evaluated
+with the record's attributes as context values and if <code >true</code>, the
+corresponding style is applied to the row. Other context values are
+<code >uid</code> (the id of the current user) and <code >current_date</code> (the current date
+as a string of the form <code >yyyy-MM-dd</code>).</p><p ><code >{$name}</code> can be <code >bf</code> (<code >font-weight: bold</code>), <code >it</code>
+(<code >font-style: italic</code>), or any <a href="http://getbootstrap.com/components/#available-variations" class="external reference">bootstrap contextual color</a> (<code >danger</code>,
+<code >info</code>, <code >muted</code>, <code >primary</code>, <code >success</code> or <code >warning</code>).</p></dd><dt ><code >create</code>, <code >edit</code>, <code >delete</code></dt><dd >allows <em >dis</em>abling the corresponding action in the view by setting the
+corresponding attribute to <code >false</code></dd><dt ><code >on_write</code></dt><dd ><p >only makes sense on an <code >editable</code> list. Should be the name of a method
+on the list's model. The method will be called with the <code >id</code> of a record
+after having created or edited that record (in database).</p><p >The method should return a list of ids of other records to load or update.</p></dd><dt ><code >string</code></dt><dd ><p >alternative translatable label for the view</p><div class="deprecated"><p ><span class="versionmodified">Deprecated since version 8.0: </span>not displayed anymore</p></div></dd></dl><p >Possible children elements of the list view are:</p><dl id="reference-views-list-button"><dt ><code >button</code></dt><dd ><p >displays a button in a list cell</p><dl ><dt ><code >icon</code></dt><dd >icon to use to display the button</dd><dt ><code >string</code></dt><dd ><ul ><li >if there is no <code >icon</code>, the button's text</li><li >if there is an <code >icon</code>, <code >alt</code> text for the icon</li></ul></dd><dt ><code >type</code></dt><dd ><p >type of button, indicates how it clicking it affects Odoo:</p><dl ><dt ><code >workflow</code> (default)</dt><dd >sends a signal to a workflow. The button's <code >name</code> is the
+workflow signal, the row's record is passed as argument to the
+signal</dd><dt ><code >object</code></dt><dd >call a method on the list's model. The button's <code >name</code> is the
+method, which is called with the current row's record id and the
+current context.</dd><dt ><code >action</code></dt><dd >load an execute an <code >ir.actions</code>, the button's <code >name</code> is the
+database id of the action. The context is expanded with the list's
+model (as <code >active_model</code>), the current row's record
+(<code >active_id</code>) and all the records currently loaded in the list
+(<code >active_ids</code>, may be just a subset of the database records
+matching the current search)</dd></dl></dd><dt ><code >name</code></dt><dd >see <code >type</code></dd><dt ><code >args</code></dt><dd >see <code >type</code></dd><dt ><code >attrs</code></dt><dd ><p >dynamic attributes based on record values.</p><p >A mapping of attributes to domains, domains are evaluated in the
+context of the current row's record, if <code >True</code> the corresponding
+attribute is set on the cell.</p><p >Possible attributes are <code >invisible</code> (hides the button) and
+<code >readonly</code> (disables the button but still shows it)</p></dd><dt ><code >states</code></dt><dd ><p >shorthand for <code >invisible</code> <code >attrs</code>: a list of states, comma separated,
+requires that the model has a <code >state</code> field and that it is
+used in the view.</p><p >Makes the button <code >invisible</code> if the record is <em >not</em> in one of the
+listed states</p></dd><dt ><code >context</code></dt><dd >merged into the view's context when performing the button's Odoo call</dd><dt ><code >confirm</code></dt><dd >confirmation message to display (and for the user to accept) before
+performing the button's Odoo call</dd></dl></dd><dt ><code >field</code></dt><dd ><p >defines a column where the corresponding field should be displayed for
+each record. Can use the following attributes:</p><dl ><dt ><code >name</code></dt><dd >the name of the field to display in the current model. A given name
+can only be used once per view</dd><dt ><code >string</code></dt><dd >the title of the field's column (by default, uses the <code >string</code> of
+the model's field)</dd><dt ><code >invisible</code></dt><dd >fetches and stores the field, but doesn't display the column in the
+table. Necessary for fields which shouldn't be displayed but are
+used by e.g. <code >@colors</code></dd><dt ><code >groups</code></dt><dd >lists the groups which should be able to see the field</dd><dt ><code >widget</code></dt><dd ><p >alternate representations for a field's display. Possible list view
+values are:</p><dl ><dt ><code >progressbar</code></dt><dd >displays <code >float</code> fields as a progress bar.</dd><dt ><code >many2onebutton</code></dt><dd >replaces the m2o field's value by a checkmark if the field is
+filled, and a cross if it is not</dd><dt ><code >handle</code></dt><dd >for <code >sequence</code> fields, instead of displaying the field's value
+just displays a dra&amp;drop icon</dd></dl></dd><dt ><code >sum</code>, <code >avg</code></dt><dd >displays the corresponding aggregate at the bottom of the column. The
+aggregation is only computed on <em >currently displayed</em> records. The
+aggregation operation must match the corresponding field's
+<code >group_operator</code></dd><dt ><code >attrs</code></dt><dd >dynamic attributes based on record values. Only effects the current
+field, so e.g. <code >invisible</code> will hide the field but leave the same
+field of other records visible, it will not hide the column itself</dd></dl><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >if the list view is <code >editable</code>, any field attribute from the
+<a href="#reference-views-form" class="internal alert-link reference"><span >form view</span></a> is also valid and will
+be used when setting up the inline form view</p></div></dd></dl></section><section id="forms"><i id="reference-views-form"></i><h2 >Forms</h2><p >Form views are used to display the data from a single record. Their root
+element is <code >&lt;form&gt;</code>. They are composed of regular <a href="http://en.wikipedia.org/wiki/HTML" class="external reference">HTML</a> with additional
+structural and semantic components.</p></section><section id="structural-components"><h3 >Structural components</h3><p >Structural components provide structure or &quot;visual&quot; features with little
+logic. They are used as elements or sets of elements in form views.</p><dl ><dt ><code >notebook</code></dt><dd ><p >defines a tabbed section. Each tab is defined through a <code >page</code> child
+element. Pages can have the following attributes:</p><dl ><dt ><code >string</code> (required)</dt><dd >the title of the tab</dd><dt ><code >accesskey</code></dt><dd >an HTML <a href="http://www.w3.org/TR/html5/editing.html#the-accesskey-attribute" class="external reference">accesskey</a></dd><dt ><code >attrs</code></dt><dd >standard dynamic attributes based on record values</dd></dl></dd><dt ><code >group</code></dt><dd ><p >used to define column layouts in forms. By default, groups define 2 columns
+and most direct children of groups take a single column. <code >field</code> direct
+children of groups display a label by default, and the label and the field
+itself have a colspan of 1 each.</p><p >The number of columns in a <code >group</code> can be customized using the <code >col</code>
+attribute, the number of columns taken by an element can be customized using
+<code >colspan</code>.</p><p >Children are laid out horizontally (tries to fill the next column before
+changing row).</p><p >Groups can have a <code >string</code> attribute, which is displayed as the group's
+title</p></dd><dt ><code >newline</code></dt><dd >only useful within <code >group</code> elements, ends the current row early and
+immediately switches to a new row (without filling any remaining column
+beforehand)</dd><dt ><code >separator</code></dt><dd >small horizontal spacing, with a <code >string</code> attribute behaves as a section
+title</dd><dt ><code >sheet</code></dt><dd >can be used as a direct child to <code >form</code> for a narrower and more responsive
+form layout</dd><dt ><code >header</code></dt><dd >combined with <code >sheet</code>, provides a full-width location above the sheet
+itself, generally used to display workflow buttons and status widgets</dd></dl></section><section id="semantic-components"><h3 >Semantic components</h3><p >Semantic components tie into and allow interaction with the Odoo
+system. Available semantic components are:</p><dl ><dt ><code >button</code></dt><dd >call into the Odoo system, similar to <a href="#reference-views-list-button" class="internal reference"><span >list view buttons</span></a></dd><dt ><code >field</code></dt><dd ><p >renders (and allow edition of, possibly) a single field of the current
+record. Possible attributes are:</p><dl ><dt ><code >name</code> (mandatory)</dt><dd >the name of the field to render</dd><dt ><code >widget</code></dt><dd >fields have a default rendering based on their type
+(e.g. <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a>,
+<a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a>). The <code >widget</code> attributes allows using
+a different rendering method and context.</dd><dt ><code >options</code></dt><dd >JSON object specifying configuration option for the field's widget
+(including default widgets)</dd><dt ><code >class</code></dt><dd ><p >HTML class to set on the generated element, common field classes are:</p><dl ><dt ><code >oe_inline</code></dt><dd >prevent the usual line break following fields</dd><dt ><code >oe_left</code>, <code >oe_right</code></dt><dd ><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" class="external reference">floats</a> the field to the corresponding direction</dd><dt ><code >oe_read_only</code>, <code >oe_edit_only</code></dt><dd >only displays the field in the corresponding form mode</dd><dt ><code >oe_no_button</code></dt><dd >avoids displaying the navigation button in a
+<a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a></dd><dt ><code >oe_avatar</code></dt><dd >for image fields, displays images as &quot;avatar&quot; (square, 90x90 maximum
+size, some image decorations)</dd></dl></dd><dt ><code >groups</code></dt><dd >only displays the field for specific users</dd><dt ><code >on_change</code></dt><dd ><p >calls the specified method when this field's value is edited, can generate
+update other fields or display warnings for the user</p><div class="deprecated"><p ><span class="versionmodified">Deprecated since version 8.0: </span>Use <a href="../orm/#odoo.api.onchange" class="internal alert-link reference" title="odoo.api.onchange"><code class="py xref py-func">odoo.api.onchange()</code></a> on the model</p></div></dd><dt ><code >attrs</code></dt><dd >dynamic meta-parameters based on record values</dd><dt ><code >domain</code></dt><dd >for relational fields only, filters to apply when displaying existing
+records for selection</dd><dt ><code >context</code></dt><dd >for relational fields only, context to pass when fetching possible values</dd><dt ><code >readonly</code></dt><dd >display the field in both readonly and edition mode, but never make it
+editable</dd><dt ><code >required</code></dt><dd >generates an error and prevents saving the record if the field doesn't
+have a value</dd><dt ><code >nolabel</code></dt><dd >don't automatically display the field's label, only makes sense if the
+field is a direct child of a <code >group</code> element</dd><dt ><code >placeholder</code></dt><dd >help message to display in <em >empty</em> fields. Can replace field labels in
+complex forms. <em >Should not</em> be an example of data as users are liable to
+confuse placeholder text with filled fields</dd><dt ><code >mode</code></dt><dd >for <a href="../orm/#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a>, display mode (view type) to use for
+the field's linked records. One of <code >tree</code>, <code >form</code>, <code >kanban</code> or
+<code >graph</code>. The default is <code >tree</code> (a list display)</dd><dt ><code >help</code></dt><dd >tooltip displayed for users when hovering the field or its label</dd><dt ><code >filename</code></dt><dd >for binary fields, name of the related field providing the name of the
+file</dd><dt ><code >password</code></dt><dd >indicates that a <a href="../orm/#odoo.fields.Char" class="internal reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a> field stores a password and
+that its data shouldn't be displayed</dd></dl></dd></dl></section><section id="business-views-guidelines"><h3 >Business Views guidelines</h3><p >Business views are targeted at regular users, not advanced users.  Examples
+are: Opportunities, Products, Partners, Tasks, Projects, etc.</p><img src="../../_images/oppreadonly.png" class="img-responsive"><p >In general, a business view is composed of</p><ol ><li >a status bar on top (with technical or business flow),</li><li >a sheet in the middle (the form itself),</li><li >a bottom part with History and Comments.</li></ol><p >Technically, the new form views are structured as follows in XML:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;header&gt;</span> ... content of the status bar  ... <span class="nt">&lt;/header&gt;</span>
+    <span class="nt">&lt;sheet&gt;</span>  ... content of the sheet       ... <span class="nt">&lt;/sheet&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_chatter&quot;</span><span class="nt">&gt;</span> ... content of the bottom part ... <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+</div>
+</section><section id="the-status-bar"><h4 >The Status Bar</h4><p >The purpose of the status bar is to show the status of the current record and
+the action buttons.</p><img src="../../_images/status.png" class="img-responsive"></section><section id="the-buttons"><h5 >The Buttons</h5><p >The order of buttons follows the business flow. For instance, in a sale order,
+the logical steps are:</p><ol ><li >Send the quotation</li><li >Confirm the quotation</li><li >Create the final invoice</li><li >Send the goods</li></ol><p >Highlighted buttons (in red by default) emphasize the logical next step, to
+help the user. It is usually the first active button. On the other hand,
+<span class="guilabel">cancel</span> buttons <em >must</em> remain grey (normal).  For instance, in
+Invoice the button <span class="guilabel">Refund</span> must never be red.</p><p >Technically, buttons are highlighted by adding the class &quot;oe_highlight&quot;:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;oe_highlight&quot;</span> <span class="na">name=</span><span class="s">&quot;...&quot;</span> <span class="na">type=</span><span class="s">&quot;...&quot;</span> <span class="na">states=</span><span class="s">&quot;...&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section><section id="the-status"><h5 >The Status</h5><p >Uses the <code >statusbar</code> widget, and shows the current state in red. States
+common to all flows (for instance, a sale order begins as a quotation, then we
+send it, then it becomes a full sale order, and finally it is done) should be
+visible at all times but exceptions or states depending on particular sub-flow
+should only be visible when current.</p><img src="../../_images/status1.png" class="img-responsive"><img src="../../_images/status2.png" class="img-responsive"><p >The states are shown following the order used in the field (the list in a
+selection field, etc). States that are always visible are specified with the
+attribute <code >statusbar_visible</code>.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;state&quot;</span> <span class="na">widget=</span><span class="s">&quot;statusbar&quot;</span>
+    <span class="na">statusbar_visible=</span><span class="s">&quot;draft,sent,progress,invoiced,done&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section><section id="the-sheet"><h4 >The Sheet</h4><p >All business views should look like a printed sheet:</p><img src="../../_images/sheet.png" class="img-responsive"><ol ><li >Elements inside a <code >&lt;form&gt;</code> or <code >&lt;page&gt;</code> do not define groups, elements
+inside them are laid out according to normal HTML rules. They content can
+be explicitly grouped using <code >&lt;group&gt;</code> or regular <code >&lt;div&gt;</code> elements.</li><li >By default, the element <code >&lt;group&gt;</code> defines two columns inside, unless an
+attribute <code >col=&quot;n&quot;</code> is used.  The columns have the same width (1/n th of
+the group's width). Use a <code >&lt;group&gt;</code> element to produce a column of fields.</li><li ><p >To give a title to a section, add a <code >string</code> attribute to a <code >&lt;group&gt;</code> element:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;group</span> <span class="na">string=</span><span class="s">&quot;Time-sensitive operations&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p >this replaces the former use of <code >&lt;separator string=&quot;XXX&quot;/&gt;</code>.</p></li><li >The <code >&lt;field&gt;</code> element does not produce a label, except as direct children
+of a <code >&lt;group&gt;</code> element<a href="#backwards-compatibility" class="footnote-ref" id="id3">1</a>.  Use <code class="samp">&lt;label
+for=&quot;<em >field_name</em>&gt;</code> to produce a label of a field.</li></ol></section><section id="sheet-headers"><h5 >Sheet Headers</h5><p >Some sheets have headers with one or more fields, and the labels of those
+fields are only shown in edit mode.</p><table class="table"><thead ><tr ><th >View mode</th><th >Edit mode</th></tr></thead><tbody ><tr ><td ><img src="../../_images/header.png" class="img-responsive"></td><td ><img src="../../_images/header2.png" class="img-responsive"></td></tr></tbody></table><p >Use HTML text, <code >&lt;div&gt;</code>, <code >&lt;h1&gt;</code>, <code >&lt;h2&gt;</code>… to produce nice headers, and
+<code >&lt;label&gt;</code> with the class <code >oe_edit_only</code> to only display the field's label
+in edit mode. The class <code >oe_inline</code> will make fields inline (instead of
+blocks): content following the field will be displayed on the same line rather
+than on the line below it. The form above is produced by the following XML:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;name&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_edit_only&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;h1&gt;&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;&lt;/h1&gt;</span>
+
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;planned_revenue&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_edit_only&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;h2&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;planned_revenue&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_inline&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;company_currency&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_inline oe_edit_only&quot;</span><span class="nt">/&gt;</span> at
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;probability&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_inline&quot;</span><span class="nt">/&gt;</span> % success rate
+<span class="nt">&lt;/h2&gt;</span>
+</pre></div>
+</div>
+</section><section id="button-box"><h5 >Button Box</h5><p >Many relevant actions or links can be displayed in the form. For example, in
+Opportunity form, the actions &quot;Schedule a Call&quot; and &quot;Schedule a Meeting&quot; have
+an important place in the use of the CRM. Instead of placing them in the
+&quot;More&quot; menu, put them directly in the sheet as buttons (on the top) to make
+them more visible and more easily accessible.</p><img src="../../_images/header3.png" class="img-responsive"><p >Technically, the buttons are placed inside a <code >&lt;div&gt;</code> to group them as a
+block on the top of the sheet.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_button_box&quot;</span> <span class="na">name=</span><span class="s">&quot;button_box&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">string=</span><span class="s">&quot;Schedule/Log Call&quot;</span> <span class="na">name=</span><span class="s">&quot;...&quot;</span> <span class="na">type=</span><span class="s">&quot;action&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">string=</span><span class="s">&quot;Schedule Meeting&quot;</span> <span class="na">name=</span><span class="s">&quot;action_makeMeeting&quot;</span> <span class="na">type=</span><span class="s">&quot;object&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</section><section id="groups-and-titles"><h5 >Groups and Titles</h5><p >A column of fields is now produced with a <code >&lt;group&gt;</code> element, with an
+optional title.</p><img src="../../_images/screenshot-03.png" class="img-responsive"><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;group</span> <span class="na">string=</span><span class="s">&quot;Payment Options&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;writeoff_amount&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;payment_option&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/group&gt;</span>
+</pre></div>
+</div>
+<p >It is recommended to have two columns of fields on the form. For this, simply
+put the <code >&lt;group&gt;</code> elements that contain the fields inside a top-level
+<code >&lt;group&gt;</code> element.</p><p >To make <a href="#reference-views-inheritance" class="internal reference"><span >view extension</span></a> simpler, it is
+recommended to put a <code >name</code> attribute on <code >&lt;group&gt;</code> elements, so new fields
+can easily be added at the right place.</p></section><section id="special-case-subtotals"><h6 >Special Case: Subtotals</h6><p >Some classes are defined to render subtotals like in invoice forms:</p><img src="../../_images/screenshot-00.png" class="img-responsive"><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;group</span> <span class="na">class=</span><span class="s">&quot;oe_subtotal_footer&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;amount_untaxed&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;amount_tax&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;amount_total&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_subtotal_footer_separator&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;residual&quot;</span> <span class="na">style=</span><span class="s">&quot;margin-top: 10px&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/group&gt;</span>
+</pre></div>
+</div>
+</section><section id="placeholders-and-inline-fields"><h5 >Placeholders and Inline Fields</h5><p >Sometimes field labels make the form too complex. One can omit field labels,
+and instead put a placeholder inside the field. The placeholder text is
+visible only when the field is empty. The placeholder should tell what to
+place inside the field, it <em >must not</em> be an example as they are often confused
+with filled data.</p><p >One can also group fields together by rendering them &quot;inline&quot; inside an
+explicit block element like <code >&lt;div&gt;</code>. This allows grouping semantically
+related fields as if they were a single (composite) fields.</p><p >The following example, taken from the <em >Leads</em> form, shows both placeholders and
+inline fields (zip and city).</p><table class="table"><thead ><tr ><th >Edit mode</th><th >View mode</th></tr></thead><tbody ><tr ><td ><img src="../../_images/placeholder.png" class="img-responsive"></td><td ><img src="../../_images/screenshot-01.png" class="img-responsive"></td></tr></tbody></table><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;group&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;street&quot;</span> <span class="na">string=</span><span class="s">&quot;Address&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;street&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Street...&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;street2&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;zip&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_inline&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;ZIP&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;city&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_inline&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;City&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;state_id&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;State&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;country_id&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Country&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/group&gt;</span>
+</pre></div>
+</div>
+</section><section id="images"><h5 >Images</h5><p >Images, like avatars, should be displayed on the right of the sheet.  The
+product form looks like:</p><img src="../../_images/screenshot-02.png" class="img-responsive"><p >The form above contains a &lt;sheet&gt; element that starts with:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;product_image&quot;</span> <span class="na">widget=</span><span class="s">&quot;image&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_avatar oe_right&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section><section id="tags"><h5 >Tags</h5><p >Most <a href="../orm/#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> fields, like categories, are better
+rendered as a list of tags. Use the widget <code >many2many_tags</code> for this:</p><img src="../../_images/screenshot-04.png" class="img-responsive"><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;category_id&quot;</span> <span class="na">widget=</span><span class="s">&quot;many2many_tags&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section><section id="configuration-forms-guidelines"><h3 >Configuration forms guidelines</h3><p >Examples of configuration forms: Stages, Leave Type, etc.  This concerns all
+menu items under Configuration of each application (like Sales/Configuration).</p><img src="../../_images/nosheet.png" class="img-responsive"><ol ><li >no header (because no state, no workflow, no button)</li><li >no sheet</li></ol></section><section id="dialog-forms-guidelines"><h3 >Dialog forms guidelines</h3><p >Example: &quot;Schedule a Call&quot; from an opportunity.</p><img src="../../_images/wizard-popup.png" class="img-responsive"><ol ><li >avoid separators (the title is already in the popup title bar, so another
+separator is not relevant)</li><li >avoid cancel buttons (user generally close the popup window to get the same
+effect)</li><li >action buttons must be highlighted (red)</li><li >when there is a text area, use a placeholder instead of a label or a
+separator</li><li >like in regular form views, put buttons in the &lt;header&gt; element</li></ol></section><section id="configuration-wizards-guidelines"><h3 >Configuration Wizards guidelines</h3><p >Example: Settings / Configuration / Sales.</p><ol ><li >always in line (no popup)</li><li >no sheet</li><li >keep the cancel button (users cannot close the window)</li><li >the button &quot;Apply&quot; must be red</li></ol></section><section id="graphs"><i id="reference-views-graph"></i><h2 >Graphs</h2><p >The graph view is used to visualize aggregations over a number of records or
+record groups. Its root element is <code >&lt;graph&gt;</code> which can take the following
+attributes:</p><dl ><dt ><code >type</code></dt><dd >one of <code >bar</code> (default), <code >pie</code> and <code >line</code>, the type of graph to use</dd><dt ><code >stacked</code></dt><dd >only used for <code >bar</code> charts. If present and set to <code >True</code>, stacks bars
+within a group</dd></dl><p >The only allowed element within a graph view is <code >field</code> which can have the
+following attributes:</p><dl ><dt ><code >name</code> (required)</dt><dd >the name of a field to use in a graph view. If used for grouping (rather
+than aggregating)</dd><dt ><code >type</code></dt><dd ><p >indicates whether the field should be used as a grouping criteria or as an
+aggregated value within a group. Possible values are:</p><dl ><dt ><code >row</code> (default)</dt><dd >groups by the specified field. All graph types support at least one level
+of grouping, some may support more. For pivot views, each group gets its
+own row.</dd><dt ><code >col</code></dt><dd >only used by pivot tables, creates column-wise groups</dd><dt ><code >measure</code></dt><dd >field to aggregate within a group</dd></dl></dd><dt ><code >interval</code></dt><dd >on date and datetime fields, groups by the specified interval (<code >day</code>,
+<code >week</code>, <code >month</code>, <code >quarter</code> or <code >year</code>) instead of grouping on the
+specific datetime (fixed second resolution) or date (fixed day resolution).</dd></dl><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >graph view aggregations are performed on database content, non-stored
+function fields can not be used in graph views</p></div></section><section id="pivots"><h3 >Pivots</h3><p >The pivot view is used to visualize aggregations as a <a href="http://en.wikipedia.org/wiki/Pivot_table" class="external reference">pivot table</a>. Its root
+element is <code >&lt;pivot&gt;</code> which can take the following attributes:</p><dl ><dt ><code >disable_linking</code></dt><dd >Set to <code >True</code> to remove table cell's links to list view.</dd><dt ><code >display_quantity</code></dt><dd >Set to <code >true</code> to display the Quantity column by default.</dd></dl><p >The elements allowed within a pivot view are the same as for the graph view.</p></section><section id="kanban"><i id="reference-views-kanban"></i><h2 >Kanban</h2><p >The kanban view is a <a href="http://en.wikipedia.org/wiki/Kanban_board" class="external reference">kanban board</a> visualisation: it displays records as
+&quot;cards&quot;, halfway between a <a href="#reference-views-list" class="internal reference"><span >list view</span></a> and a
+non-editable <a href="#reference-views-form" class="internal reference"><span >form view</span></a>. Records may be grouped
+in columns for use in workflow visualisation or manipulation (e.g. tasks or
+work-progress management), or ungrouped (used simply to visualize records).</p><p >The root element of the Kanban view is <code >&lt;kanban&gt;</code>, it can use the following
+attributes:</p><dl ><dt ><code >default_group_by</code></dt><dd >whether the kanban view should be grouped if no grouping is specified via
+the action or the current search. Should be the name of the field to group
+by when no grouping is otherwise specified</dd><dt ><code >default_order</code></dt><dd >cards sorting order used if the user has not already sorted the records (via
+the list view)</dd><dt ><code >class</code></dt><dd >adds HTML classes to the root HTML element of the Kanban view</dd><dt ><code >group_create</code></dt><dd >whether the &quot;Add a new column&quot; bar is visible or not. Default: true.</dd><dt ><code >group_delete</code></dt><dd >whether groups can be deleted via the context menu. Default: true.</dd><dt ><code >group_edit</code></dt><dd >whether groups can be edited via the context menu. Default: true.</dd><dt ><code >quick_create</code></dt><dd ><p >whether it should be possible to create records without switching to the
+form view. By default, <code >quick_create</code> is enabled when the Kanban view is
+grouped, and disabled when not.</p><p >Set to <code >true</code> to always enable it, and to <code >false</code> to always disable it.</p></dd></dl><p >Possible children of the view element are:</p><dl ><dt ><code >field</code></dt><dd ><p >declares fields to aggregate or to use in kanban <em >logic</em>. If the field is
+simply displayed in the kanban view, it does not need to be pre-declared.</p><p >Possible attributes are:</p><dl ><dt ><code >name</code> (required)</dt><dd >the name of the field to fetch</dd><dt ><code >sum</code>, <code >avg</code>, <code >min</code>, <code >max</code>, <code >count</code></dt><dd >displays the corresponding aggregation at the top of a kanban column, the
+field's value is the label of the aggregation (a string). Only one
+aggregate operation per field is supported.</dd></dl></dd><dt ><code >templates</code></dt><dd ><p >defines a list of <a href="../qweb/#reference-qweb" class="internal reference"><span >QWeb</span></a> templates. Cards definition may be
+split into multiple templates for clarity, but kanban views <em >must</em> define at
+least one root template <code >kanban-box</code>, which will be rendered once for each
+record.</p><p >The kanban view uses mostly-standard <a href="../qweb/#reference-qweb-javascript" class="internal reference"><span >javascript qweb</span></a> and provides the following context variables:</p><dl ><dt ><code >instance</code></dt><dd >the current <a href="../javascript/#reference-javascript-client" class="internal reference"><span >Web Client</span></a> instance</dd><dt ><code >widget</code></dt><dd >the current <a href="#KanbanRecord" class="internal reference" title="KanbanRecord"><code class="js-class xref js">KanbanRecord()</code></a>, can be used to fetch some
+meta-information. These methods are also available directly in the
+template context and don't need to be accessed via <code >widget</code></dd><dt ><code >record</code></dt><dd >an object with all the requested fields as its attributes. Each field has
+two attributes <code >value</code> and <code >raw_value</code>, the former is formatted
+according to current user parameters, the latter is the direct value from
+a <a href="../orm/#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a> (except for date and datetime fields
+that are <a href="https://github.com/odoo/odoo/blob/a678bd4e/addons/web_kanban/static/src/js/kanban_record.js#L102" class="external reference">formatted according to user's locale</a>)</dd><dt ><code >formats</code></dt><dd >the <code class="js-class xref js">web.formats()</code> module to manipulate and convert values</dd><dt ><code >read_only_mode</code></dt><dd ><p >self-explanatory</p><h3 >buttons and fields</h3><p >While most of the Kanban templates are standard <a href="../qweb/#reference-qweb" class="internal reference"><span >QWeb</span></a>, the
+Kanban view processes <code >field</code>, <code >button</code> and <code >a</code> elements specially:</p><ul ><li >by default fields are replaced by their formatted value, unless they
+match specific kanban view widgets</li><li ><p >buttons and links with a <code >type</code> attribute become perform Odoo-related
+operations rather than their standard HTML function. Possible types are:</p><dl ><dt ><code >action</code>, <code >object</code></dt><dd >standard behavior for <a href="#reference-views-list-button" class="internal reference"><span >Odoo buttons</span></a>, most attributes relevant to standard
+Odoo buttons can be used.</dd><dt ><code >open</code></dt><dd >opens the card's record in the form view in read-only mode</dd><dt ><code >edit</code></dt><dd >opens the card's record in the form view in editable mode</dd><dt ><code >delete</code></dt><dd >deletes the card's record and removes the card</dd></dl></li></ul></dd></dl></dd></dl></section><section id="javascript-api"><h3 >Javascript API</h3><section class="code-class"><h6 id="KanbanRecord"><code><em >class </em>KanbanRecord()</code></h6><p ><a href="../javascript/#Widget" class="internal alert-link reference" title="Widget"><code class="js-class xref js">Widget()</code></a> handling the rendering of a single record to a
+card. Available within its own rendering as <code >widget</code> in the template
+context.</p><section class="code-function"><h6 id="kanban_color"><code>kanban_color(<em>raw_value</em>)</code></h6><p >Converts a color segmentation value to a kanban color class
+<code class="samp">oe_kanban_color_<em >color_index</em></code>. The built-in CSS provides classes
+up to a <code >color_index</code> of 9.</p></section><section class="code-function"><h6 id="kanban_getcolor"><code>kanban_getcolor(<em>raw_value</em>)</code></h6><p >Converts a color segmentation value to a color index (between 0 and 9 by
+default). Color segmentation values can be either numbers or strings.</p></section><section class="code-function"><h6 id="kanban_image"><code>kanban_image(<em>model, field, id[, cache][, options]</em>)</code></h6><p >Generates the URL to the specified field as an image access.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >model</strong> (<code >String</code>) -- model hosting the image</li><li ><strong >field</strong> (<code >String</code>) -- name of the field holding the image data</li><li ><strong >id</strong> -- identifier of the record contaning the image to display</li><li ><strong >cache</strong> (<code >Number</code>) -- caching duration (in seconds) of the browser
+default should be overridden. <code >0</code> disables
+caching entirely</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">an image URL</div></div></div></section><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p ><code >kanban_text_ellipsis</code> has been removed in Odoo 9. CSS <code >text-overflow</code> should be used instead.</p></div></section></section><section id="calendar"><i id="reference-views-calendar"></i><h2 >Calendar</h2><p >Calendar views display records as events in a daily, weekly or monthly
+calendar. Their root element is <code >&lt;calendar&gt;</code>. Available attributes on the
+calendar view are:</p><dl ><dt ><code >date_start</code> (required)</dt><dd >name of the record's field holding the start date for the event</dd><dt ><code >date_stop</code></dt><dd >name of the record's field holding the end date for the event, if
+<code >date_stop</code> is provided records become movable (via drag and drop)
+directly in the calendar</dd><dt ><code >date_delay</code></dt><dd >alternative to <code >date_stop</code>, provides the duration of the event instead of
+its end date</dd><dt ><code >color</code></dt><dd >name of a record field to use for <em >color segmentation</em>. Records in the
+same color segment are allocated the same highlight color in the calendar,
+colors are allocated semi-randomly.</dd><dt ><code >event_open_popup</code></dt><dd >opens the event in a dialog instead of switching to the form view, disabled
+by default</dd><dt ><code >quick_add</code></dt><dd >enables quick-event creation on click: only asks the user for a <code >name</code>
+and tries to create a new event with just that and the clicked event
+time. Falls back to a full form dialog if the quick creation fails</dd><dt ><code >display</code></dt><dd >format string for event display, field names should be within brackets
+<code >[</code> and <code >]</code></dd><dt ><code >all_day</code></dt><dd >name of a boolean field on the record indicating whether the corresponding
+event is flagged as day-long (and duration is irrelevant)</dd><dt ><code >mode</code></dt><dd >Default display mode when loading the calendar.
+Possible attributes are: <code >day</code>, <code >week</code>, <code >month</code></dd></dl></section><section id="gantt"><i id="reference-views-gantt"></i><h2 >Gantt</h2><p >Gantt views appropriately display Gantt charts (for scheduling).</p><p >The root element of gantt views is <code >&lt;gantt/&gt;</code>, it has no children but can
+take the following attributes:</p><dl ><dt ><code >date_start</code> (required)</dt><dd >name of the field providing the start datetime of the event for each
+record.</dd><dt ><code >date_stop</code></dt><dd ><p >name of the field providing the end duration of the event for each
+record. Can be replaced by <code >date_delay</code>. One (and only one) of
+<code >date_stop</code> and <code >date_delay</code> must be provided.</p><p >If the field is <code >False</code> for a record, it's assumed to be a &quot;point event&quot;
+and the end date will be set to the start date</p></dd><dt ><code >date_delay</code></dt><dd >name of the field providing the duration of the event</dd><dt ><code >duration_unit</code></dt><dd >one of <code >minute</code>, <code >hour</code> (default), <code >day</code>, <code >week</code>, <code >month</code>, <code >year</code></dd><dt ><code >default_group_by</code></dt><dd >name of a field to group tasks by</dd><dt ><code >type</code></dt><dd ><p ><code >gantt</code> classic gantt view (default)</p><p ><code >consolidate</code> values of the first children are consolidated in the gantt's task</p><p ><code >planning</code> children are displayed in the gantt's task</p></dd><dt ><code >consolidation</code></dt><dd >field name to display consolidation value in record cell</dd><dt ><code >consolidation_max</code></dt><dd ><p >dictionary with the &quot;group by&quot; field as key and the maximum consolidation
+value that can be reached before displaying the cell in red
+(e.g. <code >{&quot;user_id&quot;: 100}</code>)</p><div role="alert" class="alert-warning alert"><p class="alert-title">Warning</p><p >The dictionnary definition must use double-quotes, <code >{'user_id': 100}</code> is
+not a valid value</p></div></dd><dt ><code >string</code></dt><dd >string to display next to the consolidation value, if not specified, the label
+of the consolidation field will be used</dd><dt ><code >fold_last_level</code></dt><dd >If a value is set, the last grouping level is folded</dd><dt ><code >round_dnd_dates</code></dt><dd >enables rounding the task's start and end dates to the nearest scale marks</dd><dt ><code >drag_resize</code></dt><dd >resizing of the tasks, default is <code >true</code></dd></dl></section><section id="diagram"><i id="reference-views-diagram"></i><h2 >Diagram</h2><p >The diagram view can be used to display directed graphs of records. The root
+element is <code >&lt;diagram&gt;</code> and takes no attributes.</p><p >Possible children of the diagram view are:</p><dl ><dt ><code >node</code> (required, 1)</dt><dd ><p >Defines the nodes of the graph. Its attributes are:</p><dl ><dt ><code >object</code></dt><dd >the node's Odoo model</dd><dt ><code >shape</code></dt><dd >conditional shape mapping similar to colors and fonts in <a href="#reference-views-list" class="internal reference"><span >the list
+view</span></a>. The only valid shape is <code >rectangle</code> (the
+default shape is an ellipsis)</dd><dt ><code >bgcolor</code></dt><dd >same as <code >shape</code>, but conditionally maps a background color for
+nodes. The default background color is white, the only valid alternative
+is <code >grey</code>.</dd></dl></dd><dt ><code >arrow</code> (required, 1)</dt><dd ><p >Defines the directed edges of the graph. Its attributes are:</p><dl ><dt ><code >object</code> (required)</dt><dd >the edge's Odoo model</dd><dt ><code >source</code> (required)</dt><dd ><a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> field of the edge's model pointing to
+the edge's source node record</dd><dt ><code >destination</code> (required)</dt><dd ><a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> field of the edge's model pointing to
+the edge's destination node record</dd><dt ><code >label</code></dt><dd >Python list of attributes (as quoted strings). The corresponding
+attributes's values will be concatenated and displayed as the edge's
+label</dd></dl></dd><dt ><code >label</code></dt><dd >Explanatory note for the diagram, the <code >string</code> attribute defines the
+note's content. Each <code >label</code> is output as a paragraph in the diagram
+header, easily visible but without any special emphasis.</dd></dl></section><section id="search"><i id="reference-views-search"></i><h2 >Search</h2><p >Search views are a break from previous view types in that they don't display
+<em >content</em>: although they apply to a specific model, they are used to filter
+other view's content (generally aggregated views
+e.g. <a href="#reference-views-list" class="internal reference"><span >Lists</span></a> or <a href="#reference-views-graph" class="internal reference"><span >Graphs</span></a>). Beyond that
+difference in use case, they are defined the same way.</p><p >The root element of search views is <code >&lt;search&gt;</code>. It takes no attributes.</p><p >Possible children elements of the search view are:</p><dl ><dt ><code >field</code></dt><dd ><p >fields define domains or contexts with user-provided values. When search
+domains are generated, field domains are composed with one another and
+with filters using <strong >AND</strong>.</p><p >Fields can have the following attributes:</p><dl ><dt ><code >name</code></dt><dd >the name of the field to filter on</dd><dt ><code >string</code></dt><dd >the field's label</dd><dt ><code >operator</code></dt><dd ><p >by default, fields generate domains of the form <code class="samp">[(<em >name</em>,
+<em >operator</em>, <em >provided_value</em>)]</code> where <code >name</code> is the field's name and
+<code >provided_value</code> is the value provided by the user, possibly
+filtered or transformed (e.g. a user is expected to provide the
+<em >label</em> of a selection field's value, not the value itself).</p><p >The <code >operator</code> attribute allows overriding the default operator,
+which depends on the field's type (e.g. <code >=</code> for float fields but
+<code >ilike</code> for char fields)</p></dd><dt ><code >filter_domain</code></dt><dd ><p >complete domain to use as the field's search domain, can use a
+<code >self</code> variable to inject the provided value in the custom
+domain. Can be used to generate significantly more flexible domains
+than <code >operator</code> alone (e.g. searches on multiple fields at once)</p><p >If both <code >operator</code> and <code >filter_domain</code> are provided,
+<code >filter_domain</code> takes precedence.</p></dd><dt ><code >context</code></dt><dd ><p >allows adding context keys, including the user-provided value (which
+as for <code >domain</code> is available as a <code >self</code> variable). By default,
+fields don't generate domains.</p><div role="alert" class="alert-info alert"><p class="alert-title">Note</p><p >the domain and context are inclusive and both are generated
+if if a <code >context</code> is specified. To only generate context
+values, set <code >filter_domain</code> to an empty list:
+<code >filter_domain=&quot;[]&quot;</code></p></div></dd><dt ><code >groups</code></dt><dd >make the field only available to specific users</dd><dt ><code >widget</code></dt><dd >use specific search widget for the field (the only use case in
+standard Odoo 8.0 is a <code >selection</code> widget for
+<a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> fields)</dd><dt ><code >domain</code></dt><dd >if the field can provide an auto-completion
+(e.g. <a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a>), filters the possible
+completion results.</dd></dl></dd><dt ><code >filter</code></dt><dd ><p >a filter is a predefined toggle in the search view, it can only be enabled
+or disabled. Its main purposes are to add data to the search context (the
+context passed to the data view for searching/filtering), or to append new
+sections to the search filter.</p><p >Filters can have the following attributes:</p><dl ><dt ><code >string</code> (required)</dt><dd >the label of the filter</dd><dt ><code >domain</code></dt><dd >an Odoo <a href="../orm/#reference-orm-domains" class="internal reference"><span >domain</span></a>, will be appended to the
+action's domain as part of the search domain</dd><dt ><code >context</code></dt><dd >a Python dictionary, merged into the action's domain to generate the
+search domain</dd><dt ><code >name</code></dt><dd >logical name for the filter, can be used to <a href="#reference-views-search-defaults" class="internal reference"><span >enable it by default</span></a>, can also be used as
+<a href="#reference-views-inheritance" class="internal reference"><span >inheritance hook</span></a></dd><dt ><code >help</code></dt><dd >a longer explanatory text for the filter, may be displayed as a
+tooltip</dd><dt ><code >groups</code></dt><dd >makes a filter only available to specific users</dd></dl><div role="alert" class="alert-info alert"><p class="alert-title">Tip</p><div class="versionadded"><p ><span class="versionmodified">New in version 7.0.</span></p></div><p >Sequences of filters (without non-filters separating them) are treated
+as inclusively composited: they will be composed with <code >OR</code> rather
+than the usual <code >AND</code>, e.g.</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;state&#39;, &#39;=&#39;, &#39;draft&#39;)]&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;state&#39;, &#39;=&#39;, &#39;done&#39;)]&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >if both filters are selected, will select the records whose <code >state</code>
+is <code >draft</code> or <code >done</code>, but</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;state&#39;, &#39;=&#39;, &#39;draft&#39;)]&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;separator/&gt;</span>
+<span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;delay&#39;, &#39;&lt;&#39;, 15)]&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >if both filters are selected, will select the records whose <code >state</code>
+is <code >draft</code> <strong >and</strong> <code >delay</code> is below 15.</p></div></dd><dt ><code >separator</code></dt><dd >can be used to separates groups of filters in simple search views</dd><dt ><code >group</code></dt><dd >can be used to separate groups of filters, more readable than
+<code >separator</code> in complex search views</dd></dl></section><section id="search-defaults"><i id="reference-views-search-defaults"></i><h3 >Search defaults</h3><p >Search fields and filters can be configured through the action's <code >context</code>
+using <code class="samp">search_default_<em >name</em></code> keys. For fields, the value should be the
+value to set in the field, for filters it's a boolean value. For instance,
+assuming <code >foo</code> is a field and <code >bar</code> is a filter an action context of:</p><div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s1">&#39;search_default_foo&#39;</span><span class="p">:</span> <span class="s1">&#39;acro&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;search_default_bar&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >will automatically enable the <code >bar</code> filter and search the <code >foo</code> field for
+<em >acro</em>.</p></section><section id="qweb"><i id="reference-views-qweb"></i><h2 >QWeb</h2><p >QWeb views are standard <a href="../qweb/#reference-qweb" class="internal reference"><span >QWeb</span></a> templates inside a view's
+<code >arch</code>. They don't have a specific root element.</p><p >A QWeb view can only contain a single template<a href="#template-inherit" class="footnote-ref" id="id4">4</a>, and the
+template's name <em >must</em> match the view's complete (including module name)
+<a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a>.</p><p ><a href="../data/#reference-data-template" class="internal reference"><span >template</span></a> should be used as a shortcut to define QWeb
+views.</p><div class="footnote" id="backwards-compatibility"><span class="footnote-label"><a class="footnote-backref" href="#id3">[1]</a></span> for backwards compatibility reasons</div><div class="footnote" id="hasclass"><span class="footnote-label"><a class="footnote-backref" href="#id1">[2]</a></span> an extension function is added for simpler matching in QWeb
+views: <code >hasclass(*classes)</code> matches if the context node has
+all the specified classes</div><div class="footnote" id="treehistory"><span class="footnote-label"><a class="footnote-backref" href="#id2">[3]</a></span> for historical reasons, it has its origin in tree-type views
+later repurposed to a more table/list-type display</div><div class="footnote" id="template-inherit"><span class="footnote-label"><a class="footnote-backref" href="#id4">[4]</a></span> or no template if it's an inherited view, then <a href="#reference-views-inheritance" class="internal reference"><span >it
+should only contain xpath elements</span></a></div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

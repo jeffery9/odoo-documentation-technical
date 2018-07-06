@@ -1,0 +1,1724 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# 
+# Translators:
+# Jeffery CHEN Fan <jeffery9@gmail.com>, 2015
+# Jeffery CHEN Fan <jeffery9@gmail.com>, 2015-2016
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo documentation technical\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-06 10:19+0800\n"
+"PO-Revision-Date: 2018-07-06 05:22+0000\n"
+"Last-Translator: Jeffery CHEN Fan <jeffery9@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/odoo-cn/odoo-documentation-technical/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../../setup.rst:5
+msgid "Setting Up"
+msgstr "搭建"
+
+#: ../../setup/cdn.rst:5
+msgid "Deploying with Content Delivery Networks"
+msgstr "使用CDN部署"
+
+#: ../../setup/cdn.rst:10
+msgid "Deploying with KeyCDN_"
+msgstr "使用KeyCDN部署_"
+
+#: ../../setup/cdn.rst:14
+msgid ""
+"This document will guide you through the setup of a KeyCDN_ account with "
+"your Odoo powered website."
+msgstr "本文档将指导您完成一个KeyCDN_帐户与您Odoo供电网站的设置。"
+
+#: ../../setup/cdn.rst:18
+msgid "Step 1: Create a pull zone in the KeyCDN dashboard"
+msgstr "步骤1: 在KeyCDN仪表板创建拉取区"
+
+#: ../../setup/cdn.rst:23
+msgid ""
+"When creating the zone, enable the CORS option in the :guilabel:`advanced "
+"features` submenu. (more on that later)"
+msgstr "创建安全区时, 可启用的CORS选项 :guilabel:`先进features` 子菜单。 （稍后更多）"
+
+#: ../../setup/cdn.rst:29
+msgid ""
+"Once done, you'll have to wait a bit while KeyCDN_ is crawling your website."
+msgstr "一旦这样做, 你得稍等一下, 而KeyCDN_爬行你的网站。"
+
+#: ../../setup/cdn.rst:34
+msgid ""
+"a new URL has been generated for your Zone, in this case it is "
+"``http://pulltest-b49.kxcdn.com``"
+msgstr "新的URL已产生针对你的区域, 在这种情况下, 它是 ``的http:// pulltest-b49.kxcdn.com`` "
+
+#: ../../setup/cdn.rst:38
+msgid "Step 2: Configure the odoo instance with your zone"
+msgstr "步骤2:用您的区域配置odoo实例"
+
+#: ../../setup/cdn.rst:40
+msgid ""
+"In the Odoo back end, go to the :guilabel:`Website Settings`: menu, then "
+"activate the CDN support and copy/paste your zone URL in the :guilabel:`CDN "
+"Base URL` field. This field is only visible and configurable if you have "
+"developer mode activated."
+msgstr ""
+
+#: ../../setup/cdn.rst:48
+msgid ""
+"Now your website is using the CDN for the resources matching the "
+":guilabel:`CDN filters` regular expressions."
+msgstr "现在, 您的网站使用CDN匹配的资源 :guilabel:`CDN filters` 正则表达式。"
+
+#: ../../setup/cdn.rst:51
+msgid ""
+"You can have a look to the HTML of your website in order to check if the CDN"
+" integration is properly working."
+msgstr "你可以看看你的网站的HTML, 以检查CDN集成正常工作。"
+
+#: ../../setup/cdn.rst:59
+msgid "Why should I activate CORS?"
+msgstr "为什么要激活CORS？"
+
+#: ../../setup/cdn.rst:61
+msgid ""
+"A security restriction in some browsers (Firefox and Chrome at time of "
+"writing) prevents a remotely linked CSS file to fetch relative resources on "
+"this same external server."
+msgstr "在某些浏览器（Firefox和Chrome在写本新闻时）安全限制阻止远程链接CSS文件, 以获取对同一外部服务器资源相对。"
+
+#: ../../setup/cdn.rst:65
+msgid ""
+"If you don't activate the CORS option in the CDN zone, the more obvious "
+"resulting problem on a default Odoo website will be the lack of font-awesome"
+" icons because the font file declared in the font-awesome CSS won't be "
+"loaded on the remote server."
+msgstr "如果不激活的CDN区CORS选项, 在默认Odoo网站比较明显的随之而来的问题将是缺少字体真棒图标, 因为字体真棒CSS声明的字体文件就不会被加载上远程服务器。"
+
+#: ../../setup/cdn.rst:70
+msgid "Here's what you would see on your homepage in such a case:"
+msgstr "这里就是你会在你的主页上看到在这种情况下:"
+
+#: ../../setup/cdn.rst:75
+msgid "A security error message will also appear in the browser's console:"
+msgstr "也将出现在浏览器的控制台中的安全错误信息:"
+
+#: ../../setup/cdn.rst:80
+msgid "Enabling the CORS option in the CDN fixes this issue."
+msgstr "启用了CDN的CORS选项修复此问题。"
+
+#: ../../setup/deploy.rst:5
+msgid "Deploying Odoo"
+msgstr "部署Odoo"
+
+#: ../../setup/deploy.rst:7
+msgid ""
+"This document describes basic steps to set up Odoo in production or on an "
+"internet-facing server. It follows :ref:`installation <setup/install>`, and "
+"is not generally necessary for a development systems that is not exposed on "
+"the internet."
+msgstr ""
+
+#: ../../setup/deploy.rst:12
+msgid ""
+"If you are setting up a public server, be sure to check our :ref:`security` "
+"recommandations!"
+msgstr ""
+
+#: ../../setup/deploy.rst:18
+msgid "dbfilter"
+msgstr "dbfilter"
+
+#: ../../setup/deploy.rst:20
+msgid ""
+"Odoo is a multi-tenant system: a single Odoo system may run and serve a "
+"number of database instances. It is also highly customizable, with "
+"customizations (starting from the modules being loaded) depending on the "
+"\"current database\"."
+msgstr "Odoo是一个多租户系统:单Odoo系统可以运行, 并服务于若干数据库实例。这也是高度可定制的, 与（正装从模块开始）自定义取决于'当前数据库'。"
+
+#: ../../setup/deploy.rst:24
+msgid ""
+"This is not an issue when working with the backend (web client) as a logged-"
+"in company user: the database can be selected when logging in, and "
+"customizations loaded afterwards."
+msgstr "这不是一个问题, 与后端（Web客户端）作为一个已登录的用户的公司时:数据库可以在登录时进行选择, 随后加载自定义。"
+
+#: ../../setup/deploy.rst:28
+msgid ""
+"However it is an issue for non-logged users (portal, website) which aren't "
+"bound to a database: Odoo needs to know which database should be used to "
+"load the website page or perform the operation. If multi-tenancy is not used"
+" that is not an issue, there's only one database to use, but if there are "
+"multiple databases accessible Odoo needs a rule to know which one it should "
+"use."
+msgstr ""
+
+#: ../../setup/deploy.rst:34
+msgid ""
+"That is one of the purposes of :option:`--db-filter <odoo-bin --db-filter>`:"
+" it specifies how the database should be selected based on the hostname "
+"(domain) that is being requested. The value is a `regular expression`_, "
+"possibly including the dynamically injected hostname (``%h``) or the first "
+"subdomain (``%d``) through which the system is being accessed."
+msgstr ""
+
+#: ../../setup/deploy.rst:40
+msgid ""
+"For servers hosting multiple databases in production, especially if "
+"``website`` is used, dbfilter **must** be set, otherwise a number of "
+"features will not work correctly."
+msgstr ""
+
+#: ../../setup/deploy.rst:45
+msgid "Configuration samples"
+msgstr ""
+
+#: ../../setup/deploy.rst:47
+msgid "Show only databases with names beginning with 'mycompany'"
+msgstr ""
+
+#: ../../setup/deploy.rst:49 ../../setup/deploy.rst:61
+#: ../../setup/deploy.rst:156 ../../setup/deploy.rst:288
+msgid "in ``/etc/odoo.conf`` set:"
+msgstr ""
+
+#: ../../setup/deploy.rst:56
+msgid ""
+"Show only databases matching the first subdomain after ``www``: for example "
+"the database \"mycompany\" will be shown if the incoming request was sent to"
+" ``www.mycompany.com`` or ``mycompany.co.uk``, but not for "
+"``www2.mycompany.com`` or ``helpdesk.mycompany.com``."
+msgstr ""
+
+#: ../../setup/deploy.rst:69
+msgid ""
+"Setting a proper :option:`--db-filter <odoo-bin --db-filter>` is an "
+"important part of securing your deployment. Once it is correctly working and"
+" only matching a single database per hostname, it is strongly recommended to"
+" block access to the database manager screens, and to use the ``--no-"
+"database-list`` startup paramater to prevent listing your databases, and to "
+"block access to the database management screens. See also security_."
+msgstr ""
+
+#: ../../setup/deploy.rst:79
+msgid "PostgreSQL"
+msgstr "PostgreSQL"
+
+#: ../../setup/deploy.rst:81
+msgid ""
+"By default, PostgreSQL only allows connection over UNIX sockets and loopback"
+" connections (from \"localhost\", the same machine the PostgreSQL server is "
+"installed on)."
+msgstr "默认情况下, PostgreSQL只允许通过Unix套接字和回环连接的连接（从'本地主机', PostgreSQL服务器安装在同一台机器）。"
+
+#: ../../setup/deploy.rst:85
+msgid ""
+"UNIX socket is fine if you want Odoo and PostgreSQL to execute on the same "
+"machine, and is the default when no host is provided, but if you want Odoo "
+"and PostgreSQL to execute on different machines [#different-machines]_ it "
+"will need to `listen to network interfaces`_ [#remote-socket]_, either:"
+msgstr "如果你想Odoo和PostgreSQL在同一台机器上执行UNIX套接字是罚款, 并没有提供主机时默认的, 但如果你想Odoo和PostgreSQL在不同的机器[＃不同的机器]执行_它将需要 `听网络interfaces` _ [＃遥控插座] _, 或者:"
+
+#: ../../setup/deploy.rst:90
+msgid ""
+"Only accept loopback connections and `use an SSH tunnel`_ between the "
+"machine on which Odoo runs and the one on which PostgreSQL runs, then "
+"configure Odoo to connect to its end of the tunnel"
+msgstr ""
+
+#: ../../setup/deploy.rst:93
+msgid ""
+"Accept connections to the machine on which Odoo is installed, possibly over "
+"ssl (see `PostgreSQL connection settings`_ for details), then configure Odoo"
+" to connect over the network"
+msgstr ""
+
+#: ../../setup/deploy.rst:98 ../../setup/deploy.rst:148
+#: ../../setup/deploy.rst:237 ../../setup/deploy.rst:283
+msgid "Configuration sample"
+msgstr ""
+
+#: ../../setup/deploy.rst:100
+msgid "Allow tcp connection on localhost"
+msgstr ""
+
+#: ../../setup/deploy.rst:101
+msgid "Allow tcp connection from 192.168.1.x network"
+msgstr ""
+
+#: ../../setup/deploy.rst:103
+msgid "in ``/etc/postgresql/9.5/main/pg_hba.conf`` set:"
+msgstr ""
+
+#: ../../setup/deploy.rst:111
+msgid "in ``/etc/postgresql/9.5/main/postgresql.conf`` set:"
+msgstr ""
+
+#: ../../setup/deploy.rst:122
+msgid "Configuring Odoo"
+msgstr "配置O​​doo"
+
+#: ../../setup/deploy.rst:124
+msgid ""
+"Out of the box, Odoo connects to a local postgres over UNIX socket via port "
+"5432. This can be overridden using :ref:`the database options "
+"<reference/cmdline/server/database>` when your Postgres deployment is not "
+"local and/or does not use the installation defaults."
+msgstr "Out of the box, Odoo connects to a local postgres over UNIX socket via port 5432. This can be overridden using :ref:`the database options <reference/cmdline/server/database>` when your Postgres deployment is not local and/or does not use the installation defaults."
+
+#: ../../setup/deploy.rst:129
+msgid ""
+"The :ref:`packaged installers <setup/install/packaged>` will automatically "
+"create a new user (``odoo``) and set it as the database user."
+msgstr " :ref:`封装的安装程序 <setup/install/packaged>` 将会自动创建新用户 ( ``odoo`` ) 并且设置它为数据库用户."
+
+#: ../../setup/deploy.rst:132
+msgid ""
+"The database management screens are protected by the ``admin_passwd`` "
+"setting. This setting can only be set using configuration files, and is "
+"simply checked before performing database alterations. It should be set to a"
+" randomly generated value to ensure third parties can not use this "
+"interface."
+msgstr "数据库管理界面是由 ``admin_passwd`` 设置保护。此设置只能使用配置文件的设置, 并执行数据库改变之前, 简单地检查。它应该被设置为随机产生的值, 以确保第三方不能使用该接口。"
+
+#: ../../setup/deploy.rst:137
+msgid ""
+"All database operations use the :ref:`database options "
+"<reference/cmdline/server/database>`, including the database management "
+"screen. For the database management screen to work requires that the "
+"PostgreSQL user have ``createdb`` right."
+msgstr ""
+
+#: ../../setup/deploy.rst:141
+msgid ""
+"Users can always drop databases they own. For the database management screen"
+" to be completely non-functional, the PostgreSQL user needs to be created "
+"with ``no-createdb`` and the database must be owned by a different "
+"PostgreSQL user."
+msgstr ""
+
+#: ../../setup/deploy.rst:145
+msgid "the PostgreSQL user *must not* be a superuser"
+msgstr ""
+
+#: ../../setup/deploy.rst:150
+msgid "connect to a PostgreSQL server on 192.168.1.2"
+msgstr ""
+
+#: ../../setup/deploy.rst:151
+msgid "port 5432"
+msgstr ""
+
+#: ../../setup/deploy.rst:152
+msgid "using an 'odoo' user account,"
+msgstr ""
+
+#: ../../setup/deploy.rst:153
+msgid "with 'pwd' as a password"
+msgstr ""
+
+#: ../../setup/deploy.rst:154
+msgid "filtering only db with a name beginning with 'mycompany'"
+msgstr ""
+
+#: ../../setup/deploy.rst:171
+msgid "SSL Between Odoo and PostgreSQL"
+msgstr ""
+
+#: ../../setup/deploy.rst:173
+msgid ""
+"Since Odoo 11.0, you can enforce ssl connection between Odoo and PostgreSQL."
+" in Odoo the db_sslmode control the ssl security of the connection with "
+"value choosed out of 'disable', 'allow', 'prefer', 'require', 'verify-ca' or"
+" 'verify-full'"
+msgstr ""
+
+#: ../../setup/deploy.rst:178
+msgid ""
+"`PostgreSQL Doc <https://www.postgresql.org/docs/current/static/libpq-"
+"ssl.html>`_"
+msgstr ""
+
+#: ../../setup/deploy.rst:183
+msgid "Builtin server"
+msgstr "内建的服务器"
+
+#: ../../setup/deploy.rst:185
+msgid ""
+"Odoo includes built-in HTTP servers, using either multithreading or "
+"multiprocessing."
+msgstr "Odoo包括内置的HTTP服务器, 或者使用多线程和多。"
+
+#: ../../setup/deploy.rst:188
+msgid ""
+"For production use, it is recommended to use the multiprocessing server as "
+"it increases stability, makes somewhat better use of computing resources and"
+" can be better monitored and resource-restricted."
+msgstr "为生产使用, 推荐使用多处理服务器, 因为它提高了稳定性, 使得有些更好地利用计算资源, 并且可以是更好地监测和资源的限制。"
+
+#: ../../setup/deploy.rst:192
+msgid ""
+"Multiprocessing is enabled by configuring :option:`a non-zero number of "
+"worker processes <odoo-bin --workers>`, the number of workers should be "
+"based on the number of cores in the machine (possibly with some room for "
+"cron workers depending on how much cron work is predicted)"
+msgstr ""
+
+#: ../../setup/deploy.rst:196
+msgid ""
+"Worker limits can be configured based on the hardware configuration to avoid"
+" resources exhaustion"
+msgstr "Worker的限制可以基于硬件配置, 以避免资源枯竭"
+
+#: ../../setup/deploy.rst:199
+msgid "multiprocessing mode currently isn't available on Windows"
+msgstr "多处理模式目前在Windows不可用"
+
+#: ../../setup/deploy.rst:203
+msgid "Worker number calculation"
+msgstr ""
+
+#: ../../setup/deploy.rst:205
+msgid "Rule of thumb : (#CPU * 2) + 1"
+msgstr ""
+
+#: ../../setup/deploy.rst:206
+msgid "Cron workers need CPU"
+msgstr ""
+
+#: ../../setup/deploy.rst:207
+msgid "1 worker ~= 6 concurrent users"
+msgstr ""
+
+#: ../../setup/deploy.rst:210
+msgid "memory size calculation"
+msgstr ""
+
+#: ../../setup/deploy.rst:212
+msgid ""
+"We consider 20% of the requests are heavy requests, while 80% are simpler "
+"ones"
+msgstr ""
+
+#: ../../setup/deploy.rst:213
+msgid ""
+"A heavy worker, when all computed field are well designed, SQL requests are "
+"well designed, ... is estimated to consume around 1Go of RAM"
+msgstr ""
+
+#: ../../setup/deploy.rst:214
+msgid ""
+"A lighter worker, in the same scenario, is estimated to consume around 150MB"
+" of RAM"
+msgstr ""
+
+#: ../../setup/deploy.rst:216
+msgid ""
+"Needed RAM = #worker * ( (light_worker_ratio * light_worker_ram_estimation) "
+"+ (heavy_worker_ratio * heavy_worker_ram_estimation) )"
+msgstr ""
+
+#: ../../setup/deploy.rst:219 ../../setup/deploy.rst:382
+msgid "LiveChat"
+msgstr "在线聊天"
+
+#: ../../setup/deploy.rst:221
+msgid ""
+"In multiprocessing, a dedicated LiveChat worker is automatically started and"
+" listening on :option:`the longpolling port <odoo-bin --longpolling-port>` "
+"but the client will not connect to it."
+msgstr ""
+
+#: ../../setup/deploy.rst:225
+msgid ""
+"Instead you must have a proxy redirecting requests whose URL starts with "
+"``/longpolling/`` to the longpolling port. Other request should be proxied "
+"to the :option:`normal HTTP port <odoo-bin --http-port>`"
+msgstr ""
+
+#: ../../setup/deploy.rst:229
+msgid ""
+"To achieve such a thing, you'll need to deploy a reverse proxy in front of "
+"Odoo, like nginx or apache. When doing so, you'll need to forward some more "
+"http Headers to Odoo, and activate the proxy_mode in Odoo configuration to "
+"have Odoo read those headers."
+msgstr ""
+
+#: ../../setup/deploy.rst:239
+msgid "Server with 4 CPU, 8 Thread"
+msgstr ""
+
+#: ../../setup/deploy.rst:240
+msgid "60 concurrent users"
+msgstr ""
+
+#: ../../setup/deploy.rst:242
+msgid "60 users / 6 = 10 <- theorical number of worker needed"
+msgstr ""
+
+#: ../../setup/deploy.rst:243
+msgid "(4 * 2) + 1 = 9 <- theorical maximal number of worker"
+msgstr ""
+
+#: ../../setup/deploy.rst:244
+msgid ""
+"We'll use 8 workers + 1 for cron. We'll also use a monitoring system to "
+"measure cpu load, and check if it's between 7 and 7.5 ."
+msgstr ""
+
+#: ../../setup/deploy.rst:245
+msgid "RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Odoo"
+msgstr ""
+
+#: ../../setup/deploy.rst:247
+msgid "in ``/etc/odoo.conf``:"
+msgstr ""
+
+#: ../../setup/deploy.rst:263
+msgid "HTTPS"
+msgstr "HTTPS"
+
+#: ../../setup/deploy.rst:265
+msgid ""
+"Whether it's accessed via website/web client or web service, Odoo transmits "
+"authentication information in cleartext. This means a secure deployment of "
+"Odoo must use HTTPS\\ [#switching]_. SSL termination can be implemented via "
+"just about any SSL termination proxy, but requires the following setup:"
+msgstr ""
+
+#: ../../setup/deploy.rst:270
+msgid ""
+"Enable Odoo's :option:`proxy mode <odoo-bin --proxy-mode>`. This should only"
+" be enabled when Odoo is behind a reverse proxy"
+msgstr ""
+
+#: ../../setup/deploy.rst:271
+msgid "Set up the SSL termination proxy (`Nginx termination example`_)"
+msgstr ""
+
+#: ../../setup/deploy.rst:272
+msgid "Set up the proxying itself (`Nginx proxying example`_)"
+msgstr ""
+
+#: ../../setup/deploy.rst:273
+msgid ""
+"Your SSL termination proxy should also automatically redirect non-secure "
+"connections to the secure port"
+msgstr ""
+
+#: ../../setup/deploy.rst:278
+msgid ""
+"In case you are using the Point of Sale module in combination with a "
+"`POSBox`_, you must disable the HTTPS configuration for the route "
+"``/pos/web`` to avoid mixed-content errors."
+msgstr ""
+
+#: ../../setup/deploy.rst:285
+msgid "Redirect http requests to https"
+msgstr ""
+
+#: ../../setup/deploy.rst:286
+msgid "Proxy requests to odoo"
+msgstr ""
+
+#: ../../setup/deploy.rst:294
+msgid "in ``/etc/nginx/sites-enabled/odoo.conf`` set:"
+msgstr ""
+
+#: ../../setup/deploy.rst:356
+msgid "Odoo as a WSGI Application"
+msgstr "Odoo作为WSGI应用"
+
+#: ../../setup/deploy.rst:358
+msgid ""
+"It is also possible to mount Odoo as a standard WSGI_ application. Odoo "
+"provides the base for a WSGI launcher script as ``odoo-wsgi.example.py``. "
+"That script should be customized (possibly after copying it from the setup "
+"directory) to correctly set the configuration directly in "
+":mod:`odoo.tools.config` rather than through the command-line or a "
+"configuration file."
+msgstr ""
+
+#: ../../setup/deploy.rst:364
+msgid ""
+"However the WSGI server will only expose the main HTTP endpoint for the web "
+"client, website and webservice API. Because Odoo does not control the "
+"creation of workers anymore it can not setup cron or livechat workers"
+msgstr "然而, WSGI服务器只会暴露了web客户端, 网页和Web服务API的主要HTTP端点。由于Odoo不控制创建工人了它不能设置cron或在线咨询工作者"
+
+#: ../../setup/deploy.rst:369
+msgid "Cron Workers"
+msgstr "定时任务工作者"
+
+#: ../../setup/deploy.rst:371
+msgid "To run cron jobs for an Odoo deployment as a WSGI application requires"
+msgstr "要运行cron作业的Odoo部署作为WSGI应用要求"
+
+#: ../../setup/deploy.rst:373
+msgid "A classical Odoo (run via ``odoo-bin``)"
+msgstr ""
+
+#: ../../setup/deploy.rst:374
+msgid ""
+"Connected to the database in which cron jobs have to be run (via :option"
+":`odoo-bin -d`)"
+msgstr ""
+
+#: ../../setup/deploy.rst:376
+msgid ""
+"Which should not be exposed to the network. To ensure cron runners are not "
+"network-accessible, it is possible to disable the built-in HTTP server "
+"entirely with :option:`odoo-bin --no-http` or setting ``http_enable = "
+"False`` in the configuration file"
+msgstr ""
+
+#: ../../setup/deploy.rst:384
+msgid ""
+"The second problematic subsystem for WSGI deployments is the LiveChat: where"
+" most HTTP connections are relatively short and quickly free up their worker"
+" process for the next request, LiveChat require a long-lived connection for "
+"each client in order to implement near-real-time notifications."
+msgstr "第二问题子系统WSGI部署是在线咨询:其中最HTTP连接是相对短的, 并迅速释放他们的工作进程的下一个请求, ID登录要求每个客户端, 以执行近实时通知一个长期连接。"
+
+#: ../../setup/deploy.rst:389
+msgid ""
+"This is in conflict with the process-based worker model, as it will tie up "
+"worker processes and prevent new users from accessing the system. However, "
+"those long-lived connections do very little and mostly stay parked waiting "
+"for notifications."
+msgstr "这是与基于过程的工人模式的冲突, 因为它会占用工作进程, 并阻止新用户访问系统。然而, 那些长期存在的连接做的很少, 大多停留停放等待通知。"
+
+#: ../../setup/deploy.rst:394
+msgid ""
+"The solutions to support livechat/motifications in a WSGI application are:"
+msgstr "这些解决方案支持在线咨询/在WSGI应用motifications是:"
+
+#: ../../setup/deploy.rst:396
+msgid ""
+"Deploy a threaded version of Odoo (instread of a process-based preforking "
+"one) and redirect only requests to URLs starting with ``/longpolling/`` to "
+"that Odoo, this is the simplest and the longpolling URL can double up as the"
+" cron instance."
+msgstr ""
+
+#: ../../setup/deploy.rst:400
+msgid ""
+"Deploy an evented Odoo via ``odoo-gevent`` and proxy requests starting with "
+"``/longpolling/`` to :option:`the longpolling port <odoo-bin --longpolling-"
+"port>`."
+msgstr ""
+
+#: ../../setup/deploy.rst:405
+msgid "Serving Static Files"
+msgstr "服务静态文件"
+
+#: ../../setup/deploy.rst:407
+msgid ""
+"For development convenience, Odoo directly serves all static files in its "
+"modules. This may not be ideal when it comes to performances, and static "
+"files should generally be served by a static HTTP server."
+msgstr "为了便于开发, Odoo直接在它的模块为所有静态文件。这可能不是很理想, 当谈到表演, 静态文件通常应该由静态HTTP服务器提供服务。"
+
+#: ../../setup/deploy.rst:411
+msgid ""
+"Odoo static files live in each module's ``static/`` folder, so static files "
+"can be served by intercepting all requests to "
+":samp:`/{MODULE}/static/{FILE}`, and looking up the right module (and file) "
+"in the various addons paths."
+msgstr "Odoo静态文件活在每个模块的 ``静态/`` 文件夹, 所以静态文件通过拦截所有的请求送达 :samp:`/ {MODULE} /静态/ {文件}` , 并查找正确的模块（和文件）的各种插件路径。"
+
+#: ../../setup/deploy.rst:422
+msgid "Security"
+msgstr "安全"
+
+#: ../../setup/deploy.rst:424
+msgid ""
+"For starters, keep in mind that securing an information system is a "
+"continuous process, not a one-shot operation. At any moment, you will only "
+"be as secure as the weakest link in your environment."
+msgstr ""
+
+#: ../../setup/deploy.rst:428
+msgid ""
+"So please do not take this section as the ultimate list of measures that "
+"will prevent all security problems. It's only intended as a summary of the "
+"first important things you should be sure to include in your security action"
+" plan. The rest will come from best security practices for your operating "
+"system and distribution, best practices in terms of users, passwords, and "
+"access control management, etc."
+msgstr ""
+
+#: ../../setup/deploy.rst:434
+msgid ""
+"When deploying an internet-facing server, please be sure to consider the "
+"following security-related topics:"
+msgstr ""
+
+#: ../../setup/deploy.rst:437
+msgid ""
+"Always set a strong super-admin admin password, and restrict access to the "
+"database management pages as soon as the system is set up. See "
+":ref:`db_manager_security`."
+msgstr ""
+
+#: ../../setup/deploy.rst:440
+msgid ""
+"Choose unique logins and strong passwords for all administrator accounts on "
+"all databases. Do not use 'admin' as the login. Do not use those logins for "
+"day-to-day operations, only for controlling/managing the installation. "
+"*Never* use any default passwords like admin/admin, even for test/staging "
+"databases."
+msgstr ""
+
+#: ../../setup/deploy.rst:445
+msgid ""
+"Do **not** install demo data on internet-facing servers. Databases with demo"
+" data contain default logins and passwords that can be used to get into your"
+" systems and cause significant trouble, even on staging/dev systems."
+msgstr ""
+
+#: ../../setup/deploy.rst:449
+msgid ""
+"Use appropriate database filters ( :option:`--db-filter <odoo-bin --db-"
+"filter>`) to restrict the visibility of your databases according to the "
+"hostname. See :ref:`db_filter`. You may also use :option:`-d <odoo-bin -d>` "
+"to provide your own (comma-separated) list of available databases to filter "
+"from, instead of letting the system fetch them all from the database "
+"backend."
+msgstr ""
+
+#: ../../setup/deploy.rst:456
+msgid ""
+"Once your ``db_name`` and ``db_filter`` are configured and only match a "
+"single database per hostname, you should set ``list_db`` configuration "
+"option to ``False``, to prevent listing databases entirely, and to block "
+"access to the database management screens (this is also exposed as the "
+":option:`--no-database-list <odoo-bin --no-database-list>` command-line "
+"option)"
+msgstr ""
+
+#: ../../setup/deploy.rst:462
+msgid ""
+"Make sure the PostgreSQL user (:option:`--db_user <odoo-bin --db_user>`) is "
+"*not* a super-user, and that your databases are owned by a different user. "
+"For example they could be owned by the ``postgres`` super-user if you are "
+"using a dedicated non-privileged ``db_user``. See also "
+":ref:`setup/deploy/odoo`."
+msgstr ""
+
+#: ../../setup/deploy.rst:467
+msgid ""
+"Keep installations updated by regularly installing the latest builds, either"
+" via GitHub or by downloading the latest version from "
+"https://www.odoo.com/page/download or http://nightly.odoo.com"
+msgstr ""
+
+#: ../../setup/deploy.rst:471
+msgid ""
+"Configure your server in multi-process mode with proper limits matching your"
+" typical usage (memory/CPU/timeouts). See also :ref:`builtin_server`."
+msgstr ""
+
+#: ../../setup/deploy.rst:474
+msgid ""
+"Run Odoo behind a web server providing HTTPS termination with a valid SSL "
+"certificate, in order to prevent eavesdropping on cleartext communications. "
+"SSL certificates are cheap, and many free options exist. Configure the web "
+"proxy to limit the size of requests, set appropriate timeouts, and then "
+"enable the :option:`proxy mode <odoo-bin --proxy-mode>` option. See also "
+":ref:`https_proxy`."
+msgstr ""
+
+#: ../../setup/deploy.rst:481
+msgid ""
+"If you need to allow remote SSH access to your servers, make sure to set a "
+"strong password for **all** accounts, not just `root`. It is strongly "
+"recommended to entirely disable password-based authentication, and only "
+"allow public key authentication. Also consider restricting access via a VPN,"
+" allowing only trusted IPs in the firewall, and/or running a brute-force "
+"detection system such as `fail2ban` or equivalent."
+msgstr ""
+
+#: ../../setup/deploy.rst:487
+msgid ""
+"Whenever possible, host your public-facing demo/test/staging instances on "
+"different machines than the production ones. And apply the same security "
+"precautions as for production."
+msgstr ""
+
+#: ../../setup/deploy.rst:491
+msgid ""
+"If you are hosting multiple customers, isolate customer data and files from "
+"each other using containers or appropriate \"jail\" techniques."
+msgstr ""
+
+#: ../../setup/deploy.rst:494
+msgid ""
+"Setup daily backups of your databases and filestore data, and copy them to a"
+" remote archiving server that is not accessible from the server itself."
+msgstr ""
+
+#: ../../setup/deploy.rst:501
+msgid "Database Manager Security"
+msgstr ""
+
+#: ../../setup/deploy.rst:503
+msgid ":ref:`setup/deploy/odoo` mentioned ``admin_passwd`` in passing."
+msgstr ":ref:`setup/deploy/odoo` 提到传入的 ``admin_passwd`` 。"
+
+#: ../../setup/deploy.rst:505
+msgid ""
+"This setting is used on all database management screens (to create, delete, "
+"dump or restore databases)."
+msgstr "此设置用于所有的数据库管理界面（创建, 删除, 倒出或恢复数据库）。"
+
+#: ../../setup/deploy.rst:508
+msgid ""
+"If the management screens must not be accessible at all, you should set "
+"``list_db`` configuration option to ``False``, to block access to all the "
+"database selection and management screens. But be sure to setup an "
+"appropriate ``db_name`` parameter (and optionally, ``db_filter`` too) so "
+"that the system can determine the target database for each request, "
+"otherwise users will be blocked as they won't be allowed to choose the "
+"database themselves."
+msgstr ""
+
+#: ../../setup/deploy.rst:515
+msgid ""
+"If the management screens must only be accessible from a selected set of "
+"machines, use the proxy server's features to block access to all routes "
+"starting with ``/web/database`` except (maybe) ``/web/database/selector`` "
+"which displays the database-selection screen."
+msgstr ""
+
+#: ../../setup/deploy.rst:519
+msgid ""
+"If the database-management screen should be left accessible, the "
+"``admin_passwd`` setting must be changed from its ``admin`` default: this "
+"password is checked before allowing database-alteration operations."
+msgstr "如果数据库管理屏幕应留便利, ``admin_passwd`` 设置必须从它的 ``admin`` 更改默认值:此密码是允许数据库修改操作前检查。"
+
+#: ../../setup/deploy.rst:523
+msgid "It should be stored securely, and should be generated randomly e.g."
+msgstr "应当安全地存储, 并且应该随机例如产生"
+
+#: ../../setup/deploy.rst:529
+msgid "which will generate a 32 characters pseudorandom printable string."
+msgstr "这将产生一个32字符的伪随机的可打印字符串。"
+
+#: ../../setup/deploy.rst:532
+msgid "Supported Browsers"
+msgstr ""
+
+#: ../../setup/deploy.rst:534
+msgid ""
+"Odoo is supported by multiple browsers for each of its versions. No "
+"distinction is made according to the browser version in order to be up-to-"
+"date. Odoo is supported on the current browser version. The list of the "
+"supported browsers is the following:"
+msgstr ""
+
+#: ../../setup/deploy.rst:539
+msgid "IE11,"
+msgstr ""
+
+#: ../../setup/deploy.rst:540
+msgid "Mozilla Firefox,"
+msgstr ""
+
+#: ../../setup/deploy.rst:541
+msgid "Google Chrome,"
+msgstr ""
+
+#: ../../setup/deploy.rst:542
+msgid "Safari,"
+msgstr ""
+
+#: ../../setup/deploy.rst:543
+msgid "Microsoft Edge"
+msgstr ""
+
+#: ../../setup/deploy.rst:547
+msgid ""
+"to have multiple Odoo installations use the same PostgreSQL database, or to "
+"provide more computing resources to both software."
+msgstr "有多个Odoo安装使用相同的PostgreSQL数据库, 或提供更多的计算资源, 以两个软件。"
+
+#: ../../setup/deploy.rst:550
+msgid ""
+"technically a tool like socat_ can be used to proxy UNIX sockets across "
+"networks, but that is mostly for software which can only be used over UNIX "
+"sockets"
+msgstr "技术上像socat_一个工具可用于跨网络代理的UNIX插座, 但是这主要是为软件, 它可以只使用过的UNIX插座"
+
+#: ../../setup/deploy.rst:554
+msgid ""
+"or be accessible only over an internal packet-switched network, but that "
+"requires secured switches, protections against `ARP spoofing`_ and precludes"
+" usage of WiFi. Even over secure packet-switched networks, deployment over "
+"HTTPS is recommended, and possible costs are lowered as \"self-signed\" "
+"certificates are easier to deploy on a controlled environment than over the "
+"internet."
+msgstr "或者是只通过内部分组交换网络可访问的, 但是这需要有担保交换机, 保护对抗 `ARP spoofing` _和排除的WiFi的使用。甚至通过安全分组交换网络, 部署通过HTTPS建议, 和可能的成本降低为'自签名'证书更容易部署在受控环境比在互联网上。"
+
+#: ../../setup/enterprise.rst:6
+msgid "From Community to Enterprise"
+msgstr "从社区版升级到企业版"
+
+#: ../../setup/enterprise.rst:8
+msgid ""
+"Depending on your current installation, there are multiple ways to upgrade "
+"your community version. In any case the basic guidelines are:"
+msgstr "Depending on your current installation, there are multiple ways to upgrade your community version. In any case the basic guidelines are:"
+
+#: ../../setup/enterprise.rst:12 ../../setup/enterprise.rst:31
+#: ../../setup/enterprise.rst:63 ../../setup/enterprise.rst:80
+msgid "Backup your community database"
+msgstr "备份社区版数据库"
+
+#: ../../setup/enterprise.rst:17 ../../setup/enterprise.rst:62
+msgid "Shutdown your server"
+msgstr "关闭服务器"
+
+#: ../../setup/enterprise.rst:19
+msgid "Install the web_enterprise module"
+msgstr ""
+
+#: ../../setup/enterprise.rst:21
+msgid "Restart your server"
+msgstr "重启服务器"
+
+#: ../../setup/enterprise.rst:23
+msgid "Enter your Odoo Enterprise Subscription code"
+msgstr "输入你的企业版订阅代码"
+
+#: ../../setup/enterprise.rst:29
+msgid "On Linux, using an installer"
+msgstr "Linux, 使用安装程序"
+
+#: ../../setup/enterprise.rst:33
+msgid "Stop the odoo service"
+msgstr "停止odoo服务"
+
+#: ../../setup/enterprise.rst:39
+msgid ""
+"Install the enterprise .deb (it should install over the community package)"
+msgstr "安装企业版 .deb (它在社区版包之上安装)"
+
+#: ../../setup/enterprise.rst:45
+msgid "Update your database to the enterprise packages using"
+msgstr "更新你的数据库到企业版包，使用"
+
+#: ../../setup/enterprise.rst:51
+msgid ""
+"You should be able to connect to your Odoo Enterprise instance using your "
+"usual mean of identification. You can then link your database with your Odoo"
+" Enterprise Subscription by entering the code you received by e-mail in the "
+"form input"
+msgstr "You should be able to connect to your Odoo Enterprise instance using your usual mean of identification. You can then link your database with your Odoo Enterprise Subscription by entering the code you received by e-mail in the form input"
+
+#: ../../setup/enterprise.rst:57
+msgid "On Linux, using the source code"
+msgstr "Linux, 使用源代码"
+
+#: ../../setup/enterprise.rst:59
+msgid ""
+"There are many ways to launch your server when using sources, and you "
+"probably have your own favourite. You may need to adapt sections to your "
+"usual workflow."
+msgstr "There are many ways to launch your server when using sources, and you probably have your own favourite. You may need to adapt sections to your usual workflow."
+
+#: ../../setup/enterprise.rst:64
+msgid ""
+"Update the ``--addons-path`` parameter of your launch command (see "
+":ref:`setup/install/source`)"
+msgstr "更新你的启动命令 (see :ref:`setup/install/source`)的参数 the ``--addons-path`` "
+
+#: ../../setup/enterprise.rst:65
+msgid "Install the web_enterprise module by using"
+msgstr ""
+
+#: ../../setup/enterprise.rst:71
+msgid "Depending on the size of your database, this may take some time."
+msgstr "依赖于你的数据库的大小,  这需要一些时间."
+
+#: ../../setup/enterprise.rst:73
+msgid ""
+"Restart your server with the updated addons path of point 3. You should be "
+"able to connect to your instance. You can then link your database with your "
+"Odoo Enterprise Subscription by entering the code you received by e-mail in "
+"the form input"
+msgstr "Restart your server with the updated addons path of point 3. You should be able to connect to your instance. You can then link your database with your Odoo Enterprise Subscription by entering the code you received by e-mail in the form input"
+
+#: ../../setup/enterprise.rst:78
+msgid "On Windows"
+msgstr "Windows"
+
+#: ../../setup/enterprise.rst:82
+msgid ""
+"Uninstall Odoo Community (using the Uninstall executable in the installation"
+" folder) - PostgreSQL will remain installed"
+msgstr "Uninstall Odoo Community (using the Uninstall executable in the installation folder) - PostgreSQL will remain installed"
+
+#: ../../setup/enterprise.rst:88
+msgid ""
+"Launch the Odoo Enterprise Installer and follow the steps normally. When "
+"choosing the installation path, you can set the folder of the Community "
+"installation (this folder still contains the PostgreSQL installation). "
+"Uncheck ``Start Odoo`` at the end of the installation"
+msgstr "Launch the Odoo Enterprise Installer and follow the steps normally. When choosing the installation path, you can set the folder of the Community installation (this folder still contains the PostgreSQL installation). Uncheck ``Start Odoo`` at the end of the installation"
+
+#: ../../setup/enterprise.rst:96
+msgid ""
+"Using a command window, update your Odoo Database using this command (from "
+"the Odoo installation path, in the server subfolder)"
+msgstr "Using a command window, update your Odoo Database using this command (from the Odoo installation path, in the server subfolder)"
+
+#: ../../setup/enterprise.rst:103
+msgid ""
+"No need to manually launch the server, the service is running. You should be"
+" able to connect to your Odoo Enterprise instance using your usual mean of "
+"identification. You can then link your database with your Odoo Enterprise "
+"Subscription by entering the code you received by e-mail in the form input"
+msgstr "No need to manually launch the server, the service is running. You should be able to connect to your Odoo Enterprise instance using your usual mean of identification. You can then link your database with your Odoo Enterprise Subscription by entering the code you received by e-mail in the form input"
+
+#: ../../setup/install.rst:7
+msgid "Installing Odoo"
+msgstr "安装Odoo"
+
+#: ../../setup/install.rst:9
+msgid ""
+"There are mutliple ways to install Odoo, or not install it at all, depending"
+" on the intended use case."
+msgstr "有多种方式安装Odoo, 或不安装, 这取决于使用案例。"
+
+#: ../../setup/install.rst:12
+msgid "This documents attempts to describe most of the installation options."
+msgstr "本文试图描述大多数的安装选项。"
+
+#: ../../setup/install.rst:15
+msgid ":ref:`setup/install/online`"
+msgstr ""
+
+#: ../../setup/install.rst:15
+msgid "The easiest way to use Odoo in production or to try it."
+msgstr ""
+
+#: ../../setup/install.rst:19
+msgid ":ref:`setup/install/packaged`"
+msgstr ":ref:`setup/install/packaged`"
+
+#: ../../setup/install.rst:18
+msgid ""
+"Suitable for testing Odoo, developing modules and can be used for long-term "
+"production use with additional deployment and maintenance work."
+msgstr "适用于测试Odoo, 显影模块和可以用于与附加的部署和维护工作长期生产使用。"
+
+#: ../../setup/install.rst:24
+msgid ":ref:`setup/install/source`"
+msgstr ":ref:`setup/install/source`"
+
+#: ../../setup/install.rst:22
+msgid ""
+"Provides greater flexibility:  e.g. allow multiple running Odoo versions on "
+"the same system. Good for developing modules, can be used as base for "
+"production deployment."
+msgstr ""
+
+#: ../../setup/install.rst:28
+msgid ":ref:`setup/install/docker`"
+msgstr ""
+
+#: ../../setup/install.rst:27
+msgid ""
+"If you usually use docker_ for development or deployment, an official "
+"docker_ base image is available."
+msgstr ""
+
+#: ../../setup/install.rst:33
+msgid "Editions"
+msgstr "版本"
+
+#: ../../setup/install.rst:35
+msgid ""
+"There are two different Editions_ of Odoo: the Community and Enterprise "
+"versions. Using the Enterprise version is possible on our SaaS_ and "
+"accessing the code is restricted to Enterprise customers and partners. The "
+"Community version is freely available to anyone."
+msgstr "There are two different Editions_ of Odoo: the Community and Enterprise versions. Using the Enterprise version is possible on our SaaS_ and accessing the code is restricted to Enterprise customers and partners. The Community version is freely available to anyone."
+
+#: ../../setup/install.rst:40
+msgid ""
+"If you already use the Community version and wish to upgrade to Enterprise, "
+"please refer to :ref:`setup/enterprise` (except for "
+":ref:`setup/install/source`)."
+msgstr "如果你已经在使用社区版，并且希望升级到企业版，请参考  :ref:`setup/enterprise` (except for :ref:`setup/install/source`)."
+
+#: ../../setup/install.rst:46
+msgid "Online"
+msgstr ""
+
+#: ../../setup/install.rst:49
+msgid "Demo"
+msgstr "演示"
+
+#: ../../setup/install.rst:51
+msgid ""
+"To simply get a quick idea of Odoo, demo_ instances are available. They are "
+"shared instances which only live for a few hours, and can be used to browse "
+"around and try things out with no commitment."
+msgstr "为了简单地得到Odoo的快速的想法, demo_实例可用。他们共享实例, 只活了几个小时, 并可以用于浏览并尝试的事情了, 没有承诺。"
+
+#: ../../setup/install.rst:55
+msgid "Demo_ instances require no local installation, just a web browser."
+msgstr "Demo_实例, 无需本地安装, 只需要一个网络浏览器。"
+
+#: ../../setup/install.rst:58
+msgid "SaaS"
+msgstr "SaaS"
+
+#: ../../setup/install.rst:60
+msgid ""
+"Trivial to start with, fully managed and migrated by Odoo S.A., Odoo's SaaS_"
+" provides private instances and starts out free. It can be used to discover "
+"and test Odoo and do non-code customizations (i.e. incompatible with custom "
+"modules or the Odoo Apps Store) without having to install it locally."
+msgstr ""
+
+#: ../../setup/install.rst:65
+msgid "Can be used for both testing Odoo and long-term production use."
+msgstr "Can be used for both testing Odoo and long-term production use."
+
+#: ../../setup/install.rst:67
+msgid ""
+"Like demo_ instances, SaaS_ instances require no local installation, a web "
+"browser is sufficient."
+msgstr "像demo_实例, SaaS_实例, 无需本地安装, Web浏览器就足够了。"
+
+#: ../../setup/install.rst:73
+msgid "Packaged installers"
+msgstr "封装的安装程序"
+
+#: ../../setup/install.rst:75
+msgid ""
+"Odoo provides packaged installers for Windows, deb-based distributions "
+"(Debian, Ubuntu, …) and RPM-based distributions (Fedora, CentOS, RHEL, …) "
+"for both the Community and Enterprise versions."
+msgstr "Odoo 为社区版和企业版 提供了，Windows安装程序, deb 分发 (Debian, Ubuntu, …) 以及 RPM分发 (Fedora, CentOS, RHEL, …) 。"
+
+#: ../../setup/install.rst:79
+msgid ""
+"These packages automatically set up all dependencies (for the Community "
+"version), but may be difficult to keep up-to-date."
+msgstr "These packages automatically set up all dependencies (for the Community version), but may be difficult to keep up-to-date."
+
+#: ../../setup/install.rst:82
+msgid ""
+"Official Community packages with all relevant dependency requirements are "
+"available on our nightly_ server. Both Communtiy and Enterprise packages can"
+" be downloaded from our Download_ page (you must to be logged in as a paying"
+" customer or partner to download the Enterprise packages)."
+msgstr "Official Community packages with all relevant dependency requirements are available on our nightly_ server. Both Communtiy and Enterprise packages can be downloaded from our Download_ page (you must to be logged in as a paying customer or partner to download the Enterprise packages)."
+
+#: ../../setup/install.rst:88
+msgid "Windows"
+msgstr "Windows"
+
+#: ../../setup/install.rst:90
+msgid ""
+"Download the installer from our nightly_ server (Community only) or the "
+"Windows installer from the Download_ page (any edition)"
+msgstr "Download the installer from our nightly_ server (Community only) or the Windows installer from the Download_ page (any edition)"
+
+#: ../../setup/install.rst:92
+msgid "Run the downloaded file"
+msgstr "运行下载的文件"
+
+#: ../../setup/install.rst:94
+msgid ""
+"on Windows 8, you may see a warning titled \"Windows protected your PC\". "
+"Click :guilabel:`More Info` then :guilabel:`Run anyway`"
+msgstr "在Windows 8中, 你可能会看到一个标题为警告'Windows保护你的电脑'。点击 :guilabel:`更多Info` 则 :guilabel:`运行anyway` "
+
+#: ../../setup/install.rst:98
+msgid "Accept the UAC_ prompt"
+msgstr "接受UAC_提示"
+
+#: ../../setup/install.rst:99
+msgid "Go through the various installation steps"
+msgstr "经过不同的安装步骤"
+
+#: ../../setup/install.rst:101
+msgid "Odoo will automatically be started at the end of the installation."
+msgstr "Odoo会自动在安装结束时启动。"
+
+#: ../../setup/install.rst:104
+msgid "Linux"
+msgstr ""
+
+#: ../../setup/install.rst:107
+msgid "Debian/Ubuntu"
+msgstr ""
+
+#: ../../setup/install.rst:109
+msgid ""
+"Odoo 11.0 'deb' package currently supports `Debian Stretch`_, `Ubuntu "
+"Xenial`_, `Ubuntu Zesty`_ and `Ubuntu Artful`_."
+msgstr ""
+
+#: ../../setup/install.rst:113 ../../setup/install.rst:208
+#: ../../setup/install.rst:277
+msgid "Prepare"
+msgstr ""
+
+#: ../../setup/install.rst:115
+msgid ""
+"Odoo needs a `PostgreSQL`_ server to run properly. The default configuration"
+" for the Odoo 'deb' package is to use the PostgreSQL server on the same host"
+" as your Odoo instance. Execute the following command as root in order to "
+"install PostgreSQL server :"
+msgstr ""
+
+#: ../../setup/install.rst:124 ../../setup/install.rst:219
+msgid ""
+"In order to print PDF reports, you must install wkhtmltopdf_ yourself: the "
+"version of wkhtmltopdf_ available in debian repositories does not support "
+"headers and footers so it can not be installed automatically. The "
+"recommended version is 0.12.1 and is available on `the wkhtmltopdf download "
+"page`_, in the archive section."
+msgstr ""
+
+#: ../../setup/install.rst:131 ../../setup/install.rst:226
+msgid "Repository"
+msgstr ""
+
+#: ../../setup/install.rst:133
+msgid ""
+"Odoo S.A. provides a repository that can be used with  Debian and Ubuntu "
+"distributions. It can be used to install Odoo Community Edition by executing"
+" the following commands as root:"
+msgstr ""
+
+#: ../../setup/install.rst:143
+msgid ""
+"You can then use the usual ``apt-get upgrade`` command to keep your "
+"installation up-to-date."
+msgstr "You can then use the usual ``apt-get upgrade`` command to keep your installation up-to-date."
+
+#: ../../setup/install.rst:145
+msgid "At this moment, there is no repository for the Enterprise Edition."
+msgstr ""
+
+#: ../../setup/install.rst:148
+msgid "Deb Package"
+msgstr ""
+
+#: ../../setup/install.rst:150
+msgid ""
+"Instead of using the repository as described above, the 'deb' package can be"
+" downloaded here:"
+msgstr ""
+
+#: ../../setup/install.rst:153 ../../setup/install.rst:245
+msgid "Community Edition: `nightly`_"
+msgstr ""
+
+#: ../../setup/install.rst:154 ../../setup/install.rst:246
+msgid "Enterprise Edition `Download`_"
+msgstr ""
+
+#: ../../setup/install.rst:156
+msgid "You can then use ``gdebi``:"
+msgstr ""
+
+#: ../../setup/install.rst:162
+msgid "Or ``dpkg`` (handles less dependencies automatically):"
+msgstr "Or ``dpkg`` (handles less dependencies automatically):"
+
+#: ../../setup/install.rst:170
+msgid ""
+"This will install Odoo as a service, create the necessary PostgreSQL_ user "
+"and automatically start the server."
+msgstr "This will install Odoo as a service, create the necessary PostgreSQL_ user and automatically start the server."
+
+#: ../../setup/install.rst:173
+msgid ""
+"The 3 following python packages are only suggested by the Debian package. "
+"Those packages are not available in Ubuntu Xenial (16.04)."
+msgstr ""
+
+#: ../../setup/install.rst:176
+msgid "python3-vobject: Used in calendars to produce ical files."
+msgstr ""
+
+#: ../../setup/install.rst:177
+msgid "python3-pyldap: Used to authenticat users with LDAP."
+msgstr ""
+
+#: ../../setup/install.rst:178
+msgid "python3-qrcode: Used by the hardware driver for ESC/POS"
+msgstr ""
+
+#: ../../setup/install.rst:180
+msgid ""
+"If you need one or all of the packages mentioned in the above warning, you "
+"can install them manually. One way to do it, is simply using pip3 like this:"
+msgstr ""
+
+#: ../../setup/install.rst:189
+msgid ""
+"Debian 9 and Ubuntu do not provide a package for the python module "
+"num2words. Textual amounts will not be rendered by Odoo and this could cause"
+" problems with the \"l10n_mx_edi\" module."
+msgstr ""
+
+#: ../../setup/install.rst:194
+msgid "If you need this feature, you can install the python module like this:"
+msgstr ""
+
+#: ../../setup/install.rst:201
+msgid "Fedora"
+msgstr ""
+
+#: ../../setup/install.rst:203
+msgid ""
+"Odoo 11.0 'rpm' package supports Fedora 26. As of 2017, CentOS does not have"
+" the minimum Python requirements (3.5) for Odoo 11.0."
+msgstr ""
+
+#: ../../setup/install.rst:209
+msgid ""
+"Odoo needs a `PostgreSQL`_ server to run properly. Assuming that the 'sudo' "
+"command is available and configured properly, run the following commands :"
+msgstr ""
+
+#: ../../setup/install.rst:228
+msgid ""
+"Odoo S.A. provides a repository that can be used with the Fedora "
+"distibutions. It can be used to install Odoo Community Edition by executing "
+"the following commands:"
+msgstr ""
+
+#: ../../setup/install.rst:240
+msgid "RPM package"
+msgstr ""
+
+#: ../../setup/install.rst:242
+msgid ""
+"Instead of using the repository as described above, the 'rpm' package can be"
+" downloaded here:"
+msgstr ""
+
+#: ../../setup/install.rst:248
+msgid ""
+"Once downloaded, the package can be installed using the 'dnf' package "
+"manager:"
+msgstr ""
+
+#: ../../setup/install.rst:259
+msgid "Source Install"
+msgstr "源码安装"
+
+#: ../../setup/install.rst:261
+msgid ""
+"The source \"installation\" really is about not installing Odoo, and running"
+" it directly from source instead."
+msgstr "源码'安装'还真不是安装Odoo, 而是直接从源代码运行它。"
+
+#: ../../setup/install.rst:264
+msgid ""
+"This can be more convenient for module developers as the Odoo source is more"
+" easily accessible than using packaged installation (for information or to "
+"build this documentation and have it available offline)."
+msgstr "这对于模块开发人员更方便, Odoo源码比使用封装的安装（以获取信息或建立这个文件, 并将它可脱机）更容易访问。"
+
+#: ../../setup/install.rst:268
+msgid ""
+"It also makes starting and stopping Odoo more flexible and explicit than the"
+" services set up by the packaged installations, and allows overriding "
+"settings using :ref:`command-line parameters <reference/cmdline>` without "
+"needing to edit a configuration file."
+msgstr "它还使得启动、停止Odoo比封装安装建立的服务更灵活、明确，允许使用:ref:`命令行参数 <reference/cmdline>` 覆盖设置，而无需编辑配置文件。"
+
+#: ../../setup/install.rst:273
+msgid ""
+"Finally it provides greater control over the system's set up, and allows "
+"more easily keeping (and running) multiple versions of Odoo side-by-side."
+msgstr "最后, 它在系统设置方面提供了更大的控制, 并允许更容易保持（和运行）多个版本Odoo并行运行。"
+
+#: ../../setup/install.rst:279
+msgid "Source installation requires manually installing dependencies:"
+msgstr "源码安装需要手动安装依赖:"
+
+#: ../../setup/install.rst:281
+msgid "Python 3.5+."
+msgstr ""
+
+#: ../../setup/install.rst:283
+msgid ""
+"on Linux and OS X, using your package manager if not installed by default"
+msgstr ""
+
+#: ../../setup/install.rst:285
+msgid ""
+"on some system, ``python`` command refers to Python 2 (outdated) or to "
+"Python 3 (supported). Make sure you are using the right version and that the"
+" alias ``python3`` is present in your :envvar:`PATH`"
+msgstr ""
+
+#: ../../setup/install.rst:290
+msgid ""
+"on Windows, use `the official Python 3 installer "
+"<https://www.python.org/downloads/windows/>`_."
+msgstr ""
+
+#: ../../setup/install.rst:293
+msgid ""
+"select \"add python.exe to Path\" during installation, and reboot afterwards"
+" to ensure the :envvar:`PATH` is updated"
+msgstr "安装过程中选择 ``add python.exe to Path`` , 然后重新启动, 确保 :envvar:`PATH` 是更新过的"
+
+#: ../../setup/install.rst:296
+msgid ""
+"if Python is already installed, make sure it is 3.5 or above, previous "
+"versions are not compatible with Odoo."
+msgstr ""
+
+#: ../../setup/install.rst:299
+msgid "PostgreSQL, to use a local database"
+msgstr "PostgreSQL, 使用本地数据库"
+
+#: ../../setup/install.rst:301
+msgid ""
+"After installation you will need to create a postgres user: by default the "
+"only user is ``postgres``, and Odoo forbids connecting as ``postgres``."
+msgstr "安装完毕后, 你需要创建一个Postgres用户:默认情况下, 只有用户 ``postgres`` , 并Odoo不允许对连接的 ``postgres`` 。"
+
+#: ../../setup/install.rst:304
+msgid ""
+"on Linux, use your distribution's package, then create a postgres user named"
+" like your login:"
+msgstr "在Linux上, 用你的发行版的软件包, 然后创建一个Postgres用户名为喜欢你的登录:"
+
+#: ../../setup/install.rst:311
+msgid ""
+"Because the role login is the same as your unix login unix sockets can be "
+"use without a password."
+msgstr "由于角色的登录是一样的你的Unix登录Unix套接字可以使用无需密码。"
+
+#: ../../setup/install.rst:314
+msgid ""
+"on OS X, `postgres.app <http://postgresapp.com>`_ is the simplest way to get"
+" started, then create a postgres user as on Linux"
+msgstr "on OS X, `postgres.app <http ://postgresapp.com>` _ is the simplest way to get started, then create a postgres user as on Linux"
+
+#: ../../setup/install.rst:317
+msgid "on Windows, use `PostgreSQL for windows`_ then"
+msgstr "在Windows中, 使用'的PostgreSQL的windows `_然后"
+
+#: ../../setup/install.rst:319
+msgid ""
+"add PostgreSQL's ``bin`` directory (default: ``C:\\Program "
+"Files\\PostgreSQL\\9.4\\bin``) to your :envvar:`PATH`"
+msgstr "将PostgreSQL的 ``bin`` 目录（默认:``C :\\Program Files\\PostgreSQL\\9.4\\bin`` ）加入到你的 : envvar :`PATH` "
+
+#: ../../setup/install.rst:321
+msgid ""
+"create a postgres user with a password using the pg admin gui: open "
+"pgAdminIII, double-click the server to create a connection, select "
+":menuselection:`Edit --> New Object --> New Login Role`, enter the usename "
+"in the :guilabel:`Role Name` field (e.g. ``odoo``), then open the "
+":guilabel:`Definition` tab and enter the password (e.g. ``odoo``), then "
+"click :guilabel:`OK`."
+msgstr "使用PG管理GUI创建一个带有密码的postgres用户:打开pgAdminIII，双击服务器上创建一个连接，请选择 :menuselection:`Edit --> New Object --> New Login Role` ， :guilabel:`Role Name` 字段输入用户名（如 `` odoo `` ），然后打开 :guilabel:`Definition` 选项卡，输入密码（如 `` odoo `` ），然后单击 :guilabel:`OK` 。"
+
+#: ../../setup/install.rst:328
+msgid ""
+"The user and password must be passed to Odoo using either the :option:`-w "
+"<odoo-bin -w>` and :option:`-r <odoo-bin -r>` options or :ref:`the "
+"configuration file <reference/cmdline/config>`"
+msgstr ""
+
+#: ../../setup/install.rst:332
+msgid "Python dependencies listed in the :file:`requirements.txt` file."
+msgstr "Python的依赖关系在 :file:`requirements.txt` 文件中列出。"
+
+#: ../../setup/install.rst:334
+msgid ""
+"on Linux, python dependencies may be installable with the system's package "
+"manager or using pip."
+msgstr "在Linux上, Python的依赖可能是安装与系统的软件包管理器或使用PIP。"
+
+#: ../../setup/install.rst:337
+msgid ""
+"For libraries using native code (Pillow, lxml, greenlet, gevent, psycopg2, "
+"ldap) it may be necessary to install development tools and native "
+"dependencies before pip is able to install the dependencies themselves. "
+"These are available in ``-dev`` or ``-devel`` packages for Python, Postgres,"
+" libxml2, libxslt, libevent, libsasl2 and libldap2. Then the Python "
+"dependecies can themselves be installed:"
+msgstr "对于使用本机代码（Pillow，LXML，greenlet，GEVENT，psycopg2，LDAP）库，可能需要安装开发工具和原生的依赖之前点子是能够安装依赖自己。这些都是 `` -dev `` 或 `` -devel `` 包Python和Postgres的，libxml2的，libxslt上，libevent的，libsasl2的libldap2和可用的。然后Python的依赖条件可以自行安装:"
+
+#: ../../setup/install.rst:348
+msgid ""
+"on OS X, you will need to install the Command Line Tools (``xcode-select "
+"--install``) then download and install a package manager of your choice "
+"(homebrew_, macports_) to install non-Python dependencies. pip can then be "
+"used to install the Python dependencies as on Linux:"
+msgstr "在OS X上, 您需要安装命令行工具（ ``的Xcode选--install`` ）, 然后下载并安装你的选择（homebrew_, macports_）安装非Python的依赖关系的软件包管理器。 PIP可以用来安装Python的依赖关系在Linux上:"
+
+#: ../../setup/install.rst:357
+msgid ""
+"on Windows you need to install some of the dependencies manually, tweak the "
+"requirements.txt file, then run pip to install the remaning ones."
+msgstr "在Windows上, 你需要人工安装一些依赖, 调整requirements.txt文件, 然后运行pip来安装剩余的。"
+
+#: ../../setup/install.rst:360
+msgid ""
+"Install ``psycopg`` using the installer here "
+"http://www.stickpeople.com/projects/python/win-psycopg/"
+msgstr "使用这个安装包 http ://www.stickpeople.com/projects/python/win-psycopg/ 安装 ``psycopg`` "
+
+#: ../../setup/install.rst:363
+msgid ""
+"Then use pip to install the dependencies using the following command from a "
+"cmd.exe prompt (replace ``\\YourOdooPath`` by the actual path where you "
+"downloaded Odoo):"
+msgstr "然后在cmd.exe的提示符下使用以下命令（替换 ``\\ YourOdooPath`` 为您下载Odoo的实际路径）使用PIP来安装依赖关系, :"
+
+#: ../../setup/install.rst:373
+msgid "Fetch the sources"
+msgstr ""
+
+#: ../../setup/install.rst:375
+msgid "There are two ways to obtain the Odoo source code: zip or git."
+msgstr ""
+
+#: ../../setup/install.rst:377
+msgid ""
+"Odoo zip can be downloaded from  our nightly_ server or our Download_  page,"
+" the zip file then needs to be uncompressed to use its content"
+msgstr "Odoo zip can be downloaded from  our nightly_ server or our Download_  page, the zip file then needs to be uncompressed to use its content"
+
+#: ../../setup/install.rst:380
+msgid ""
+"git allows simpler update and easier switching between different versions of"
+" Odoo. It also simplifies maintaining non-module patches and contributions."
+"  The primary drawback of git is that it is significantly larger than a "
+"tarball as it contains the entire history of the Odoo project."
+msgstr "git allows simpler update and easier switching between different versions of Odoo. It also simplifies maintaining non-module patches and contributions.  The primary drawback of git is that it is significantly larger than a tarball as it contains the entire history of the Odoo project."
+
+#: ../../setup/install.rst:386
+msgid "Community Edition"
+msgstr ""
+
+#: ../../setup/install.rst:388
+msgid ""
+"The git repository is https://github.com/odoo/odoo.git for the Community "
+"edition."
+msgstr ""
+
+#: ../../setup/install.rst:391
+msgid ""
+"Downloading it requires a `git client <http://git-scm.com/download/>`_ "
+"(which may be available via your distribution on linux) and can be performed"
+" using the following command:"
+msgstr "下载它需要一个'git 客户端<http ://git-scm.com/download/> `_（可能是可以通过你的Linux发行版）, 可以使用以下命令来执行:"
+
+#: ../../setup/install.rst:400
+msgid "Enterprise Edition"
+msgstr ""
+
+#: ../../setup/install.rst:402
+msgid ""
+"If you have access to the Enterprise repository (see "
+":ref:`setup/install/editions` if you wish to get access), you can use this "
+"command to fetch the addons:"
+msgstr "如果你能访问企业仓库 (see :ref:`setup/install/editions` if you wish to get access),  你可以运行此命令取得addons:"
+
+#: ../../setup/install.rst:409
+msgid ""
+"The Enterprise git repository **does not contain the full Odoo source "
+"code**. It is only a collection of extra add-ons. The main server code is in"
+" the Community version.  Running the Enterprise version actually means "
+"running the server from the Community version with the addons-path option "
+"set to the folder with the Enterprise version."
+msgstr ""
+
+#: ../../setup/install.rst:415
+msgid ""
+"You need to clone both the Community and Enterprise repository to have a "
+"working Odoo installation"
+msgstr ""
+
+#: ../../setup/install.rst:419
+msgid "Running Odoo"
+msgstr "运行Odoo"
+
+#: ../../setup/install.rst:421
+msgid ""
+"Once all dependencies are set up, Odoo can be launched by running ``odoo-"
+"bin``."
+msgstr ""
+
+#: ../../setup/install.rst:423
+msgid ""
+"For the Enterprise edition, you must specify the :file:`enterprise` addons "
+"folder when starting your server. You can do so by providing the path to "
+"your :file:`enterprise` folder in the ``addons-path`` parameter. Please note"
+" that the :file:`enterprise` folder must come before the default "
+":file:`addons` folder in the  list for the addons to be loaded correctly."
+msgstr "For the Enterprise edition, you must specify the :file:`enterprise` addons folder when starting your server. You can do so by providing the path to your :file:`enterprise` folder in the ``addons-path`` parameter. Please note that the :file:`enterprise` folder must come before the default :file:`addons` folder in the  list for the addons to be loaded correctly."
+
+#: ../../setup/install.rst:429
+msgid ""
+":ref:`Configuration <reference/cmdline>` can be provided either through :ref"
+":`command-line arguments <reference/cmdline>` or through a "
+":ref:`configuration file <reference/cmdline/config>`."
+msgstr ":ref:`Configuration <reference/cmdline>` can be provided either through :ref:`command-line arguments <reference/cmdline>` or through a :ref:`configuration file <reference/cmdline/config>` ."
+
+#: ../../setup/install.rst:433
+msgid "Common necessary configurations are:"
+msgstr "常见的必要的配置是:"
+
+#: ../../setup/install.rst:435
+msgid "PostgreSQL host, port, user and password."
+msgstr "PostgreSQL的主机, 端口, 用户名和密码。"
+
+#: ../../setup/install.rst:437
+msgid ""
+"Odoo has no defaults beyond `psycopg2's defaults "
+"<http://initd.org/psycopg/docs/module.html>`_: connects over a UNIX socket "
+"on port 5432 with the current user and no password. By default this should "
+"work on Linux and OS X, but it *will not work* on windows as it does not "
+"support UNIX sockets."
+msgstr "Odoo已经超越 `psycopg2的默认设置没有默认值<http ://initd.org/psycopg/docs/module.html>` _:连接通过UNIX套接字端口5432与当前用户, 没有密码。默认情况下, 这应该可以在Linux和OS X, 但 *不* 工作在Windows上, 因为它不支持Unix套接字。"
+
+#: ../../setup/install.rst:443
+msgid "Custom addons path beyond the defaults, to load your own modules"
+msgstr "在默认设置自定义插件路径来加载自己的模块"
+
+#: ../../setup/install.rst:445
+msgid "Under Windows a typical way to execute odoo would be:"
+msgstr "在Windows下执行odoo, 一个典型的方式是:"
+
+#: ../../setup/install.rst:451
+msgid ""
+"Where ``odoo``, ``odoo`` are the postgresql login and password, "
+"``../mymodules`` a directory with additional addons and ``mydb`` the default"
+" db to serve on localhost:8069"
+msgstr "当 ``odoo`` , ``odoo`` 是PostgreSQL的登录名和密码, ``../ mymodules`` 额外的插件和 `目录` mydb ``默认的数据库服务在localhost:8069"
+
+#: ../../setup/install.rst:455
+msgid "Under Unix a typical way to execute odoo would be:"
+msgstr "在Unix下执行odoo一个典型的方式将是:"
+
+#: ../../setup/install.rst:461
+msgid ""
+"Where ``../mymodules`` is a directory with additional addons and ``mydb`` "
+"the default db to serve on localhost:8069"
+msgstr "当 ``../ mymodules`` 是额外的插件和 `目录` mydb ``默认的数据库服务在localhost:8069"
+
+#: ../../setup/install.rst:465
+msgid "Virtualenv"
+msgstr ""
+
+#: ../../setup/install.rst:467
+msgid ""
+"Virtualenv_ is a tool to create Python isolated environments because it's "
+"sometimes preferable to not mix your distribution python modules packages "
+"with globally installed python modules with pip."
+msgstr ""
+
+#: ../../setup/install.rst:471
+msgid ""
+"This section will explain how to run Odoo in a such isolated Python "
+"environment."
+msgstr ""
+
+#: ../../setup/install.rst:473
+msgid ""
+"Here we are going to use virtualenvwrapper_ which is a set of shell scripts "
+"that makes the use of virtualenv easier."
+msgstr ""
+
+#: ../../setup/install.rst:476
+msgid ""
+"The examples below are based on a Debian 9 distribution but could be adapted"
+" on any platform where virtualenvwrapper_ and virtualenv_ are able to run."
+msgstr ""
+
+#: ../../setup/install.rst:479
+msgid ""
+"This section assumes that you obtained the Odoo sources from the zip file or"
+" the git repository as explained above. The same apply for postgresql "
+"installation and configuration."
+msgstr ""
+
+#: ../../setup/install.rst:484
+msgid "Install virtualenvwrapper"
+msgstr ""
+
+#: ../../setup/install.rst:491
+msgid ""
+"This will install virtualenvwrapper_ and activate it immediately. Now, let's"
+" install the tools required to build Odoo dependencies if needed:"
+msgstr ""
+
+#: ../../setup/install.rst:499
+msgid "Create an isolated environment"
+msgstr ""
+
+#: ../../setup/install.rst:501
+msgid "Now we can create a virtual environment for Odoo like this:"
+msgstr ""
+
+#: ../../setup/install.rst:507
+msgid ""
+"With this command, we ask for an isolated Python3 environment that will be "
+"named \"odoo-env\". If the command works as expected, your shell is now "
+"using this environment. Your prompt should have changed to remind you that "
+"you are using an isolated environment. You can verify with this command:"
+msgstr ""
+
+#: ../../setup/install.rst:516
+msgid ""
+"This command should show you the path to the Python interpreter located in "
+"the isolated environment directory."
+msgstr ""
+
+#: ../../setup/install.rst:519
+msgid "Now let's install the Odoo required python packages:"
+msgstr ""
+
+#: ../../setup/install.rst:526
+msgid ""
+"After a little while, you should be ready to run odoo from the command line "
+"as explained above."
+msgstr ""
+
+#: ../../setup/install.rst:529
+msgid ""
+"When you you want to leave the virtual environment, just issue this command:"
+msgstr ""
+
+#: ../../setup/install.rst:535
+msgid "Whenever you want to work again with your 'odoo-venv' environment:"
+msgstr ""
+
+#: ../../setup/install.rst:544
+msgid "Docker"
+msgstr ""
+
+#: ../../setup/install.rst:546
+msgid ""
+"The full documentation on how to use Odoo with Docker can be found on the "
+"offcial Odoo `docker image <https://registry.hub.docker.com/_/odoo/>`_ page."
+msgstr ""

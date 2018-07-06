@@ -1,0 +1,49 @@
+[main]
+host = https://www.transifex.com
+type = PO
+
+[odoo-documentation-technical._extensions]
+file_filter = _build/locale/<lang>/LC_MESSAGES/_extensions.po
+source_file = _build/locale/_extensions.pot
+source_lang = en
+
+[odoo-documentation-technical._glossary]
+file_filter = _build/locale/<lang>/LC_MESSAGES/glossary.po
+source_file = _build/locale/glossary.pot
+source_lang = en
+
+[odoo-documentation-technical.howtos]
+file_filter = _build/locale/<lang>/LC_MESSAGES/howtos.po
+source_file = _build/locale/howtos.pot
+source_lang = en
+
+[odoo-documentation-technical.index]
+file_filter = _build/locale/<lang>/LC_MESSAGES/index.po
+source_file = _build/locale/index.pot
+source_lang = en
+
+[odoo-documentation-technical.python3]
+file_filter = _build/locale/<lang>/LC_MESSAGES/python3.po
+source_file = _build/locale/python3.pot
+source_lang = en
+
+[odoo-documentation-technical.reference]
+file_filter = _build/locale/<lang>/LC_MESSAGES/reference.po
+source_file = _build/locale/reference.pot
+source_lang = en
+
+[odoo-documentation-technical.setup]
+file_filter = _build/locale/<lang>/LC_MESSAGES/setup.po
+source_file = _build/locale/setup.pot
+source_lang = en
+
+[odoo-documentation-technical.tutorials]
+file_filter = _build/locale/<lang>/LC_MESSAGES/tutorials.po
+source_file = _build/locale/tutorials.pot
+source_lang = en
+
+[odoo-documentation-technical.webservices]
+file_filter = _build/locale/<lang>/LC_MESSAGES/webservices.po
+source_file = _build/locale/webservices.pot
+source_lang = en
+

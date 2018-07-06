@@ -1,0 +1,1174 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Javascript Reference &mdash; odoo 11.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 11.0 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="../reference.html" />
+    <link rel="next" title="Javascript API" href="javascript_api.html" />
+    <link rel="prev" title="Javascript Cheatsheet" href="javascript_cheatsheet.html" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Javascript Reference</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/11.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/index.html">Developer</a></li>
+<li><a href="https://training.odoo.com/">Training center</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/webservices/odoo.html">API</a></li>
+<li><a href="https://www.odoo.com/documentation/11.0/setup/install.html">Installation</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/javascript.jpg');"></span>
+      <div class="container text-center">
+        <h1> Javascript Reference </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><div class="tutorials toc-single-entry row"><div class="col-sm-12"><h2>Javascript API</h2></div>
+                <div class="col-sm-6 col-md-3">
+                <figure class="card">
+                    <a href="javascript_api.html" class="card-img">
+                        <span style="background-image: url('../_static/banners/javascript.small.jpg')"></span>
+                        <figcaption>Javascript API</figcaption>
+                    </a>
+                </figure>
+                </div>
+                </div><li class="list-group-item"><a href="#overview" class="ripple internal reference">Overview</a></li><li class="list-group-item"><a href="#web-client" class="ripple internal reference">Web client</a><ul ><li class="list-group-item"><a href="#single-page-application" class="ripple internal reference">Single Page Application</a></li><li class="list-group-item"><a href="#overview-of-web-client-js-code" class="ripple internal reference">Overview of web client JS code</a></li></ul></li><li class="list-group-item"><a href="#assets-management" class="ripple internal reference">Assets Management</a><ul ><li class="list-group-item"><a href="#main-bundles" class="ripple internal reference">Main bundles</a></li><li class="list-group-item"><a href="#adding-files-in-an-asset-bundle" class="ripple internal reference">Adding files in an asset bundle</a></li><li class="list-group-item"><a href="#what-to-do-if-a-file-is-not-loaded-updated" class="ripple internal reference">What to do if a file is not loaded/updated</a></li></ul></li><li class="list-group-item"><a href="#javascript-module-system" class="ripple internal reference">Javascript Module System</a><ul ><li class="list-group-item"><a href="#defining-a-module" class="ripple internal reference">Defining a module</a></li><li class="list-group-item"><a href="#asynchronous-modules" class="ripple internal reference">Asynchronous modules</a></li><li class="list-group-item"><a href="#best-practices" class="ripple internal reference">Best practices</a></li></ul></li><li class="list-group-item"><a href="#class-system" class="ripple internal reference">Class System</a><ul ><li class="list-group-item"><a href="#creating-a-subclass" class="ripple internal reference">Creating a subclass</a></li><li class="list-group-item"><a href="#inheritance" class="ripple internal reference">Inheritance</a></li><li class="list-group-item"><a href="#mixins" class="ripple internal reference">Mixins</a></li><li class="list-group-item"><a href="#patching-an-existing-class" class="ripple internal reference">Patching an existing class</a></li></ul></li><li class="list-group-item"><a href="#widgets" class="ripple internal reference">Widgets</a><ul ><li class="list-group-item"><a href="#widget-lifecycle" class="ripple internal reference">Widget Lifecycle</a></li><li class="list-group-item"><a href="#widget-api" class="ripple internal reference">Widget API</a></li><li class="list-group-item"><a href="#inserting-a-widget-in-the-dom" class="ripple internal reference">Inserting a widget in the DOM</a></li><li class="list-group-item"><a href="#widget-guidelines" class="ripple internal reference">Widget Guidelines</a></li></ul></li><li class="list-group-item"><a href="#qweb-template-engine" class="ripple internal reference">QWeb Template Engine</a></li><li class="list-group-item"><a href="#event-system" class="ripple internal reference">Event system</a><ul ><li class="list-group-item"><a href="#base-event-system" class="ripple internal reference">Base Event system</a></li><li class="list-group-item"><a href="#extended-event-system" class="ripple internal reference">Extended Event System</a></li></ul></li><li class="list-group-item"><a href="#registries" class="ripple internal reference">Registries</a></li><li class="list-group-item"><a href="#communication-between-widgets" class="ripple internal reference">Communication between widgets</a></li><li class="list-group-item"><a href="#services" class="ripple internal reference">Services</a><ul ><li class="list-group-item"><a href="#service" class="ripple internal reference">Service</a></li><li class="list-group-item"><a href="#service-provider" class="ripple internal reference">Service Provider</a></li><li class="list-group-item"><a href="#widget" class="ripple internal reference">Widget</a></li><li class="list-group-item"><a href="#rpcs" class="ripple internal reference">RPCs</a></li></ul></li><li class="list-group-item"><a href="#translation-management" class="ripple internal reference">Translation management</a></li><li class="list-group-item"><a href="#views" class="ripple internal reference">Views</a></li><li class="list-group-item"><a href="#field-widgets" class="ripple internal reference">Field Widgets</a><ul ><li class="list-group-item"><a href="#abstractfield" class="ripple internal reference">AbstractField</a></li><li class="list-group-item"><a href="#non-relational-fields" class="ripple internal reference">Non relational fields</a></li><li class="list-group-item"><a href="#relational-fields" class="ripple internal reference">Relational fields</a></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/11.0/doc/reference/javascript_reference.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="javascript-reference"><p >This document presents the Odoo Javascript framework. This
+framework is not a large application in term of lines of code, but it is quite
+generic, because it is basically a machine to turn a declarative interface
+description into a live application, able to interact with every model and
+records in the database.  It is even possible to use the web client to modify
+the interface of the web client.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >An html version of all docstrings in Odoo is available at:</p><div class="toctree-wrapper"><ul ><li class="toctree-l1"><a href="javascript_api.html" class="internal alert-link reference">Javascript API</a></li></ul></div></div></section><section id="overview"><h2 >Overview</h2><p >The Javascript framework is designed to work with three main use cases:</p><ul ><li >the <em >web client</em>: this is the private web application, where one can view and
+edit business data. This is a single page application (the page is never
+reloaded, only the new data is fetched from the server whenever it is needed)</li><li >the <em >website</em>: this is the public part of Odoo.  It allows an unidentified
+user to browse some content, to shop or to perform many actions, as a client.
+This is a classical website: various routes with controllers and some
+javascript to make it work.</li><li >the <em >point of sale</em>: this is the interface for the point of sale. It is a
+specialized single page application.</li></ul><p >Some javascript code is common to these three use cases, and is bundled together
+(see below in the assets section).  This document will focus mostly on the web
+client design.</p></section><section id="web-client"><h2 >Web client</h2></section><section id="single-page-application"><h3 >Single Page Application</h3><p >In short, the <em >webClient</em>, instance of <em >WebClient</em> is the root component of the
+whole user interface.  Its responsability is to orchestrate all various
+subcomponents, and to provide services, such as rpcs, local storage and more.</p><p >In runtime, the web client is a single page application. It does not need to
+request a full page from the server each time the user perform an action. Instead,
+it only requests what it needs, and then replaces/updates the view. Also, it
+manages the url: it is kept in sync with the web client state.</p><p >It means that while a user is working on Odoo, the web client class (and the
+action manager) actually creates and destroys many sub components. The state is
+highly dynamic, and each widget could be destroyed at any time.</p></section><section id="overview-of-web-client-js-code"><h3 >Overview of web client JS code</h3><p >Here, we give a very quick overview on the web client code, in
+the <em >web/static/src/js</em> addon. Note that it is deliberately not exhaustive.
+We only cover the most important files/folders.</p><ul ><li ><em >boot.js</em>: this is the file that defines the module system.  It needs to be
+loaded first.</li><li ><em >core/</em>: this is a collection of lower level building blocks. Notably, it
+contains the class system, the widget system, concurrency utilities, and many
+other class/functions.</li><li ><em >chrome/</em>: in this folder, we have most large widgets which make up most of
+the user interface.</li><li ><em >chrome/abstract_web_client.js</em> and <em >chrome/web_client.js</em>: together, these
+files define the WebClient widget, which is the root widget for the web client.</li><li ><em >chrome/action_manager.js</em>: this is the code that will convert an action into
+a widget (for example a kanban or a form view)</li><li ><em >chrome/search_X.js</em> all these files define the search view (it is not a view
+in the point of view of the web client, only from the server point of view)</li><li ><em >fields</em>: all main view field widgets are defined here</li><li ><em >views</em>: this is where the views are located</li></ul></section><section id="assets-management"><h2 >Assets Management</h2><p >Managing assets in Odoo is not as straightforward as it is in some other apps.
+One of the reason is that we have a variety of situations where some, but not all
+the assets are required.  For example, the needs of the web client, the point of
+sale, the website or even the mobile application are different.  Also, some
+assets may be large, but are seldom needed.  In that case, we sometimes want them
+to be loaded lazily.</p><p >The main idea is that we define a set of <em >bundles</em> in xml.  A bundle is here defined as
+a collection of files (javascript, css, less). In Odoo, the most important
+bundles are defined in the file <em >addons/web/views/webclient_templates.xml</em>. It looks
+like this:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;web.assets_common&quot;</span> <span class="na">name=</span><span class="s">&quot;Common Assets (used in backend interface and website)&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;/web/static/lib/jquery.ui/jquery-ui.css&quot;</span><span class="nt">/&gt;</span>
+    ...
+    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/web/static/src/js/boot.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    ...
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p >The files in a bundle can then be inserted into a template by using the <em >t-call-assets</em>
+directive:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;t</span> <span class="na">t-call-assets=</span><span class="s">&quot;web.assets_common&quot;</span> <span class="na">t-js=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-call-assets=</span><span class="s">&quot;web.assets_common&quot;</span> <span class="na">t-css=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >Here is what happens when a template is rendered by the server with these directives:</p><ul ><li >all the <em >less</em> files described in the bundle are compiled into css files. A file
+named <em >file.less</em> will be compiled in a file named <em >file.less.css</em>.</li><li ><dl ><dt >if we are in <em >debug=assets</em> mode,</dt><dd ><ul ><li >the <em >t-call-assets</em> directive with the <em >t-js</em> attribute set to false will
+be replaced by a list of stylesheet tags pointing to the css files</li><li >the <em >t-call-assets</em> directive with the <em >t-css</em> attribute set to false will
+be replaced by a list of script tags pointing to the js files</li></ul></dd></dl></li><li ><dl ><dt >if we are not in <em >debug=assets</em> mode,</dt><dd ><ul ><li >the css files will be concatenated and minified, then splits into files
+with no more than 4096 rules (to get around an old limitation of IE9). Then,
+we generate as many stylesheet tags as necessary</li><li >the js files are concatenated and minified, then a script tag is generated</li></ul></dd></dl></li></ul><p >Note that the assets files are cached, so in theory, a browser should only load
+them once.</p></section><section id="main-bundles"><h3 >Main bundles</h3><p >When the Odoo server is started, it checks the timestamp of each file in a bundle,
+and if necessary, will create/recreate the corresponding bundles.</p><p >Here are some important bundles that most developers will need to know:</p><ul ><li ><em >web.assets_common</em>: this bundle contains most assets which are common to the
+web client, the website, and also the point of sale. This is supposed to contain
+lower level building blocks for the odoo framework.  Note that it contains the
+<em >boot.js</em> file, which defines the odoo module system.</li><li ><em >web.assets_backend</em>: this bundle contains the code specific to the web client
+(notably the web client/action manager/views)</li><li ><em >web.assets_frontend</em>: this bundle is about all that is specific to the public
+website: ecommerce, forum, blog, event management, ...</li></ul></section><section id="adding-files-in-an-asset-bundle"><h3 >Adding files in an asset bundle</h3><p >The proper way to add a file located in <em >addons/web</em> to a bundle is simple:
+it is just enough to add a <em >script</em> or a <em >stylesheet</em> tag to the bundle in the
+file <em >webclient_templates.xml</em>.  But when we work in a different addon, we need
+to add a file from that addon.  In that case, it should be done in three steps:</p><ol ><li >add a <em >assets.xml</em> file in the <em >views/</em> folder</li><li >add the string 'views/assets.xml' in the 'data' key in the manifest file</li><li >create an inherited view of the desired bundle, and add the file(s) with an
+xpath expression. For example,</li></ol><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;assets_backend&quot;</span> <span class="na">name=</span><span class="s">&quot;helpdesk assets&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;web.assets_backend&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//script[last()]&quot;</span> <span class="na">position=</span><span class="s">&quot;after&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/helpdesk/static/src/less/helpdesk.less&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/helpdesk/static/src/js/helpdesk_dashboard.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/xpath&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >Note that the files in a bundle are all loaded immediately when the user loads the
+odoo web client.  This means that the files are transferred through the network
+everytime (except when the browser cache is active).  In some cases, it may be
+better to lazyload some assets.  For example, if a widget requires a large
+library, and that widget is not a core part of the experience, then it may be
+a good idea to only load the library when the widget is actually created. The
+widget class has actually builtin support just for this use case. (see section
+<a href="#reference-javascript-reference-qweb" class="internal alert-link reference"><span >QWeb Template Engine</span></a>)</p></div></section><section id="what-to-do-if-a-file-is-not-loaded-updated"><h3 >What to do if a file is not loaded/updated</h3><p >There are many different reasons why a file may not be properly loaded.  Here
+are a few things you can try to solve the issue:</p><ul ><li >once the server is started, it does not know if an asset file has been
+modified.  So, you can simply restart the server to regenerate the assets.</li><li >check the console (in the dev tools, usually opened with F12) to make sure
+there are no obvious errors</li><li >try to add a console.log at the beginning of your file (before any module
+definition), so you can see if a file has been loaded or not</li><li >in the user interface, in debug mode (INSERT LINK HERE TO DEBUG MODE), there
+is an option to force the server to update its assets files.</li><li >use the <em >debug=assets</em> mode.  This will actually bypass the asset bundles (note
+that it does not actually solve the issue. The server still uses outdated bundles)</li><li >finally, the most convenient way to do it, for a developer, is to start the
+server with the <em >--dev=all</em> option. This activates the file watcher options,
+which will automatically invalidate assets when necessary.  Note that it does
+not work very well if the OS is Windows.</li><li >remember to refresh your page!</li><li >or maybe to save your code file...</li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >Once an asset file has been recreated, you need to refresh the page, to reload
+the proper files (if that does not work, the files may be cached).</p></div></section><section id="javascript-module-system"><h2 >Javascript Module System</h2><p >Once we are able to load our javascript files into the browser, we need to make
+sure they are loaded in the correct order.  In order to do that, Odoo has defined
+a small module system (located in the file <em >addons/web/static/src/js/boot.js</em>,
+which needs to be loaded first).</p><p >The Odoo module system, inspired by AMD, works by defining the function <em >define</em>
+on the global odoo object. We then define each javascript module by calling that
+function.  In the Odoo framework, a module is a piece of code that will be executed
+as soon as possible.  It has a name and potentially some dependencies.  When its
+dependencies are loaded, a module will then be loaded as well.  The value of the
+module is then the return value of the function defining the module.</p><p >As an example, it may look like this:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// in file a.js</span>
+<span class="nx">odoo</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;module.A&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">A</span> <span class="o">=</span> <span class="p">...;</span>
+
+    <span class="k">return</span> <span class="nx">A</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="c1">// in file b.js</span>
+<span class="nx">odoo</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;module.B&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">A</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;module.A&#39;</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">B</span> <span class="o">=</span> <span class="p">...;</span> <span class="c1">// something that involves A</span>
+
+    <span class="k">return</span> <span class="nx">B</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >An alternative way to define a module is to give explicitely a list of dependencies
+in the second argument.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">odoo</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;module.Something&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;module.A&#39;</span><span class="p">,</span> <span class="s1">&#39;module.B&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">A</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;module.A&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">B</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;module.B&#39;</span><span class="p">);</span>
+
+    <span class="c1">// some code</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >If some dependencies are missing/non ready, then the module will simply not be
+loaded.  There will be a warning in the console after a few seconds.</p><p >Note that circular dependencies are not supported. It makes sense, but it means that one
+needs to be careful.</p></section><section id="defining-a-module"><h3 >Defining a module</h3><p >The <em >odoo.define</em> method is given three arguments:</p><ul ><li ><p ><em >moduleName</em>: the name of the javascript module.  It should be a unique string.
+The convention is to have the name of the odoo addon followed by a specific
+description. For example, 'web.Widget' describes a module defined in the <em >web</em>
+addon, which exports a <em >Widget</em> class (because the first letter is capitalized)</p><p >If the name is not unique, an exception will be thrown and displayed in the
+console.</p></li><li ><em >dependencies</em>: the second argument is optional. If given, it should be a list
+of strings, each corresponding to a javascript module.  This describes the
+dependencies that are required to be loaded before the module is executed. If
+the dependencies are not explicitely given here, then the module system will
+extract them from the function by calling toString on it, then using a regexp
+to find all <em >require</em> statements.</li><li >finally, the last argument is a function which defines the module. Its return
+value is the value of the module, which may be passed to other modules requiring
+it.  Note that there is a small exception for asynchronous modules, see the
+next section.</li></ul><p >If an error happens, it will be logged (in debug mode) in the console:</p><ul ><li ><code >Missing dependencies</code>:
+These modules do not appear in the page. It is possible that the JavaScript
+file is not in the page or that the module name is wrong</li><li ><code >Failed modules</code>:
+A javascript error is detected</li><li ><code >Rejected modules</code>:
+The module returns a rejected deferred. It (and its dependent modules) is not
+loaded.</li><li ><code >Rejected linked modules</code>:
+Modules who depend on a rejected module</li><li ><code >Non loaded modules</code>:
+Modules who depend on a missing or a failed module</li></ul></section><section id="asynchronous-modules"><h3 >Asynchronous modules</h3><p >It can happen that a module needs to perform some work before it is ready.  For
+example, it could do a rpc to load some data.  In that case, the module can
+simply return a deferred (promise).  In that case, the module system will simply
+wait for the deferred to complete before registering the module.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">odoo</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;module.Something&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;web.ajax&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">ajax</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.ajax&#39;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">ajax</span><span class="p">.</span><span class="nx">rpc</span><span class="p">(...).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// some code here</span>
+        <span class="k">return</span> <span class="nx">something</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section><section id="best-practices"><h3 >Best practices</h3><ul ><li >remember the convention for a module name: <em >addon name</em> suffixed with <em >module
+name</em>.</li><li >declare all your dependencies at the top of the module. Also, they should be
+sorted alphabetically by module name. This makes it easier to understand your module.</li><li >declare all exported values at the end</li><li >try to avoid exporting too much things from one module.  It is usually better
+to simply export one thing in one (small/smallish) module.</li><li >asynchronous modules can be used to simplify some use cases.  For example,
+the <em >web.dom_ready</em> module returns a deferred which will be resolved when the
+dom is actually ready.  So, another module that needs the DOM could simply have
+a <em >require('web.dom_ready')</em> statement somewhere, and the code will only be
+executed when the DOM is ready.</li><li >try to avoid defining more than one module in one file.  It may be convenient
+in the short term, but this is actually harder to maintain.</li></ul></section><section id="class-system"><h2 >Class System</h2><p >Odoo was developped before ECMAScript 6 classes were available.  In Ecmascript 5,
+the standard way to define a class is to define a function and to add methods
+on its prototype object.  This is fine, but it is slightly complex when we want
+to use inheritance, mixins.</p><p >For these reasons, Odoo decided to use its own class system, inspired by John
+Resig. The base Class is located in <em >web.Class</em>, in the file <em >class.js</em>.</p></section><section id="creating-a-subclass"><h3 >Creating a subclass</h3><p >Let us discuss how classes are created.  The main mechanism is to use the
+<em >extend</em> method (this is more or less the equivalent of <em >extend</em> in ES6 classes).</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Class</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Class&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">hunger</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">move</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">hunger</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">hunger</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">eat</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">hunger</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >In this example, the <em >init</em> function is the constructor.  It will be called when
+an instance is created.  Making an instance is done by using the <em >new</em> keyword.</p></section><section id="inheritance"><h3 >Inheritance</h3><p >It is convenient to be able to inherit an existing class.  This is simply done
+by using the <em >extend</em> method on the superclass.  When a method is called, the
+framework will secretly rebind a special method: <em >_super</em> to the currently
+called method.  This allows us to use <em >this._super</em> whenever we need to call a
+parent method.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Animal&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="nx">Animal</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">move</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">bark</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">bark</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;woof&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">();</span>
+<span class="nx">dog</span><span class="p">.</span><span class="nx">move</span><span class="p">()</span>
+</pre></div>
+</div>
+</section><section id="mixins"><h3 >Mixins</h3><p >The odoo Class system does not support multiple inheritance, but for those cases
+when we need to share some behaviour, we have a mixin system: the <em >extend</em>
+method can actually take an arbitrary number of arguments, and will combine all
+of them in the new class.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Animal&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">DanceMixin</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">dance</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;dancing...&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">Hamster</span> <span class="o">=</span> <span class="nx">Hamster</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">DanceMixin</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">sleep</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;sleeping&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >In this example, the <em >Hamster</em> class is a subclass of Animal, but it also mix
+the DanceMixin in.</p></section><section id="patching-an-existing-class"><h3 >Patching an existing class</h3><p >It is not common, but we sometimes need to modify another class <em >in place</em>. The
+goal is to have a mechanism to change a class and all future/present instances.
+This is done by using the <em >include</em> method:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Hamster</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Hamster&#39;</span><span class="p">);</span>
+
+<span class="nx">Hamster</span><span class="p">.</span><span class="nx">include</span><span class="p">({</span>
+    <span class="nx">sleep</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;zzzz&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >This is obviously a dangerous operation and should be done with care.  But with
+the way Odoo is structured, it is sometimes necessary in one addon to modify
+the behavior of a widget/class defined in another addon.  Note that it will
+modify all instances of the class, even if they have already been created.</p></section><section id="widgets"><h2 >Widgets</h2><p >The <em >Widget</em> class is really an important building block of the user interface.
+Pretty much everything in the user interface is under the control of a widget.
+The Widget class is defined in the module <em >web.Widget</em>, in <em >widget.js</em>.</p><p >In short, the features provided by the Widget class include:</p><ul ><li >parent/child relationships between widgets (<em >PropertiesMixin</em>)</li><li ><dl ><dt >extensive lifecycle management with safety features (e.g.</dt><dd >automatically destroying children widgets during the destruction of a
+parent)</dd></dl></li><li >automatic rendering with <a href="qweb.html#reference-qweb" class="internal reference"><span >qweb</span></a></li><li >various utility functions to help interacting with the outside environment.</li></ul><p >Here is an example of a basic counter widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Widget</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Widget&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;some.template&#39;</span><span class="p">,</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;click button&#39;</span><span class="o">:</span> <span class="s1">&#39;_onClick&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">(</span><span class="nx">parent</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">_onClick</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.val&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >For this example, assume that the template <em >some.template</em> (and is properly
+loaded: the template is in a file, which is properly defined in the <em >qweb</em> key
+in the module manifest) is given by:</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">t-name=</span><span class="s">&quot;some.template&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;val&quot;</span><span class="nt">&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;widget.count&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;button&gt;</span>Increment<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p >This example widget can be used in the following manner:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// Create the instance</span>
+<span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Counter</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="c1">// Render and insert into DOM</span>
+<span class="nx">counter</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="s2">&quot;.some-div&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p >This example illustrates a few of the features of the <em >Widget</em> class, including
+the event system, the template system, the constructor with the initial <em >parent</em> argument.</p></section><section id="widget-lifecycle"><h3 >Widget Lifecycle</h3><p >Like many component systems, the widget class has a well defined lifecycle. The
+usual lifecycle is the following: <em >init</em> is called, then <em >willStart</em>, then the
+rendering takes place, then <em >start</em> and finally <em >destroy</em>.</p><section class="code-function"><h6 id="Widget.init"><code>Widget.init(<em>parent</em>)</code></h6><p >this is the constructor.  The init method is supposed to initialize the
+base state of the widget. It is synchronous and can be overridden to
+take more parameters from the widget's creator/parent</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >parent</strong> (<a href="javascript_api.html#Widget" class="internal alert-link reference" title="Widget"><code class="js-class xref js">Widget()</code></a>) -- the new widget's parent, used to handle automatic
+destruction and event propagation. Can be <code >null</code> for
+the widget to have no parent.</li></ul></div></div></div></section><section class="code-function"><h6 id="Widget.willStart"><code>Widget.willStart()</code></h6><p >this method will be called once by the framework when a widget is created
+and in the process of being appended to the DOM.  The <em >willStart</em> method is a
+hook that should return a deferred.  The JS framework will wait for this deferred
+to complete before moving on to the rendering step.  Note that at this point,
+the widget does not have a DOM root element.  The <em >willStart</em> hook is mostly
+useful to perfom some asynchronous work, such as fetching data from the server</p></section><section class="code-function"><h6 id="[Rendering]"><code>[Rendering]()</code></h6><p >This step is automatically done by the framework.  What happens is
+that the framework checks if a template key is defined on the widget.  If that is
+the case, then it will render that template with the <em >widget</em> key bound to the
+widget in the rendering context (see the example above: we use <em >widget.count</em>
+in the QWeb template to read the value from the widget). If no template is
+defined, we read the <em >tagName</em> key and create a corresponding DOM element.
+When the rendering is done, we set the result as the $el property of the widget.
+After this, we automatically bind all events in the events and custom_events
+keys.</p></section><section class="code-function"><h6 id="Widget.start"><code>Widget.start()</code></h6><p >when the rendering is complete, the framework will automatically call
+the <em >start</em> method.  This is useful to perform some specialized post-rendering
+work.  For example, setting up a library.</p><p >Must return a deferred to indicate when its work is done.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">deferred object</div></div></div></section><section class="code-function"><h6 id="Widget.destroy"><code>Widget.destroy()</code></h6><p >This is always the final step in the life of a widget.  When a
+widget is destroyed, we basically perform all necessary cleanup operations:
+removing the widget from the component tree, unbinding all events, ...</p><p >Automatically called when the widget's parent is destroyed,
+must be called explicitly if the widget has no parent or if it is
+removed but its parent remains.</p></section><p >Note that the willStart and start method are not necessarily called.  A widget
+can be created (the <em >init</em> method will be called) and then destroyed (<em >destroy</em>
+method) without ever having been appended to the DOM.  If that is the case, the
+willStart and start will not even be called.</p></section><section id="widget-api"><h3 >Widget API</h3><section class="code-attribute"><h6 id="Widget.tagName"><code>Widget.tagName</code></h6><p >Used if the widget has no template defined. Defaults to <code >div</code>,
+will be used as the tag name to create the DOM element to set as
+the widget's DOM root. It is possible to further customize this
+generated DOM root with the following attributes:</p><section class="code-attribute"><h6 id="Widget.id"><code>Widget.id</code></h6><p >Used to generate an <code >id</code> attribute on the generated DOM
+root. Note that this is rarely needed, and is probably not a good idea
+if a widget can be used more than once.</p></section><section class="code-attribute"><h6 id="Widget.className"><code>Widget.className</code></h6><p >Used to generate a <code >class</code> attribute on the generated DOM root. Note
+that it can actually contain more than one css class:
+<em >'some-class other-class'</em></p></section><section class="code-attribute"><h6 id="Widget.attributes"><code>Widget.attributes</code></h6><p >Mapping (object literal) of attribute names to attribute
+values. Each of these k:v pairs will be set as a DOM attribute
+on the generated DOM root.</p></section></section><section class="code-attribute"><h6 id="Widget.el"><code>Widget.el</code></h6><p >raw DOM element set as root to the widget (only available after the start
+lifecyle method)</p></section><section class="code-attribute"><h6 id="Widget._S_el"><code>Widget.$el</code></h6><p >jQuery wrapper around <a href="#Widget.el" class="internal alert-link reference" title="Widget.el"><code class="js-attr xref js">el</code></a>. (only available after the start
+lifecyle method)</p></section><section class="code-attribute"><h6 id="Widget.template"><code>Widget.template</code></h6><p >Should be set to the name of a <a href="qweb.html#reference-qweb" class="internal alert-link reference"><span >QWeb template</span></a>.
+If set, the template will be rendered after the widget has been
+initialized but before it has been started. The root element generated by
+the template will be set as the DOM root of the widget.</p></section><section class="code-attribute"><h6 id="xmlDependencies"><code>xmlDependencies</code></h6><p >List of paths to xml files that need to be loaded before the
+widget can be rendered. This will not induce loading anything that has already
+been loaded.</p></section><section class="code-attribute"><h6 id="events"><code>events</code></h6><p >Events are a mapping of an event selector (an event name and an optional
+CSS selector separated by a space) to a callback. The callback can
+be the name of a widget's method or a function object. In either case, the
+<code >this</code> will be set to the widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;click p.oe_some_class a&#39;</span><span class="o">:</span> <span class="s1">&#39;some_method&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;change input&#39;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p >The selector is used for jQuery's event delegation, the
+callback will only be triggered for descendants of the DOM root
+matching the selector. If the selector is left out
+(only an event name is specified), the event will be set directly on the
+widget's DOM root.</p><p >Note: the use of an inline function is discouraged, and will probably be
+removed sometimes in the future.</p></section><section class="code-attribute"><h6 id="custom_events"><code>custom_events</code></h6><p >this is almost the same as the <em >events</em> attribute, but the keys
+are arbitrary strings.  They represent business events triggered by
+some sub widgets.  When an event is triggered, it will 'bubble up' the widget
+tree (see the section on component communication for more details).</p></section><section class="code-function"><h6 id="Widget.isDestroyed"><code>Widget.isDestroyed()</code></h6><div class="code-fields"><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body"><code >true</code> if the widget is being or has been destroyed, <code >false</code>
+otherwise</div></div></div></section><section class="code-function"><h6 id="Widget._S_"><code>Widget.$(<em>selector</em>)</code></h6><p >Applies the CSS selector specified as parameter to the widget's
+DOM root:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
+</pre></div>
+</div>
+<p >is functionally identical to:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >selector</strong> (<code >String</code>) -- CSS selector</li></ul></div></div><div class="code-field"><div class="code-field-name">Returns</div><div class="code-field-body">jQuery object</div></div></div><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >this helper method is similar to <code >Backbone.View.$</code></p></div></section><section class="code-function"><h6 id="Widget.setElement"><code>Widget.setElement(<em>element</em>)</code></h6><p >Re-sets the widget's DOM root to the provided element, also
+handles re-setting the various aliases of the DOM root as well as
+unsetting and re-setting delegated events.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Arguments</div><div class="code-field-body"><ul ><li ><strong >element</strong> (<code >Element</code>) -- a DOM element or jQuery object to set as
+the widget's DOM root</li></ul></div></div></div></section></section><section id="inserting-a-widget-in-the-dom"><h3 >Inserting a widget in the DOM</h3><section class="code-function"><h6 id="Widget.appendTo"><code>Widget.appendTo(<em>element</em>)</code></h6><p >Renders the widget and inserts it as the last child of the target, uses
+<a href="http://api.jquery.com/appendTo/" class="external reference alert-link">.appendTo()</a></p></section><section class="code-function"><h6 id="Widget.prependTo"><code>Widget.prependTo(<em>element</em>)</code></h6><p >Renders the widget and inserts it as the first child of the target, uses
+<a href="http://api.jquery.com/prependTo/" class="external reference alert-link">.prependTo()</a></p></section><section class="code-function"><h6 id="Widget.insertAfter"><code>Widget.insertAfter(<em>element</em>)</code></h6><p >Renders the widget and inserts it as the preceding sibling of the target,
+uses <a href="http://api.jquery.com/insertAfter/" class="external reference alert-link">.insertAfter()</a></p></section><section class="code-function"><h6 id="Widget.insertBefore"><code>Widget.insertBefore(<em>element</em>)</code></h6><p >Renders the widget and inserts it as the following sibling of the target,
+uses <a href="http://api.jquery.com/insertBefore/" class="external reference alert-link">.insertBefore()</a></p></section><p >All of these methods accept whatever the corresponding jQuery method accepts
+(CSS selectors, DOM nodes or jQuery objects). They all return a <a href="http://api.jquery.com/category/deferred-object/" class="external reference">deferred</a>
+and are charged with three tasks:</p><ul ><li ><dl ><dt >rendering the widget's root element via</dt><dd ><code class="js-func xref js">renderElement()</code></dd></dl></li><li ><dl ><dt >inserting the widget's root element in the DOM using whichever jQuery</dt><dd >method they match</dd></dl></li><li >starting the widget, and returning the result of starting it</li></ul></section><section id="widget-guidelines"><h3 >Widget Guidelines</h3><ul ><li ><dl ><dt >Identifiers (<code >id</code> attribute) should be avoided. In generic applications</dt><dd ><p >and modules, <code >id</code> limits the re-usability of components and tends to make
+code more brittle. Most of the time, they can be replaced with nothing,
+classes or keeping a reference to a DOM node or jQuery element.</p><p >If an <code >id</code> is absolutely necessary (because a third-party library requires
+one), the id should be partially generated using <code >_.uniqueId()</code> e.g.:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">uniqueId</span><span class="p">(</span><span class="s1">&#39;my-widget-&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl></li><li >Avoid predictable/common CSS class names. Class names such as &quot;content&quot; or
+&quot;navigation&quot; might match the desired meaning/semantics, but it is likely an
+other developer will have the same need, creating a naming conflict and
+unintended behavior. Generic class names should be prefixed with e.g. the
+name of the component they belong to (creating &quot;informal&quot; namespaces, much
+as in C or Objective-C).</li><li >Global selectors should be avoided. Because a component may be used several
+times in a single page (an example in Odoo is dashboards), queries should be
+restricted to a given component's scope. Unfiltered selections such as
+<code >$(selector)</code> or <code >document.querySelectorAll(selector)</code> will generally
+lead to unintended or incorrect behavior.  Odoo Web's
+<a href="javascript_api.html#Widget" class="internal reference" title="Widget"><code class="js-class xref js">Widget()</code></a> has an attribute providing its DOM root
+(<a href="#Widget._S_el" class="internal reference" title="Widget.$el"><code class="js-attr xref js">$el</code></a>), and a shortcut to select nodes directly
+(<a href="#Widget._S_" class="internal reference" title="Widget.$"><code class="js-func xref js">$()</code></a>).</li><li >More generally, never assume your components own or controls anything beyond
+its own personal <a href="#Widget._S_el" class="internal reference" title="Widget.$el"><code class="js-attr xref js">$el</code></a> (so, avoid using a reference to the
+parent widget)</li><li >Html templating/rendering should use QWeb unless absolutely trivial.</li><li >All interactive components (components displaying information to the screen
+or intercepting DOM events) must inherit from <a href="javascript_api.html#Widget" class="internal reference" title="Widget"><code class="js-class xref js">Widget()</code></a>
+and correctly implement and use its API and life cycle.</li></ul></section><section id="qweb-template-engine"><i id="reference-javascript-reference-qweb"></i><h2 >QWeb Template Engine</h2><p >The web client uses the <a href="qweb.html" class="internal reference"><em >QWeb</em></a> template engine to render widgets (unless they
+override the <em >renderElement</em> method to do something else).
+The Qweb JS template engine is based on XML, and is mostly compatible with the
+python implementation.</p><p >Now, let us explain how the templates are loaded.  Whenever the web client
+starts, a rpc is made to the <em >/web/webclient/qweb</em> route.  The server will then
+return a list of all templates defined in data files for each installed modules.
+The correct files are listed in the <em >qweb</em> entry in each module manifest.</p><p >The web client will wait for that list of template to be loaded, before starting
+its first widget.</p><p >This mechanism works quite well for our needs, but sometimes, we want to lazy
+load a template.  For example, imagine that we have a widget which is rarely
+used.  In that case, maybe we prefer to not load its template in the main file,
+in order to make the web client slightly lighter.  In that case, we can use the
+<em >xmlDependencies</em> key of the Widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Widget</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Widget&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;some.template&#39;</span><span class="p">,</span>
+    <span class="nx">xmlDependencies</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;/myaddon/path/to/my/file.xml&#39;</span><span class="p">],</span>
+
+    <span class="p">...</span>
+
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >With this, the <em >Counter</em> widget will load the xmlDependencies files in its
+<em >willStart</em> method, so the template will be ready when the rendering is performed.</p></section><section id="event-system"><h2 >Event system</h2><p >There are currently two event systems supported by Odoo: a simple system which
+allows adding listeners and triggering events, and a more complete system that
+also makes events 'bubble up'.</p><p >Both of these event systems are implemented in the <em >EventDispatcherMixin</em>, in
+the file <em >mixins.js</em>. This mixin is included in the <em >Widget</em> class.</p></section><section id="base-event-system"><h3 >Base Event system</h3><p >This event system was historically the first.  It implements a simple bus
+pattern. We have 4 main methods:</p><ul ><li ><em >on</em>: this is used to register a listener on an event.</li><li ><em >off</em>: useful to remove events listener.</li><li ><em >once</em>: this is used to register a listener that will only be called once.</li><li ><em >trigger</em>: trigger an event. This will cause each listeners to be called.</li></ul><p >Here is an example on how this event system could be used:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Widget</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Widget&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;myModule.Counter&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">MyWidget</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Counter</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;valuechange&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onValueChange</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">def</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="nx">def</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">_onValueChange</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// do something with val</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="c1">// in Counter widget, we need to call the trigger method:</span>
+
+<span class="p">...</span> <span class="k">this</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;valuechange&#39;</span><span class="p">,</span> <span class="nx">someValue</span><span class="p">);</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >the use of this event system is discouraged, we plan to replace each
+<em >trigger</em> method by the <em >trigger_up</em> method from the extended event system</p></div></section><section id="extended-event-system"><h3 >Extended Event System</h3><p >The custom event widgets is a more advanced system, which mimic the DOM events
+API.  Whenever an event is triggered, it will 'bubble up' the component tree,
+until it reaches the root widget, or is stopped.</p><ul ><li ><em >trigger_up</em>: this is the method that will create a small <em >OdooEvent</em> and
+dispatch it in the component tree.  Note that it will start with the component
+that triggered the event</li><li ><em >custom_events</em>: this is the equivalent of the <em >event</em> dictionary, but for
+odoo events.</li></ul><p >The OdooEvent class is very simple.  It has three public attributes: <em >target</em>
+(the widget that triggered the event), <em >name</em> (the event name) and <em >data</em> (the
+payload).  It also has 2 methods: <em >stopPropagation</em> and <em >is_stopped</em>.</p><p >The previous example can be updated to use the custom event system:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Widget</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Widget&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;myModule.Counter&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">MyWidget</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">custom_events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">valuechange</span><span class="o">:</span> <span class="s1">&#39;_onValueChange&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Counter</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">def</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="nx">def</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">_onValueChange</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// do something with event.data.val</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="c1">// in Counter widget, we need to call the trigger_up method:</span>
+
+<span class="p">...</span> <span class="k">this</span><span class="p">.</span><span class="nx">trigger_up</span><span class="p">(</span><span class="s1">&#39;valuechange&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="nx">someValue</span><span class="p">});</span>
+</pre></div>
+</div>
+</section><section id="registries"><h2 >Registries</h2><p >A common need in the Odoo ecosystem is to extend/change the behaviour of the
+base system from the outside (by installing an application, i.e. a different
+module).  For example, one may need to add a new widget type in some views.  In
+that case, and many others, the usual process is to create the desired component,
+then add it to a registry (registering step), to make the rest of the web client
+aware of its existence.</p><p >There are a few registries available in the system:</p><ul ><li ><dl ><dt >field registry (exported by 'web.field_registry'). The field registry contains</dt><dd ><p >all field widgets known to the web client.  Whenever a view (typically, form,
+or list/kanban) needs a field widget, this is where it will look. A typical
+use case look like this:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">fieldRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.field_registry&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">FieldPad</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="nx">fieldRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;pad&#39;</span><span class="p">,</span> <span class="nx">FieldPad</span><span class="p">);</span>
+</pre></div>
+</div>
+<p >Note that each value should be a subclass of <em >AbstractField</em></p></dd></dl></li><li ><dl ><dt >view registry: this registry contains all JS views known to the web client</dt><dd >(and in particular, the view manager).  Each value of this registry should
+be a subclass of <em >AbstractView</em></dd></dl></li><li ><dl ><dt >action registry: we keep track of all client actions in this registry.  This</dt><dd >is where the action manager looks up whenever it needs to create a client
+action.  In version 11, each value should simply be a subclass of <em >Widget</em>.
+However, in version 12, the values are required to be <em >AbstractAction</em>.</dd></dl></li></ul></section><section id="communication-between-widgets"><h2 >Communication between widgets</h2><p >There are many ways to communicate between components.</p><ul ><li ><dl ><dt >From a parent to its child:</dt><dd ><p >this is a simple case. The parent widget can simply call a method on its
+child:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">someWidget</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">someInfo</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >From a widget to its parent/some ancestor:</dt><dd ><p >in this case, the widget's job is simply to notify its environment that
+something happened.  Since we do not want the widget to have a reference to
+its parent (this would couple the widget with its parent's implementation),
+the best way to proceed is usually to trigger an event, which will bubble up
+the component tree, by using the <code >trigger_up</code> method:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">trigger_up</span><span class="p">(</span><span class="s1">&#39;open_record&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">record</span><span class="o">:</span> <span class="nx">record</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">});</span>
+</pre></div>
+</div>
+<p >This event will be triggered on the widget, then will bubble up and be
+eventually caught by some upstream widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">SomeAncestor</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">custom_events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;open_record&#39;</span><span class="o">:</span> <span class="s1">&#39;_onOpenRecord&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">_onOpenRecord</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">record</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+        <span class="c1">// do something with the event.</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >Cross component:</dt><dd ><p >Cross component communication can be achieved by using a bus.  This is not
+the preferred form of communication, because it has the disadvantage of
+making the code harder to maintain.  However, it has the advantage of
+decoupling the components.  In that case, this is simply done by triggering
+and listening to events on a bus.  For example:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// in WidgetA</span>
+<span class="kd">var</span> <span class="nx">core</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.core&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">WidgetA</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="p">...</span>
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">core</span><span class="p">.</span><span class="nx">bus</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;barcode_scanned&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onBarcodeScanned</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="c1">// in WidgetB</span>
+<span class="kd">var</span> <span class="nx">WidgetB</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="p">...</span>
+    <span class="nx">someFunction</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">barcode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">core</span><span class="p">.</span><span class="nx">bus</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;barcode_scanned&#39;</span><span class="p">,</span> <span class="nx">barcode</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >In this example, we use the bus exported by <em >web.core</em>, but this is not
+required. A bus could be created for a specific purpose.</p></dd></dl></li></ul></section><section id="services"><h2 >Services</h2><p >In version 11.0, we introduced the notion of <em >service</em>.  The main idea is to
+give to sub components a controlled way to access their environment, in a way
+that allow the framework enough control, and which is testable.</p><p >The service system is organized around three ideas: services, service providers
+and widgets.  The way it works is that widgets trigger (with <em >trigger_up</em>)
+events, these events bubble up to a service provider, which will ask a service
+to perform a task, then maybe return an answer.</p></section><section id="service"><h3 >Service</h3><p >A service is an instance of the <em >AbstractService</em> class.  It basically only has
+a name and a few methods.  Its job is to perform some work, typically something
+depending on the environment.</p><p >For example, we have the <em >ajax</em> service (job is to perform a rpc), the
+<em >localStorage</em> (interact with the browser local storage) and many others.</p><p >Here is a simplified example on how the ajax service is implemented:</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">AbstractService</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractService&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">AjaxService</span> <span class="o">=</span> <span class="nx">AbstractService</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;ajax&#39;</span><span class="p">,</span>
+    <span class="nx">rpc</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(...)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">...;</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >This service is named 'ajax' and define one method, <em >rpc</em>.</p></section><section id="service-provider"><h3 >Service Provider</h3><p >For services to work, it is necessary that we have a service provider ready to
+dispatch the custom events.  In the <em >backend</em> (web client), this is done by the
+main web client instance. Note that the code for the service provider comes from
+the <em >ServiceProviderMixin</em>.</p></section><section id="widget"><h3 >Widget</h3><p >The widget is the part that requests a service.  In order to do that, it simply
+triggers an event <em >call_service</em> (typically by using the helper function <em >call</em>).
+This event will bubble up and communicate the intent to the rest of the system.</p><p >In practice, some functions are so frequently called that we have some helpers
+functions to make them easier to use. For example, the <em >_rpc</em> method is a helper
+that helps making a rpc.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">SomeWidget</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">_getActivityModelViewID</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_rpc</span><span class="p">({</span>
+            <span class="nx">model</span><span class="o">:</span> <span class="nx">model</span><span class="p">,</span>
+            <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get_activity_view_id&#39;</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-warning alert"><h3 class="alert-title">Warning</h3><p >If a widget is destroyed, it will be detached from the main component tree
+and will not have a parent.  In that case, the events will not bubble up, which
+means that the work will not be done.  This is usually exactly what we want from
+a destroyed widget.</p></div></section><section id="rpcs"><h3 >RPCs</h3><p >The rpc functionality is supplied by the ajax service.  But most people will
+probably only interact with the <em >_rpc</em> helpers.</p><p >There are typically two usecases when working on Odoo: one may need to call a
+method on a (python) model (this goes through a controller <em >call_kw</em>), or one
+may need to directly call a controller (available on some route).</p><ul ><li >Calling a method on a python model:</li></ul><div class="highlight-javascript"><div class="highlight"><pre><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_rpc</span><span class="p">({</span>
+    <span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;some.model&#39;</span><span class="p">,</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;some_method&#39;</span><span class="p">,</span>
+    <span class="nx">args</span><span class="o">:</span> <span class="p">[</span><span class="nx">some</span><span class="p">,</span> <span class="nx">args</span><span class="p">],</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ul ><li >Directly calling a controller:</li></ul><div class="highlight-javascript"><div class="highlight"><pre><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_rpc</span><span class="p">({</span>
+    <span class="nx">route</span><span class="o">:</span> <span class="s1">&#39;/some/route/&#39;</span><span class="p">,</span>
+    <span class="nx">params</span><span class="o">:</span> <span class="p">{</span> <span class="nx">some</span><span class="o">:</span> <span class="nx">kwargs</span><span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section><section id="translation-management"><h2 >Translation management</h2><p >Some translations are made on the server side (basically all text strings rendered or
+processed by the server), but there are strings in the static files that need
+to be translated.  The way it currently works is the following:</p><ul ><li >each translatable string is tagged with the special function <em >_t</em> (available in
+the JS module <em >web.core</em></li><li >these strings are used by the server to generate the proper PO files</li><li >whenever the web client is loaded, it will call the route <em >/web/webclient/translations</em>,
+which returns a list of all translatable terms</li><li >in runtime, whenever the function <em >_t</em> is called, it will look up in this list
+in order to find a translation, and return it or the original string if none
+is found.</li></ul><p >Note that translations are explained in more details, from the server point of
+view, in the document <a href="translations.html" class="internal reference"><em >Translating Modules</em></a>.</p><p >There are two important functions for the translations in javascript: <em >_t</em> and
+<em >_lt</em>.  The difference is that <em >_lt</em> is lazily evaluated.</p><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">core</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.core&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">_t</span> <span class="o">=</span> <span class="nx">core</span><span class="p">.</span><span class="nx">_t</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">_lt</span> <span class="o">=</span> <span class="nx">core</span><span class="p">.</span><span class="nx">_lt</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">SomeWidget</span> <span class="o">=</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">exampleString</span><span class="o">:</span> <span class="nx">_lt</span><span class="p">(</span><span class="s1">&#39;this should be translated&#39;</span><span class="p">),</span>
+    <span class="p">...</span>
+    <span class="nx">someMethod</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">_t</span><span class="p">(</span><span class="s1">&#39;some text&#39;</span><span class="p">);</span>
+        <span class="p">...</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >In this example, the <em >_lt</em> is necessary because the translations are not ready
+when the module is loaded.</p><p >Note that translation functions need some care.  The string given in argument
+should not be dynamic.</p></section><section id="views"><h2 >Views</h2><p >The word 'view' has more than one meaning. This section is about the design of
+the javascript code of the views, not the structure of the <em >arch</em> or anything
+else.</p><p >In 2017, Odoo replaced the previous view code with a new architecture.  The
+main need was to separate the rendering logic from the model logic.</p><p >Views (in a generic sense) are now described with  4 pieces: a View, a
+Controller, a Renderer and a Model.  The API of these 4 pieces is described in
+the AbstractView, AbstractController, AbstractRenderer and AbstractModel classes.</p><svg width="550" height="173">
+    <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+    <path id="svg_1" d="m147.42498,79.79206c0.09944,-8.18859 -0.06363,-16.38812 0.81774,-24.5623c21.65679,2.68895 43.05815,7.08874 64.35,11.04543c1.14304,-4.01519 0.60504,-7.34585 1.59817,-11.05817c13.67878,7.81176 27.23421,15.73476 40.23409,24.03505c-12.47212,9.41539 -26.77809,17.592 -40.82272,25.96494c-0.4548,-3.89916 -0.90967,-7.79828 -1.36448,-11.69744c-20.69972,3.77225 -42.59036,7.6724 -63.42391,11.12096c-1.41678,-7.95741 -1.37514,-16.62327 -1.38888,-24.84846z" stroke-width="1.5" stroke="#000" fill="#fff"/>
+    <rect id="svg_3" height="41" width="110" y="57.5" x="7" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
+    <rect stroke="#000" id="svg_5" height="41" width="135" y="20.5" x="328" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
+    <rect stroke="#000" id="svg_6" height="41" width="128" y="102.5" x="262" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
+    <rect stroke="#000" id="svg_7" height="41" width="119" y="100.5" x="417" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
+    <line stroke-linecap="null" stroke-linejoin="null" id="svg_8" y2="96.5" x2="317" y1="65.5" x1="364" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+    <line stroke-linecap="null" stroke-linejoin="null" id="svg_9" y2="96.5" x2="467" y1="63.5" x1="425" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+    <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_10" y="83.5" x="38" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">View</text>
+    <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_11" y="44.5" x="346" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Controller</text>
+    <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_12" y="128.5" x="276" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Renderer</text>
+    <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_13" y="127.5" x="442" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Model</text>
+</svg><ul ><li ><p >the View is the factory. Its job is to get a set of fields, arch, context and
+some other parameters, then to construct a Controller/Renderer/Model triplet.</p><p >The view's role is to properly setup each piece of the MVC pattern, with the correct
+information.  Usually, it has to process the arch string and extract the
+data necessary for each other parts of the view.</p><p >Note that the view is a class, not a widget.  Once its job has been done, it
+can be discarded.</p></li><li ><p >the Renderer has one job: representing the data being viewed in a DOM element.
+Each view can render the data in a different way.  Also, it should listen on
+appropriate user actions and notify its parent (the Controller) if necessary.</p><p >The Renderer is the V in the MVC pattern.</p></li><li >the Model: its job is to fetch and hold the state of the view.  Usually, it
+represents in some way a set of records in the database.  The Model is the
+owner of the 'business data'. It is the M in the MVC pattern.</li><li ><p >the Controller: its job is to coordinate the renderer and the model.  Also, it
+is the main entry point for the rest of the web client.  For example, when
+the user changes something in the search view, the <em >update</em> method of the
+controller will be called with the appropriate information.</p><p >It is the C in the MVC pattern.</p></li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Note</h3><p >The JS code for the views has been designed to be usable outside of the
+context of a view manager/action manager.  They could be used in a client action,
+or, they could be displayed in the public website (with some work on the assets).</p></div></section><section id="field-widgets"><h2 >Field Widgets</h2><p >A good part of the web client experience is about editing and creating data. Most
+of that work is done with the help of field widgets, which are aware of the field
+type and of the specific details on how a value should be displayed and edited.</p></section><section id="abstractfield"><h3 >AbstractField</h3><p >The <em >AbstractField</em> class is the base class for all widgets in a view, for all
+views that support them (currently: Form, List, Kanban).</p><p >There are many differences between the v11 field widgets and the previous versions.
+Let us mention the most important ones:</p><ul ><li >the widgets are shared between all views (well, Form/List/Kanban). No need to
+duplicate the implementation anymore.  Note that it is possible to have a
+specialized version of a widget for a view, by prefixing it with the view name
+in the view registry: <em >list.many2one</em> will be chosen in priority over <em >many2one</em>.</li><li >the widgets are no longer the owner of the field value.  They only represent
+the data and communicate with the rest of the view.</li><li >the widgets do no longer need to be able to switch between edit and readonly
+mode.  Now, when such a change is necessary, the widget will be destroyed and
+rerendered again.  It is not a problem, since they do not own their value
+anyway</li><li >the field widgets can be used outside of a view.  Their API is slightly
+awkward, but they are designed to be standalone.</li></ul></section><section id="non-relational-fields"><h3 >Non relational fields</h3><p >We document here all non relational fields available by default, in no particular
+order.</p><ul ><li ><dl ><dt >integer (FieldInteger)</dt><dd ><p >This is the default field type for fields of type <em >integer</em>.</p><ul ><li >Supported field types: <em >integer</em></li></ul></dd></dl></li><li ><dl ><dt >float (FieldFloat)</dt><dd ><p >This is the default field type for fields of type <em >float</em>.</p><ul ><li >Supported field types: <em >float</em></li></ul><p >Attributes:</p><ul ><li >digits: displayed precision</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;factor&quot;</span> <span class="na">digits=</span><span class="s">&quot;[42,5]&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >float_time (FieldFloatTime)</dt><dd ><p >The goal of this widget is to display properly a float value that represents
+a time interval (in hours).  So, for example, 0.5 should be formatted as 0:30,
+or 4.75 correspond to 4:45.</p><ul ><li >Supported field types: <em >float</em></li></ul></dd></dl></li><li ><dl ><dt >boolean (FieldBoolean)</dt><dd ><p >This is the default field type for fields of type <em >boolean</em>.</p><ul ><li >Supported field types: <em >boolean</em></li></ul></dd></dl></li><li ><dl ><dt >char (FieldChar)</dt><dd ><p >This is the default field type for fields of type <em >char</em>.</p><ul ><li >Supported field types: <em >char</em></li></ul></dd></dl></li><li ><dl ><dt >date (FieldDate)</dt><dd ><p >This is the default field type for fields of type <em >date</em>. Note that it also
+works with datetime fields.  It uses the session timezone when formatting
+dates.</p><ul ><li >Supported field types: <em >date</em>, <em >datetime</em></li></ul><p >Options:</p><ul ><li >datepicker: extra settings for the <a href="https://github.com/Eonasdan/bootstrap-datetimepicker" class="external reference">datepicker</a> widget.</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;datefield&quot;</span> <span class="na">options=</span><span class="s">&#39;{&quot;datepicker&quot;: {&quot;daysOfWeekDisabled&quot;: [0, 6]}}&#39;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >datetime (FieldDateTime)</dt><dd ><p >This is the default field type for fields of type <em >datetime</em>.</p><ul ><li >Supported field types: <em >date</em>, <em >datetime</em></li></ul><p >Options:</p><ul ><li >datepicker: extra settings for the <a href="https://github.com/Eonasdan/bootstrap-datetimepicker" class="external reference">datepicker</a> widget.</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;datefield&quot;</span> <span class="na">options=</span><span class="s">&#39;{&quot;datepicker&quot;: {&quot;daysOfWeekDisabled&quot;: [0, 6]}}&#39;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >monetary (FieldMonetary)</dt><dd ><p >This is the default field type for fields of type 'monetary'. It is used to
+display a currency.  If there is a currency fields given in option, it will
+use that, otherwise it will fall back to the default currency (in the session)</p><ul ><li >Supported field types: <em >monetary</em>, <em >float</em></li></ul><p >Options:</p><ul ><li >currency_field: another field name which should be a many2one on currency.</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;value&quot;</span> <span class="na">widget=</span><span class="s">&quot;monetary&quot;</span> <span class="na">options=</span><span class="s">&quot;{&#39;currency_field&#39;: &#39;currency_id&#39;}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >text (FieldText)</dt><dd ><p >This is the default field type for fields of type <em >text</em>.</p><ul ><li >Supported field types: <em >text</em></li></ul></dd></dl></li><li ><dl ><dt >handle (HandleWidget)</dt><dd ><p >This field's job is to be displayed as a <em >handle</em> in a list view, and allow
+reordering the various records by drag and dropping lines.</p><ul ><li >Supported field types: <em >integer</em></li></ul></dd></dl></li><li ><dl ><dt >email (FieldEmail)</dt><dd ><p >This field displays email address.  The main reason to use it is that it
+is rendered as an anchor tag with the proper href, in readonly mode.</p><ul ><li >Supported field types: <em >char</em></li></ul></dd></dl></li><li ><dl ><dt >phone (FieldPhone)</dt><dd ><p >This field displays a phone number.  The main reason to use it is that it
+is rendered as an anchor tag with the proper href, in readonly mode, but
+only in some cases: we only want to make it clickable if the device can
+call this particular number.</p><ul ><li >Supported field types: <em >char</em></li></ul></dd></dl></li><li ><dl ><dt >url (UrlWidget)</dt><dd ><p >This field displays an url (in readonly mode). The main reason to use it is
+that it is rendered as an anchor tag with the proper css classes and href.</p><ul ><li >Supported field types: <em >char</em></li></ul><p >Also, the text of the anchor tag can be customized with the <em >text</em> attribute
+(it won't change the href value).</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;foo&quot;</span> <span class="na">widget=</span><span class="s">&quot;url&quot;</span> <span class="na">text=</span><span class="s">&quot;Some URL&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >domain (FieldDomain)</dt><dd ><p >The &quot;Domain&quot; field allows the user to construct a technical-prefix domain
+thanks to a tree-like interface and see the selected records in real time.
+In debug mode, an input is also there to be able to enter the prefix char
+domain directly (or to build advanced domains the tree-like interface does
+not allow to).</p><p >Note that this is limited to 'static' domain (no dynamic expression, or access
+to context variable).</p><ul ><li >Supported field types: <em >char</em></li></ul></dd></dl></li><li ><dl ><dt >link_button (LinkButton)</dt><dd ><p >The LinkButton widget actually simply displays a span with an icon and the
+text value as content. The link is clickable and will open a new browser
+window with its value as url.</p><ul ><li >Supported field types: <em >char</em></li></ul></dd></dl></li><li ><dl ><dt >image (FieldBinaryImage)</dt><dd ><p >This widget is used to represent a binary value as an image. In some cases,
+the server returns a 'bin_size' instead of the real image (a bin_size is a
+string representing a file size, such as 6.5kb).  In that case, the widget
+will make an image with a source attribute corresponding to an image on the
+server.</p><ul ><li >Supported field types: <em >binary</em></li></ul><p >Options:</p><ul ><li >preview_image: if the image is only loaded as a 'bin_size', then this
+option is useful to inform the web client that the default field name is
+not the name of the current field, but the name of another field.</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;image&quot;</span> <span class="na">widget=</span><span class="s">&#39;image&#39;</span> <span class="na">options=</span><span class="s">&#39;{&quot;preview_image&quot;:&quot;image_medium&quot;}&#39;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >binary (FieldBinaryFile)</dt><dd ><p >Generic widget to allow saving/downloading a binary file.</p><ul ><li >Supported field types: <em >binary</em></li></ul><p >Attribute:</p><ul ><li >filename: saving a binary file will lose its file name, since it only
+saves the binary value. The filename can be saved in another field. To do
+that, an attribute filename should be set to a field present in the view.</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;datas&quot;</span> <span class="na">filename=</span><span class="s">&quot;datas_fname&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >priority (PriorityWidget)</dt><dd ><p >This widget is rendered as a set of stars, allowing the user to click on it
+to select a value or not. This is useful for example to mark a task as high
+priority.</p><p >Note that this widget also works in 'readonly' mode, which is unusual.</p><ul ><li >Supported field types: <em >selection</em></li></ul></dd></dl></li><li ><dl ><dt >attachment_image (AttachmentImage)</dt><dd ><p >Image widget for many2one fields.  If the field is set, this widget will be
+rendered as an image with the proper src url. This widget does not have a
+different behaviour in edit or readonly mode, it is only useful to view an
+image.</p><ul ><li >Supported field types: <em >many2one</em></li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;displayed_image_id&quot;</span> <span class="na">widget=</span><span class="s">&quot;attachment_image&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >image_selection (ImageSelection)</dt><dd ><p >Allow the user to select a value by clicking on an image.</p><ul ><li >Supported field types: <em >selection</em></li></ul><p >Options: a dictionary with a mapping from a selection value to an object with
+the url for an image (<em >image_link</em>) and a preview image (<em >preview_link</em>).</p><p >Note that this option is not optional!</p><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;external_report_layout&quot;</span> <span class="na">widget=</span><span class="s">&quot;image_selection&quot;</span> <span class="na">options=</span><span class="s">&quot;{</span>
+<span class="s">    &#39;background&#39;: {</span>
+<span class="s">        &#39;image_link&#39;: &#39;/base/static/img/preview_background.png&#39;,</span>
+<span class="s">        &#39;preview_link&#39;: &#39;/base/static/pdf/preview_background.pdf&#39;</span>
+<span class="s">    },</span>
+<span class="s">    &#39;standard&#39;: {</span>
+<span class="s">        &#39;image_link&#39;: &#39;/base/static/img/preview_standard.png&#39;,</span>
+<span class="s">        &#39;preview_link&#39;: &#39;/base/static/pdf/preview_standard.pdf&#39;</span>
+<span class="s">    }</span>
+<span class="s">}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >label_selection (LabelSelection)</dt><dd ><p >This widget renders a simple non-editable label.  This is only useful to
+display some information, not to edit it.</p><ul ><li >Supported field types: <em >selection</em></li></ul><p >Options:</p><ul ><li >classes: a mapping from a selection value to a css class</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;state&quot;</span> <span class="na">widget=</span><span class="s">&quot;label_selection&quot;</span> <span class="na">options=</span><span class="s">&quot;{</span>
+<span class="s">    &#39;classes&#39;: {&#39;draft&#39;: &#39;default&#39;, &#39;cancel&#39;: &#39;default&#39;, &#39;none&#39;: &#39;danger&#39;}</span>
+<span class="s">}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >state_selection (StateSelectionWidget)</dt><dd ><p >This is a specialized selection widget. It assumes that the record has some
+hardcoded fields, present in the view: <em >stage_id</em>, <em >legend_normal</em>,
+<em >legend_blocked</em>, <em >legend_done</em>.  This is mostly used to display and change
+the state of a task in a project, with additional information displayed in
+the dropdown.</p><ul ><li >Supported field types: <em >selection</em></li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;kanban_state&quot;</span> <span class="na">widget=</span><span class="s">&quot;state_selection&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >kanban_state_selection (StateSelectionWidget)</dt><dd ><p >This is exactly the same widget as state_selection</p><ul ><li >Supported field types: <em >selection</em></li></ul></dd></dl></li><li ><dl ><dt >boolean_favorite (FavoriteWidget)</dt><dd ><p >This widget is displayed as an empty (or not) star, depending on a boolean
+value. Note that it also can be edited in readonly mode.</p><ul ><li >Supported field types: <em >boolean</em></li></ul></dd></dl></li><li ><dl ><dt >boolean_button (FieldBooleanButton)</dt><dd ><p >The Boolean Button widget is meant to be used in a stat button in a form view.
+The goal is to display a nice button with the current state of a boolean
+field (for example, 'Active'), and allow the user to change that field when
+clicking on it.</p><p >Note that it also can be edited in readonly mode.</p><ul ><li >Supported field types: <em >boolean</em></li></ul><p >Options:</p><ul ><li >terminology: it can be either 'active', 'archive', 'close' or a customized
+mapping with the keys <em >string_true</em>, <em >string_false</em>, <em >hover_true</em>, <em >hover_false</em></li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;active&quot;</span> <span class="na">widget=</span><span class="s">&quot;boolean_button&quot;</span> <span class="na">options=</span><span class="s">&#39;{&quot;terminology&quot;: &quot;archive&quot;}&#39;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >boolean_toggle (BooleanToggle)</dt><dd >Displays a toggle switch to represent a boolean. This is a subfield of
+FieldBoolean, mostly used to have a different look.</dd></dl></li><li ><dl ><dt >statinfo (StatInfo)</dt><dd ><p >This widget is meant to represent statistical information in a <em >stat button</em>.
+It is basically just a label with a number.</p><ul ><li >Supported field types: <em >integer, float</em></li></ul><p >Options:</p><ul ><li >label_field: if given, the widget will use the value of the label_field as
+text.</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">name=</span><span class="s">&quot;%(act_payslip_lines)d&quot;</span>
+    <span class="na">icon=</span><span class="s">&quot;fa-money&quot;</span>
+    <span class="na">type=</span><span class="s">&quot;action&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;payslip_count&quot;</span> <span class="na">widget=</span><span class="s">&quot;statinfo&quot;</span>
+        <span class="na">string=</span><span class="s">&quot;Payslip&quot;</span>
+        <span class="na">options=</span><span class="s">&quot;{&#39;label_field&#39;: &#39;label_tasks&#39;}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >percentpie (FieldPercentPie)</dt><dd ><p >This widget is meant to represent statistical information in a <em >stat button</em>.
+This is similar to a statinfo widget, but the information is represented in
+a <em >pie</em> chart (empty to full).  Note that the value is interpreted as a
+percentage (a number between 0 and 100).</p><ul ><li >Supported field types: <em >integer, float</em></li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;replied_ratio&quot;</span> <span class="na">string=</span><span class="s">&quot;Replied&quot;</span> <span class="na">widget=</span><span class="s">&quot;percentpie&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >progressbar (FieldProgressBar)</dt><dd ><p >Represent a value as a progress bar (from 0 to some value)</p><ul ><li >Supported field types: <em >integer, float</em></li></ul><p >Options:</p><ul ><li >title: title of the bar, displayed on top of the bar options</li><li >editable: boolean if value is editable</li><li >current_value: get the current_value from the field that must be present in the view</li><li >max_value: get the max_value from the field that must be present in the view</li><li >edit_max_value: boolean if the max_value is editable</li><li >title: title of the bar, displayed on top of the bar --&gt; not translated,
+use parameter (not option) &quot;title&quot; instead</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;absence_of_today&quot;</span> <span class="na">widget=</span><span class="s">&quot;progressbar&quot;</span>
+    <span class="na">options=</span><span class="s">&quot;{&#39;current_value&#39;: &#39;absence_of_today&#39;, &#39;max_value&#39;: &#39;total_employee&#39;, &#39;editable&#39;: false}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >toggle_button (FieldToggleBoolean)</dt><dd ><p >This widget is intended to be used on boolean fields. It toggles a button
+switching between a green bullet / gray bullet. It also set up a tooltip,
+depending on the value and some options.</p><ul ><li >Supported field types: <em >boolean</em></li></ul><p >Options:</p><ul ><li >active: the string for the tooltip that should be set when boolean is true</li><li >inactive: the tooltip that should be set when boolean is false</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;payslip_status&quot;</span> <span class="na">widget=</span><span class="s">&quot;toggle_button&quot;</span>
+    <span class="na">options=</span><span class="s">&#39;{&quot;active&quot;: &quot;Reported in last payslips&quot;, &quot;inactive&quot;: &quot;To Report in Payslip&quot;}&#39;</span>
+<span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >dashboard_graph (JournalDashboardGraph)</dt><dd ><p >This is a more specialized widget, useful to display a graph representing a
+set of data.  For example, it is used in the accounting dashboard kanban view.</p><p >It assumes that the field is a JSON serialization of a set of data.</p><ul ><li >Supported field types: <em >char</em></li></ul><p >Attribute</p><ul ><li >graph_type: string, can be either 'line' or 'bar'</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;dashboard_graph_data&quot;</span>
+    <span class="na">widget=</span><span class="s">&quot;dashboard_graph&quot;</span>
+    <span class="na">graph_type=</span><span class="s">&quot;line&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >ace (AceEditor)</dt><dd ><p >This widget is intended to be used on Text fields. It provides Ace Editor
+for editing XML and Python.</p><ul ><li >Supported field types: <em >char, text</em></li></ul></dd></dl></li></ul></section><section id="relational-fields"><h3 >Relational fields</h3><section class="code-class"><h6 id="FieldSelection"><i id="web.relational_fields.FieldSelection"></i><code><em >class </em>FieldSelection()</code></h6><div class="code-fields"><div class="code-field"><div class="code-field-name">Extends</div><div class="code-field-body"><a href="javascript_api.html#AbstractField" class="internal alert-link reference" title="AbstractField">AbstractField</a></div></div></div><p >The FieldSelection widget is a simple select tag with a dropdown menu to
+allow the selection of a range of values.  It is designed to work with fields
+of type 'selection' and 'many2one'.</p><p >Supported field types: <em >selection</em>, <em >many2one</em></p><section class="code-attribute"><h6 id="placeholder"><code>placeholder</code></h6><p >a string which is used to display some info when no value is selected</p></section><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;tax_id&quot;</span> <span class="na">widget=</span><span class="s">&quot;selection&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Select a tax&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section><ul ><li ><dl ><dt >radio (FieldRadio)</dt><dd ><p >This is a subfield of FielSelection, but specialized to display all the
+valid choices as radio buttons.</p><p >Note that if used on a many2one records, then more rpcs will be done to fetch
+the name_gets of the related records.</p><ul ><li >Supported field types: <em >selection, many2one</em></li></ul><p >Options:</p><ul ><li >horizontal: if true, radio buttons will be diplayed horizontally.</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;recommended_activity_type_id&quot;</span> <span class="na">widget=</span><span class="s">&quot;radio&quot;</span>
+    <span class="na">options=</span><span class="s">&quot;{&#39;horizontal&#39;:true}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >many2one (FieldMany2One)</dt><dd ><p >Default widget for many2one fields.</p><ul ><li >Supported field types: <em >selection, many2one</em></li></ul><p >Attributes:</p><ul ><li >can_create: allow the creation of related records (take precedence over no_create
+option)</li><li >can_write: allow the edition of related records (default: true)</li></ul><p >Options:</p><ul ><li >no_create: prevent the creation of related records</li><li >quick_create: allow the quick creation of related records (default: true)</li><li >no_quick_create: prevent the quick creation of related records (don't ask me)</li><li >no_create_edit: same as no_create, maybe...</li><li >create_name_field: when creating a related record, if this option is set, the value of the <em >create_name_field</em> will be filled with the value of the input (default: <em >name</em>)</li><li >always_reload: boolean, default to false.  If true, the widget will always
+do an additional name_get to fetch its name value.  This is used for the
+situations where the name_get method is overridden (please do not do that)</li><li >no_open: boolean, default to false.  If set to true, the many2one will not
+redirect on the record when clicking on it (in readonly mode)</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;currency_id&quot;</span> <span class="na">options=</span><span class="s">&quot;{&#39;no_create&#39;: True, &#39;no_open&#39;: True}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >list.many2one (ListFieldMany2One)</dt><dd ><p >Default widget for many2one fields (in list view).</p><p >Specialization of many2one field for list views.  The main reason is that we
+need to render many2one fields (in readonly mode) as a text, which does not
+allow opening the related records.</p><ul ><li >Supported field types: <em >many2one</em></li></ul></dd></dl></li><li ><dl ><dt >kanban.many2one (KanbanFieldMany2One)</dt><dd ><p >Default widget for many2one fields (in kanban view). We need to disable all
+edition in kanban views.</p><ul ><li >Supported field types: <em >many2one</em></li></ul></dd></dl></li><li ><dl ><dt >many2many (FieldMany2Many)</dt><dd ><p >Defaut widget for many2many fields.</p><ul ><li >Supported field types: <em >many2many</em></li></ul><p >Attributes:</p><ul ><li >mode: string, default view to display</li><li >domain: restrict the data to a specific domain</li></ul><p >Options:</p><ul ><li >create_text: allow the customization of the text displayed when adding a
+new record</li></ul></dd></dl></li><li ><dl ><dt >many2many_binary (FieldMany2ManyBinaryMultiFiles)</dt><dd ><p >This widget helps the user to upload or delete one or more files at the same
+time.</p><p >Note that this widget is specific to the model 'ir.attachment'.</p><ul ><li >Supported field types: <em >many2many</em></li></ul></dd></dl></li><li ><dl ><dt >many2many_tags (FieldMany2ManyTags)</dt><dd ><p >Display many2many as a list of tags.</p><ul ><li >Supported field types: <em >many2many</em></li></ul><p >Options:</p><ul ><li >color_field: the name of a numeric field, which should be present in the
+view.  A color will be chosen depending on its value.</li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;category_id&quot;</span> <span class="na">widget=</span><span class="s">&quot;many2many_tags&quot;</span> <span class="na">options=</span><span class="s">&quot;{&#39;color_field&#39;: &#39;color&#39;}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >form.many2many_tags (FormFieldMany2ManyTags)</dt><dd ><p >Specialization of many2many_tags widget for form views. It has some extra
+code to allow editing the color of a tag.</p><ul ><li >Supported field types: <em >many2many</em></li></ul></dd></dl></li><li ><dl ><dt >kanban.many2many_tags (KanbanFieldMany2ManyTags)</dt><dd ><p >Specialization of many2many_tags widget for kanban views.</p><ul ><li >Supported field types: <em >many2many</em></li></ul></dd></dl></li><li ><dl ><dt >many2many_checkboxes (FieldMany2ManyCheckBoxes)</dt><dd ><p >This field displays a list of checkboxes and allow the user to select a
+subset of the choices.</p><ul ><li >Supported field types: <em >many2many</em></li></ul></dd></dl></li><li ><dl ><dt >one2many (FieldOne2Many)</dt><dd ><p >Defaut widget for one2many fields.</p><p >It usually displays data in a sub list view, or a sub kanban view.</p><ul ><li >Supported field types: <em >one2many</em></li></ul></dd></dl></li><li ><dl ><dt >statusbar (FieldStatus)</dt><dd ><p >This is a really specialized widget for the form views. It is the bar on top
+of many forms which represent a flow, and allow selecting a specific state.</p><ul ><li >Supported field types: <em >selection, many2one</em></li></ul></dd></dl></li><li ><dl ><dt >reference (FieldReference)</dt><dd ><p >The FieldReference is a combination of a select (for the model) and a
+FieldMany2One (for its value).  It allows the selection of a record on an
+arbitrary model.</p><ul ><li >Supported field types: <em >char, reference</em></li></ul></dd></dl></li><li ><dl ><dt >one2many_list (FieldOne2Many)</dt><dd >This widget is exactly the same as a FieldOne2Many.  It is registered at this
+key only for backward compatibility reasons.  Please avoid using this.</dd></dl></li></ul></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

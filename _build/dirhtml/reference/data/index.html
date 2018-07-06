@@ -1,0 +1,440 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Data Files &mdash; odoo 10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/patchqueue.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/doc.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.noconflict.js"></script>
+    <link rel="top" title="odoo 10.0 documentation" href="../../" />
+    <link rel="up" title="Reference" href="../" />
+    <link rel="next" title="Actions" href="../actions/" />
+    <link rel="prev" title="ORM API" href="../orm/" /> 
+  </head>
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../../">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Data Files</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../../_static/banners/data_files.jpg');"></span>
+      <div class="container text-center">
+        <h1> Data Files </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#structure" class="ripple internal reference">Structure</a></li><li class="list-group-item"><a href="#core-operations" class="ripple internal reference">Core operations</a><ul ><li class="list-group-item"><a href="#record" class="ripple internal reference"><code >record</code></a></li><li class="list-group-item"><a href="#field" class="ripple internal reference"><code >field</code></a></li><li class="list-group-item"><a href="#delete" class="ripple internal reference"><code >delete</code></a></li><li class="list-group-item"><a href="#function" class="ripple internal reference"><code >function</code></a></li><li class="list-group-item"><a href="#workflow" class="ripple internal reference"><code >workflow</code></a></li></ul></li><li class="list-group-item"><a href="#shortcuts" class="ripple internal reference">Shortcuts</a><ul ><li class="list-group-item"><a href="#menuitem" class="ripple internal reference"><code >menuitem</code></a></li><li class="list-group-item"><a href="#template" class="ripple internal reference"><code >template</code></a></li><li class="list-group-item"><a href="#report" class="ripple internal reference"><code >report</code></a></li></ul></li><li class="list-group-item"><a href="#csv-data-files" class="ripple internal reference">CSV data files</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/reference/data.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="data-files"><i id="reference-data"></i><p >Odoo is greatly data-driven, and a big part of modules definition is thus
+the definition of the various records it manages: UI (menus and views),
+security (access rights and access rules), reports and plain data are all
+defined via records.</p></section><section id="structure"><h2 >Structure</h2><p >The main way to define data in Odoo is via XML data files: The broad structure
+of an XML data file is the following:</p><ul ><li >Any number of operation elements within the root element <code >odoo</code></li></ul><div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- the root elements of the data file --&gt;</span>
+<span class="nt">&lt;odoo&gt;</span>
+  <span class="nt">&lt;operation/&gt;</span>
+  ...
+<span class="nt">&lt;/odoo&gt;</span>
+</pre></div>
+</div>
+<p >Data files are executed sequentially, operations can only refer to the result
+of operations defined previously</p></section><section id="core-operations"><h2 >Core operations</h2></section><section id="record"><i id="reference-data-record"></i><h3 ><code >record</code></h3><p ><code >record</code> appropriately defines or updates a database record, it has the
+following attributes:</p><dl ><dt ><code >model</code> (required)</dt><dd >name of the model to create (or update)</dd><dt ><code >id</code></dt><dd ><p >the <a href="../../glossary/#term-external-identifier" class="internal reference"><span class="std std-term xref">external identifier</span></a> for this record. It is strongly
+recommended to provide one</p><ul ><li >for record creation, allows subsequent definitions to either modify or
+refer to this record</li><li >for record modification, the record to modify</li></ul></dd><dt ><code >context</code></dt><dd >context to use when creating the record</dd><dt ><code >forcecreate</code></dt><dd ><p >in update mode whether the record should be created if it doesn't exist</p><p >Requires an <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a>, defaults to <code >True</code>.</p></dd></dl></section><section id="field"><h3 ><code >field</code></h3><p >Each record can be composed of <code >field</code> tags, defining values to set when
+creating the record. A <code >record</code> with no <code >field</code> will use all default
+values (creation) or do nothing (update).</p><p >A <code >field</code> has a mandatory <code >name</code> attribute, the name of the field to set,
+and various methods to define the value itself:</p><dl ><dt >Nothing</dt><dd >if no value is provided for the field, an implicit <code >False</code> will be set
+on the field. Can be used to clear a field, or avoid using a default value
+for the field.</dd><dt ><code >search</code></dt><dd ><p >for <a href="../orm/#reference-orm-fields-relational" class="internal reference"><span >relational fields</span></a>, should be
+a <a href="../orm/#reference-orm-domains" class="internal reference"><span >domain</span></a> on the field's model.</p><p >Will evaluate the domain, search the field's model using it and set the
+search's result as the field's value. Will only use the first result if
+the field is a <a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a></p></dd><dt ><code >ref</code></dt><dd ><p >if a <code >ref</code> attribute is provided, its value must be a valid
+<a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a>, which will be looked up and set as the field's value.</p><p >Mostly for <a href="../orm/#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> and
+<a href="../orm/#odoo.fields.Reference" class="internal reference" title="odoo.fields.Reference"><code class="py xref py-class">Reference</code></a> fields</p></dd><dt ><code >type</code></dt><dd ><p >if a <code >type</code> attribute is provided, it is used to interpret and convert
+the field's content. The field's content can be provided through an
+external file using the <code >file</code> attribute, or through the node's body.</p><p >Available types are:</p><dl ><dt ><code >xml</code>, <code >html</code></dt><dd >extracts the <code >field</code>'s children as a single document, evaluates
+any <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a> specified with the form <code >%(external_id)s</code>.
+<code >%%</code> can be used to output actual <em >%</em> signs.</dd><dt ><code >file</code></dt><dd >ensures that the field content is a valid file path in the current
+model, saves the pair <code class="samp"><em >module</em>,<em >path</em></code> as the field value</dd><dt ><code >char</code></dt><dd >sets the field content directly as the field's value without
+alterations</dd><dt ><code >base64</code></dt><dd ><a href="http://tools.ietf.org/html/rfc3548.html#section-3" class="external reference">base64</a>-encodes the field's content, useful combined with the <code >file</code>
+<em >attribute</em> to load e.g. image data into attachments</dd><dt ><code >int</code></dt><dd >converts the field's content to an integer and sets it as the field's
+value</dd><dt ><code >float</code></dt><dd >converts the field's content to a float and sets it as the field's
+value</dd><dt ><code >list</code>, <code >tuple</code></dt><dd >should contain any number of <code >value</code> elements with the same
+properties as <code >field</code>, each element resolves to an item of a
+generated tuple or list, and the generated collection is set as the
+field's value</dd></dl></dd><dt ><code >eval</code></dt><dd ><p >for cases where the previous methods are unsuitable, the <code >eval</code>
+attributes simply evaluates whatever Python expression it is provided and
+sets the result as the field's value.</p><p >The evaluation context contains various modules (<code >time</code>, <code >datetime</code>,
+<code >timedelta</code>, <code >relativedelta</code>), a function to resolve <a href="../../glossary/#term-external-identifiers" class="internal reference"><span class="std std-term xref">external
+identifiers</span></a> (<code >ref</code>) and the model object for the current field if
+applicable (<code >obj</code>)</p></dd></dl></section><section id="delete"><h3 ><code >delete</code></h3><p >The <code >delete</code> tag can remove any number of records previously defined. It
+has the following attributes:</p><dl ><dt ><code >model</code> (required)</dt><dd >the model in which a specified record should be deleted</dd><dt ><code >id</code></dt><dd >the <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a> of a record to remove</dd><dt ><code >search</code></dt><dd >a <a href="../orm/#reference-orm-domains" class="internal reference"><span >domain</span></a> to find records of the model to
+remove</dd></dl><p ><code >id</code> and <code >search</code> are exclusive</p></section><section id="function"><h3 ><code >function</code></h3><p >The <code >function</code> tag calls a method on a model, with provided parameters.
+It has two mandatory parameters <code >model</code> and <code >name</code> specifying respectively
+the model and the name of the method to call.</p><p >Parameters can be provided using <code >eval</code> (should evaluate to a sequence of
+parameters to call the method with) or <code >value</code> elements (see <code >list</code>
+values).</p></section><section id="workflow"><h3 ><code >workflow</code></h3><p >The <code >workflow</code> tag sends a signal to an existing workflow. The workflow
+can be specified via a <code >ref</code> attribute (the <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a> of
+an existing workflow) or a <code >value</code> tag returning the id of a workflow.</p><p >The tag also has two mandatory attributes <code >model</code> (the model linked to the
+workflow) and <code >action</code> (the name of the signal to send to the workflow).</p></section><section id="shortcuts"><h2 >Shortcuts</h2><p >Because some important structural models of Odoo are complex and involved,
+data files provide shorter alternatives to defining them using
+<a href="#reference-data-record" class="internal reference"><span >record tags</span></a>:</p></section><section id="menuitem"><h3 ><code >menuitem</code></h3><p >Defines an <code >ir.ui.menu</code> record with a number of defaults and fallbacks:</p><dl ><dt >Parent menu</dt><dd ><ul ><li >If a <code >parent</code> attribute is set, it should be the <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a>
+of an other menu item, used as the new item's parent</li><li >If no <code >parent</code> is provided, tries to interpret the <code >name</code> attribute
+as a <code >/</code>-separated sequence of menu names and find a place in the menu
+hierarchy. In that interpretation, intermediate menus are automatically
+created</li><li >Otherwise the menu is defined as a &quot;top-level&quot; menu item (<em >not</em> a menu
+with no parent)</li></ul></dd><dt >Menu name</dt><dd >If no <code >name</code> attribute is specified, tries to get the menu name from
+a linked action if any. Otherwise uses the record's <code >id</code></dd><dt >Groups</dt><dd >A <code >groups</code> attribute is interpreted as a comma-separated sequence of
+<a href="../../glossary/#term-external-identifiers" class="internal reference"><span class="std std-term xref">external identifiers</span></a> for <code >res.groups</code> models. If an
+<a href="../../glossary/#term-external-identifier" class="internal reference"><span class="std std-term xref">external identifier</span></a> is prefixed with a minus (<code >-</code>), the group
+is <em >removed</em> from the menu's groups</dd><dt ><code >action</code></dt><dd >if specified, the <code >action</code> attribute should be the <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a>
+of an action to execute when the menu is open</dd><dt ><code >id</code></dt><dd >the menu item's <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a></dd></dl></section><section id="template"><i id="reference-data-template"></i><h3 ><code >template</code></h3><p >Creates a <a href="../views/#reference-views-qweb" class="internal reference"><span >QWeb view</span></a> requiring only the <code >arch</code>
+section of the view, and allowing a few <em >optional</em> attributes:</p><dl ><dt ><code >id</code></dt><dd >the view's <a href="../../glossary/#term-external-identifier" class="internal reference"><span class="std std-term xref">external identifier</span></a></dd><dt ><code >name</code>, <code >inherit_id</code>, <code >priority</code></dt><dd >same as the corresponding field on <code >ir.ui.view</code> (nb: <code >inherit_id</code>
+should be an <a href="../../glossary/#term-external-identifier" class="internal reference"><span class="std std-term xref">external identifier</span></a>)</dd><dt ><code >primary</code></dt><dd >if set to <code >True</code> and combined with a <code >inherit_id</code>, defines the view
+as a primary</dd><dt ><code >groups</code></dt><dd >comma-separated list of group <a href="../../glossary/#term-external-identifiers" class="internal reference"><span class="std std-term xref">external identifiers</span></a></dd><dt ><code >page</code></dt><dd >if set to <code >&quot;True&quot;</code>, the template is a website page (linkable to,
+deletable)</dd><dt ><code >optional</code></dt><dd ><code >enabled</code> or <code >disabled</code>, whether the view can be disabled (in the
+website interface) and its default status. If unset, the view is always
+enabled.</dd></dl></section><section id="report"><h3 ><code >report</code></h3><p >Creates a <code >ir.actions.report.xml</code> record with a few default values.</p><p >Mostly just proxies attributes to the corresponding fields on
+<code >ir.actions.report.xml</code>, but also automatically creates the item in the
+<span class="guilabel">More</span> menu of the report's <code >model</code>.</p></section><section id="csv-data-files"><h2 >CSV data files</h2><p >XML data files are flexible and self-descriptive, but very verbose when
+creating a number of simple records of the same model in bulk.</p><p >For this case, data files can also use <a href="http://en.wikipedia.org/wiki/Comma-separated_values" class="external reference">csv</a>, this is often the case for
+<a href="../security/#reference-security-acl" class="internal reference"><span >access rights</span></a>:</p><ul ><li >the file name is <code class="file"><em >model_name</em>.csv</code></li><li >the first row lists the fields to write, with the special field <code >id</code>
+for <a href="../../glossary/#term-external-identifiers" class="internal reference"><span class="std std-term xref">external identifiers</span></a> (used for creation or update)</li><li >each row thereafter creates a new record</li></ul><p >Here's the first lines of the data file defining US states
+<code >res.country.state.csv</code></p><div class="highlight-text"><div class="highlight"><pre>&quot;id&quot;,&quot;country_id:id&quot;,&quot;name&quot;,&quot;code&quot;
+state_au_1,au,&quot;Australian Capital Territory&quot;,&quot;ACT&quot;
+state_au_2,au,&quot;New South Wales&quot;,&quot;NSW&quot;
+state_au_3,au,&quot;Northern Territory&quot;,&quot;NT&quot;
+state_au_4,au,&quot;Queensland&quot;,&quot;QLD&quot;
+state_au_5,au,&quot;South Australia&quot;,&quot;SA&quot;
+state_au_6,au,&quot;Tasmania&quot;,&quot;TAS&quot;
+state_au_7,au,&quot;Victoria&quot;,&quot;VIC&quot;
+state_au_8,au,&quot;Western Australia&quot;,&quot;WA&quot;
+state_us_1,us,&quot;Alabama&quot;,&quot;AL&quot;
+state_us_2,us,&quot;Alaska&quot;,&quot;AK&quot;
+state_us_3,us,&quot;Arizona&quot;,&quot;AZ&quot;
+state_us_4,us,&quot;Arkansas&quot;,&quot;AR&quot;
+state_us_5,us,&quot;California&quot;,&quot;CA&quot;
+state_us_6,us,&quot;Colorado&quot;,&quot;CO&quot;
+</pre></div>
+</div>
+<p >rendered in a more readable format:</p><table class="table table-hover table-striped table-condensed"><thead ><tr ><th >id</th><th >country_id:id</th><th >name</th><th >code</th></tr></thead><tbody ><tr ><td >state_au_1</td><td >au</td><td >Australian Capital Territory</td><td >ACT</td></tr><tr ><td >state_au_2</td><td >au</td><td >New South Wales</td><td >NSW</td></tr><tr ><td >state_au_3</td><td >au</td><td >Northern Territory</td><td >NT</td></tr><tr ><td >state_au_4</td><td >au</td><td >Queensland</td><td >QLD</td></tr><tr ><td >state_au_5</td><td >au</td><td >South Australia</td><td >SA</td></tr><tr ><td >state_au_6</td><td >au</td><td >Tasmania</td><td >TAS</td></tr><tr ><td >state_au_7</td><td >au</td><td >Victoria</td><td >VIC</td></tr><tr ><td >state_au_8</td><td >au</td><td >Western Australia</td><td >WA</td></tr><tr ><td >state_us_1</td><td >us</td><td >Alabama</td><td >AL</td></tr><tr ><td >state_us_2</td><td >us</td><td >Alaska</td><td >AK</td></tr><tr ><td >state_us_3</td><td >us</td><td >Arizona</td><td >AZ</td></tr><tr ><td >state_us_4</td><td >us</td><td >Arkansas</td><td >AR</td></tr><tr ><td >state_us_5</td><td >us</td><td >California</td><td >CA</td></tr><tr ><td >state_us_6</td><td >us</td><td >Colorado</td><td >CO</td></tr><tr ><td >state_us_7</td><td >us</td><td >Connecticut</td><td >CT</td></tr><tr ><td >state_us_8</td><td >us</td><td >Delaware</td><td >DE</td></tr><tr ><td >state_us_9</td><td >us</td><td >District of Columbia</td><td >DC</td></tr><tr ><td >state_us_10</td><td >us</td><td >Florida</td><td >FL</td></tr><tr ><td >state_us_11</td><td >us</td><td >Georgia</td><td >GA</td></tr><tr ><td >state_us_12</td><td >us</td><td >Hawaii</td><td >HI</td></tr><tr ><td >state_us_13</td><td >us</td><td >Idaho</td><td >ID</td></tr><tr ><td >state_us_14</td><td >us</td><td >Illinois</td><td >IL</td></tr><tr ><td >state_us_15</td><td >us</td><td >Indiana</td><td >IN</td></tr><tr ><td >state_us_16</td><td >us</td><td >Iowa</td><td >IA</td></tr><tr ><td >state_us_17</td><td >us</td><td >Kansas</td><td >KS</td></tr><tr ><td >state_us_18</td><td >us</td><td >Kentucky</td><td >KY</td></tr><tr ><td >state_us_19</td><td >us</td><td >Louisiana</td><td >LA</td></tr><tr ><td >state_us_20</td><td >us</td><td >Maine</td><td >ME</td></tr><tr ><td >state_us_21</td><td >us</td><td >Montana</td><td >MT</td></tr><tr ><td >state_us_22</td><td >us</td><td >Nebraska</td><td >NE</td></tr><tr ><td >state_us_23</td><td >us</td><td >Nevada</td><td >NV</td></tr><tr ><td >state_us_24</td><td >us</td><td >New Hampshire</td><td >NH</td></tr><tr ><td >state_us_25</td><td >us</td><td >New Jersey</td><td >NJ</td></tr><tr ><td >state_us_26</td><td >us</td><td >New Mexico</td><td >NM</td></tr><tr ><td >state_us_27</td><td >us</td><td >New York</td><td >NY</td></tr><tr ><td >state_us_28</td><td >us</td><td >North Carolina</td><td >NC</td></tr><tr ><td >state_us_29</td><td >us</td><td >North Dakota</td><td >ND</td></tr><tr ><td >state_us_30</td><td >us</td><td >Ohio</td><td >OH</td></tr><tr ><td >state_us_31</td><td >us</td><td >Oklahoma</td><td >OK</td></tr><tr ><td >state_us_32</td><td >us</td><td >Oregon</td><td >OR</td></tr><tr ><td >state_us_33</td><td >us</td><td >Maryland</td><td >MD</td></tr><tr ><td >state_us_34</td><td >us</td><td >Massachusetts</td><td >MA</td></tr><tr ><td >state_us_35</td><td >us</td><td >Michigan</td><td >MI</td></tr><tr ><td >state_us_36</td><td >us</td><td >Minnesota</td><td >MN</td></tr><tr ><td >state_us_37</td><td >us</td><td >Mississippi</td><td >MS</td></tr><tr ><td >state_us_38</td><td >us</td><td >Missouri</td><td >MO</td></tr><tr ><td >state_us_39</td><td >us</td><td >Pennsylvania</td><td >PA</td></tr><tr ><td >state_us_40</td><td >us</td><td >Rhode Island</td><td >RI</td></tr><tr ><td >state_us_41</td><td >us</td><td >South Carolina</td><td >SC</td></tr><tr ><td >state_us_42</td><td >us</td><td >South Dakota</td><td >SD</td></tr><tr ><td >state_us_43</td><td >us</td><td >Tennessee</td><td >TN</td></tr><tr ><td >state_us_44</td><td >us</td><td >Texas</td><td >TX</td></tr><tr ><td >state_us_45</td><td >us</td><td >Utah</td><td >UT</td></tr><tr ><td >state_us_46</td><td >us</td><td >Vermont</td><td >VT</td></tr><tr ><td >state_us_47</td><td >us</td><td >Virginia</td><td >VA</td></tr><tr ><td >state_us_48</td><td >us</td><td >Washington</td><td >WA</td></tr><tr ><td >state_us_49</td><td >us</td><td >West Virginia</td><td >WV</td></tr><tr ><td >state_us_50</td><td >us</td><td >Wisconsin</td><td >WI</td></tr><tr ><td >state_us_51</td><td >us</td><td >Wyoming</td><td >WY</td></tr><tr ><td >state_us_as</td><td >us</td><td >American Samoa</td><td >AS</td></tr><tr ><td >state_us_fm</td><td >us</td><td >Federated States of Micronesia</td><td >FM</td></tr><tr ><td >state_us_gu</td><td >us</td><td >Guam</td><td >GU</td></tr><tr ><td >state_us_mh</td><td >us</td><td >Marshall Islands</td><td >MH</td></tr><tr ><td >state_us_mp</td><td >us</td><td >Northern Mariana Islands</td><td >MP</td></tr><tr ><td >state_us_pw</td><td >us</td><td >Palau</td><td >PW</td></tr><tr ><td >state_us_pr</td><td >us</td><td >Puerto Rico</td><td >PR</td></tr><tr ><td >state_us_vi</td><td >us</td><td >Virgin Islands</td><td >VI</td></tr><tr ><td >state_us_aa</td><td >us</td><td >Armed Forces Americas</td><td >AA</td></tr><tr ><td >state_us_ae</td><td >us</td><td >Armed Forces Europe</td><td >AE</td></tr><tr ><td >state_us_ap</td><td >us</td><td >Armed Forces Pacific</td><td >AP</td></tr><tr ><td >state_br_ac</td><td >br</td><td >Acre</td><td >AC</td></tr><tr ><td >state_br_al</td><td >br</td><td >Alagoas</td><td >AL</td></tr><tr ><td >state_br_ap</td><td >br</td><td >Amapá</td><td >AP</td></tr><tr ><td >state_br_am</td><td >br</td><td >Amazonas</td><td >AM</td></tr><tr ><td >state_br_ba</td><td >br</td><td >Bahia</td><td >BA</td></tr><tr ><td >state_br_ce</td><td >br</td><td >Ceará</td><td >CE</td></tr><tr ><td >state_br_df</td><td >br</td><td >Distrito Federal</td><td >DF</td></tr><tr ><td >state_br_es</td><td >br</td><td >Espírito Santo</td><td >ES</td></tr><tr ><td >state_br_go</td><td >br</td><td >Goiás</td><td >GO</td></tr><tr ><td >state_br_ma</td><td >br</td><td >Maranhão</td><td >MA</td></tr><tr ><td >state_br_mt</td><td >br</td><td >Mato Grosso</td><td >MT</td></tr><tr ><td >state_br_ms</td><td >br</td><td >Mato Grosso do Sul</td><td >MS</td></tr><tr ><td >state_br_mg</td><td >br</td><td >Minas Gerais</td><td >MG</td></tr><tr ><td >state_br_pa</td><td >br</td><td >Pará</td><td >PA</td></tr><tr ><td >state_br_pb</td><td >br</td><td >Paraíba</td><td >PB</td></tr><tr ><td >state_br_pr</td><td >br</td><td >Paraná</td><td >PR</td></tr><tr ><td >state_br_pe</td><td >br</td><td >Pernambuco</td><td >PE</td></tr><tr ><td >state_br_pi</td><td >br</td><td >Piauí</td><td >PI</td></tr><tr ><td >state_br_rj</td><td >br</td><td >Rio de Janeiro</td><td >RJ</td></tr><tr ><td >state_br_rn</td><td >br</td><td >Rio Grande do Norte</td><td >RN</td></tr><tr ><td >state_br_rs</td><td >br</td><td >Rio Grande do Sul</td><td >RS</td></tr><tr ><td >state_br_ro</td><td >br</td><td >Rondônia</td><td >RO</td></tr><tr ><td >state_br_rr</td><td >br</td><td >Roraima</td><td >RR</td></tr><tr ><td >state_br_sc</td><td >br</td><td >Santa Catarina</td><td >SC</td></tr><tr ><td >state_br_sp</td><td >br</td><td >São Paulo</td><td >SP</td></tr><tr ><td >state_br_se</td><td >br</td><td >Sergipe</td><td >SE</td></tr><tr ><td >state_br_to</td><td >br</td><td >Tocantins</td><td >TO</td></tr><tr ><td >state_ru_ad</td><td >ru</td><td >Republic of Adygeya</td><td >AD</td></tr><tr ><td >state_ru_al</td><td >ru</td><td >Altai Republic</td><td >AL</td></tr><tr ><td >state_ru_alt</td><td >ru</td><td >Altai Krai</td><td >ALT</td></tr><tr ><td >state_ru_amu</td><td >ru</td><td >Amur Oblast</td><td >AMU</td></tr><tr ><td >state_ru_ark</td><td >ru</td><td >Arkhangelsk Oblast</td><td >ARK</td></tr><tr ><td >state_ru_ast</td><td >ru</td><td >Astrakhan Oblast</td><td >AST</td></tr><tr ><td >state_ru_ba</td><td >ru</td><td >Republic of Bashkortostan</td><td >BA</td></tr><tr ><td >state_ru_bel</td><td >ru</td><td >Belgorod Oblast</td><td >BEL</td></tr><tr ><td >state_ru_bry</td><td >ru</td><td >Bryansk Oblast</td><td >BRY</td></tr><tr ><td >state_ru_bu</td><td >ru</td><td >Republic of Buryatia</td><td >BU</td></tr><tr ><td >state_ru_ce</td><td >ru</td><td >Chechen Republic</td><td >CE</td></tr><tr ><td >state_ru_che</td><td >ru</td><td >Chelyabinsk Oblast</td><td >CHE</td></tr><tr ><td >state_ru_chu</td><td >ru</td><td >Chukotka Autonomous Okrug</td><td >CHU</td></tr><tr ><td >state_ru_cu</td><td >ru</td><td >Chuvash Republic</td><td >CU</td></tr><tr ><td >state_ru_da</td><td >ru</td><td >Republic of Dagestan</td><td >DA</td></tr><tr ><td >state_ru_in</td><td >ru</td><td >Republic of Ingushetia</td><td >IN</td></tr><tr ><td >state_ru_irk</td><td >ru</td><td >Irkutsk Oblast</td><td >IRK</td></tr><tr ><td >state_ru_iva</td><td >ru</td><td >Ivanovo Oblast</td><td >IVA</td></tr><tr ><td >state_ru_kam</td><td >ru</td><td >Kamchatka Krai</td><td >KAM</td></tr><tr ><td >state_ru_kb</td><td >ru</td><td >Kabardino-Balkarian Republic</td><td >KB</td></tr><tr ><td >state_ru_kgd</td><td >ru</td><td >Kaliningrad Oblast</td><td >KGD</td></tr><tr ><td >state_ru_kl</td><td >ru</td><td >Republic of Kalmykia</td><td >KL</td></tr><tr ><td >state_ru_klu</td><td >ru</td><td >Kaluga Oblast</td><td >KLU</td></tr><tr ><td >state_ru_kc</td><td >ru</td><td >Karachay–Cherkess Republic</td><td >KC</td></tr><tr ><td >state_ru_kr</td><td >ru</td><td >Republic of Karelia</td><td >KR</td></tr><tr ><td >state_ru_kem</td><td >ru</td><td >Kemerovo Oblast</td><td >KEM</td></tr><tr ><td >state_ru_kha</td><td >ru</td><td >Khabarovsk Krai</td><td >KHA</td></tr><tr ><td >state_ru_kk</td><td >ru</td><td >Republic of Khakassia</td><td >KK</td></tr><tr ><td >state_ru_khm</td><td >ru</td><td >Khanty-Mansi Autonomous Okrug</td><td >KHM</td></tr><tr ><td >state_ru_kir</td><td >ru</td><td >Kirov Oblast</td><td >KIR</td></tr><tr ><td >state_ru_ko</td><td >ru</td><td >Komi Republic</td><td >KO</td></tr><tr ><td >state_ru_kos</td><td >ru</td><td >Kostroma Oblast</td><td >KOS</td></tr><tr ><td >state_ru_kda</td><td >ru</td><td >Krasnodar Krai</td><td >KDA</td></tr><tr ><td >state_ru_kya</td><td >ru</td><td >Krasnoyarsk Krai</td><td >KYA</td></tr><tr ><td >state_ru_kgn</td><td >ru</td><td >Kurgan Oblast</td><td >KGN</td></tr><tr ><td >state_ru_krs</td><td >ru</td><td >Kursk Oblast</td><td >KRS</td></tr><tr ><td >state_ru_len</td><td >ru</td><td >Leningrad Oblast</td><td >LEN</td></tr><tr ><td >state_ru_lip</td><td >ru</td><td >Lipetsk Oblast</td><td >LIP</td></tr><tr ><td >state_ru_mag</td><td >ru</td><td >Magadan Oblast</td><td >MAG</td></tr><tr ><td >state_ru_me</td><td >ru</td><td >Mari El Republic</td><td >ME</td></tr><tr ><td >state_ru_mo</td><td >ru</td><td >Republic of Mordovia</td><td >MO</td></tr><tr ><td >state_ru_mos</td><td >ru</td><td >Moscow Oblast</td><td >MOS</td></tr><tr ><td >state_ru_mow</td><td >ru</td><td >Moscow</td><td >MOW</td></tr><tr ><td >state_ru_mur</td><td >ru</td><td >Murmansk Oblast</td><td >MUR</td></tr><tr ><td >state_ru_niz</td><td >ru</td><td >Nizhny Novgorod Oblast</td><td >NIZ</td></tr><tr ><td >state_ru_ngr</td><td >ru</td><td >Novgorod Oblast</td><td >NGR</td></tr><tr ><td >state_ru_nvs</td><td >ru</td><td >Novosibirsk Oblast</td><td >NVS</td></tr><tr ><td >state_ru_oms</td><td >ru</td><td >Omsk Oblast</td><td >OMS</td></tr><tr ><td >state_ru_ore</td><td >ru</td><td >Orenburg Oblast</td><td >ORE</td></tr><tr ><td >state_ru_orl</td><td >ru</td><td >Oryol Oblast</td><td >ORL</td></tr><tr ><td >state_ru_pnz</td><td >ru</td><td >Penza Oblast</td><td >PNZ</td></tr><tr ><td >state_ru_per</td><td >ru</td><td >Perm Krai</td><td >PER</td></tr><tr ><td >state_ru_pri</td><td >ru</td><td >Primorsky Krai</td><td >PRI</td></tr><tr ><td >state_ru_psk</td><td >ru</td><td >Pskov Oblast</td><td >PSK</td></tr><tr ><td >state_ru_ros</td><td >ru</td><td >Rostov Oblast</td><td >ROS</td></tr><tr ><td >state_ru_rya</td><td >ru</td><td >Ryazan Oblast</td><td >RYA</td></tr><tr ><td >state_ru_sa</td><td >ru</td><td >Sakha Republic (Yakutia)</td><td >SA</td></tr><tr ><td >state_ru_sak</td><td >ru</td><td >Sakhalin Oblast</td><td >SAK</td></tr><tr ><td >state_ru_sam</td><td >ru</td><td >Samara Oblast</td><td >SAM</td></tr><tr ><td >state_ru_spe</td><td >ru</td><td >Saint Petersburg</td><td >SPE</td></tr><tr ><td >state_ru_sar</td><td >ru</td><td >Saratov Oblast</td><td >SAR</td></tr><tr ><td >state_ru_se</td><td >ru</td><td >Republic of North Ossetia–Alania</td><td >SE</td></tr><tr ><td >state_ru_smo</td><td >ru</td><td >Smolensk Oblast</td><td >SMO</td></tr><tr ><td >state_ru_sta</td><td >ru</td><td >Stavropol Krai</td><td >STA</td></tr><tr ><td >state_ru_sve</td><td >ru</td><td >Sverdlovsk Oblast</td><td >SVE</td></tr><tr ><td >state_ru_tam</td><td >ru</td><td >Tambov Oblast</td><td >TAM</td></tr><tr ><td >state_ru_ta</td><td >ru</td><td >Republic of Tatarstan</td><td >TA</td></tr><tr ><td >state_ru_tom</td><td >ru</td><td >Tomsk Oblast</td><td >TOM</td></tr><tr ><td >state_ru_tul</td><td >ru</td><td >Tula Oblast</td><td >TUL</td></tr><tr ><td >state_ru_tve</td><td >ru</td><td >Tver Oblast</td><td >TVE</td></tr><tr ><td >state_ru_tyu</td><td >ru</td><td >Tyumen Oblast</td><td >TYU</td></tr><tr ><td >state_ru_ty</td><td >ru</td><td >Tyva Republic</td><td >TY</td></tr><tr ><td >state_ru_ud</td><td >ru</td><td >Udmurtia</td><td >UD</td></tr><tr ><td >state_ru_uly</td><td >ru</td><td >Ulyanovsk Oblast</td><td >ULY</td></tr><tr ><td >state_ru_vla</td><td >ru</td><td >Vladimir Oblast</td><td >VLA</td></tr><tr ><td >state_ru_vgg</td><td >ru</td><td >Volgograd Oblast</td><td >VGG</td></tr><tr ><td >state_ru_vlg</td><td >ru</td><td >Vologda Oblast</td><td >VLG</td></tr><tr ><td >state_ru_vor</td><td >ru</td><td >Voronezh Oblast</td><td >VOR</td></tr><tr ><td >state_ru_yan</td><td >ru</td><td >Yamalo-Nenets Autonomous Okrug</td><td >YAN</td></tr><tr ><td >state_ru_yar</td><td >ru</td><td >Yaroslavl Oblast</td><td >YAR</td></tr><tr ><td >state_ru_yev</td><td >ru</td><td >Jewish Autonomous Oblast</td><td >YEV</td></tr><tr ><td >state_gt_ave</td><td >gt</td><td >Alta Verapaz</td><td >AVE</td></tr><tr ><td >state_gt_bve</td><td >gt</td><td >Baja Verapaz</td><td >BVE</td></tr><tr ><td >state_gt_cmt</td><td >gt</td><td >Chimaltenango</td><td >CMT</td></tr><tr ><td >state_gt_cqm</td><td >gt</td><td >Chiquimula</td><td >CQM</td></tr><tr ><td >state_gt_epr</td><td >gt</td><td >El Progreso</td><td >EPR</td></tr><tr ><td >state_gt_esc</td><td >gt</td><td >Escuintla</td><td >ESC</td></tr><tr ><td >state_gt_gua</td><td >gt</td><td >Guatemala</td><td >GUA</td></tr><tr ><td >state_gt_hue</td><td >gt</td><td >Huehuetenango</td><td >HUE</td></tr><tr ><td >state_gt_iza</td><td >gt</td><td >Izabal</td><td >IZA</td></tr><tr ><td >state_gt_jal</td><td >gt</td><td >Jalapa</td><td >JAL</td></tr><tr ><td >state_gt_jut</td><td >gt</td><td >Jutiapa</td><td >JUT</td></tr><tr ><td >state_gt_pet</td><td >gt</td><td >Petén</td><td >PET</td></tr><tr ><td >state_gt_que</td><td >gt</td><td >Quetzaltenango</td><td >QUE</td></tr><tr ><td >state_gt_qui</td><td >gt</td><td >Quiché</td><td >QUI</td></tr><tr ><td >state_gt_ret</td><td >gt</td><td >Retalhuleu</td><td >RET</td></tr><tr ><td >state_gt_sac</td><td >gt</td><td >Sacatepéquez</td><td >SAC</td></tr><tr ><td >state_gt_sma</td><td >gt</td><td >San Marcos</td><td >SMA</td></tr><tr ><td >state_gt_sro</td><td >gt</td><td >Santa Rosa</td><td >SRO</td></tr><tr ><td >state_gt_sol</td><td >gt</td><td >Sololá</td><td >SOL</td></tr><tr ><td >state_gt_suc</td><td >gt</td><td >Suchitepéquez</td><td >SUC</td></tr><tr ><td >state_gt_tot</td><td >gt</td><td >Totonicapán</td><td >TOT</td></tr><tr ><td >state_gt_zac</td><td >gt</td><td >Zacapa</td><td >ZAC</td></tr><tr ><td >state_jp_jp-23</td><td >jp</td><td >Aichi</td><td >23</td></tr><tr ><td >state_jp_jp-05</td><td >jp</td><td >Akita</td><td >05</td></tr><tr ><td >state_jp_jp-02</td><td >jp</td><td >Aomori</td><td >02</td></tr><tr ><td >state_jp_jp-12</td><td >jp</td><td >Chiba</td><td >12</td></tr><tr ><td >state_jp_jp-38</td><td >jp</td><td >Ehime</td><td >38</td></tr><tr ><td >state_jp_jp-18</td><td >jp</td><td >Fukui</td><td >18</td></tr><tr ><td >state_jp_jp-40</td><td >jp</td><td >Fukuoka</td><td >40</td></tr><tr ><td >state_jp_jp-07</td><td >jp</td><td >Fukushima</td><td >07</td></tr><tr ><td >state_jp_jp-21</td><td >jp</td><td >Gifu</td><td >21</td></tr><tr ><td >state_jp_jp-10</td><td >jp</td><td >Gunma</td><td >10</td></tr><tr ><td >state_jp_jp-34</td><td >jp</td><td >Hiroshima</td><td >34</td></tr><tr ><td >state_jp_jp-01</td><td >jp</td><td >Hokkaidō</td><td >01</td></tr><tr ><td >state_jp_jp-28</td><td >jp</td><td >Hyōgo</td><td >28</td></tr><tr ><td >state_jp_jp-08</td><td >jp</td><td >Ibaraki</td><td >08</td></tr><tr ><td >state_jp_jp-17</td><td >jp</td><td >Ishikawa</td><td >17</td></tr><tr ><td >state_jp_jp-03</td><td >jp</td><td >Iwate</td><td >03</td></tr><tr ><td >state_jp_jp-37</td><td >jp</td><td >Kagawa</td><td >37</td></tr><tr ><td >state_jp_jp-46</td><td >jp</td><td >Kagoshima</td><td >46</td></tr><tr ><td >state_jp_jp-14</td><td >jp</td><td >Kanagawa</td><td >14</td></tr><tr ><td >state_jp_jp-39</td><td >jp</td><td >Kōchi</td><td >39</td></tr><tr ><td >state_jp_jp-43</td><td >jp</td><td >Kumamoto</td><td >43</td></tr><tr ><td >state_jp_jp-26</td><td >jp</td><td >Kyōto</td><td >26</td></tr><tr ><td >state_jp_jp-24</td><td >jp</td><td >Mie</td><td >24</td></tr><tr ><td >state_jp_jp-04</td><td >jp</td><td >Miyagi</td><td >04</td></tr><tr ><td >state_jp_jp-45</td><td >jp</td><td >Miyazaki</td><td >45</td></tr><tr ><td >state_jp_jp-20</td><td >jp</td><td >Nagano</td><td >20</td></tr><tr ><td >state_jp_jp-42</td><td >jp</td><td >Nagasaki</td><td >42</td></tr><tr ><td >state_jp_jp-29</td><td >jp</td><td >Nara</td><td >29</td></tr><tr ><td >state_jp_jp-15</td><td >jp</td><td >Niigata</td><td >15</td></tr><tr ><td >state_jp_jp-44</td><td >jp</td><td >Ōita</td><td >44</td></tr><tr ><td >state_jp_jp-33</td><td >jp</td><td >Okayama</td><td >33</td></tr><tr ><td >state_jp_jp-47</td><td >jp</td><td >Okinawa</td><td >47</td></tr><tr ><td >state_jp_jp-27</td><td >jp</td><td >Ōsaka</td><td >27</td></tr><tr ><td >state_jp_jp-41</td><td >jp</td><td >Saga</td><td >41</td></tr><tr ><td >state_jp_jp-11</td><td >jp</td><td >Saitama</td><td >11</td></tr><tr ><td >state_jp_jp-25</td><td >jp</td><td >Shiga</td><td >25</td></tr><tr ><td >state_jp_jp-32</td><td >jp</td><td >Shimane</td><td >32</td></tr><tr ><td >state_jp_jp-22</td><td >jp</td><td >Shizuoka</td><td >22</td></tr><tr ><td >state_jp_jp-09</td><td >jp</td><td >Tochigi</td><td >09</td></tr><tr ><td >state_jp_jp-36</td><td >jp</td><td >Tokushima</td><td >36</td></tr><tr ><td >state_jp_jp-31</td><td >jp</td><td >Tottori</td><td >31</td></tr><tr ><td >state_jp_jp-16</td><td >jp</td><td >Toyama</td><td >16</td></tr><tr ><td >state_jp_jp-13</td><td >jp</td><td >Tōkyō</td><td >13</td></tr><tr ><td >state_jp_jp-30</td><td >jp</td><td >Wakayama</td><td >30</td></tr><tr ><td >state_jp_jp-06</td><td >jp</td><td >Yamagata</td><td >06</td></tr><tr ><td >state_jp_jp-35</td><td >jp</td><td >Yamaguchi</td><td >35</td></tr><tr ><td >state_jp_jp-19</td><td >jp</td><td >Yamanashi</td><td >19</td></tr><tr ><td >state_pt_pt-01</td><td >pt</td><td >Aveiro</td><td >01</td></tr><tr ><td >state_pt_pt-02</td><td >pt</td><td >Beja</td><td >02</td></tr><tr ><td >state_pt_pt-03</td><td >pt</td><td >Braga</td><td >03</td></tr><tr ><td >state_pt_pt-04</td><td >pt</td><td >Bragança</td><td >04</td></tr><tr ><td >state_pt_pt-05</td><td >pt</td><td >Castelo Branco</td><td >05</td></tr><tr ><td >state_pt_pt-06</td><td >pt</td><td >Coimbra</td><td >06</td></tr><tr ><td >state_pt_pt-07</td><td >pt</td><td >Évora</td><td >07</td></tr><tr ><td >state_pt_pt-08</td><td >pt</td><td >Faro</td><td >08</td></tr><tr ><td >state_pt_pt-09</td><td >pt</td><td >Guarda</td><td >09</td></tr><tr ><td >state_pt_pt-10</td><td >pt</td><td >Leiria</td><td >10</td></tr><tr ><td >state_pt_pt-11</td><td >pt</td><td >Lisboa</td><td >11</td></tr><tr ><td >state_pt_pt-12</td><td >pt</td><td >Portalegre</td><td >12</td></tr><tr ><td >state_pt_pt-13</td><td >pt</td><td >Porto</td><td >13</td></tr><tr ><td >state_pt_pt-14</td><td >pt</td><td >Santarém</td><td >14</td></tr><tr ><td >state_pt_pt-15</td><td >pt</td><td >Setúbal</td><td >15</td></tr><tr ><td >state_pt_pt-16</td><td >pt</td><td >Viana do Castelo</td><td >16</td></tr><tr ><td >state_pt_pt-17</td><td >pt</td><td >Vila Real</td><td >17</td></tr><tr ><td >state_pt_pt-18</td><td >pt</td><td >Viseu</td><td >18</td></tr><tr ><td >state_pt_pt-20</td><td >pt</td><td >Açores</td><td >20</td></tr><tr ><td >state_pt_pt-30</td><td >pt</td><td >Madeira</td><td >30</td></tr><tr ><td >state_eg_dk</td><td >eg</td><td >Dakahlia</td><td >DK</td></tr><tr ><td >state_eg_ba</td><td >eg</td><td >Red Sea</td><td >BA</td></tr><tr ><td >state_eg_bh</td><td >eg</td><td >Beheira</td><td >BH</td></tr><tr ><td >state_eg_fym</td><td >eg</td><td >Faiyum</td><td >FYM</td></tr><tr ><td >state_eg_gh</td><td >eg</td><td >Gharbia</td><td >GH</td></tr><tr ><td >state_eg_alx</td><td >eg</td><td >Alexandria</td><td >ALX</td></tr><tr ><td >state_eg_is</td><td >eg</td><td >Ismailia</td><td >IS</td></tr><tr ><td >state_eg_gz</td><td >eg</td><td >Giza</td><td >GZ</td></tr><tr ><td >state_eg_mnf</td><td >eg</td><td >Monufia</td><td >MNF</td></tr><tr ><td >state_eg_mn</td><td >eg</td><td >Minya</td><td >MN</td></tr><tr ><td >state_eg_c</td><td >eg</td><td >Cairo</td><td >C</td></tr><tr ><td >state_eg_kb</td><td >eg</td><td >Qalyubia</td><td >KB</td></tr><tr ><td >state_eg_lx</td><td >eg</td><td >Luxor</td><td >LX</td></tr><tr ><td >state_eg_wad</td><td >eg</td><td >New Valley</td><td >WAD</td></tr><tr ><td >state_eg_shr</td><td >eg</td><td >Al Sharqia</td><td >SHR</td></tr><tr ><td >state_eg_su</td><td >eg</td><td >6th of October</td><td >SU</td></tr><tr ><td >state_eg_suz</td><td >eg</td><td >Suez</td><td >SUZ</td></tr><tr ><td >state_eg_asn</td><td >eg</td><td >Aswan</td><td >ASN</td></tr><tr ><td >state_eg_ast</td><td >eg</td><td >Asyut</td><td >AST</td></tr><tr ><td >state_eg_bns</td><td >eg</td><td >Beni Suef</td><td >BNS</td></tr><tr ><td >state_eg_pts</td><td >eg</td><td >Port Said</td><td >PTS</td></tr><tr ><td >state_eg_dt</td><td >eg</td><td >Damietta</td><td >DT</td></tr><tr ><td >state_eg_hu</td><td >eg</td><td >Helwan</td><td >HU</td></tr><tr ><td >state_eg_js</td><td >eg</td><td >South Sinai</td><td >JS</td></tr><tr ><td >state_eg_kfs</td><td >eg</td><td >Kafr el-Sheikh</td><td >KFS</td></tr><tr ><td >state_eg_mt</td><td >eg</td><td >Matrouh</td><td >MT</td></tr><tr ><td >state_eg_kn</td><td >eg</td><td >Qena</td><td >KN</td></tr><tr ><td >state_eg_sin</td><td >eg</td><td >North Sinai</td><td >SIN</td></tr><tr ><td >state_eg_shg</td><td >eg</td><td >Sohag</td><td >SHG</td></tr><tr ><td >state_za_ec</td><td >za</td><td >Eastern Cape</td><td >EC</td></tr><tr ><td >state_za_fs</td><td >za</td><td >Free State</td><td >FS</td></tr><tr ><td >state_za_gt</td><td >za</td><td >Gauteng</td><td >GT</td></tr><tr ><td >state_za_nl</td><td >za</td><td >KwaZulu-Natal</td><td >NL</td></tr><tr ><td >state_za_lp</td><td >za</td><td >Limpopo</td><td >LP</td></tr><tr ><td >state_za_mp</td><td >za</td><td >Mpumalanga</td><td >MP</td></tr><tr ><td >state_za_nc</td><td >za</td><td >Northern Cape</td><td >NC</td></tr><tr ><td >state_za_nw</td><td >za</td><td >North West</td><td >NW</td></tr><tr ><td >state_za_wc</td><td >za</td><td >Western Cape</td><td >WC</td></tr><tr ><td >state_it_ag</td><td >it</td><td >Agrigento</td><td >AG</td></tr><tr ><td >state_it_al</td><td >it</td><td >Alessandria</td><td >AL</td></tr><tr ><td >state_it_an</td><td >it</td><td >Ancona</td><td >AN</td></tr><tr ><td >state_it_ao</td><td >it</td><td >Aosta</td><td >AO</td></tr><tr ><td >state_it_ar</td><td >it</td><td >Arezzo</td><td >AR</td></tr><tr ><td >state_it_ap</td><td >it</td><td >Ascoli Piceno</td><td >AP</td></tr><tr ><td >state_it_at</td><td >it</td><td >Asti</td><td >AT</td></tr><tr ><td >state_it_av</td><td >it</td><td >Avellino</td><td >AV</td></tr><tr ><td >state_it_ba</td><td >it</td><td >Bari</td><td >BA</td></tr><tr ><td >state_it_bt</td><td >it</td><td >Barletta-Andria-Trani</td><td >BT</td></tr><tr ><td >state_it_bl</td><td >it</td><td >Belluno</td><td >BL</td></tr><tr ><td >state_it_bn</td><td >it</td><td >Benevento</td><td >BN</td></tr><tr ><td >state_it_bg</td><td >it</td><td >Bergamo</td><td >BG</td></tr><tr ><td >state_it_bi</td><td >it</td><td >Biella</td><td >BI</td></tr><tr ><td >state_it_bo</td><td >it</td><td >Bologna</td><td >BO</td></tr><tr ><td >state_it_bz</td><td >it</td><td >Bolzano</td><td >BZ</td></tr><tr ><td >state_it_bs</td><td >it</td><td >Brescia</td><td >BS</td></tr><tr ><td >state_it_br</td><td >it</td><td >Brindisi</td><td >BR</td></tr><tr ><td >state_it_ca</td><td >it</td><td >Cagliari</td><td >CA</td></tr><tr ><td >state_it_cl</td><td >it</td><td >Caltanissetta</td><td >CL</td></tr><tr ><td >state_it_cb</td><td >it</td><td >Campobasso</td><td >CB</td></tr><tr ><td >state_it_ci</td><td >it</td><td >Carbonia-Iglesias</td><td >CI</td></tr><tr ><td >state_it_ce</td><td >it</td><td >Caserta</td><td >CE</td></tr><tr ><td >state_it_ct</td><td >it</td><td >Catania</td><td >CT</td></tr><tr ><td >state_it_cz</td><td >it</td><td >Catanzaro</td><td >CZ</td></tr><tr ><td >state_it_ch</td><td >it</td><td >Chieti</td><td >CH</td></tr><tr ><td >state_it_co</td><td >it</td><td >Como</td><td >CO</td></tr><tr ><td >state_it_cs</td><td >it</td><td >Cosenza</td><td >CS</td></tr><tr ><td >state_it_cr</td><td >it</td><td >Cremona</td><td >CR</td></tr><tr ><td >state_it_kr</td><td >it</td><td >Crotone</td><td >KR</td></tr><tr ><td >state_it_cn</td><td >it</td><td >Cuneo</td><td >CN</td></tr><tr ><td >state_it_en</td><td >it</td><td >Enna</td><td >EN</td></tr><tr ><td >state_it_fm</td><td >it</td><td >Fermo</td><td >FM</td></tr><tr ><td >state_it_fe</td><td >it</td><td >Ferrara</td><td >FE</td></tr><tr ><td >state_it_fi</td><td >it</td><td >Firenze</td><td >FI</td></tr><tr ><td >state_it_fg</td><td >it</td><td >Foggia</td><td >FG</td></tr><tr ><td >state_it_fc</td><td >it</td><td >Forlì-Cesena</td><td >FC</td></tr><tr ><td >state_it_fr</td><td >it</td><td >Frosinone</td><td >FR</td></tr><tr ><td >state_it_ge</td><td >it</td><td >Genova</td><td >GE</td></tr><tr ><td >state_it_go</td><td >it</td><td >Gorizia</td><td >GO</td></tr><tr ><td >state_it_gr</td><td >it</td><td >Grosseto</td><td >GR</td></tr><tr ><td >state_it_im</td><td >it</td><td >Imperia</td><td >IM</td></tr><tr ><td >state_it_is</td><td >it</td><td >Isernia</td><td >IS</td></tr><tr ><td >state_it_sp</td><td >it</td><td >La Spezia</td><td >SP</td></tr><tr ><td >state_it_aq</td><td >it</td><td >L'Aquila</td><td >AQ</td></tr><tr ><td >state_it_lt</td><td >it</td><td >Latina</td><td >LT</td></tr><tr ><td >state_it_le</td><td >it</td><td >Lecce</td><td >LE</td></tr><tr ><td >state_it_lc</td><td >it</td><td >Lecco</td><td >LC</td></tr><tr ><td >state_it_li</td><td >it</td><td >Livorno</td><td >LI</td></tr><tr ><td >state_it_lo</td><td >it</td><td >Lodi</td><td >LO</td></tr><tr ><td >state_it_lu</td><td >it</td><td >Lucca</td><td >LU</td></tr><tr ><td >state_it_mc</td><td >it</td><td >Macerata</td><td >MC</td></tr><tr ><td >state_it_mn</td><td >it</td><td >Mantova</td><td >MN</td></tr><tr ><td >state_it_ms</td><td >it</td><td >Massa-Carrara</td><td >MS</td></tr><tr ><td >state_it_mt</td><td >it</td><td >Matera</td><td >MT</td></tr><tr ><td >state_it_vs</td><td >it</td><td >Medio Campidano</td><td >VS</td></tr><tr ><td >state_it_me</td><td >it</td><td >Messina</td><td >ME</td></tr><tr ><td >state_it_mi</td><td >it</td><td >Milano</td><td >MI</td></tr><tr ><td >state_it_mo</td><td >it</td><td >Modena</td><td >MO</td></tr><tr ><td >state_it_mb</td><td >it</td><td >Monza e Brianza</td><td >MB</td></tr><tr ><td >state_it_na</td><td >it</td><td >Napoli</td><td >NA</td></tr><tr ><td >state_it_no</td><td >it</td><td >Novara</td><td >NO</td></tr><tr ><td >state_it_nu</td><td >it</td><td >Nuoro</td><td >NU</td></tr><tr ><td >state_it_og</td><td >it</td><td >Ogliastra</td><td >OG</td></tr><tr ><td >state_it_ot</td><td >it</td><td >Olbia-Tempio</td><td >OT</td></tr><tr ><td >state_it_or</td><td >it</td><td >Oristano</td><td >OR</td></tr><tr ><td >state_it_pd</td><td >it</td><td >Padova</td><td >PD</td></tr><tr ><td >state_it_pa</td><td >it</td><td >Palermo</td><td >PA</td></tr><tr ><td >state_it_pr</td><td >it</td><td >Parma</td><td >PR</td></tr><tr ><td >state_it_pv</td><td >it</td><td >Pavia</td><td >PV</td></tr><tr ><td >state_it_pg</td><td >it</td><td >Perugia</td><td >PG</td></tr><tr ><td >state_it_pu</td><td >it</td><td >Pesaro e Urbino</td><td >PU</td></tr><tr ><td >state_it_pe</td><td >it</td><td >Pescara</td><td >PE</td></tr><tr ><td >state_it_pc</td><td >it</td><td >Piacenza</td><td >PC</td></tr><tr ><td >state_it_pi</td><td >it</td><td >Pisa</td><td >PI</td></tr><tr ><td >state_it_pt</td><td >it</td><td >Pistoia</td><td >PT</td></tr><tr ><td >state_it_pn</td><td >it</td><td >Pordenone</td><td >PN</td></tr><tr ><td >state_it_pz</td><td >it</td><td >Potenza</td><td >PZ</td></tr><tr ><td >state_it_po</td><td >it</td><td >Prato</td><td >PO</td></tr><tr ><td >state_it_rg</td><td >it</td><td >Ragusa</td><td >RG</td></tr><tr ><td >state_it_ra</td><td >it</td><td >Ravenna</td><td >RA</td></tr><tr ><td >state_it_rc</td><td >it</td><td >Reggio Calabria</td><td >RC</td></tr><tr ><td >state_it_re</td><td >it</td><td >Reggio Emilia</td><td >RE</td></tr><tr ><td >state_it_ri</td><td >it</td><td >Rieti</td><td >RI</td></tr><tr ><td >state_it_rn</td><td >it</td><td >Rimini</td><td >RN</td></tr><tr ><td >state_it_rm</td><td >it</td><td >Roma</td><td >RM</td></tr><tr ><td >state_it_ro</td><td >it</td><td >Rovigo</td><td >RO</td></tr><tr ><td >state_it_sa</td><td >it</td><td >Salerno</td><td >SA</td></tr><tr ><td >state_it_ss</td><td >it</td><td >Sassari</td><td >SS</td></tr><tr ><td >state_it_sv</td><td >it</td><td >Savona</td><td >SV</td></tr><tr ><td >state_it_si</td><td >it</td><td >Siena</td><td >SI</td></tr><tr ><td >state_it_sr</td><td >it</td><td >Siracusa</td><td >SR</td></tr><tr ><td >state_it_so</td><td >it</td><td >Sondrio</td><td >SO</td></tr><tr ><td >state_it_ta</td><td >it</td><td >Taranto</td><td >TA</td></tr><tr ><td >state_it_te</td><td >it</td><td >Teramo</td><td >TE</td></tr><tr ><td >state_it_tr</td><td >it</td><td >Terni</td><td >TR</td></tr><tr ><td >state_it_to</td><td >it</td><td >Torino</td><td >TO</td></tr><tr ><td >state_it_tp</td><td >it</td><td >Trapani</td><td >TP</td></tr><tr ><td >state_it_tn</td><td >it</td><td >Trento</td><td >TN</td></tr><tr ><td >state_it_tv</td><td >it</td><td >Treviso</td><td >TV</td></tr><tr ><td >state_it_ts</td><td >it</td><td >Trieste</td><td >TS</td></tr><tr ><td >state_it_ud</td><td >it</td><td >Udine</td><td >UD</td></tr><tr ><td >state_it_va</td><td >it</td><td >Varese</td><td >VA</td></tr><tr ><td >state_it_ve</td><td >it</td><td >Venezia</td><td >VE</td></tr><tr ><td >state_it_vb</td><td >it</td><td >Verbano-Cusio-Ossola</td><td >VB</td></tr><tr ><td >state_it_vc</td><td >it</td><td >Vercelli</td><td >VC</td></tr><tr ><td >state_it_vr</td><td >it</td><td >Verona</td><td >VR</td></tr><tr ><td >state_it_vv</td><td >it</td><td >Vibo Valentia</td><td >VV</td></tr><tr ><td >state_it_vi</td><td >it</td><td >Vicenza</td><td >VI</td></tr><tr ><td >state_it_vt</td><td >it</td><td >Viterbo</td><td >VT</td></tr><tr ><td >state_es_c</td><td >es</td><td >A Coruña (La Coruña)</td><td >C</td></tr><tr ><td >state_es_vi</td><td >es</td><td >Araba/Álava</td><td >VI</td></tr><tr ><td >state_es_ab</td><td >es</td><td >Albacete</td><td >AB</td></tr><tr ><td >state_es_a</td><td >es</td><td >Alacant (Alicante)</td><td >A</td></tr><tr ><td >state_es_al</td><td >es</td><td >Almería</td><td >AL</td></tr><tr ><td >state_es_o</td><td >es</td><td >Asturias</td><td >O</td></tr><tr ><td >state_es_av</td><td >es</td><td >Ávila</td><td >AV</td></tr><tr ><td >state_es_ba</td><td >es</td><td >Badajoz</td><td >BA</td></tr><tr ><td >state_es_pm</td><td >es</td><td >Illes Balears (Islas Baleares)</td><td >PM</td></tr><tr ><td >state_es_b</td><td >es</td><td >Barcelona</td><td >B</td></tr><tr ><td >state_es_bu</td><td >es</td><td >Burgos</td><td >BU</td></tr><tr ><td >state_es_cc</td><td >es</td><td >Cáceres</td><td >CC</td></tr><tr ><td >state_es_ca</td><td >es</td><td >Cádiz</td><td >CA</td></tr><tr ><td >state_es_s</td><td >es</td><td >Cantabria</td><td >S</td></tr><tr ><td >state_es_cs</td><td >es</td><td >Castelló (Castellón)</td><td >CS</td></tr><tr ><td >state_es_ce</td><td >es</td><td >Ceuta</td><td >CE</td></tr><tr ><td >state_es_cr</td><td >es</td><td >Ciudad Real</td><td >CR</td></tr><tr ><td >state_es_co</td><td >es</td><td >Córdoba</td><td >CO</td></tr><tr ><td >state_es_cu</td><td >es</td><td >Cuenca</td><td >CU</td></tr><tr ><td >state_es_gi</td><td >es</td><td >Girona (Gerona)</td><td >GI</td></tr><tr ><td >state_es_gr</td><td >es</td><td >Granada</td><td >GR</td></tr><tr ><td >state_es_gu</td><td >es</td><td >Guadalajara</td><td >GU</td></tr><tr ><td >state_es_ss</td><td >es</td><td >Gipuzkoa (Guipúzcoa)</td><td >SS</td></tr><tr ><td >state_es_h</td><td >es</td><td >Huelva</td><td >H</td></tr><tr ><td >state_es_hu</td><td >es</td><td >Huesca</td><td >HU</td></tr><tr ><td >state_es_j</td><td >es</td><td >Jaén</td><td >J</td></tr><tr ><td >state_es_lo</td><td >es</td><td >La Rioja</td><td >LO</td></tr><tr ><td >state_es_gc</td><td >es</td><td >Las Palmas</td><td >GC</td></tr><tr ><td >state_es_le</td><td >es</td><td >León</td><td >LE</td></tr><tr ><td >state_es_l</td><td >es</td><td >Lleida (Lérida)</td><td >L</td></tr><tr ><td >state_es_lu</td><td >es</td><td >Lugo</td><td >LU</td></tr><tr ><td >state_es_m</td><td >es</td><td >Madrid</td><td >M</td></tr><tr ><td >state_es_ma</td><td >es</td><td >Málaga</td><td >MA</td></tr><tr ><td >state_es_ml</td><td >es</td><td >Melilla</td><td >ME</td></tr><tr ><td >state_es_mu</td><td >es</td><td >Murcia</td><td >MU</td></tr><tr ><td >state_es_na</td><td >es</td><td >Nafarroa (Navarra)</td><td >NA</td></tr><tr ><td >state_es_or</td><td >es</td><td >Ourense (Orense)</td><td >OR</td></tr><tr ><td >state_es_p</td><td >es</td><td >Palencia</td><td >P</td></tr><tr ><td >state_es_po</td><td >es</td><td >Pontevedra</td><td >PO</td></tr><tr ><td >state_es_sa</td><td >es</td><td >Salamanca</td><td >SA</td></tr><tr ><td >state_es_tf</td><td >es</td><td >Santa Cruz de Tenerife</td><td >TF</td></tr><tr ><td >state_es_sg</td><td >es</td><td >Segovia</td><td >SG</td></tr><tr ><td >state_es_se</td><td >es</td><td >Sevilla</td><td >SE</td></tr><tr ><td >state_es_so</td><td >es</td><td >Soria</td><td >SO</td></tr><tr ><td >state_es_t</td><td >es</td><td >Tarragona</td><td >T</td></tr><tr ><td >state_es_te</td><td >es</td><td >Teruel</td><td >TE</td></tr><tr ><td >state_es_to</td><td >es</td><td >Toledo</td><td >TO</td></tr><tr ><td >state_es_v</td><td >es</td><td >València (Valencia)</td><td >V</td></tr><tr ><td >state_es_va</td><td >es</td><td >Valladolid</td><td >VA</td></tr><tr ><td >state_es_bi</td><td >es</td><td >Bizkaia (Vizcaya)</td><td >BI</td></tr><tr ><td >state_es_za</td><td >es</td><td >Zamora</td><td >ZA</td></tr><tr ><td >state_es_z</td><td >es</td><td >Zaragoza</td><td >Z</td></tr><tr ><td >state_my_jhr</td><td >my</td><td >Johor</td><td >JHR</td></tr><tr ><td >state_my_kdh</td><td >my</td><td >Kedah</td><td >KDH</td></tr><tr ><td >state_my_ktn</td><td >my</td><td >Kelantan</td><td >KTN</td></tr><tr ><td >state_my_kul</td><td >my</td><td >Kuala Lumpur</td><td >KUL</td></tr><tr ><td >state_my_lbn</td><td >my</td><td >Labuan</td><td >LBN</td></tr><tr ><td >state_my_mlk</td><td >my</td><td >Melaka</td><td >MLK</td></tr><tr ><td >state_my_nsn</td><td >my</td><td >Negeri Sembilan</td><td >NSN</td></tr><tr ><td >state_my_phg</td><td >my</td><td >Pahang</td><td >PHG</td></tr><tr ><td >state_my_prk</td><td >my</td><td >Perak</td><td >PRK</td></tr><tr ><td >state_my_pls</td><td >my</td><td >Perlis</td><td >PLS</td></tr><tr ><td >state_my_png</td><td >my</td><td >Pulau Pinang</td><td >PNG</td></tr><tr ><td >state_my_pjy</td><td >my</td><td >Putrajaya</td><td >PJY</td></tr><tr ><td >state_my_sbh</td><td >my</td><td >Sabah</td><td >SBH</td></tr><tr ><td >state_my_swk</td><td >my</td><td >Sarawak</td><td >SWK</td></tr><tr ><td >state_my_sgr</td><td >my</td><td >Selangor</td><td >SGR</td></tr><tr ><td >state_my_trg</td><td >my</td><td >Terengganu</td><td >TRG</td></tr><tr ><td >state_mx_ags</td><td >mx</td><td >Aguascalientes</td><td >AGU</td></tr><tr ><td >state_mx_bc</td><td >mx</td><td >Baja California</td><td >BCN</td></tr><tr ><td >state_mx_bcs</td><td >mx</td><td >Baja California Sur</td><td >BCS</td></tr><tr ><td >state_mx_chih</td><td >mx</td><td >Chihuahua</td><td >CHH</td></tr><tr ><td >state_mx_col</td><td >mx</td><td >Colima</td><td >COL</td></tr><tr ><td >state_mx_camp</td><td >mx</td><td >Campeche</td><td >CAM</td></tr><tr ><td >state_mx_coah</td><td >mx</td><td >Coahuila</td><td >COA</td></tr><tr ><td >state_mx_chis</td><td >mx</td><td >Chiapas</td><td >CHP</td></tr><tr ><td >state_mx_df</td><td >mx</td><td >Ciudad de México</td><td >DIF</td></tr><tr ><td >state_mx_dgo</td><td >mx</td><td >Durango</td><td >DUR</td></tr><tr ><td >state_mx_gro</td><td >mx</td><td >Guerrero</td><td >GRO</td></tr><tr ><td >state_mx_gto</td><td >mx</td><td >Guanajuato</td><td >GUA</td></tr><tr ><td >state_mx_hgo</td><td >mx</td><td >Hidalgo</td><td >HID</td></tr><tr ><td >state_mx_jal</td><td >mx</td><td >Jalisco</td><td >JAL</td></tr><tr ><td >state_mx_mich</td><td >mx</td><td >Michoacán</td><td >MIC</td></tr><tr ><td >state_mx_mor</td><td >mx</td><td >Morelos</td><td >MOR</td></tr><tr ><td >state_mx_mex</td><td >mx</td><td >México</td><td >MEX</td></tr><tr ><td >state_mx_nay</td><td >mx</td><td >Nayarit</td><td >NAY</td></tr><tr ><td >state_mx_nl</td><td >mx</td><td >Nuevo León</td><td >NLE</td></tr><tr ><td >state_mx_oax</td><td >mx</td><td >Oaxaca</td><td >OAX</td></tr><tr ><td >state_mx_pue</td><td >mx</td><td >Puebla</td><td >PUE</td></tr><tr ><td >state_mx_q roo</td><td >mx</td><td >Quintana Roo</td><td >ROO</td></tr><tr ><td >state_mx_qro</td><td >mx</td><td >Querétaro</td><td >QUE</td></tr><tr ><td >state_mx_sin</td><td >mx</td><td >Sinaloa</td><td >SIN</td></tr><tr ><td >state_mx_slp</td><td >mx</td><td >San Luis Potosí</td><td >SLP</td></tr><tr ><td >state_mx_son</td><td >mx</td><td >Sonora</td><td >SON</td></tr><tr ><td >state_mx_tab</td><td >mx</td><td >Tabasco</td><td >TAB</td></tr><tr ><td >state_mx_tlax</td><td >mx</td><td >Tlaxcala</td><td >TLA</td></tr><tr ><td >state_mx_tamps</td><td >mx</td><td >Tamaulipas</td><td >TAM</td></tr><tr ><td >state_mx_ver</td><td >mx</td><td >Veracruz</td><td >VER</td></tr><tr ><td >state_mx_yuc</td><td >mx</td><td >Yucatán</td><td >YUC</td></tr><tr ><td >state_mx_zac</td><td >mx</td><td >Zacatecas</td><td >ZAC</td></tr><tr ><td >state_nz_auk</td><td >nz</td><td >Auckland</td><td >AUK</td></tr><tr ><td >state_nz_bop</td><td >nz</td><td >Bay of Plenty</td><td >BOP</td></tr><tr ><td >state_nz_can</td><td >nz</td><td >Canterbury</td><td >CAN</td></tr><tr ><td >state_nz_gis</td><td >nz</td><td >Gisborne</td><td >GIS</td></tr><tr ><td >state_nz_hkb</td><td >nz</td><td >Hawke's Bay</td><td >HKB</td></tr><tr ><td >state_nz_mwt</td><td >nz</td><td >Manawatu-Wanganui</td><td >MWT</td></tr><tr ><td >state_nz_mbh</td><td >nz</td><td >Marlborough</td><td >MBH</td></tr><tr ><td >state_nz_nsn</td><td >nz</td><td >Nelson</td><td >NSN</td></tr><tr ><td >state_nz_ntl</td><td >nz</td><td >Northland</td><td >NTL</td></tr><tr ><td >state_nz_ota</td><td >nz</td><td >Otago</td><td >OTA</td></tr><tr ><td >state_nz_stl</td><td >nz</td><td >Southland</td><td >STL</td></tr><tr ><td >state_nz_tki</td><td >nz</td><td >Taranaki</td><td >TKI</td></tr><tr ><td >state_nz_tas</td><td >nz</td><td >Tasman</td><td >TAS</td></tr><tr ><td >state_nz_wko</td><td >nz</td><td >Waikato</td><td >WKO</td></tr><tr ><td >state_nz_wgn</td><td >nz</td><td >Wellington</td><td >WGN</td></tr><tr ><td >state_nz_wtc</td><td >nz</td><td >West Coast</td><td >WTC</td></tr><tr ><td >state_ca_ab</td><td >ca</td><td >Alberta</td><td >AB</td></tr><tr ><td >state_ca_bc</td><td >ca</td><td >British Columbia</td><td >BC</td></tr><tr ><td >state_ca_mb</td><td >ca</td><td >Manitoba</td><td >MB</td></tr><tr ><td >state_ca_nb</td><td >ca</td><td >New Brunswick</td><td >NB</td></tr><tr ><td >state_ca_nl</td><td >ca</td><td >Newfoundland</td><td >NL</td></tr><tr ><td >state_ca_nt</td><td >ca</td><td >Northwest Territories</td><td >NT</td></tr><tr ><td >state_ca_ns</td><td >ca</td><td >Nova Scotia</td><td >NS</td></tr><tr ><td >state_ca_nu</td><td >ca</td><td >Nunavut</td><td >NU</td></tr><tr ><td >state_ca_on</td><td >ca</td><td >Ontario</td><td >ON</td></tr><tr ><td >state_ca_pe</td><td >ca</td><td >Prince Edward Island</td><td >PE</td></tr><tr ><td >state_ca_qc</td><td >ca</td><td >Quebec</td><td >QC</td></tr><tr ><td >state_ca_sk</td><td >ca</td><td >Saskatchewan</td><td >SK</td></tr><tr ><td >state_ca_yt</td><td >ca</td><td >Yukon</td><td >YT</td></tr><tr ><td >state_ae_az</td><td >ae</td><td >Abu Dhabi</td><td >AZ</td></tr><tr ><td >state_ae_aj</td><td >ae</td><td >Ajman</td><td >AJ</td></tr><tr ><td >state_ae_du</td><td >ae</td><td >Dubai</td><td >DU</td></tr><tr ><td >state_ae_fu</td><td >ae</td><td >Fujairah</td><td >FU</td></tr><tr ><td >state_ae_rk</td><td >ae</td><td >Ras al-Khaimah</td><td >RK</td></tr><tr ><td >state_ae_sh</td><td >ae</td><td >Sharjah</td><td >SH</td></tr><tr ><td >state_ae_uq</td><td >ae</td><td >Umm al-Quwain</td><td >UQ</td></tr><tr ><td >state_ar_c</td><td >ar</td><td >Buenos Aires City</td><td >C</td></tr><tr ><td >state_ar_b</td><td >ar</td><td >Buenos Aires</td><td >B</td></tr><tr ><td >state_ar_k</td><td >ar</td><td >Catamarca</td><td >K</td></tr><tr ><td >state_ar_h</td><td >ar</td><td >Chaco</td><td >H</td></tr><tr ><td >state_ar_u</td><td >ar</td><td >Chobut</td><td >U</td></tr><tr ><td >state_ar_x</td><td >ar</td><td >Córdoba</td><td >X</td></tr><tr ><td >state_ar_w</td><td >ar</td><td >Corrientes</td><td >W</td></tr><tr ><td >state_ar_e</td><td >ar</td><td >Ente Ríos</td><td >E</td></tr><tr ><td >state_ar_p</td><td >ar</td><td >Formosa</td><td >P</td></tr><tr ><td >state_ar_y</td><td >ar</td><td >Jujuy</td><td >Y</td></tr><tr ><td >state_ar_l</td><td >ar</td><td >La Pampa</td><td >L</td></tr><tr ><td >state_ar_f</td><td >ar</td><td >La Rioja</td><td >F</td></tr><tr ><td >state_ar_m</td><td >ar</td><td >Mendoza</td><td >M</td></tr><tr ><td >state_ar_n</td><td >ar</td><td >Misiones</td><td >N</td></tr><tr ><td >state_ar_q</td><td >ar</td><td >Neuquén</td><td >Q</td></tr><tr ><td >state_ar_r</td><td >ar</td><td >Río Negro</td><td >R</td></tr><tr ><td >state_ar_a</td><td >ar</td><td >Salta</td><td >A</td></tr><tr ><td >state_ar_j</td><td >ar</td><td >San Juan</td><td >J</td></tr><tr ><td >state_ar_d</td><td >ar</td><td >San Luis</td><td >D</td></tr><tr ><td >state_ar_z</td><td >ar</td><td >Santa Cruz</td><td >Z</td></tr><tr ><td >state_ar_s</td><td >ar</td><td >Santa Fe</td><td >S</td></tr><tr ><td >state_ar_g</td><td >ar</td><td >Santiago Del Estero</td><td >G</td></tr><tr ><td >state_ar_v</td><td >ar</td><td >Tierra del Fuego</td><td >V</td></tr><tr ><td >state_ar_t</td><td >ar</td><td >Tucumán</td><td >T</td></tr><tr ><td >state_in_an</td><td >in</td><td >Andaman and Nicobar</td><td >AN</td></tr><tr ><td >state_in_ap</td><td >in</td><td >Andhra Pradesh</td><td >AP</td></tr><tr ><td >state_in_ar</td><td >in</td><td >Arunachal Pradesh</td><td >AR</td></tr><tr ><td >state_in_as</td><td >in</td><td >Assam</td><td >AS</td></tr><tr ><td >state_in_br</td><td >in</td><td >Bihar</td><td >BR</td></tr><tr ><td >state_in_ch</td><td >in</td><td >Chandigarh</td><td >CH</td></tr><tr ><td >state_in_cg</td><td >in</td><td >Chattisgarh</td><td >CG</td></tr><tr ><td >state_in_dn</td><td >in</td><td >Dadra and Nagar Haveli</td><td >DN</td></tr><tr ><td >state_in_dd</td><td >in</td><td >Daman and Diu</td><td >DD</td></tr><tr ><td >state_in_dl</td><td >in</td><td >Delhi</td><td >DL</td></tr><tr ><td >state_in_ga</td><td >in</td><td >Goa</td><td >GA</td></tr><tr ><td >state_in_gj</td><td >in</td><td >Gujarat</td><td >GJ</td></tr><tr ><td >state_in_hr</td><td >in</td><td >Haryana</td><td >HR</td></tr><tr ><td >state_in_hp</td><td >in</td><td >Himachal Pradesh</td><td >HP</td></tr><tr ><td >state_in_jk</td><td >in</td><td >Jammu and Kashmir</td><td >JK</td></tr><tr ><td >state_in_jh</td><td >in</td><td >Jharkhand</td><td >JH</td></tr><tr ><td >state_in_ka</td><td >in</td><td >Karnataka</td><td >KA</td></tr><tr ><td >state_in_kl</td><td >in</td><td >Kerala</td><td >KL</td></tr><tr ><td >state_in_ld</td><td >in</td><td >Lakshadweep</td><td >LD</td></tr><tr ><td >state_in_mp</td><td >in</td><td >Madhya Pradesh</td><td >MP</td></tr><tr ><td >state_in_mh</td><td >in</td><td >Maharashtra</td><td >MH</td></tr><tr ><td >state_in_mn</td><td >in</td><td >Manipur</td><td >MN</td></tr><tr ><td >state_in_ml</td><td >in</td><td >Meghalaya</td><td >ML</td></tr><tr ><td >state_in_mz</td><td >in</td><td >Mizoram</td><td >MZ</td></tr><tr ><td >state_in_nl</td><td >in</td><td >Nagaland</td><td >NL</td></tr><tr ><td >state_in_or</td><td >in</td><td >Orissa</td><td >OR</td></tr><tr ><td >state_in_py</td><td >in</td><td >Puducherry</td><td >PY</td></tr><tr ><td >state_in_pb</td><td >in</td><td >Punjab</td><td >PB</td></tr><tr ><td >state_in_rj</td><td >in</td><td >Rajasthan</td><td >RJ</td></tr><tr ><td >state_in_sk</td><td >in</td><td >Sikkim</td><td >SK</td></tr><tr ><td >state_in_tn</td><td >in</td><td >Tamil Nadu</td><td >TN</td></tr><tr ><td >state_in_ts</td><td >in</td><td >Telangana</td><td >TS</td></tr><tr ><td >state_in_tr</td><td >in</td><td >Tripura</td><td >TR</td></tr><tr ><td >state_in_up</td><td >in</td><td >Uttar Pradesh</td><td >UP</td></tr><tr ><td >state_in_uk</td><td >in</td><td >Uttarakhand</td><td >UK</td></tr><tr ><td >state_in_wb</td><td >in</td><td >West Bengal</td><td >WB</td></tr><tr ><td >state_id_ac</td><td >id</td><td >Aceh</td><td >AC</td></tr><tr ><td >state_id_ba</td><td >id</td><td >Bali</td><td >BA</td></tr><tr ><td >state_id_bb</td><td >id</td><td >Bangka Belitung</td><td >BB</td></tr><tr ><td >state_id_bt</td><td >id</td><td >Banten</td><td >BT</td></tr><tr ><td >state_id_be</td><td >id</td><td >Bengkulu</td><td >BE</td></tr><tr ><td >state_id_go</td><td >id</td><td >Gorontalo</td><td >GO</td></tr><tr ><td >state_id_jk</td><td >id</td><td >Jakarta</td><td >JK</td></tr><tr ><td >state_id_ja</td><td >id</td><td >Jambi</td><td >JA</td></tr><tr ><td >state_id_jb</td><td >id</td><td >Jawa Barat</td><td >JB</td></tr><tr ><td >state_id_jt</td><td >id</td><td >Jawa Tengah</td><td >JT</td></tr><tr ><td >state_id_ji</td><td >id</td><td >Jawa Timur</td><td >JI</td></tr><tr ><td >state_id_kb</td><td >id</td><td >Kalimantan Barat</td><td >KB</td></tr><tr ><td >state_id_ks</td><td >id</td><td >Kalimantan Selatan</td><td >KS</td></tr><tr ><td >state_id_kt</td><td >id</td><td >Kalimantan Tengah</td><td >KT</td></tr><tr ><td >state_id_ki</td><td >id</td><td >Kalimantan Timur</td><td >KI</td></tr><tr ><td >state_id_ku</td><td >id</td><td >Kalimantan Utara</td><td >KU</td></tr><tr ><td >state_id_kr</td><td >id</td><td >Kepulauan Riau</td><td >KR</td></tr><tr ><td >state_id_la</td><td >id</td><td >Lampung</td><td >LA</td></tr><tr ><td >state_id_ma</td><td >id</td><td >Maluku</td><td >MA</td></tr><tr ><td >state_id_mu</td><td >id</td><td >Maluku Utara</td><td >MU</td></tr><tr ><td >state_id_nb</td><td >id</td><td >Nusa Tenggara Barat</td><td >NB</td></tr><tr ><td >state_id_nt</td><td >id</td><td >Nusa Tenggara Timur</td><td >NT</td></tr><tr ><td >state_id_pa</td><td >id</td><td >Papua</td><td >PA</td></tr><tr ><td >state_id_pb</td><td >id</td><td >Papua Barat</td><td >PB</td></tr><tr ><td >state_id_ri</td><td >id</td><td >Riau</td><td >RI</td></tr><tr ><td >state_id_sr</td><td >id</td><td >Sulawesi Barat</td><td >SR</td></tr><tr ><td >state_id_sn</td><td >id</td><td >Sulawesi Selatan</td><td >SN</td></tr><tr ><td >state_id_st</td><td >id</td><td >Sulawesi Tengah</td><td >ST</td></tr><tr ><td >state_id_sg</td><td >id</td><td >Sulawesi Tenggara</td><td >SG</td></tr><tr ><td >state_id_sa</td><td >id</td><td >Sulawesi Utara</td><td >SA</td></tr><tr ><td >state_id_sb</td><td >id</td><td >Sumatra Barat</td><td >SB</td></tr><tr ><td >state_id_ss</td><td >id</td><td >Sumatra Selatan</td><td >SS</td></tr><tr ><td >state_id_su</td><td >id</td><td >Sumatra Utara</td><td >SU</td></tr><tr ><td >state_id_yo</td><td >id</td><td >Yogyakarta</td><td >YO</td></tr></tbody></table><p >For each row (record):</p><ul ><li >the first column is the <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a> of the record to create or
+update</li><li >the second column is the <a href="../../glossary/#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a> of the country object to link
+to (country objects must have been defined beforehand)</li><li >the third column is the <code >name</code> field for <code >res.country.state</code></li><li >the fourth column is the <code >code</code> field for <code >res.country.state</code></li></ul></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>
