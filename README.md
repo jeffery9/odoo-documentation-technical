@@ -1,5 +1,5 @@
 # odoo-documentation-technical
-##Odoo 技术文档 汉化
+## Odoo 技术文档 汉化
 
 * 安装 sphinx 工具包, 以及扩展包, 使用命令  `pip install -r requirements.txt`
 
