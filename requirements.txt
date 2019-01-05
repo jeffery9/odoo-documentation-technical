@@ -1,3 +1,4 @@
 werkzeug
+odoo
 sphinx>=1.2
 sphinx-patchqueue>=1.0
